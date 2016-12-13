@@ -47,7 +47,7 @@
             this.labelControl1.Size = new System.Drawing.Size(103, 27);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "إضافة صنف";
-            this.labelControl1.Click += new System.EventHandler(this.labelControl1_Click);
+            
             // 
             // labelControl2
             // 

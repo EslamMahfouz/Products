@@ -14,7 +14,6 @@ namespace Products.PL
     public partial class FormAddCategory : Form
     {
         EDM.ProductsEntities db = new EDM.ProductsEntities();
-        private object xtraMessageBox;
 
         public FormAddCategory()
         {
@@ -37,12 +36,6 @@ namespace Products.PL
             XtraMessageBox.Show("تم إضافة الصنف بنجاح", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             txtName.Text = "";
-             
-        }
-        
-        private void labelControl1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
