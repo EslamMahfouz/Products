@@ -106,12 +106,6 @@
     <Compile Include="EDM\Supplier.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PL\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="PL\FormAddCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +162,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PL\FormAddCategory.resx">
+      <DependentUpon>FormAddCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\FormAddCustomer.resx">
       <DependentUpon>FormAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
