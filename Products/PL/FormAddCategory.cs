@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Products.PL
 {
-    public partial class FormAddCategory : Form
+    public partial class FormAddCategory : XtraForm
     {
         EDM.ProductsEntities db = new EDM.ProductsEntities();
 
@@ -24,6 +24,19 @@ namespace Products.PL
         {
             if(!valName.Validate())
             { return; }
+
+            var categories = (from x in db.Categories
+                             where x.CategoryName == txtName.Text
+                             select x).ToList();
+
+            if(categories.Count()>0)
+            {
+                XtraMessageBox.Show("هذذا الصنف موجود", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtName.Focus();
+                txtName.SelectionStart = 0;
+                txtName.SelectionLength = txtName.Text.Length;
+                return;
+            }
 
             EDM.Category c = new EDM.Category()
             {
