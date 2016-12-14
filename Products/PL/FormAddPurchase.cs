@@ -41,5 +41,7 @@ namespace Products.PL
             cmbProducts.Properties.DisplayMember = "المنتج";
             cmbProducts.Properties.ValueMember = "م";
         }
+
+    
     }
 }
