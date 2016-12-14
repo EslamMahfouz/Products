@@ -66,7 +66,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(492, 77);
+            this.labelControl2.Location = new System.Drawing.Point(492, 74);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(49, 23);
             this.labelControl2.TabIndex = 1;
@@ -92,7 +92,7 @@
             // 
             // cmbCategories
             // 
-            this.cmbCategories.Location = new System.Drawing.Point(245, 74);
+            this.cmbCategories.Location = new System.Drawing.Point(247, 74);
             this.cmbCategories.Name = "cmbCategories";
             this.cmbCategories.Properties.ActionButtonIndex = 1;
             this.cmbCategories.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -100,6 +100,7 @@
             this.cmbCategories.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCategories.Properties.NullText = "";
             this.cmbCategories.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCategories.Size = new System.Drawing.Size(181, 26);
             this.cmbCategories.TabIndex = 4;
@@ -129,7 +130,7 @@
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtName.Size = new System.Drawing.Size(181, 26);
+            this.txtName.Size = new System.Drawing.Size(183, 26);
             this.txtName.TabIndex = 7;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "برجاء إدخال إسم المنتج";
@@ -142,7 +143,7 @@
             this.txtBuy.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuy.Properties.Appearance.Options.UseFont = true;
             this.txtBuy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtBuy.Size = new System.Drawing.Size(100, 26);
+            this.txtBuy.Size = new System.Drawing.Size(102, 26);
             this.txtBuy.TabIndex = 8;
             // 
             // txtSell
@@ -163,7 +164,7 @@
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Properties.Appearance.Options.UseFont = true;
             this.txtNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtNumber.Size = new System.Drawing.Size(100, 26);
+            this.txtNumber.Size = new System.Drawing.Size(102, 26);
             this.txtNumber.TabIndex = 10;
             // 
             // txtCategory

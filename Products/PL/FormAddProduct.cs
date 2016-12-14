@@ -27,6 +27,10 @@ namespace Products.PL
 
         private void FormAddProduct_Load(object sender, EventArgs e)
         {
+            var categories = ( from x in db.Categories
+                             select x).ToList() ;
+            cmbCategories.Properties.DataSource = categories ;
+            
 
         }
 
