@@ -20,17 +20,14 @@ namespace Products.PL
             InitializeComponent();
         }
 
-        private void textEdit3_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormAddProduct_Load(object sender, EventArgs e)
         {
-            var categories = ( from x in db.Categories
-                             select x).ToList() ;
-            cmbCategories.Properties.DataSource = categories ;
-            
+            var categories = from x in db.Categories
+                             select new { م = x.CategoryID, الصنف = x.CategoryName };
+
+            cmbCategories.Properties.DataSource = categories.ToList();
+            cmbCategories.Properties.DisplayMember = "الصنف";
+            cmbCategories.Properties.ValueMember = "م";
 
         }
 

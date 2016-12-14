@@ -155,7 +155,7 @@
             this.txtSell.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtSell.Size = new System.Drawing.Size(100, 26);
             this.txtSell.TabIndex = 9;
-            this.txtSell.EditValueChanged += new System.EventHandler(this.textEdit3_EditValueChanged);
+            
             // 
             // txtNumber
             // 
