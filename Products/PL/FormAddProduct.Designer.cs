@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -42,12 +44,14 @@
             this.txtCategory = new DevExpress.XtraEditors.TextEdit();
             this.btnAddCategory = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddProduct = new DevExpress.XtraEditors.SimpleButton();
+            this.valName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valName)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -127,6 +131,9 @@
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtName.Size = new System.Drawing.Size(181, 26);
             this.txtName.TabIndex = 7;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "برجاء إدخال إسم المنتج";
+            this.valName.SetValidationRule(this.txtName, conditionValidationRule1);
             // 
             // txtBuy
             // 
@@ -188,6 +195,7 @@
             this.btnAddProduct.Size = new System.Drawing.Size(138, 51);
             this.btnAddProduct.TabIndex = 14;
             this.btnAddProduct.Text = "إضافة";
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // FormAddProduct
             // 
@@ -216,6 +224,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valName)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,5 +246,6 @@
         private DevExpress.XtraEditors.TextEdit txtCategory;
         private DevExpress.XtraEditors.SimpleButton btnAddCategory;
         private DevExpress.XtraEditors.SimpleButton btnAddProduct;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider valName;
     }
 }
