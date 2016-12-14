@@ -31,7 +31,7 @@ namespace Products.PL
 
             if(categories.Count()>0)
             {
-                XtraMessageBox.Show("هذذا الصنف موجود", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                XtraMessageBox.Show("هذا الصنف موجود", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtName.Focus();
                 txtName.SelectionStart = 0;
                 txtName.SelectionLength = txtName.Text.Length;
