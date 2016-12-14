@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.DXCore.Controls.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Products.PL
 {
-    public partial class FormAddPurchase : Form
+    public partial class FormAddPurchase : XtraForm
     {
 
-        EDM.ProductsEntities db = new ();
+        EDM.ProductsEntities db = new EDM.ProductsEntities();
 
         public FormAddPurchase()
         {
