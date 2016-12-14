@@ -1,19 +1,20 @@
 ﻿using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Products.PL
 {
-    public partial class FormAddProduct : Form
+    public partial class FormAddProduct : XtraForm
     {
         EDM.ProductsEntities db = new EDM.ProductsEntities();
+
+        void categoryBoxs(bool status)
+        {
+            txtCategory.Visible = status;
+            btnAddCategory.Visible = status;
+        }
 
         public FormAddProduct()
         {
@@ -28,16 +29,23 @@ namespace Products.PL
             cmbCategories.Properties.DataSource = categories.ToList();
             cmbCategories.Properties.DisplayMember = "الصنف";
             cmbCategories.Properties.ValueMember = "م";
-
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
             if (!valName.Validate())
             { return; }
+            if (!valBuy.Validate())
+            { return; }
+            if (!valSell.Validate())
+            { return; }
+
+            if (txtNumber.Text == "")
+            { txtNumber.Text = "0"; }
 
             EDM.Product p = new EDM.Product()
             {
+                CategoryID = Convert.ToInt32(cmbCategories.EditValue),
                 ProductName = txtName.Text,
                 ProductBuy = Convert.ToDouble( txtBuy.Text ),
                 ProductSell = Convert.ToDouble( txtSell.Text ),
@@ -52,9 +60,30 @@ namespace Products.PL
             txtBuy.Text = "";
             txtSell.Text = "";
             txtNumber.Text = "";
+        }
 
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            if (!valCategoryName.Validate())
+            { return; }
 
+            EDM.Category c = new EDM.Category()
+            {
+                CategoryName = txtCategory.Text
+            };
+            db.Categories.Add(c);
+            db.SaveChanges();
+            XtraMessageBox.Show("تم إضافة الصنف بنجاح", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FormAddProduct_Load(sender, e);
+            categoryBoxs(false);
+        }
 
+        private void cmbCategories_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)
+            {
+                categoryBoxs(true);
+            }
         }
     }
 }
