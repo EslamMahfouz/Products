@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.lblPurchaseID = new DevExpress.XtraEditors.LabelControl();
             this.deDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -61,16 +62,15 @@
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.txtCharge = new DevExpress.XtraEditors.TextEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.txtPaid = new DevExpress.XtraEditors.TextEdit();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lblPurchaseID = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -113,6 +113,15 @@
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(585, 66);
             this.panelControl2.TabIndex = 11;
+            // 
+            // lblPurchaseID
+            // 
+            this.lblPurchaseID.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblPurchaseID.Location = new System.Drawing.Point(421, 19);
+            this.lblPurchaseID.Name = "lblPurchaseID";
+            this.lblPurchaseID.Size = new System.Drawing.Size(28, 28);
+            this.lblPurchaseID.TabIndex = 6;
+            this.lblPurchaseID.Text = "    ";
             // 
             // deDate
             // 
@@ -456,24 +465,6 @@
             this.groupControl1.TabIndex = 12;
             this.groupControl1.Text = "بيانات الحساب";
             // 
-            // labelControl15
-            // 
-            this.labelControl15.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl15.Location = new System.Drawing.Point(300, 90);
-            this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(201, 29);
-            this.labelControl15.TabIndex = 22;
-            this.labelControl15.Text = "الإجمالي بعد الخصم";
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl12.Location = new System.Drawing.Point(351, 55);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(90, 29);
-            this.labelControl12.TabIndex = 20;
-            this.labelControl12.Text = "الإجمالي";
-            // 
             // txtCharge
             // 
             this.txtCharge.Location = new System.Drawing.Point(30, 126);
@@ -510,6 +501,24 @@
             this.labelControl17.TabIndex = 25;
             this.labelControl17.Text = "تم دفع";
             // 
+            // labelControl15
+            // 
+            this.labelControl15.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.labelControl15.Location = new System.Drawing.Point(300, 90);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(201, 29);
+            this.labelControl15.TabIndex = 22;
+            this.labelControl15.Text = "الإجمالي بعد الخصم";
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.labelControl12.Location = new System.Drawing.Point(351, 55);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(90, 29);
+            this.labelControl12.TabIndex = 20;
+            this.labelControl12.Text = "الإجمالي";
+            // 
             // groupControl3
             // 
             this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
@@ -540,17 +549,10 @@
             this.gridView3.GridControl = this.gridControl1;
             this.gridView3.Name = "gridView3";
             // 
-            // lblPurchaseID
-            // 
-            this.lblPurchaseID.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblPurchaseID.Location = new System.Drawing.Point(421, 19);
-            this.lblPurchaseID.Name = "lblPurchaseID";
-            this.lblPurchaseID.Size = new System.Drawing.Size(28, 28);
-            this.lblPurchaseID.TabIndex = 6;
-            this.lblPurchaseID.Text = "    ";
-            // 
             // FormAddPurchase
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1117, 516);
