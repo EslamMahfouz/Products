@@ -37,9 +37,12 @@ namespace Products.PL
             cmbCategories.Properties.ValueMember = "م";
 
             lblOrderID.Text = (from x in db.Purchases
-                                              orderby x.PurchaseID descending
-                                              select x.PurchaseID).FirstOrDefault().ToString();
+                               orderby x.PurchaseID descending
+                               select x.PurchaseNumber).FirstOrDefault().ToString();
+
+            lblOrderID.Text = (Convert.ToInt32(lblOrderID.Text) + 1).ToString();
         }
+                
 
         private void cmbCategories_EditValueChanged(object sender, EventArgs e)
         {
