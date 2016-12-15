@@ -236,6 +236,7 @@
             this.btnAddTo.Size = new System.Drawing.Size(387, 43);
             this.btnAddTo.TabIndex = 17;
             this.btnAddTo.Text = "إضافة إلي الفاتورة";
+            this.btnAddTo.Click += new System.EventHandler(this.btnAddTo_Click);
             // 
             // txtPrdPrice
             // 
@@ -285,6 +286,7 @@
             this.txtPrdDiscount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtPrdDiscount.Size = new System.Drawing.Size(92, 30);
             this.txtPrdDiscount.TabIndex = 13;
+            this.txtPrdDiscount.EditValueChanged += new System.EventHandler(this.txtPrdDiscount_EditValueChanged);
             // 
             // labelControl8
             // 
@@ -334,6 +336,7 @@
             this.txtNum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtNum.Size = new System.Drawing.Size(67, 30);
             this.txtNum.TabIndex = 9;
+            this.txtNum.EditValueChanged += new System.EventHandler(this.txtNum_EditValueChanged);
             // 
             // labelControl6
             // 
@@ -358,6 +361,7 @@
             this.txtSell.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtSell.Size = new System.Drawing.Size(92, 30);
             this.txtSell.TabIndex = 7;
+            this.txtSell.EditValueChanged += new System.EventHandler(this.txtSell_EditValueChanged);
             // 
             // labelControl5
             // 
