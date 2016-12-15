@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\noor\Visual Studio Projects\Products\Products\EDM\ProductsModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\eslam\Source\Repos\products\Products\EDM\ProductsModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

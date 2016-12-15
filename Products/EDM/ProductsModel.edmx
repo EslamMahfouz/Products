@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProductsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProductsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -46,6 +46,7 @@
           <Property Name="PurchasePaid" Type="float" />
           <Property Name="PurchaseCharge" Type="float" />
           <Property Name="SupplierID" Type="int" Nullable="false" />
+          <Property Name="PurchaseNumber" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PurchasesDetails">
           <Key>
@@ -81,6 +82,7 @@
           <Property Name="SalePaid" Type="float" />
           <Property Name="SaleCharge" Type="float" />
           <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="SaleNumber" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="SalesDetails">
           <Key>
@@ -277,8 +279,7 @@
             <End Role="SalesPayments" EntitySet="SalesPayments" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProductsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -331,6 +332,7 @@
           <NavigationProperty Name="Supplier" Relationship="Self.FK_Purchases_Suppliers" FromRole="Purchases" ToRole="Suppliers" />
           <NavigationProperty Name="PurchasesDetails" Relationship="Self.FK_PurchasesDetails_Purchases" FromRole="Purchases" ToRole="PurchasesDetails" />
           <NavigationProperty Name="PurchasesPayments" Relationship="Self.FK_PurchasesPayments_Purchases" FromRole="Purchases" ToRole="PurchasesPayments" />
+          <Property Name="PurchaseNumber" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="PurchasesDetail">
           <Key>
@@ -372,6 +374,7 @@
           <NavigationProperty Name="Customer" Relationship="Self.FK_Sales_Customers" FromRole="Sales" ToRole="Customers" />
           <NavigationProperty Name="SalesDetails" Relationship="Self.FK_SalesDetails_Sales" FromRole="Sales" ToRole="SalesDetails" />
           <NavigationProperty Name="SalesPayments" Relationship="Self.FK_SalesPayments_Sales" FromRole="Sales" ToRole="SalesPayments" />
+          <Property Name="SaleNumber" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="SalesDetail">
           <Key>
@@ -613,6 +616,7 @@
           <EntitySetMapping Name="Purchases">
             <EntityTypeMapping TypeName="ProductsModel.Purchase">
               <MappingFragment StoreEntitySet="Purchases">
+                <ScalarProperty Name="PurchaseNumber" ColumnName="PurchaseNumber" />
                 <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
                 <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
                 <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
@@ -650,6 +654,7 @@
           <EntitySetMapping Name="Sales">
             <EntityTypeMapping TypeName="ProductsModel.Sale">
               <MappingFragment StoreEntitySet="Sales">
+                <ScalarProperty Name="SaleNumber" ColumnName="SaleNumber" />
                 <ScalarProperty Name="SaleID" ColumnName="SaleID" />
                 <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
                 <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />

@@ -28,6 +28,7 @@ namespace Products.EDM
         public Nullable<double> SalePaid { get; set; }
         public Nullable<double> SaleCharge { get; set; }
         public int CustomerID { get; set; }
+        public int SaleNumber { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual ICollection<SalesDetail> SalesDetails { get; set; }

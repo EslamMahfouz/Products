@@ -28,6 +28,7 @@ namespace Products.EDM
         public Nullable<double> PurchasePaid { get; set; }
         public Nullable<double> PurchaseCharge { get; set; }
         public int SupplierID { get; set; }
+        public int PurchaseNumber { get; set; }
     
         public virtual Supplier Supplier { get; set; }
         public virtual ICollection<PurchasesDetail> PurchasesDetails { get; set; }
