@@ -62,7 +62,8 @@
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.txtSave = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.txtCharge = new DevExpress.XtraEditors.TextEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.txtPaid = new DevExpress.XtraEditors.TextEdit();
@@ -115,16 +116,6 @@
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(501, 54);
             this.panelControl2.TabIndex = 11;
-            // 
-            // lblPurchaseID
-            // 
-            this.lblPurchaseID.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblPurchaseID.Location = new System.Drawing.Point(361, 15);
-            this.lblPurchaseID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lblPurchaseID.Name = "lblPurchaseID";
-            this.lblPurchaseID.Size = new System.Drawing.Size(24, 23);
-            this.lblPurchaseID.TabIndex = 6;
-            this.lblPurchaseID.Text = "    ";
             // 
             // deDate
             // 
@@ -496,17 +487,25 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(434, 187);
             this.groupControl1.TabIndex = 12;
-            this.groupControl1.Text = "بيانات الفاتورة";
+            this.groupControl1.Text = "بيانات الحساب";
             // 
-            // txtSave
+            // labelControl15
             // 
-            this.txtSave.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.txtSave.Appearance.Options.UseFont = true;
-            this.txtSave.Location = new System.Drawing.Point(6, 133);
-            this.txtSave.Name = "txtSave";
-            this.txtSave.Size = new System.Drawing.Size(417, 43);
-            this.txtSave.TabIndex = 28;
-            this.txtSave.Text = "حفظ الفاتورة";
+            this.labelControl15.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.labelControl15.Location = new System.Drawing.Point(300, 90);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(201, 29);
+            this.labelControl15.TabIndex = 22;
+            this.labelControl15.Text = "الإجمالي بعد الخصم";
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.labelControl12.Location = new System.Drawing.Point(351, 55);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(90, 29);
+            this.labelControl12.TabIndex = 20;
+            this.labelControl12.Text = "الإجمالي";
             // 
             // txtCharge
             // 
@@ -568,6 +567,24 @@
             this.labelControl12.TabIndex = 20;
             this.labelControl12.Text = "سعر الفاتورة";
             // 
+            // labelControl15
+            // 
+            this.labelControl15.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.labelControl15.Location = new System.Drawing.Point(300, 90);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(201, 29);
+            this.labelControl15.TabIndex = 22;
+            this.labelControl15.Text = "الإجمالي بعد الخصم";
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.labelControl12.Location = new System.Drawing.Point(351, 55);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(90, 29);
+            this.labelControl12.TabIndex = 20;
+            this.labelControl12.Text = "الإجمالي";
+            // 
             // groupControl3
             // 
             this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
@@ -603,7 +620,7 @@
             // 
             // FormAddPurchase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 476);
             this.Controls.Add(this.groupControl3);
