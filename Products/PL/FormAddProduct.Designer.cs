@@ -66,47 +66,42 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.labelControl1.Location = new System.Drawing.Point(264, 15);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl1.Location = new System.Drawing.Point(226, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(121, 33);
+            this.labelControl1.Size = new System.Drawing.Size(100, 27);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "إضافة منتج";
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(563, 92);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl2.Location = new System.Drawing.Point(483, 75);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(61, 29);
+            this.labelControl2.Size = new System.Drawing.Size(49, 23);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "الصنف";
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(521, 160);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl3.Location = new System.Drawing.Point(447, 130);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(115, 29);
+            this.labelControl3.Size = new System.Drawing.Size(92, 23);
             this.labelControl3.TabIndex = 3;
             this.labelControl3.Text = "إسم المنتج";
             // 
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(520, 225);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl4.Location = new System.Drawing.Point(446, 183);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(117, 29);
+            this.labelControl4.Size = new System.Drawing.Size(92, 23);
             this.labelControl4.TabIndex = 2;
             this.labelControl4.Text = "سعر الشراء";
             // 
             // cmbCategories
             // 
-            this.cmbCategories.Location = new System.Drawing.Point(297, 92);
-            this.cmbCategories.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbCategories.Location = new System.Drawing.Point(255, 75);
             this.cmbCategories.Name = "cmbCategories";
             this.cmbCategories.Properties.ActionButtonIndex = 1;
             this.cmbCategories.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,38 +112,35 @@
             this.cmbCategories.Properties.NullText = "";
             this.cmbCategories.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmbCategories_Properties_ButtonClick);
             this.cmbCategories.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbCategories.Size = new System.Drawing.Size(211, 30);
+            this.cmbCategories.Size = new System.Drawing.Size(181, 26);
             this.cmbCategories.TabIndex = 4;
             // 
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(200, 225);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl5.Location = new System.Drawing.Point(171, 183);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(97, 29);
+            this.labelControl5.Size = new System.Drawing.Size(77, 23);
             this.labelControl5.TabIndex = 6;
             this.labelControl5.Text = "سعر البيع";
             // 
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(569, 293);
-            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl6.Location = new System.Drawing.Point(488, 238);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(63, 29);
+            this.labelControl6.Size = new System.Drawing.Size(50, 23);
             this.labelControl6.TabIndex = 5;
             this.labelControl6.Text = "الكمية";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(295, 160);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtName.Location = new System.Drawing.Point(253, 130);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtName.Size = new System.Drawing.Size(213, 30);
+            this.txtName.Size = new System.Drawing.Size(183, 26);
             this.txtName.TabIndex = 7;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "برجاء إدخال إسم المنتج";
@@ -156,8 +148,7 @@
             // 
             // txtBuy
             // 
-            this.txtBuy.Location = new System.Drawing.Point(389, 225);
-            this.txtBuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBuy.Location = new System.Drawing.Point(333, 183);
             this.txtBuy.Name = "txtBuy";
             this.txtBuy.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuy.Properties.Appearance.Options.UseFont = true;
@@ -165,7 +156,7 @@
             this.txtBuy.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtBuy.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtBuy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtBuy.Size = new System.Drawing.Size(119, 30);
+            this.txtBuy.Size = new System.Drawing.Size(102, 26);
             this.txtBuy.TabIndex = 8;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "برجاء إدخال سعر الشراء";
@@ -173,8 +164,7 @@
             // 
             // txtSell
             // 
-            this.txtSell.Location = new System.Drawing.Point(46, 225);
-            this.txtSell.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSell.Location = new System.Drawing.Point(39, 183);
             this.txtSell.Name = "txtSell";
             this.txtSell.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSell.Properties.Appearance.Options.UseFont = true;
@@ -182,7 +172,7 @@
             this.txtSell.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSell.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSell.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtSell.Size = new System.Drawing.Size(117, 30);
+            this.txtSell.Size = new System.Drawing.Size(100, 26);
             this.txtSell.TabIndex = 9;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule3.ErrorText = "برجاء إدخال سعر البيع";
@@ -190,8 +180,7 @@
             // 
             // txtNumber
             // 
-            this.txtNumber.Location = new System.Drawing.Point(389, 293);
-            this.txtNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNumber.Location = new System.Drawing.Point(333, 238);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Properties.Appearance.Options.UseFont = true;
@@ -199,18 +188,17 @@
             this.txtNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtNumber.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtNumber.Size = new System.Drawing.Size(119, 30);
+            this.txtNumber.Size = new System.Drawing.Size(102, 26);
             this.txtNumber.TabIndex = 10;
             // 
             // txtCategory
             // 
-            this.txtCategory.Location = new System.Drawing.Point(117, 92);
-            this.txtCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCategory.Location = new System.Drawing.Point(100, 75);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategory.Properties.Appearance.Options.UseFont = true;
             this.txtCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtCategory.Size = new System.Drawing.Size(173, 30);
+            this.txtCategory.Size = new System.Drawing.Size(148, 26);
             this.txtCategory.TabIndex = 11;
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule4.ErrorText = "برجاء إدخال إسم الصنف";
@@ -221,10 +209,9 @@
             // 
             this.btnAddCategory.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCategory.Appearance.Options.UseFont = true;
-            this.btnAddCategory.Location = new System.Drawing.Point(12, 87);
-            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddCategory.Location = new System.Drawing.Point(10, 71);
             this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(99, 34);
+            this.btnAddCategory.Size = new System.Drawing.Size(85, 28);
             this.btnAddCategory.TabIndex = 12;
             this.btnAddCategory.Text = "إضافة";
             this.btnAddCategory.Visible = false;
@@ -234,19 +221,18 @@
             // 
             this.btnAddProduct.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct.Appearance.Options.UseFont = true;
-            this.btnAddProduct.Location = new System.Drawing.Point(99, 274);
-            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddProduct.Location = new System.Drawing.Point(85, 223);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(161, 63);
+            this.btnAddProduct.Size = new System.Drawing.Size(138, 51);
             this.btnAddProduct.TabIndex = 14;
             this.btnAddProduct.Text = "إضافة";
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // FormAddProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 370);
+            this.ClientSize = new System.Drawing.Size(556, 301);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.txtCategory);
@@ -261,7 +247,6 @@
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormAddProduct";
             this.Load += new System.EventHandler(this.FormAddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).EndInit();
