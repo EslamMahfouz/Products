@@ -83,6 +83,12 @@ namespace Products.PL
             {
                 lblOrderID.Text = "1";
             }
+            //rqm l fatora
+            lblOrderID.Text = (from x in db.Sales
+                               orderby x.SaleID descending
+                               select x.SaleNumber).FirstOrDefault().ToString();
+            lblOrderID.Text = (Convert.ToInt32(lblOrderID.Text) + 1).ToString();
+   
         }
 
         private void cmbCategories_EditValueChanged(object sender, EventArgs e)
