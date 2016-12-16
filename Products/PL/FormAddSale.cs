@@ -14,9 +14,35 @@ namespace Products.PL
     {
         EDM.ProductsEntities db = new EDM.ProductsEntities();
 
+        DataTable dt = new DataTable();
+
         public FormAddSale()
         {
             InitializeComponent();
+            deDate.EditValue = DateTime.Now;
+
+            dt.Columns.Add("م");
+            dt.Columns.Add("المنتج");
+            dt.Columns.Add("السعر");
+            dt.Columns.Add("العدد");
+            dt.Columns.Add("الإجمالى");
+            dt.Columns.Add("الخصم");
+            dt.Columns.Add("السعر بعد الخصم");
+
+        }
+
+        void PrdCalc()
+        {
+            double sellPrice = Convert.ToDouble(txtSell.Text);
+            double Disscount = Convert.ToDouble(txtPrdDiscount.Text);
+            int Number = Convert.ToInt32(txtNum.Text);
+
+            double prdTotal = sellPrice * Number;
+            txtPrdTotal.Text = Convert.ToString(prdTotal);
+
+            double prdPrice = prdTotal - (prdTotal * (Disscount / 100));
+            txtPrdPrice.Text = Convert.ToString(prdPrice);
+
         }
 
         private void FormAddSale_Load(object sender, EventArgs e)
@@ -38,7 +64,25 @@ namespace Products.PL
 
             cmbCategories.Properties.DisplayMember = "الصنف" ;
             cmbCategories.Properties.ValueMember = "م" ;
-            
+
+            //rqm l fatora
+            DateTime today = DateTime.Now.Date;
+            DateTime lastOrder = Convert.ToDateTime((from x in db.Sales
+                                                     orderby x.SaleID descending
+                                                     select x.SaleDate).FirstOrDefault());
+            lastOrder = lastOrder.Date;
+
+            if (today == lastOrder)
+            {
+                lblOrderID.Text = (from x in db.Sales
+                                   orderby x.SaleID descending
+                                   select x.SaleNumber).FirstOrDefault().ToString();
+                lblOrderID.Text = (Convert.ToInt32(lblOrderID.Text) + 1).ToString();
+            }
+            else
+            {
+                lblOrderID.Text = "1";
+            }
         }
 
         private void cmbCategories_EditValueChanged(object sender, EventArgs e)
@@ -59,8 +103,6 @@ namespace Products.PL
         private void btnAddTo_Click(object sender, EventArgs e)
         {
 
-
-
             if (!valCustomers.Validate())
             { return; }
 
@@ -70,18 +112,50 @@ namespace Products.PL
             if (!valProduct.Validate())
             { return; }
 
-            EDM.Sale s = new EDM.Sale()
+            foreach (DataRow _dr in dt.Rows)
             {
 
-            };
-        }
+            }
+            DataRow dr = dt.NewRow();
+            dr["م"] = Convert.ToInt32(cmbProducts.EditValue);
+            dr["المنتج"] = cmbProducts.Text;
+            dr["السعر"] = Convert.ToDouble(txtSell.Text);
+            dr["العدد"] = Convert.ToInt32(txtNum.Text);
+            dr["الإجمالى"] = Convert.ToDouble(txtPrdTotal.Text);
+            dr["الخصم"] = Convert.ToDouble(txtPrdDiscount.Text);
+            dr["السعر بعد الخصم"] = Convert.ToDouble(txtPrdPrice.Text);
 
+            dt.Rows.Add(dr);
+            gridControl1.DataSource= dt;
+        }
+        
         private void cmbProducts_EditValueChanged(object sender, EventArgs e)
         {
             int ProductID = Convert.ToInt32(cmbProducts.EditValue);
             var product = db.Products.Find(ProductID);
             txtSell.Text = product.ProductSell.ToString();
+
+            PrdCalc();
             
+        }
+
+        private void txtNum_EditValueChanged(object sender, EventArgs e)
+        {
+            PrdCalc();
+        }
+
+        private void txtPrdDiscount_EditValueChanged(object sender, EventArgs e)
+        {
+            PrdCalc();
+        }
+
+        private void cmbCustomers_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)
+            {
+                FormAddCustomer frm = new FormAddCustomer();
+                frm.ShowDialog();
+            }
         }
     }
 }

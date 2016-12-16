@@ -43,18 +43,21 @@ namespace Products.PL
         }
         private void FormAddPurchase_Load(object sender, EventArgs e)
         {
+            //cmbSupliers
             var suppliers = from x in db.Suppliers
                             select new { م = x.SupplierID, الإسم = x.SupplierName };
             cmbSuppliers.Properties.DataSource = suppliers.ToList();
             cmbSuppliers.Properties.DisplayMember = "الإسم";
             cmbSuppliers.Properties.ValueMember = "م";
 
+            //cmbCategories
             var categories = from x in db.Categories
                              select new { م = x.CategoryID, الصنف = x.CategoryName };
             cmbCategories.Properties.DataSource = categories.ToList();
             cmbCategories.Properties.DisplayMember = "الصنف";
             cmbCategories.Properties.ValueMember = "م";
 
+            //rqm l fatora
             lblOrderID.Text = (from x in db.Purchases
                                orderby x.PurchaseID descending
                                select x.PurchaseNumber).FirstOrDefault().ToString();
