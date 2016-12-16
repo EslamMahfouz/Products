@@ -66,6 +66,24 @@ namespace Products.PL
             cmbCategories.Properties.ValueMember = "م" ;
 
             //rqm l fatora
+            DateTime today = DateTime.Now.Date;
+            DateTime lastOrder = Convert.ToDateTime((from x in db.Sales
+                                                     orderby x.SaleID descending
+                                                     select x.SaleDate).FirstOrDefault());
+            lastOrder = lastOrder.Date;
+
+            if (today == lastOrder)
+            {
+                lblOrderID.Text = (from x in db.Sales
+                                   orderby x.SaleID descending
+                                   select x.SaleNumber).FirstOrDefault().ToString();
+                lblOrderID.Text = (Convert.ToInt32(lblOrderID.Text) + 1).ToString();
+            }
+            else
+            {
+                lblOrderID.Text = "1";
+            }
+            //rqm l fatora
             lblOrderID.Text = (from x in db.Sales
                                orderby x.SaleID descending
                                select x.SaleNumber).FirstOrDefault().ToString();
