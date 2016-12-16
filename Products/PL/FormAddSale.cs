@@ -65,11 +65,13 @@ namespace Products.PL
             cmbCategories.Properties.DisplayMember = "الصنف" ;
             cmbCategories.Properties.ValueMember = "م" ;
 
-            //rqm l fatora
+            //rqm l fatora 
             lblOrderID.Text = (from x in db.Sales
                                orderby x.SaleID descending
-                               select x.SaleNumber).FirstOrDefault().ToString();
+                               select x.SaleNumber ).FirstOrDefault().ToString();
             lblOrderID.Text = (Convert.ToInt32(lblOrderID.Text) + 1).ToString();
+
+            
    
         }
 
@@ -135,6 +137,15 @@ namespace Products.PL
         private void txtPrdDiscount_EditValueChanged(object sender, EventArgs e)
         {
             PrdCalc();
+        }
+
+        private void cmbCustomers_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)
+            {
+                FormAddCustomer frm = new FormAddCustomer();
+                frm.ShowDialog();
+            }
         }
     }
 }
