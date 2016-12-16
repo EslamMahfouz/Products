@@ -65,13 +65,11 @@ namespace Products.PL
             cmbCategories.Properties.DisplayMember = "الصنف" ;
             cmbCategories.Properties.ValueMember = "م" ;
 
-            //rqm l fatora 
+            //rqm l fatora
             lblOrderID.Text = (from x in db.Sales
                                orderby x.SaleID descending
-                               select x.SaleNumber ).FirstOrDefault().ToString();
+                               select x.SaleNumber).FirstOrDefault().ToString();
             lblOrderID.Text = (Convert.ToInt32(lblOrderID.Text) + 1).ToString();
-
-            
    
         }
 
