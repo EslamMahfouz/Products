@@ -148,5 +148,14 @@ namespace Products.PL
         {
             PrdCalc();
         }
+
+        private void cmbCustomers_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)
+            {
+                FormAddCustomer frm = new FormAddCustomer();
+                frm.ShowDialog();
+            }
+        }
     }
 }

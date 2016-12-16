@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
@@ -171,7 +171,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(434, 187);
             this.groupControl1.TabIndex = 32;
-            this.groupControl1.Text = "بيانات الفاتورة";
+            this.groupControl1.Text = "بيانات الحساب";
             // 
             // txtSave
             // 
@@ -291,9 +291,9 @@
             this.cmbCategories.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCategories.Size = new System.Drawing.Size(333, 26);
             this.cmbCategories.TabIndex = 18;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "برجاء إختيار الصنف";
-            this.valCategory.SetValidationRule(this.cmbCategories, conditionValidationRule4);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "برجاء إختيار الصنف";
+            this.valCategory.SetValidationRule(this.cmbCategories, conditionValidationRule1);
             this.cmbCategories.EditValueChanged += new System.EventHandler(this.cmbCategories_EditValueChanged);
             // 
             // gridView2
@@ -466,7 +466,7 @@
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(501, 397);
             this.groupControl3.TabIndex = 33;
-            this.groupControl3.Text = "بيانات الحساب";
+            this.groupControl3.Text = "بيانات الفاتورة";
             // 
             // gridControl1
             // 
@@ -502,9 +502,9 @@
             this.cmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbProducts.Size = new System.Drawing.Size(333, 26);
             this.cmbProducts.TabIndex = 2;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "برجاء إختيار المنتج";
-            this.valProduct.SetValidationRule(this.cmbProducts, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "برجاء إختيار المنتج";
+            this.valProduct.SetValidationRule(this.cmbProducts, conditionValidationRule2);
             this.cmbProducts.EditValueChanged += new System.EventHandler(this.cmbProducts_EditValueChanged);
             // 
             // gridView1
@@ -548,9 +548,10 @@
             this.cmbCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCustomers.Size = new System.Drawing.Size(335, 26);
             this.cmbCustomers.TabIndex = 0;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "برجاء إختيار العميل";
-            this.valCustomers.SetValidationRule(this.cmbCustomers, conditionValidationRule2);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "برجاء إختيار العميل";
+            this.valCustomers.SetValidationRule(this.cmbCustomers, conditionValidationRule3);
+            this.cmbCustomers.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmbCustomers_ButtonClick);
             // 
             // panelControl1
             // 

@@ -101,7 +101,5 @@ namespace Products.PL
                 categoryBoxs(true);
             }
         }
-
-        
     }
 }
