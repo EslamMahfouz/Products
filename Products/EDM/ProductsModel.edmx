@@ -110,7 +110,7 @@
           <Key>
             <PropertyRef Name="SupplierID" />
           </Key>
-          <Property Name="SupplierID" Type="int" Nullable="false" />
+          <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SupplierName" Type="nvarchar" MaxLength="50" />
           <Property Name="SupplierPhone" Type="nvarchar" MaxLength="50" />
           <Property Name="SupplierTel" Type="nvarchar" MaxLength="50" />
