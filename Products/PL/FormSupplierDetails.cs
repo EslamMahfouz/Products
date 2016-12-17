@@ -63,14 +63,15 @@ namespace Products.PL
                                 where x.SupplierID == supplierID
                                 select new
                                 {
-                                    م = x.PurchaseID,
+                                    رقم_الفاتورة = x.PurchaseNumber,
                                     التاريخ = x.PurchaseDate,
                                     الإجمالي = x.PurchasePrice,
                                     الخصم = x.PurchaseDiscount,
                                     الإجمالي_بعد_الخصم = x.PurchaseNetPrice,
                                     المدفوع = x.PurchasePaid,
                                     المتبقي = x.PurchaseCharge,
-                                    رقم_الفاتورة = x.PurchaseNumber
+                                    م = x.PurchaseID
+
                                 };
 
                 gridControl1.DataSource = purchases.ToList();
@@ -112,5 +113,11 @@ namespace Products.PL
             clrBoxs(true);
         }
 
+        private void btnShowRowDetails_Click(object sender, EventArgs e)
+        {
+            FormDoubleClickSupplierDetails frm = new FormDoubleClickSupplierDetails();
+            frm.ShowDialog();
+        }
+        
     }
 }

@@ -166,6 +166,18 @@
     <Compile Include="PL\FormCustomerDetails.Designer.cs">
       <DependentUpon>FormCustomerDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\FormDoubleClickCustomerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FormDoubleClickCustomerDetails.Designer.cs">
+      <DependentUpon>FormDoubleClickCustomerDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FormDoubleClickSupplierDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FormDoubleClickSupplierDetails.Designer.cs">
+      <DependentUpon>FormDoubleClickSupplierDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FormCustomerDetails.resx">
       <DependentUpon>FormCustomerDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormDoubleClickSupplierDetails.resx">
+      <DependentUpon>FormDoubleClickSupplierDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FormPurchasesPayments.resx">
       <DependentUpon>FormPurchasesPayments.cs</DependentUpon>

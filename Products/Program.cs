@@ -16,7 +16,7 @@ namespace Products
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PL.FormSupplierDetails());
+            Application.Run(new PL.FormCustomerDetails());
         }
     }
 }
