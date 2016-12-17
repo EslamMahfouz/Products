@@ -222,8 +222,14 @@
     <EmbeddedResource Include="PL\FormAddSupplier.resx">
       <DependentUpon>FormAddSupplier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormCustomerDetails.resx">
+      <DependentUpon>FormCustomerDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\FormPurchasesPayments.resx">
       <DependentUpon>FormPurchasesPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormSupplierDetails.resx">
+      <DependentUpon>FormSupplierDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
