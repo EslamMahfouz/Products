@@ -217,7 +217,7 @@ namespace Products.PL
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int prdID = Convert.ToInt32(cardView1.GetFocusedRowCellValue("م"));
+            int prdID = Convert.ToInt32(gridView3.GetFocusedRowCellValue("م"));
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 DataRow dr = dt.Rows[i];
@@ -233,17 +233,17 @@ namespace Products.PL
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            int prdID = Convert.ToInt32(cardView1.GetFocusedRowCellValue("م"));
+            int prdID = Convert.ToInt32(gridView3.GetFocusedRowCellValue("م"));
             var product = db.Products.Find(prdID);
 
             cmbCategories.EditValue = product.CategoryID;
             cmbProducts.EditValue = product.ProductID;
 
-            double buy = Convert.ToDouble(cardView1.GetFocusedRowCellValue("السعر"));
-            int number = Convert.ToInt32(cardView1.GetFocusedRowCellValue("العدد"));
-            double total = Convert.ToDouble(cardView1.GetFocusedRowCellValue("الإجمالى"));
-            double discount = Convert.ToDouble(cardView1.GetFocusedRowCellValue("الخصم"));
-            double price = Convert.ToDouble(cardView1.GetFocusedRowCellValue("السعر بعد الخصم"));
+            double buy = Convert.ToDouble(gridView3.GetFocusedRowCellValue("السعر"));
+            int number = Convert.ToInt32(gridView3.GetFocusedRowCellValue("العدد"));
+            double total = Convert.ToDouble(gridView3.GetFocusedRowCellValue("الإجمالى"));
+            double discount = Convert.ToDouble(gridView3.GetFocusedRowCellValue("الخصم"));
+            double price = Convert.ToDouble(gridView3.GetFocusedRowCellValue("السعر بعد الخصم"));
 
             txtNum.Text = number.ToString();
             txtBuy.Text = buy.ToString();
@@ -299,6 +299,8 @@ namespace Products.PL
             var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuppliers.EditValue));
             supplier.SupplierCharge += Convert.ToDouble(txtCharge.Text);
             db.SaveChanges();
+            XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
     }
 }

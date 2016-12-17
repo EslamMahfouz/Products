@@ -160,6 +160,12 @@
     <Compile Include="PL\FormAddSupplier.Designer.cs">
       <DependentUpon>FormAddSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\FormCustomerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FormCustomerDetails.Designer.cs">
+      <DependentUpon>FormCustomerDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,11 +178,29 @@
     <Compile Include="PL\FormPurchasesPayments.Designer.cs">
       <DependentUpon>FormPurchasesPayments.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\FormPurchasesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FormPurchasesReport.Designer.cs">
+      <DependentUpon>FormPurchasesReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\FormSalesPayments.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PL\FormSalesPayments.Designer.cs">
       <DependentUpon>FormSalesPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FormSalesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FormSalesReport.Designer.cs">
+      <DependentUpon>FormSalesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FormSupplierDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FormSupplierDetails.Designer.cs">
+      <DependentUpon>FormSupplierDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
