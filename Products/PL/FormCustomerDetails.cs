@@ -131,10 +131,6 @@ namespace Products.PL
                 return;
             }
         }
-
-        private void btnPayOrder_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
