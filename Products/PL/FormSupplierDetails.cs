@@ -112,12 +112,12 @@ namespace Products.PL
             readonlyBoxs(true);
             clrBoxs(true);
         }
-
-        private void gridControl1_DoubleClick(object sender, EventArgs e)
+        
+        private void btnShowRowDetails_Click(object sender, EventArgs e)
         {
             try
             {
-                FormDoubleClickSupplierDetails frm = new FormDoubleClickSupplierDetails();
+                FormOrderDetails frm = new FormOrderDetails();
                 frm.type = "purchase";
                 frm.ID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
                 frm.ShowDialog();

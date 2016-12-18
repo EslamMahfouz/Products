@@ -229,6 +229,7 @@ namespace Products.PL
             }
             gridControl1.DataSource = dt;
             TotalCalc();
+            DiscountCalc();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

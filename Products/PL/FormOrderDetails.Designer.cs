@@ -1,6 +1,6 @@
 ﻿namespace Products.PL
 {
-    partial class FormDoubleClickSupplierDetails
+    partial class FormOrderDetails
     {
         /// <summary>
         /// Required designer variable.

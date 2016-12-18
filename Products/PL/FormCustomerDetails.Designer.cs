@@ -46,9 +46,11 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.btnPayOrder = new DevExpress.XtraEditors.SimpleButton();
+            this.btnShowRowDetails = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnShowRowDetails = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPay = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -78,6 +80,7 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.btnPay);
             this.xtraTabPage1.Controls.Add(this.btnSave);
             this.xtraTabPage1.Controls.Add(this.cmbCustomerDetails);
             this.xtraTabPage1.Controls.Add(this.btnDelete);
@@ -93,8 +96,8 @@
             this.xtraTabPage1.Controls.Add(this.labelControl3);
             this.xtraTabPage1.Controls.Add(this.labelControl4);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(987, 402);
-            this.xtraTabPage1.Text = "بيانات المورد";
+            this.xtraTabPage1.Size = new System.Drawing.Size(987, 446);
+            this.xtraTabPage1.Text = "بيانات العميل";
             // 
             // btnSave
             // 
@@ -178,7 +181,7 @@
             // txtCharge
             // 
             this.txtCharge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCharge.Location = new System.Drawing.Point(623, 220);
+            this.txtCharge.Location = new System.Drawing.Point(623, 216);
             this.txtCharge.Name = "txtCharge";
             this.txtCharge.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtCharge.Properties.Appearance.Options.UseFont = true;
@@ -229,7 +232,7 @@
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl5.Location = new System.Drawing.Point(905, 188);
+            this.labelControl5.Location = new System.Drawing.Point(905, 184);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(52, 23);
             this.labelControl5.TabIndex = 37;
@@ -239,7 +242,7 @@
             // 
             this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl6.Location = new System.Drawing.Point(893, 223);
+            this.labelControl6.Location = new System.Drawing.Point(892, 216);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(65, 23);
             this.labelControl6.TabIndex = 36;
@@ -249,7 +252,7 @@
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl3.Location = new System.Drawing.Point(896, 124);
+            this.labelControl3.Location = new System.Drawing.Point(896, 121);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(62, 23);
             this.labelControl3.TabIndex = 35;
@@ -259,7 +262,7 @@
             // 
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl4.Location = new System.Drawing.Point(898, 155);
+            this.labelControl4.Location = new System.Drawing.Point(898, 152);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(60, 23);
             this.labelControl4.TabIndex = 34;
@@ -267,11 +270,34 @@
             // 
             // xtraTabPage2
             // 
+            this.xtraTabPage2.Controls.Add(this.btnPayOrder);
             this.xtraTabPage2.Controls.Add(this.btnShowRowDetails);
             this.xtraTabPage2.Controls.Add(this.gridControl1);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(987, 446);
             this.xtraTabPage2.Text = "عمليات الشراء";
+            // 
+            // btnPayOrder
+            // 
+            this.btnPayOrder.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnPayOrder.Appearance.Options.UseFont = true;
+            this.btnPayOrder.Location = new System.Drawing.Point(234, 408);
+            this.btnPayOrder.Name = "btnPayOrder";
+            this.btnPayOrder.Size = new System.Drawing.Size(250, 38);
+            this.btnPayOrder.TabIndex = 4;
+            this.btnPayOrder.Text = "سداد باقى الفاتورة";
+            this.btnPayOrder.Click += new System.EventHandler(this.btnPayOrder_Click);
+            // 
+            // btnShowRowDetails
+            // 
+            this.btnShowRowDetails.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnShowRowDetails.Appearance.Options.UseFont = true;
+            this.btnShowRowDetails.Location = new System.Drawing.Point(523, 408);
+            this.btnShowRowDetails.Name = "btnShowRowDetails";
+            this.btnShowRowDetails.Size = new System.Drawing.Size(250, 38);
+            this.btnShowRowDetails.TabIndex = 1;
+            this.btnShowRowDetails.Text = "تفاصيل الفاتورة";
+            this.btnShowRowDetails.Click += new System.EventHandler(this.btnShowRowDetails_Click);
             // 
             // gridControl1
             // 
@@ -288,16 +314,16 @@
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
             // 
-            // btnShowRowDetails
+            // btnPay
             // 
-            this.btnShowRowDetails.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnShowRowDetails.Appearance.Options.UseFont = true;
-            this.btnShowRowDetails.Location = new System.Drawing.Point(410, 408);
-            this.btnShowRowDetails.Name = "btnShowRowDetails";
-            this.btnShowRowDetails.Size = new System.Drawing.Size(172, 38);
-            this.btnShowRowDetails.TabIndex = 1;
-            this.btnShowRowDetails.Text = "تفاصيل الفاتورة";
-            this.btnShowRowDetails.Click += new System.EventHandler(this.btnShowRowDetails_Click);
+            this.btnPay.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnPay.Appearance.Options.UseFont = true;
+            this.btnPay.Location = new System.Drawing.Point(623, 247);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(233, 45);
+            this.btnPay.TabIndex = 46;
+            this.btnPay.Text = "سداد باقى قديم";
             // 
             // FormCustomerDetails
             // 
@@ -348,5 +374,7 @@
         private DevExpress.XtraEditors.SearchLookUpEdit cmbCustomerDetails;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraEditors.SimpleButton btnShowRowDetails;
+        private DevExpress.XtraEditors.SimpleButton btnPayOrder;
+        private DevExpress.XtraEditors.SimpleButton btnPay;
     }
 }

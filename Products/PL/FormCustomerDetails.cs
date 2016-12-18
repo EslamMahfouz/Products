@@ -119,8 +119,22 @@ namespace Products.PL
 
         private void btnShowRowDetails_Click(object sender, EventArgs e)
         {
-            FormDoubleClickCustomerDetails frm = new FormDoubleClickCustomerDetails();
-            frm.ShowDialog();
+            try
+            {
+                FormOrderDetails frm = new FormOrderDetails();
+                frm.type = "sale";
+                frm.ID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
+                frm.ShowDialog();
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void btnPayOrder_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
