@@ -53,7 +53,7 @@ namespace Products.PL
             {
                 int supplierID = Convert.ToInt32(cmbSuplierDetails.EditValue);
                 var suppliers = db.Suppliers.Find(supplierID);
-                txtTel.Text = suppliers.SupplierTel.ToString();
+                txtTel.Text = suppliers.SupplierTel;
                 txtPhone.Text = suppliers.SupplierPhone;
                 txtAddress.Text = suppliers.SupplierAddress;
                 txtCharge.Text = suppliers.SupplierCharge.ToString();
@@ -113,11 +113,19 @@ namespace Products.PL
             clrBoxs(true);
         }
 
-        private void btnShowRowDetails_Click(object sender, EventArgs e)
+        private void gridControl1_DoubleClick(object sender, EventArgs e)
         {
-            FormDoubleClickSupplierDetails frm = new FormDoubleClickSupplierDetails();
-            frm.ShowDialog();
+            try
+            {
+                FormDoubleClickSupplierDetails frm = new FormDoubleClickSupplierDetails();
+                frm.type = "purchase";
+                frm.ID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
+                frm.ShowDialog();
+            }
+            catch
+            {
+                return;
+            }
         }
-        
     }
 }
