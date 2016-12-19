@@ -15,11 +15,12 @@ namespace Products.EDM
     public partial class PurchasesPayment
     {
         public int PurchasePayID { get; set; }
-        public int PurchaseID { get; set; }
+        public Nullable<int> PurchaseNumber { get; set; }
         public Nullable<double> PurchasePayPaid { get; set; }
-        public Nullable<double> PurchasePayCharge { get; set; }
         public Nullable<System.DateTime> PurchasePayDate { get; set; }
+        public string purchaseDescription { get; set; }
+        public int SupplierID { get; set; }
     
-        public virtual Purchase Purchase { get; set; }
+        public virtual Supplier Supplier { get; set; }
     }
 }

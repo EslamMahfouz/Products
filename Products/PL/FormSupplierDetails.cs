@@ -169,7 +169,7 @@ namespace Products.PL
 
                 EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
                 {
-                    PurchaseID = purchaseID,
+                    //PurchaseID = purchaseID,
                     PurchasePayPaid = paid,
                     PurchasePayDate = dt
                 };

@@ -17,7 +17,6 @@ namespace Products.EDM
         public Sale()
         {
             this.SalesDetails = new HashSet<SalesDetail>();
-            this.SalesPayments = new HashSet<SalesPayment>();
         }
     
         public int SaleID { get; set; }
@@ -32,6 +31,5 @@ namespace Products.EDM
     
         public virtual Customer Customer { get; set; }
         public virtual ICollection<SalesDetail> SalesDetails { get; set; }
-        public virtual ICollection<SalesPayment> SalesPayments { get; set; }
     }
 }

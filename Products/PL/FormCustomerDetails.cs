@@ -188,7 +188,7 @@ namespace Products.PL
                 DateTime dt = DateTime.Now;
                 EDM.SalesPayment sp = new EDM.SalesPayment()
                 {
-                    SaleID = saleID,
+                    //SaleID = saleID,
                     SalePayPaid = Convert.ToDouble(txtPaidOrder.Text),
                     ///// na2s charge 
                     SalePayDate = dt
@@ -203,6 +203,10 @@ namespace Products.PL
             catch
             { return; }
         }
-        
+
+        private void xtraTabPage1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

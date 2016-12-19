@@ -109,6 +109,7 @@
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(987, 446);
             this.xtraTabPage1.Text = "بيانات العميل";
+            this.xtraTabPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabPage1_Paint);
             // 
             // btnSaveCharge
             // 

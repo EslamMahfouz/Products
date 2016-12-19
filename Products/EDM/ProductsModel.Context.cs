@@ -30,10 +30,10 @@ namespace Products.EDM
         public DbSet<Product> Products { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
         public DbSet<PurchasesDetail> PurchasesDetails { get; set; }
-        public DbSet<PurchasesPayment> PurchasesPayments { get; set; }
         public DbSet<Sale> Sales { get; set; }
         public DbSet<SalesDetail> SalesDetails { get; set; }
-        public DbSet<SalesPayment> SalesPayments { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<PurchasesPayment> PurchasesPayments { get; set; }
+        public DbSet<SalesPayment> SalesPayments { get; set; }
     }
 }
