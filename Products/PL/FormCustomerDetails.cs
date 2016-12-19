@@ -61,6 +61,9 @@ namespace Products.PL
             cmbCustomerDetails.Properties.ValueMember = "م";
 
             this.ActiveControl = lblCustomer;
+
+            PayBoxs(false);
+            PayOrderBoxs(false);
         }
 
 
@@ -169,25 +172,30 @@ namespace Products.PL
 
         private void btnSaveChargeOrder_Click(object sender, EventArgs e)
         {
-            int saleID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
-            var charge = db.Sales.Find(saleID);
-            charge.SaleCharge -= Convert.ToDouble(txtPaidOrder.Text);
-            var customer = db.Customers.Find(gridView2.GetFocusedRowCellValue("م"));
-            customer.CustomerCharge -= Convert.ToDouble(txtPaidOrder.Text);
-
-            DateTime dt = DateTime.Now;
-            EDM.SalesPayment sp = new EDM.SalesPayment()
+            try
             {
-                SaleID = saleID,
-                SalePayPaid = Convert.ToDouble(txtPaidOrder.Text),
-                ///// na2s charge 
-                SalePayDate = dt
-            };
+                int saleID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
+                var charge = db.Sales.Find(saleID);
+                charge.SaleCharge -= Convert.ToDouble(txtPaidOrder.Text);
+                var customer = db.Customers.Find(Convert.ToInt32(gridView2.GetFocusedRowCellValue("م")));
+                customer.CustomerCharge -= Convert.ToDouble(txtPaidOrder.Text);
 
-            db.SaveChanges();
-            XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-            PayOrderBoxs(false);
+                DateTime dt = DateTime.Now;
+                EDM.SalesPayment sp = new EDM.SalesPayment()
+                {
+                    SaleID = saleID,
+                    SalePayPaid = Convert.ToDouble(txtPaidOrder.Text),
+                    ///// na2s charge 
+                    SalePayDate = dt
+                };
+
+                db.SaveChanges();
+                XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                PayOrderBoxs(false);
+            }
+            catch
+            { return; }
         }
     }
 }

@@ -136,6 +136,8 @@
             this.txtPaid.Name = "txtPaid";
             this.txtPaid.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPaid.Properties.Appearance.Options.UseFont = true;
+            this.txtPaid.Properties.Mask.EditMask = "f";
+            this.txtPaid.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPaid.Size = new System.Drawing.Size(121, 26);
             this.txtPaid.TabIndex = 50;
             // 
@@ -358,6 +360,8 @@
             this.txtPaidOrder.Name = "txtPaidOrder";
             this.txtPaidOrder.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPaidOrder.Properties.Appearance.Options.UseFont = true;
+            this.txtPaidOrder.Properties.Mask.EditMask = "f";
+            this.txtPaidOrder.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPaidOrder.Size = new System.Drawing.Size(121, 26);
             this.txtPaidOrder.TabIndex = 8;
             // 
