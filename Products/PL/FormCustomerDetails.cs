@@ -15,6 +15,20 @@ namespace Products.PL
     {
         EDM.ProductsEntities db = new EDM.ProductsEntities();
 
+        void PayOrderBoxs(bool status)
+        {
+            lblPaidOrder.Visible= status; // هنا هيخليه فيزيبل او لا علي حسب انا ناديت الفنكشن وبعتلها ايه 
+            txtPaidOrder.Visible= status;
+            btnSaveChargeOrder.Visible = status;
+        }
+
+        void PayBoxs(bool status)
+        {
+            lblPaid.Visible = status;
+            txtPaid.Visible = status;
+            btnSaveCharge.Visible = status;
+        }
+
         void readonlyBoxs(bool status)
         {
             txtTel.ReadOnly = status;
@@ -131,6 +145,49 @@ namespace Products.PL
                 return;
             }
         }
-        
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            PayBoxs(true);
+        }
+
+        private void btnSaveCharge_Click(object sender, EventArgs e)
+        {
+            var customer = db.Customers.Find(Convert.ToInt32(cmbCustomerDetails.EditValue));
+            customer.CustomerCharge -= Convert.ToDouble(txtPaid.Text);
+            db.SaveChanges();
+            XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            cmbCustomerDetails_EditValueChanged(sender, e);
+
+            PayBoxs(false);
+        }
+
+        private void btnPayOrder_Click(object sender, EventArgs e)
+        {
+            PayOrderBoxs(true);
+        }
+
+        private void btnSaveChargeOrder_Click(object sender, EventArgs e)
+        {
+            int saleID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
+            var charge = db.Sales.Find(saleID);
+            charge.SaleCharge -= Convert.ToDouble(txtPaidOrder.Text);
+            var customer = db.Customers.Find(gridView2.GetFocusedRowCellValue("م"));
+            customer.CustomerCharge -= Convert.ToDouble(txtPaidOrder.Text);
+
+            DateTime dt = DateTime.Now;
+            EDM.SalesPayment sp = new EDM.SalesPayment()
+            {
+                SaleID = saleID,
+                SalePayPaid = Convert.ToDouble(txtPaidOrder.Text),
+                ///// na2s charge 
+                SalePayDate = dt
+            };
+
+            db.SaveChanges();
+            XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            PayOrderBoxs(false);
+        }
     }
 }

@@ -30,6 +30,9 @@
         {
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.btnSaveCharge = new DevExpress.XtraEditors.SimpleButton();
+            this.lblPaid = new DevExpress.XtraEditors.LabelControl();
+            this.txtPaid = new DevExpress.XtraEditors.TextEdit();
             this.btnPay = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.cmbCustomerDetails = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -54,12 +57,10 @@
             this.btnShowRowDetails = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txtSaveCharge = new DevExpress.XtraEditors.SimpleButton();
-            this.lblPaid = new DevExpress.XtraEditors.LabelControl();
-            this.txtPaid = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPaid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCustomerDetails.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCharge.Properties)).BeginInit();
@@ -70,7 +71,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPaidOrder.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPaid.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -88,7 +88,7 @@
             // 
             // xtraTabPage1
             // 
-            this.xtraTabPage1.Controls.Add(this.txtSaveCharge);
+            this.xtraTabPage1.Controls.Add(this.btnSaveCharge);
             this.xtraTabPage1.Controls.Add(this.lblPaid);
             this.xtraTabPage1.Controls.Add(this.txtPaid);
             this.xtraTabPage1.Controls.Add(this.btnPay);
@@ -110,6 +110,35 @@
             this.xtraTabPage1.Size = new System.Drawing.Size(987, 446);
             this.xtraTabPage1.Text = "بيانات العميل";
             // 
+            // btnSaveCharge
+            // 
+            this.btnSaveCharge.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnSaveCharge.Appearance.Options.UseFont = true;
+            this.btnSaveCharge.Location = new System.Drawing.Point(623, 325);
+            this.btnSaveCharge.Name = "btnSaveCharge";
+            this.btnSaveCharge.Size = new System.Drawing.Size(105, 39);
+            this.btnSaveCharge.TabIndex = 52;
+            this.btnSaveCharge.Text = "حفظ";
+            this.btnSaveCharge.Click += new System.EventHandler(this.btnSaveCharge_Click);
+            // 
+            // lblPaid
+            // 
+            this.lblPaid.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblPaid.Location = new System.Drawing.Point(897, 333);
+            this.lblPaid.Name = "lblPaid";
+            this.lblPaid.Size = new System.Drawing.Size(60, 23);
+            this.lblPaid.TabIndex = 51;
+            this.lblPaid.Text = "المدفوع";
+            // 
+            // txtPaid
+            // 
+            this.txtPaid.Location = new System.Drawing.Point(752, 333);
+            this.txtPaid.Name = "txtPaid";
+            this.txtPaid.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPaid.Properties.Appearance.Options.UseFont = true;
+            this.txtPaid.Size = new System.Drawing.Size(121, 26);
+            this.txtPaid.TabIndex = 50;
+            // 
             // btnPay
             // 
             this.btnPay.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
@@ -120,6 +149,7 @@
             this.btnPay.Size = new System.Drawing.Size(334, 45);
             this.btnPay.TabIndex = 46;
             this.btnPay.Text = "سداد باقى قديم";
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // btnSave
             // 
@@ -311,6 +341,7 @@
             this.btnSaveChargeOrder.Size = new System.Drawing.Size(105, 39);
             this.btnSaveChargeOrder.TabIndex = 10;
             this.btnSaveChargeOrder.Text = "حفظ";
+            this.btnSaveChargeOrder.Click += new System.EventHandler(this.btnSaveChargeOrder_Click);
             // 
             // lblPaidOrder
             // 
@@ -339,6 +370,7 @@
             this.btnPayOrder.Size = new System.Drawing.Size(250, 38);
             this.btnPayOrder.TabIndex = 4;
             this.btnPayOrder.Text = "سداد باقى الفاتورة";
+            this.btnPayOrder.Click += new System.EventHandler(this.btnPayOrder_Click);
             // 
             // btnShowRowDetails
             // 
@@ -366,34 +398,6 @@
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
             // 
-            // txtSaveCharge
-            // 
-            this.txtSaveCharge.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.txtSaveCharge.Appearance.Options.UseFont = true;
-            this.txtSaveCharge.Location = new System.Drawing.Point(623, 325);
-            this.txtSaveCharge.Name = "txtSaveCharge";
-            this.txtSaveCharge.Size = new System.Drawing.Size(105, 39);
-            this.txtSaveCharge.TabIndex = 52;
-            this.txtSaveCharge.Text = "حفظ";
-            // 
-            // lblPaid
-            // 
-            this.lblPaid.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblPaid.Location = new System.Drawing.Point(897, 333);
-            this.lblPaid.Name = "lblPaid";
-            this.lblPaid.Size = new System.Drawing.Size(60, 23);
-            this.lblPaid.TabIndex = 51;
-            this.lblPaid.Text = "المدفوع";
-            // 
-            // txtPaid
-            // 
-            this.txtPaid.Location = new System.Drawing.Point(752, 333);
-            this.txtPaid.Name = "txtPaid";
-            this.txtPaid.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtPaid.Properties.Appearance.Options.UseFont = true;
-            this.txtPaid.Size = new System.Drawing.Size(121, 26);
-            this.txtPaid.TabIndex = 50;
-            // 
             // FormCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,6 +411,7 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPaid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCustomerDetails.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCharge.Properties)).EndInit();
@@ -418,7 +423,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPaidOrder.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPaid.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -451,7 +455,7 @@
         private DevExpress.XtraEditors.SimpleButton btnSaveChargeOrder;
         private DevExpress.XtraEditors.LabelControl lblPaidOrder;
         private DevExpress.XtraEditors.TextEdit txtPaidOrder;
-        private DevExpress.XtraEditors.SimpleButton txtSaveCharge;
+        private DevExpress.XtraEditors.SimpleButton btnSaveCharge;
         private DevExpress.XtraEditors.LabelControl lblPaid;
         private DevExpress.XtraEditors.TextEdit txtPaid;
     }
