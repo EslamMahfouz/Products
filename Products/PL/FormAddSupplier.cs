@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Products.PL
 {
-    public partial class FormAddSupplier : Form
+    public partial class FormAddSupplier : XtraForm
     {
         EDM.ProductsEntities db = new EDM.ProductsEntities();
 

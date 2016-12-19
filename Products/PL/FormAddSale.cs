@@ -1,4 +1,4 @@
-﻿using DevExpress.DXCore.Controls.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Products.PL
 {
-    public partial class FormAddSale : Form
+    public partial class FormAddSale : XtraForm
     {
         EDM.ProductsEntities db = new EDM.ProductsEntities();
         DataTable dt = new DataTable();

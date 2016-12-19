@@ -1,4 +1,4 @@
-﻿using DevExpress.DXCore.Controls.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using System;
 using System.Data;
 using System.Linq;

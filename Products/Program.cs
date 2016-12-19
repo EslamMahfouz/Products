@@ -1,6 +1,7 @@
 ﻿using DevExpress.DXCore.Controls.LookAndFeel;
 using DevExpress.DXCore.Controls.Skins;
 using DevExpress.UserSkins;
+using Products.PL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,13 @@ namespace Products
         static void Main()
         {
             BonusSkins.Register();
+            UserLookAndFeel.Default.SkinName = "Metropolis Dark";
             SkinManager.EnableFormSkins();
             SkinManager.EnableMdiFormSkins();
-            UserLookAndFeel.Default.SetSkinStyle("VS2010");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PL.FormMain());
+            LookAndFeelHelper.ForceDefaultLookAndFeelChanged();
+            Application.Run(new FormMain());
         }
     }
 }

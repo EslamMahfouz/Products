@@ -1,4 +1,4 @@
-﻿using DevExpress.DXCore.Controls.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraTabbedMdi;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace Products.PL
             InitializeComponent();
         }
         
-        public void AddForm(Form son)
+        public void AddForm(XtraForm son)
         {
             bool NotExist = true;
             try
