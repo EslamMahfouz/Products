@@ -15,11 +15,12 @@ namespace Products.EDM
     public partial class SalesPayment
     {
         public int SalePayID { get; set; }
-        public int SaleID { get; set; }
+        public int SaleNumber { get; set; }
         public Nullable<double> SalePayPaid { get; set; }
-        public Nullable<double> SalePayCharge { get; set; }
         public Nullable<System.DateTime> SalePayDate { get; set; }
+        public string SaleDescription { get; set; }
+        public int CustomerID { get; set; }
     
-        public virtual Sale Sale { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

@@ -77,11 +77,10 @@
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1149, 532);
+            this.xtraTabControl1.Size = new System.Drawing.Size(985, 432);
             this.xtraTabControl1.TabIndex = 34;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -107,19 +106,18 @@
             this.xtraTabPage1.Controls.Add(this.labelControl6);
             this.xtraTabPage1.Controls.Add(this.labelControl3);
             this.xtraTabPage1.Controls.Add(this.labelControl4);
-            this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1142, 497);
+            this.xtraTabPage1.Size = new System.Drawing.Size(979, 404);
             this.xtraTabPage1.Text = "بيانات المورد";
             // 
             // txtSaveCharge
             // 
+            this.txtSaveCharge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSaveCharge.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtSaveCharge.Appearance.Options.UseFont = true;
-            this.txtSaveCharge.Location = new System.Drawing.Point(717, 394);
-            this.txtSaveCharge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSaveCharge.Location = new System.Drawing.Point(615, 320);
             this.txtSaveCharge.Name = "txtSaveCharge";
-            this.txtSaveCharge.Size = new System.Drawing.Size(122, 48);
+            this.txtSaveCharge.Size = new System.Drawing.Size(105, 39);
             this.txtSaveCharge.TabIndex = 49;
             this.txtSaveCharge.Text = "حفظ";
             this.txtSaveCharge.Visible = false;
@@ -127,50 +125,52 @@
             // 
             // lblPaid
             // 
+            this.lblPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPaid.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblPaid.Location = new System.Drawing.Point(1038, 404);
-            this.lblPaid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblPaid.Location = new System.Drawing.Point(890, 328);
             this.lblPaid.Name = "lblPaid";
-            this.lblPaid.Size = new System.Drawing.Size(77, 29);
+            this.lblPaid.Size = new System.Drawing.Size(60, 23);
             this.lblPaid.TabIndex = 48;
             this.lblPaid.Text = "المدفوع";
             this.lblPaid.Visible = false;
             // 
             // txtPaid
             // 
+            this.txtPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPaid.EditValue = 0D;
-            this.txtPaid.Location = new System.Drawing.Point(868, 404);
-            this.txtPaid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPaid.Location = new System.Drawing.Point(744, 328);
             this.txtPaid.Name = "txtPaid";
             this.txtPaid.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPaid.Properties.Appearance.Options.UseFont = true;
             this.txtPaid.Properties.Mask.EditMask = "f";
             this.txtPaid.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPaid.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtPaid.Size = new System.Drawing.Size(141, 30);
+            this.txtPaid.Size = new System.Drawing.Size(121, 26);
             this.txtPaid.TabIndex = 47;
             this.txtPaid.Visible = false;
             // 
             // btnPay
             // 
+            this.btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPay.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnPay.Appearance.Options.UseFont = true;
-            this.btnPay.Location = new System.Drawing.Point(717, 315);
+            this.btnPay.Location = new System.Drawing.Point(615, 256);
             this.btnPay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(391, 55);
+            this.btnPay.Size = new System.Drawing.Size(335, 45);
             this.btnPay.TabIndex = 45;
             this.btnPay.Text = "سداد باقى قديم";
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Location = new System.Drawing.Point(521, 176);
+            this.btnSave.Location = new System.Drawing.Point(447, 143);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(166, 55);
+            this.btnSave.Size = new System.Drawing.Size(142, 45);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "حفظ التعديلات";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -178,8 +178,7 @@
             // cmbSuplierDetails
             // 
             this.cmbSuplierDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbSuplierDetails.Location = new System.Drawing.Point(717, 106);
-            this.cmbSuplierDetails.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbSuplierDetails.Location = new System.Drawing.Point(615, 86);
             this.cmbSuplierDetails.Name = "cmbSuplierDetails";
             this.cmbSuplierDetails.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.cmbSuplierDetails.Properties.Appearance.Options.UseFont = true;
@@ -188,7 +187,7 @@
             this.cmbSuplierDetails.Properties.NullText = "";
             this.cmbSuplierDetails.Properties.View = this.searchLookUpEdit1View;
             this.cmbSuplierDetails.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbSuplierDetails.Size = new System.Drawing.Size(272, 30);
+            this.cmbSuplierDetails.Size = new System.Drawing.Size(233, 26);
             this.cmbSuplierDetails.TabIndex = 44;
             this.cmbSuplierDetails.EditValueChanged += new System.EventHandler(this.cmbSuplierDetails_EditValueChanged);
             // 
@@ -201,12 +200,13 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.Location = new System.Drawing.Point(521, 246);
+            this.btnDelete.Location = new System.Drawing.Point(447, 200);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(166, 55);
+            this.btnDelete.Size = new System.Drawing.Size(142, 45);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "حذف";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -215,21 +215,21 @@
             // 
             this.lblSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSupplier.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.lblSupplier.Location = new System.Drawing.Point(840, 48);
-            this.lblSupplier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblSupplier.Location = new System.Drawing.Point(720, 39);
             this.lblSupplier.Name = "lblSupplier";
-            this.lblSupplier.Size = new System.Drawing.Size(137, 33);
+            this.lblSupplier.Size = new System.Drawing.Size(111, 27);
             this.lblSupplier.TabIndex = 43;
             this.lblSupplier.Text = "بيانات المورد";
             // 
             // btnEdit
             // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnEdit.Appearance.Options.UseFont = true;
-            this.btnEdit.Location = new System.Drawing.Point(521, 106);
+            this.btnEdit.Location = new System.Drawing.Point(447, 86);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(166, 55);
+            this.btnEdit.Size = new System.Drawing.Size(142, 45);
             this.btnEdit.TabIndex = 0;
             this.btnEdit.Text = "تعديل";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -238,18 +238,16 @@
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl1.Location = new System.Drawing.Point(1004, 106);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl1.Location = new System.Drawing.Point(861, 86);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(113, 29);
+            this.labelControl1.Size = new System.Drawing.Size(89, 23);
             this.labelControl1.TabIndex = 42;
             this.labelControl1.Text = "اسم المورد";
             // 
             // txtCharge
             // 
             this.txtCharge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCharge.Location = new System.Drawing.Point(717, 266);
-            this.txtCharge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCharge.Location = new System.Drawing.Point(615, 216);
             this.txtCharge.Name = "txtCharge";
             this.txtCharge.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtCharge.Properties.Appearance.Options.UseFont = true;
@@ -257,56 +255,52 @@
             this.txtCharge.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtCharge.Properties.ReadOnly = true;
             this.txtCharge.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtCharge.Size = new System.Drawing.Size(272, 30);
+            this.txtCharge.Size = new System.Drawing.Size(233, 26);
             this.txtCharge.TabIndex = 41;
             // 
             // txtAddress
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddress.Location = new System.Drawing.Point(717, 226);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtAddress.Location = new System.Drawing.Point(615, 184);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtAddress.Properties.Appearance.Options.UseFont = true;
             this.txtAddress.Properties.ReadOnly = true;
             this.txtAddress.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtAddress.Size = new System.Drawing.Size(272, 30);
+            this.txtAddress.Size = new System.Drawing.Size(233, 26);
             this.txtAddress.TabIndex = 40;
             // 
             // txtPhone
             // 
             this.txtPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPhone.Location = new System.Drawing.Point(717, 187);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPhone.Location = new System.Drawing.Point(615, 152);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPhone.Properties.Appearance.Options.UseFont = true;
             this.txtPhone.Properties.ReadOnly = true;
             this.txtPhone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPhone.Size = new System.Drawing.Size(272, 30);
+            this.txtPhone.Size = new System.Drawing.Size(233, 26);
             this.txtPhone.TabIndex = 39;
             // 
             // txtTel
             // 
             this.txtTel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTel.Location = new System.Drawing.Point(717, 149);
-            this.txtTel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTel.Location = new System.Drawing.Point(615, 121);
             this.txtTel.Name = "txtTel";
             this.txtTel.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtTel.Properties.Appearance.Options.UseFont = true;
             this.txtTel.Properties.ReadOnly = true;
             this.txtTel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTel.Size = new System.Drawing.Size(272, 30);
+            this.txtTel.Size = new System.Drawing.Size(233, 26);
             this.txtTel.TabIndex = 38;
             // 
             // labelControl5
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl5.Location = new System.Drawing.Point(1048, 226);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl5.Location = new System.Drawing.Point(898, 184);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(66, 29);
+            this.labelControl5.Size = new System.Drawing.Size(52, 23);
             this.labelControl5.TabIndex = 37;
             this.labelControl5.Text = "العنوان";
             // 
@@ -314,10 +308,9 @@
             // 
             this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl6.Location = new System.Drawing.Point(1032, 266);
-            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl6.Location = new System.Drawing.Point(885, 216);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(80, 29);
+            this.labelControl6.Size = new System.Drawing.Size(65, 23);
             this.labelControl6.TabIndex = 36;
             this.labelControl6.Text = "المتبقى";
             // 
@@ -325,10 +318,9 @@
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl3.Location = new System.Drawing.Point(1036, 149);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl3.Location = new System.Drawing.Point(888, 121);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(76, 29);
+            this.labelControl3.Size = new System.Drawing.Size(62, 23);
             this.labelControl3.TabIndex = 35;
             this.labelControl3.Text = "التليفون";
             // 
@@ -336,10 +328,9 @@
             // 
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl4.Location = new System.Drawing.Point(1038, 187);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl4.Location = new System.Drawing.Point(890, 152);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(77, 29);
+            this.labelControl4.Size = new System.Drawing.Size(60, 23);
             this.labelControl4.TabIndex = 34;
             this.labelControl4.Text = "الموبايل";
             // 
@@ -353,17 +344,16 @@
             this.xtraTabPage2.Controls.Add(this.gridControl1);
             this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1142, 497);
+            this.xtraTabPage2.Size = new System.Drawing.Size(979, 404);
             this.xtraTabPage2.Text = "عمليات الشراء";
             // 
             // btnSaveChargeOrder
             // 
             this.btnSaveChargeOrder.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnSaveChargeOrder.Appearance.Options.UseFont = true;
-            this.btnSaveChargeOrder.Location = new System.Drawing.Point(47, 450);
-            this.btnSaveChargeOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSaveChargeOrder.Location = new System.Drawing.Point(40, 366);
             this.btnSaveChargeOrder.Name = "btnSaveChargeOrder";
-            this.btnSaveChargeOrder.Size = new System.Drawing.Size(122, 48);
+            this.btnSaveChargeOrder.Size = new System.Drawing.Size(105, 39);
             this.btnSaveChargeOrder.TabIndex = 14;
             this.btnSaveChargeOrder.Text = "حفظ";
             this.btnSaveChargeOrder.Visible = false;
@@ -371,62 +361,61 @@
             // 
             // lblPaidOrder
             // 
+            this.lblPaidOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPaidOrder.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblPaidOrder.Location = new System.Drawing.Point(371, 460);
-            this.lblPaidOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblPaidOrder.Location = new System.Drawing.Point(318, 374);
             this.lblPaidOrder.Name = "lblPaidOrder";
-            this.lblPaidOrder.Size = new System.Drawing.Size(77, 29);
+            this.lblPaidOrder.Size = new System.Drawing.Size(60, 23);
             this.lblPaidOrder.TabIndex = 13;
             this.lblPaidOrder.Text = "المدفوع";
             this.lblPaidOrder.Visible = false;
             // 
             // txtPaidOrder
             // 
+            this.txtPaidOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPaidOrder.EditValue = 0D;
-            this.txtPaidOrder.Location = new System.Drawing.Point(197, 460);
-            this.txtPaidOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPaidOrder.Location = new System.Drawing.Point(169, 374);
             this.txtPaidOrder.Name = "txtPaidOrder";
             this.txtPaidOrder.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPaidOrder.Properties.Appearance.Options.UseFont = true;
             this.txtPaidOrder.Properties.Mask.EditMask = "f";
             this.txtPaidOrder.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPaidOrder.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtPaidOrder.Size = new System.Drawing.Size(141, 30);
+            this.txtPaidOrder.Size = new System.Drawing.Size(121, 26);
             this.txtPaidOrder.TabIndex = 12;
             this.txtPaidOrder.Visible = false;
             // 
             // btnPayOrder
             // 
+            this.btnPayOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPayOrder.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnPayOrder.Appearance.Options.UseFont = true;
-            this.btnPayOrder.Location = new System.Drawing.Point(462, 450);
-            this.btnPayOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPayOrder.Location = new System.Drawing.Point(396, 366);
             this.btnPayOrder.Name = "btnPayOrder";
-            this.btnPayOrder.Size = new System.Drawing.Size(292, 47);
+            this.btnPayOrder.Size = new System.Drawing.Size(250, 38);
             this.btnPayOrder.TabIndex = 11;
             this.btnPayOrder.Text = "سداد باقى الفاتورة";
             this.btnPayOrder.Click += new System.EventHandler(this.btnPayOrder_Click);
             // 
             // btnShowRowDetails
             // 
+            this.btnShowRowDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShowRowDetails.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnShowRowDetails.Appearance.Options.UseFont = true;
-            this.btnShowRowDetails.Location = new System.Drawing.Point(806, 452);
-            this.btnShowRowDetails.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnShowRowDetails.Location = new System.Drawing.Point(691, 367);
             this.btnShowRowDetails.Name = "btnShowRowDetails";
-            this.btnShowRowDetails.Size = new System.Drawing.Size(292, 47);
+            this.btnShowRowDetails.Size = new System.Drawing.Size(250, 38);
             this.btnShowRowDetails.TabIndex = 2;
             this.btnShowRowDetails.Text = "تفاصيل الفاتورة";
             this.btnShowRowDetails.Click += new System.EventHandler(this.btnShowRowDetails_Click);
             // 
             // gridControl1
             // 
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView2;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1142, 450);
+            this.gridControl1.Size = new System.Drawing.Size(979, 366);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -439,13 +428,12 @@
             // 
             // FormSupplierDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 532);
+            this.ClientSize = new System.Drawing.Size(985, 432);
             this.Controls.Add(this.xtraTabControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormSupplierDetails";
-            this.Text = "FormSupplierDetails";
+            this.Text = "بيانات المورد";
             this.Load += new System.EventHandler(this.FormSupplierDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);

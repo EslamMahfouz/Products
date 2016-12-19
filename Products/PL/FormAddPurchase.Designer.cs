@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lblOrderID = new DevExpress.XtraEditors.LabelControl();
             this.deDate = new DevExpress.XtraEditors.DateEdit();
@@ -77,10 +77,10 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.valSupplier = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.valCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.valProduct = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -110,14 +110,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl2
             // 
+            this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl2.Controls.Add(this.lblOrderID);
             this.panelControl2.Controls.Add(this.deDate);
             this.panelControl2.Controls.Add(this.labelControl3);
@@ -178,6 +179,7 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.AppearanceCaption.Options.UseTextOptions = true;
@@ -220,9 +222,9 @@
             this.cmbCategories.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCategories.Size = new System.Drawing.Size(333, 26);
             this.cmbCategories.TabIndex = 18;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "برجاء إختيار صنف";
-            this.valCategory.SetValidationRule(this.cmbCategories, conditionValidationRule4);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "برجاء إختيار صنف";
+            this.valCategory.SetValidationRule(this.cmbCategories, conditionValidationRule1);
             this.cmbCategories.EditValueChanged += new System.EventHandler(this.cmbCategories_EditValueChanged);
             // 
             // gridView2
@@ -407,9 +409,9 @@
             this.cmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbProducts.Size = new System.Drawing.Size(333, 26);
             this.cmbProducts.TabIndex = 2;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "برجاء إختيار منتج";
-            this.valProduct.SetValidationRule(this.cmbProducts, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "برجاء إختيار منتج";
+            this.valProduct.SetValidationRule(this.cmbProducts, conditionValidationRule2);
             this.cmbProducts.EditValueChanged += new System.EventHandler(this.cmbProducts_EditValueChanged);
             // 
             // gridView1
@@ -431,6 +433,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.Controls.Add(this.cmbSuppliers);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Location = new System.Drawing.Point(590, 9);
@@ -456,9 +459,9 @@
             this.cmbSuppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbSuppliers.Size = new System.Drawing.Size(332, 26);
             this.cmbSuppliers.TabIndex = 0;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "برجاء إختيار مورد";
-            this.valSupplier.SetValidationRule(this.cmbSuppliers, conditionValidationRule2);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "برجاء إختيار مورد";
+            this.valSupplier.SetValidationRule(this.cmbSuppliers, conditionValidationRule3);
             this.cmbSuppliers.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmbSuppliers_ButtonClick);
             // 
             // searchLookUpEdit1View
@@ -540,6 +543,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
@@ -664,6 +668,7 @@
             // 
             // groupControl3
             // 
+            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
             this.groupControl3.AppearanceCaption.Options.UseFont = true;
             this.groupControl3.AppearanceCaption.Options.UseTextOptions = true;
@@ -733,7 +738,7 @@
             this.Controls.Add(this.panelControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormAddPurchase";
-            this.Text = "FormAddPurchase";
+            this.Text = "فاتورة شراء";
             this.Load += new System.EventHandler(this.FormAddPurchase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
@@ -768,10 +773,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
