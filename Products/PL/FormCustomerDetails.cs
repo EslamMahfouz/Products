@@ -156,13 +156,18 @@ namespace Products.PL
 
         private void btnSaveCharge_Click(object sender, EventArgs e)
         {
-            var customer = db.Customers.Find(Convert.ToInt32(cmbCustomerDetails.EditValue));
-            customer.CustomerCharge -= Convert.ToDouble(txtPaid.Text);
-            db.SaveChanges();
-            XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            cmbCustomerDetails_EditValueChanged(sender, e);
+            try
+            {
+                var customer = db.Customers.Find(Convert.ToInt32(cmbCustomerDetails.EditValue));
+                customer.CustomerCharge -= Convert.ToDouble(txtPaid.Text);
+                db.SaveChanges();
+                XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cmbCustomerDetails_EditValueChanged(sender, e);
 
-            PayBoxs(false);
+                PayBoxs(false);
+            }
+            catch
+            { return; }
         }
 
         private void btnPayOrder_Click(object sender, EventArgs e)
@@ -177,7 +182,7 @@ namespace Products.PL
                 int saleID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
                 var charge = db.Sales.Find(saleID);
                 charge.SaleCharge -= Convert.ToDouble(txtPaidOrder.Text);
-                var customer = db.Customers.Find(Convert.ToInt32(gridView2.GetFocusedRowCellValue("م")));
+                var customer = db.Customers.Find(Convert.ToInt32(cmbCustomerDetails.EditValue));
                 customer.CustomerCharge -= Convert.ToDouble(txtPaidOrder.Text);
 
                 DateTime dt = DateTime.Now;
@@ -190,6 +195,7 @@ namespace Products.PL
                 };
 
                 db.SaveChanges();
+                cmbCustomerDetails_EditValueChanged(sender, e);
                 XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 PayOrderBoxs(false);
@@ -197,5 +203,6 @@ namespace Products.PL
             catch
             { return; }
         }
+        
     }
 }
