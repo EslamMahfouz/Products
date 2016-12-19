@@ -195,8 +195,8 @@ namespace Products.PL
                 };
 
                 db.SaveChanges();
-                cmbCustomerDetails_EditValueChanged(sender, e);
                 XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cmbCustomerDetails_EditValueChanged(sender, e);
 
                 PayOrderBoxs(false);
             }
