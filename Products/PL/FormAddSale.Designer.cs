@@ -150,6 +150,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
@@ -466,6 +467,7 @@
             // 
             // groupControl3
             // 
+            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
             this.groupControl3.AppearanceCaption.Options.UseFont = true;
             this.groupControl3.AppearanceCaption.Options.UseTextOptions = true;
@@ -585,6 +587,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.Controls.Add(this.cmbCustomers);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Location = new System.Drawing.Point(514, 11);
@@ -605,6 +608,7 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.AppearanceCaption.Options.UseTextOptions = true;
@@ -682,6 +686,7 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl2.Controls.Add(this.labelControl18);
             this.panelControl2.Controls.Add(this.lblOrderID);
             this.panelControl2.Controls.Add(this.deDate);
@@ -712,7 +717,7 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.panelControl2);
             this.Name = "FormAddSale";
-            this.Text = "FormAddSale";
+            this.Text = "فاتورة بيع";
             this.Load += new System.EventHandler(this.FormAddSale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

@@ -71,17 +71,16 @@
             this.navBarItem8,
             this.navBarItem9,
             this.navBarItem10});
-            this.navBarControl1.Location = new System.Drawing.Point(472, 0);
+            this.navBarControl1.Location = new System.Drawing.Point(816, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 175;
-            this.navBarControl1.Size = new System.Drawing.Size(175, 324);
+            this.navBarControl1.Size = new System.Drawing.Size(175, 479);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             // 
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "الأصناف و المنتجات";
-            this.navBarGroup1.Expanded = true;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2)});
@@ -97,6 +96,7 @@
             // 
             this.navBarItem2.Caption = "إضافة منتج";
             this.navBarItem2.Name = "navBarItem2";
+            this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
             // navBarGroup2
             // 
@@ -110,11 +110,13 @@
             // 
             this.navBarItem3.Caption = "إضافة مورد";
             this.navBarItem3.Name = "navBarItem3";
+            this.navBarItem3.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem3_LinkClicked);
             // 
             // navBarItem5
             // 
             this.navBarItem5.Caption = "عرض بيانات مورد";
             this.navBarItem5.Name = "navBarItem5";
+            this.navBarItem5.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem5_LinkClicked);
             // 
             // navBarGroup3
             // 
@@ -128,11 +130,13 @@
             // 
             this.navBarItem4.Caption = "إضافة عميل";
             this.navBarItem4.Name = "navBarItem4";
+            this.navBarItem4.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem4_LinkClicked);
             // 
             // navBarItem6
             // 
             this.navBarItem6.Caption = "عرض بيانات عميل";
             this.navBarItem6.Name = "navBarItem6";
+            this.navBarItem6.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem6_LinkClicked);
             // 
             // navBarGroup4
             // 
@@ -146,11 +150,13 @@
             // 
             this.navBarItem7.Caption = "إضافة فاتورة شراء";
             this.navBarItem7.Name = "navBarItem7";
+            this.navBarItem7.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem7_LinkClicked);
             // 
             // navBarItem8
             // 
             this.navBarItem8.Caption = "إضافة فاتورة بيع";
             this.navBarItem8.Name = "navBarItem8";
+            this.navBarItem8.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem8_LinkClicked);
             // 
             // navBarGroup5
             // 
@@ -164,25 +170,29 @@
             // 
             this.navBarItem9.Caption = "تقارير شراء";
             this.navBarItem9.Name = "navBarItem9";
+            this.navBarItem9.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem9_LinkClicked);
             // 
             // navBarItem10
             // 
             this.navBarItem10.Caption = "تقارير بيع";
             this.navBarItem10.Name = "navBarItem10";
+            this.navBarItem10.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem10_LinkClicked);
             // 
             // xtraTabbedMdiManager1
             // 
+            this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
             this.xtraTabbedMdiManager1.MdiParent = this;
+            this.xtraTabbedMdiManager1.RightToLeftLayout = DevExpress.Utils.DefaultBoolean.True;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 324);
+            this.ClientSize = new System.Drawing.Size(991, 479);
             this.Controls.Add(this.navBarControl1);
             this.IsMdiContainer = true;
             this.Name = "FormMain";
-            this.Text = "FormMain";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);

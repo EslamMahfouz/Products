@@ -112,6 +112,7 @@
             // 
             // txtSaveCharge
             // 
+            this.txtSaveCharge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSaveCharge.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtSaveCharge.Appearance.Options.UseFont = true;
             this.txtSaveCharge.Location = new System.Drawing.Point(615, 320);
@@ -124,6 +125,7 @@
             // 
             // lblPaid
             // 
+            this.lblPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPaid.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.lblPaid.Location = new System.Drawing.Point(890, 328);
             this.lblPaid.Name = "lblPaid";
@@ -134,6 +136,7 @@
             // 
             // txtPaid
             // 
+            this.txtPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPaid.EditValue = 0D;
             this.txtPaid.Location = new System.Drawing.Point(744, 328);
             this.txtPaid.Name = "txtPaid";
@@ -148,6 +151,7 @@
             // 
             // btnPay
             // 
+            this.btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPay.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnPay.Appearance.Options.UseFont = true;
             this.btnPay.Location = new System.Drawing.Point(615, 256);
@@ -160,6 +164,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Location = new System.Drawing.Point(447, 143);
@@ -195,6 +200,7 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnDelete.Appearance.Options.UseFont = true;
             this.btnDelete.Location = new System.Drawing.Point(447, 200);
@@ -217,6 +223,7 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnEdit.Appearance.Options.UseFont = true;
             this.btnEdit.Location = new System.Drawing.Point(447, 86);
@@ -250,7 +257,6 @@
             this.txtCharge.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtCharge.Size = new System.Drawing.Size(233, 26);
             this.txtCharge.TabIndex = 41;
-            
             // 
             // txtAddress
             // 
@@ -355,6 +361,7 @@
             // 
             // lblPaidOrder
             // 
+            this.lblPaidOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPaidOrder.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.lblPaidOrder.Location = new System.Drawing.Point(318, 374);
             this.lblPaidOrder.Name = "lblPaidOrder";
@@ -365,6 +372,7 @@
             // 
             // txtPaidOrder
             // 
+            this.txtPaidOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPaidOrder.EditValue = 0D;
             this.txtPaidOrder.Location = new System.Drawing.Point(169, 374);
             this.txtPaidOrder.Name = "txtPaidOrder";
@@ -379,6 +387,7 @@
             // 
             // btnPayOrder
             // 
+            this.btnPayOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPayOrder.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnPayOrder.Appearance.Options.UseFont = true;
             this.btnPayOrder.Location = new System.Drawing.Point(396, 366);
@@ -390,6 +399,7 @@
             // 
             // btnShowRowDetails
             // 
+            this.btnShowRowDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShowRowDetails.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnShowRowDetails.Appearance.Options.UseFont = true;
             this.btnShowRowDetails.Location = new System.Drawing.Point(691, 367);
@@ -401,6 +411,7 @@
             // 
             // gridControl1
             // 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView2;
             this.gridControl1.Name = "gridControl1";
@@ -422,7 +433,7 @@
             this.ClientSize = new System.Drawing.Size(985, 432);
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "FormSupplierDetails";
-            this.Text = "FormSupplierDetails";
+            this.Text = "بيانات المورد";
             this.Load += new System.EventHandler(this.FormSupplierDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);

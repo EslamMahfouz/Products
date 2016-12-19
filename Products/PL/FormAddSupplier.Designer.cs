@@ -196,6 +196,7 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Name = "FormAddSupplier";
+            this.Text = "إضافة مورد";
             ((System.ComponentModel.ISupportInitialize)(this.txtCharge.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();

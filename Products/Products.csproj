@@ -227,6 +227,12 @@
     <EmbeddedResource Include="PL\FormOrderDetails.resx">
       <DependentUpon>FormOrderDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormPurchasesReport.resx">
+      <DependentUpon>FormPurchasesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormSalesReport.resx">
+      <DependentUpon>FormSalesReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\FormSupplierDetails.resx">
       <DependentUpon>FormSupplierDetails.cs</DependentUpon>
     </EmbeddedResource>
