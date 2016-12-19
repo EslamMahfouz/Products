@@ -29,6 +29,19 @@ namespace Products.PL
             txtAddress.Text = "";
             txtCharge.Text = "";
         }
+        void showBoxs(bool status)
+        {
+            lblPaid.Visible = status;
+            txtPaid.Visible = status;
+            txtSaveCharge.Visible = status;
+        }
+        void showBoxsOrder(bool status)
+        {
+            lblPaidOrder.Visible = status;
+            txtPaidOrder.Visible = status;
+            btnSaveChargeOrder.Visible = status;
+        }
+
         public FormSupplierDetails()
         {
             InitializeComponent();
@@ -121,6 +134,56 @@ namespace Products.PL
                 frm.type = "purchase";
                 frm.ID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
                 frm.ShowDialog();
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            showBoxs(true);
+        }
+        private void txtSaveCharge_Click(object sender, EventArgs e)
+        {
+            var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuplierDetails.EditValue));
+            supplier.SupplierCharge -= Convert.ToDouble(txtPaid.Text);
+            db.SaveChanges();
+            XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            showBoxs(false);
+            cmbSuplierDetails_EditValueChanged(sender, e);
+        }
+
+        private void btnPayOrder_Click(object sender, EventArgs e)
+        {
+            showBoxsOrder(true);
+        }
+        private void btnSaveChargeOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int purchaseID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
+                double paid = Convert.ToDouble(txtPaidOrder.Text);
+                DateTime dt = DateTime.Now;
+
+                EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+                {
+                    PurchaseID = purchaseID,
+                    PurchasePayPaid = paid,
+                    PurchasePayDate = dt
+                };
+                db.PurchasesPayments.Add(pp);
+
+                var supplier = db.Suppliers.Find(Convert.ToDouble(cmbSuplierDetails.EditValue));
+                supplier.SupplierCharge -= paid;
+
+                var purchase = db.Purchases.Find(purchaseID);
+                purchase.PurchaseCharge -= paid;
+                db.SaveChanges();
+                XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                showBoxsOrder(false);
+                cmbSuplierDetails_EditValueChanged(sender, e);
             }
             catch
             {
