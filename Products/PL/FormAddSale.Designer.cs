@@ -60,8 +60,8 @@
             this.txtSell = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.txtDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.txtEdit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cmbProducts = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -472,8 +472,8 @@
             this.groupControl3.AppearanceCaption.Options.UseFont = true;
             this.groupControl3.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl3.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.groupControl3.Controls.Add(this.txtDelete);
-            this.groupControl3.Controls.Add(this.txtEdit);
+            this.groupControl3.Controls.Add(this.btnDelete);
+            this.groupControl3.Controls.Add(this.btnEdit);
             this.groupControl3.Controls.Add(this.gridControl1);
             this.groupControl3.Location = new System.Drawing.Point(7, 69);
             this.groupControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -482,27 +482,27 @@
             this.groupControl3.TabIndex = 33;
             this.groupControl3.Text = "بيانات الفاتورة";
             // 
-            // txtDelete
+            // btnDelete
             // 
-            this.txtDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.txtDelete.Appearance.Options.UseFont = true;
-            this.txtDelete.Location = new System.Drawing.Point(2, 354);
-            this.txtDelete.Name = "txtDelete";
-            this.txtDelete.Size = new System.Drawing.Size(246, 43);
-            this.txtDelete.TabIndex = 35;
-            this.txtDelete.Text = "مسح";
-            this.txtDelete.Click += new System.EventHandler(this.txtDelete_Click);
+            this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnDelete.Appearance.Options.UseFont = true;
+            this.btnDelete.Location = new System.Drawing.Point(2, 354);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(246, 43);
+            this.btnDelete.TabIndex = 35;
+            this.btnDelete.Text = "مسح";
+            this.btnDelete.Click += new System.EventHandler(this.txtDelete_Click);
             // 
-            // txtEdit
+            // btnEdit
             // 
-            this.txtEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.txtEdit.Appearance.Options.UseFont = true;
-            this.txtEdit.Location = new System.Drawing.Point(253, 354);
-            this.txtEdit.Name = "txtEdit";
-            this.txtEdit.Size = new System.Drawing.Size(246, 43);
-            this.txtEdit.TabIndex = 34;
-            this.txtEdit.Text = "تعديل";
-            this.txtEdit.Click += new System.EventHandler(this.txtEdit_Click);
+            this.btnEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnEdit.Appearance.Options.UseFont = true;
+            this.btnEdit.Location = new System.Drawing.Point(253, 354);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(246, 43);
+            this.btnEdit.TabIndex = 34;
+            this.btnEdit.Text = "تعديل";
+            this.btnEdit.Click += new System.EventHandler(this.txtEdit_Click);
             // 
             // gridControl1
             // 
@@ -808,7 +808,7 @@
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider valCategory;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider valCustomers;
         private DevExpress.XtraEditors.LabelControl labelControl18;
-        private DevExpress.XtraEditors.SimpleButton txtEdit;
-        private DevExpress.XtraEditors.SimpleButton txtDelete;
+        private DevExpress.XtraEditors.SimpleButton btnEdit;
+        private DevExpress.XtraEditors.SimpleButton btnDelete;
     }
 }

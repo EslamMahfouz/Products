@@ -71,7 +71,7 @@
             this.navBarItem8,
             this.navBarItem9,
             this.navBarItem10});
-            this.navBarControl1.Location = new System.Drawing.Point(816, 0);
+            this.navBarControl1.Location = new System.Drawing.Point(935, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 175;
             this.navBarControl1.Size = new System.Drawing.Size(175, 479);
@@ -188,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 479);
+            this.ClientSize = new System.Drawing.Size(1110, 479);
             this.Controls.Add(this.navBarControl1);
             this.IsMdiContainer = true;
             this.Name = "FormMain";
