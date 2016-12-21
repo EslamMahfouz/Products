@@ -280,6 +280,17 @@ namespace Products.PL
             };
             db.Purchases.Add(p);
 
+            EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+            {
+                //salesPayments table
+                PurchaseNumber = Convert.ToInt32(lblOrderID.Text),
+                PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
+                PurchasePayDate = Convert.ToDateTime(deDate.EditValue),
+                purchaseDescription = "فاتورة شراء جديدة",
+                SupplierID = Convert.ToInt32(cmbSuppliers.EditValue)
+            };
+            db.PurchasesPayments.Add(pp);
+
             foreach (DataRow dr in dt.Rows)
             {
                 EDM.PurchasesDetail pd = new EDM.PurchasesDetail()
@@ -299,6 +310,10 @@ namespace Products.PL
 
             var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuppliers.EditValue));
             supplier.SupplierCharge += Convert.ToDouble(txtCharge.Text);
+
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
+
             db.SaveChanges();
             XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

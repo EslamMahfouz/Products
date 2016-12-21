@@ -22,6 +22,7 @@ namespace Products.PL
 
         private void btnAddSupplier_Click(object sender, EventArgs e)
         {
+            DateTime today = DateTime.Now;
             if (!valName.Validate())
             { return; }
 
@@ -36,8 +37,22 @@ namespace Products.PL
                 SupplierAddress = txtAddress.Text,
                 SupplierCharge = Convert.ToDouble(txtCharge.Text)
             };
-
             db.Suppliers.Add(s);
+
+            EDM.Purchase p = new EDM.Purchase()
+            {
+                //Sales Table
+                SupplierID = Convert.ToInt32(s.SupplierID),
+                PurchaseDate = Convert.ToDateTime(today),
+                PurchasePrice = 0,
+                PurchaseDiscount = 0,
+                PurchaseNetPrice = 0,
+                PurchasePaid = 0,
+                PurchaseCharge = Convert.ToDouble(txtCharge.Text),
+                PurchaseNumber = 0
+            };
+            db.Purchases.Add(p);
+
             db.SaveChanges();
             XtraMessageBox.Show("تم إضافة المورد بنجاح", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             

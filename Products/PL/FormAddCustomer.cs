@@ -22,6 +22,7 @@ namespace Products.PL
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
+            DateTime today = DateTime.Now;
             if (!valName.Validate())
             { return; }
 
@@ -29,7 +30,7 @@ namespace Products.PL
             {
                 txtCharge.Text = "0";
             }
-
+            
             EDM.Customer c = new EDM.Customer()
             {
                 CustomerName = txtName.Text,
@@ -38,11 +39,23 @@ namespace Products.PL
                 CustomerPhone = txtPhone.Text,
                 CustomerCharge = Convert.ToDouble(txtCharge.Text)              
             };
-
             db.Customers.Add(c);
+
+            EDM.Sale s = new EDM.Sale()
+            {
+                //Sales Table
+                CustomerID = Convert.ToInt32(c.CustomerID),
+                SaleDate = today,
+                SalePrice = 0,
+                SaleDiscount = 0,
+                SaleNetPrice = 0,
+                SalePaid = 0,
+                SaleCharge = Convert.ToDouble(txtCharge.Text),
+                SaleNumber = 0
+            };
+            db.Sales.Add(s);
             db.SaveChanges();
             XtraMessageBox.Show("تم إضافة العميل بنجاح", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             txtName.Text = "";
             txtTel.Text = "";
             txtPhone.Text = "";

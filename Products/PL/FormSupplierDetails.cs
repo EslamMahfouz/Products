@@ -147,8 +147,31 @@ namespace Products.PL
         }
         private void txtSaveCharge_Click(object sender, EventArgs e)
         {
+            DateTime today = DateTime.Now;
             var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuplierDetails.EditValue));
             supplier.SupplierCharge -= Convert.ToDouble(txtPaid.Text);
+            int value = Convert.ToInt32(cmbSuplierDetails.EditValue);
+            var purchase = from x in db.Purchases
+                       where x.SupplierID == value && x.PurchaseNumber == 0
+                       select x;
+
+            foreach (var item in purchase)
+            {
+                item.PurchasePaid += Convert.ToDouble(txtPaid.Text);
+                item.PurchaseCharge -= Convert.ToDouble(txtPaid.Text);
+            }
+
+            EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+            {
+                //purchasesPayments table
+                PurchaseNumber = 0,
+                PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
+                PurchasePayDate = Convert.ToDateTime(today),
+                purchaseDescription = "سداد باقى قديم",
+                SupplierID = Convert.ToInt32(cmbSuplierDetails.EditValue)
+            };
+            db.PurchasesPayments.Add(pp);
+
             db.SaveChanges();
             XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             showBoxs(false);
@@ -165,16 +188,18 @@ namespace Products.PL
             {
                 int purchaseID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
                 double paid = Convert.ToDouble(txtPaidOrder.Text);
-                DateTime dt = DateTime.Now;
-
+                DateTime today = DateTime.Now;
                 EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
                 {
-                    //PurchaseID = purchaseID,
-                    PurchasePayPaid = paid,
-                    PurchasePayDate = dt
+                    //salesPayments table
+                    PurchaseNumber = purchaseID,
+                    PurchasePayPaid = Convert.ToDouble(txtPaidOrder.Text),
+                    PurchasePayDate = Convert.ToDateTime(today),
+                    purchaseDescription = "سداد فاتورة شراء قديمة",
+                    SupplierID = Convert.ToInt32(cmbSuplierDetails.EditValue)
                 };
                 db.PurchasesPayments.Add(pp);
-
+                
                 var supplier = db.Suppliers.Find(Convert.ToDouble(cmbSuplierDetails.EditValue));
                 supplier.SupplierCharge -= paid;
 

@@ -80,8 +80,7 @@
             this.navBarItem8,
             this.navBarItem9,
             this.navBarItem10});
-            this.navBarControl1.Location = new System.Drawing.Point(952, 20);
-            this.navBarControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.navBarControl1.Location = new System.Drawing.Point(935, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 204;
             this.navBarControl1.Size = new System.Drawing.Size(204, 536);
@@ -272,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 590);
+            this.ClientSize = new System.Drawing.Size(1110, 479);
             this.Controls.Add(this.navBarControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);

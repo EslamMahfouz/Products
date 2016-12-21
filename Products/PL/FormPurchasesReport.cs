@@ -17,5 +17,12 @@ namespace Products.PL
         {
             InitializeComponent();
         }
+
+        private void FormPurchasesReport_Load(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Now.Date;
+            fromDate.Text = Convert.ToString(today);
+            toDate.Text = Convert.ToString(today);
+        }
     }
 }

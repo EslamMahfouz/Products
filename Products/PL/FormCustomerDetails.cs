@@ -158,8 +158,31 @@ namespace Products.PL
         {
             try
             {
+                DateTime today = DateTime.Now;
                 var customer = db.Customers.Find(Convert.ToInt32(cmbCustomerDetails.EditValue));
                 customer.CustomerCharge -= Convert.ToDouble(txtPaid.Text);
+                int value = Convert.ToInt32(cmbCustomerDetails.EditValue);
+                var sale =  from x in db.Sales
+                            where x.CustomerID == value && x.SaleNumber == 0
+                            select x ;
+                
+                foreach (var item in sale )
+                {
+                    item.SalePaid += Convert.ToDouble(txtPaid.Text);
+                    item.SaleCharge -= Convert.ToDouble(txtPaid.Text);
+                }
+
+                EDM.SalesPayment sp = new EDM.SalesPayment()
+                        {
+                            //salesPayments table
+                            SaleNumber = 0,
+                            SalePayPaid = Convert.ToDouble(txtPaid.Text),
+                            SalePayDate = Convert.ToDateTime(today),
+                            SaleDescription = "سداد باقى قديم",
+                            CustomerID = Convert.ToInt32(cmbCustomerDetails.EditValue)
+                         };
+                db.SalesPayments.Add(sp);
+
                 db.SaveChanges();
                 XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cmbCustomerDetails_EditValueChanged(sender, e);
@@ -185,15 +208,18 @@ namespace Products.PL
                 var customer = db.Customers.Find(Convert.ToInt32(cmbCustomerDetails.EditValue));
                 customer.CustomerCharge -= Convert.ToDouble(txtPaidOrder.Text);
 
-                DateTime dt = DateTime.Now;
+                DateTime today = DateTime.Now; 
                 EDM.SalesPayment sp = new EDM.SalesPayment()
                 {
-                    //SaleID = saleID,
+                    //salesPayments table
+                    SaleNumber = saleID,
                     SalePayPaid = Convert.ToDouble(txtPaidOrder.Text),
-                    ///// na2s charge 
-                    SalePayDate = dt
+                    SalePayDate = Convert.ToDateTime(today),
+                    SaleDescription = "سداد فاتورة بيع قديمة",
+                    CustomerID = Convert.ToInt32(cmbCustomerDetails.EditValue)
                 };
-
+                db.SalesPayments.Add(sp);
+                
                 db.SaveChanges();
                 XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cmbCustomerDetails_EditValueChanged(sender, e);
