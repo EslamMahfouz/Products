@@ -28,85 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnShow = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.toDate = new DevExpress.XtraEditors.DateEdit();
-            this.fromDate = new DevExpress.XtraEditors.DateEdit();
+            this.deTo = new DevExpress.XtraEditors.DateEdit();
+            this.deFrom = new DevExpress.XtraEditors.DateEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            ((System.ComponentModel.ISupportInitialize)(this.toDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fromDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fromDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deTo.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deTo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFrom.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // simpleButton1
+            // btnShow
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(12, 1);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(110, 39);
-            this.simpleButton1.TabIndex = 11;
-            this.simpleButton1.Text = "عرض ";
+            this.btnShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShow.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btnShow.Appearance.Options.UseFont = true;
+            this.btnShow.Location = new System.Drawing.Point(14, 1);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(128, 48);
+            this.btnShow.TabIndex = 11;
+            this.btnShow.Text = "عرض ";
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // labelControl2
             // 
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.labelControl2.Location = new System.Drawing.Point(366, 9);
+            this.labelControl2.Location = new System.Drawing.Point(427, 11);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(33, 27);
+            this.labelControl2.Size = new System.Drawing.Size(42, 33);
             this.labelControl2.TabIndex = 10;
             this.labelControl2.Text = "إلى";
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.labelControl1.Location = new System.Drawing.Point(651, 9);
+            this.labelControl1.Location = new System.Drawing.Point(759, 11);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(35, 27);
+            this.labelControl1.Size = new System.Drawing.Size(42, 33);
             this.labelControl1.TabIndex = 9;
             this.labelControl1.Text = "من ";
             // 
-            // toDate
+            // deTo
             // 
-            this.toDate.EditValue = null;
-            this.toDate.Location = new System.Drawing.Point(139, 8);
-            this.toDate.Name = "toDate";
-            this.toDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.toDate.Properties.Appearance.Options.UseFont = true;
-            this.toDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.deTo.EditValue = null;
+            this.deTo.Location = new System.Drawing.Point(162, 10);
+            this.deTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.deTo.Name = "deTo";
+            this.deTo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.deTo.Properties.Appearance.Options.UseFont = true;
+            this.deTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.toDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.toDate.Size = new System.Drawing.Size(208, 30);
-            this.toDate.TabIndex = 8;
+            this.deTo.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.deTo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.deTo.Size = new System.Drawing.Size(243, 34);
+            this.deTo.TabIndex = 8;
             // 
-            // fromDate
+            // deFrom
             // 
-            this.fromDate.EditValue = null;
-            this.fromDate.Location = new System.Drawing.Point(425, 8);
-            this.fromDate.Name = "fromDate";
-            this.fromDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.fromDate.Properties.Appearance.Options.UseFont = true;
-            this.fromDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.deFrom.EditValue = null;
+            this.deFrom.Location = new System.Drawing.Point(496, 10);
+            this.deFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.deFrom.Name = "deFrom";
+            this.deFrom.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.deFrom.Properties.Appearance.Options.UseFont = true;
+            this.deFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.fromDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.fromDate.Size = new System.Drawing.Size(208, 30);
-            this.fromDate.TabIndex = 7;
+            this.deFrom.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.deFrom.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.deFrom.Size = new System.Drawing.Size(243, 34);
+            this.deFrom.TabIndex = 7;
             // 
             // gridControl1
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridControl1.Location = new System.Drawing.Point(0, 42);
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl1.Location = new System.Drawing.Point(12, 52);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gridControl1.Size = new System.Drawing.Size(701, 355);
+            this.gridControl1.Size = new System.Drawing.Size(794, 424);
             this.gridControl1.TabIndex = 6;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -118,22 +135,23 @@
             // 
             // FormPurchasesReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 397);
-            this.Controls.Add(this.simpleButton1);
+            this.ClientSize = new System.Drawing.Size(818, 489);
+            this.Controls.Add(this.btnShow);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.toDate);
-            this.Controls.Add(this.fromDate);
+            this.Controls.Add(this.deTo);
+            this.Controls.Add(this.deFrom);
             this.Controls.Add(this.gridControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormPurchasesReport";
             this.Text = "تقارير شراء";
             this.Load += new System.EventHandler(this.FormPurchasesReport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.toDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fromDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fromDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deTo.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deTo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFrom.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
@@ -143,11 +161,11 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnShow;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.DateEdit toDate;
-        private DevExpress.XtraEditors.DateEdit fromDate;
+        private DevExpress.XtraEditors.DateEdit deTo;
+        private DevExpress.XtraEditors.DateEdit deFrom;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
