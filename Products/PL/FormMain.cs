@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Products.PL
 {
-    public partial class FormMain : Form
+    public partial class FormMain : XtraForm
     {
         
         public FormMain()
