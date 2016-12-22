@@ -66,17 +66,21 @@ namespace Products.PL
             PayOrderBoxs(false);
         }
 
-
         private void cmbCustomerDetails_EditValueChanged(object sender, EventArgs e)
         {
             try
             {
                 int customerID = Convert.ToInt32(cmbCustomerDetails.EditValue);
-                var customers = db.Customers.Find(customerID);
-                txtTel.Text = customers.CustomerTel.ToString();
-                txtPhone.Text = customers.CustomerPhone.ToString();
-                txtAddress.Text = customers.CustomerAddress.ToString();
-                txtCharge.Text = customers.CustomerCharge.ToString();
+                var customer = db.Customers.Find(customerID);
+                txtTel.Text = customer.CustomerTel.ToString();
+                txtPhone.Text = customer.CustomerPhone.ToString();
+                txtAddress.Text = customer.CustomerAddress.ToString();
+                txtCharge.Text = customer.CustomerCharge.ToString();
+
+                if(customer.CustomerCharge == 0)
+                {
+                    btnPay.Enabled = false;
+                }
 
                 //gridPruchases
                 var Sales = from x in db.Sales
@@ -94,17 +98,23 @@ namespace Products.PL
                             };
 
                 gridControl1.DataSource = Sales.ToList();
+
+                if (gridView2.RowCount == 0)
+                {
+                    btnShowRowDetails.Enabled = false;
+                    btnPayOrder.Enabled = false;
+                }
+
                 gridView2.BestFitColumns();
             }
             catch
-            { return; }
-
-            db.SaveChanges();
+            {
+                return;
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
             if (XtraMessageBox.Show("هل تريد تأكيد الحذف؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int customerID = Convert.ToInt32(cmbCustomerDetails.EditValue);
@@ -161,21 +171,10 @@ namespace Products.PL
                 DateTime today = DateTime.Now;
                 var customer = db.Customers.Find(Convert.ToInt32(cmbCustomerDetails.EditValue));
                 customer.CustomerCharge -= Convert.ToDouble(txtPaid.Text);
-                int value = Convert.ToInt32(cmbCustomerDetails.EditValue);
-                var sale =  from x in db.Sales
-                            where x.CustomerID == value && x.SaleNumber == 0
-                            select x ;
-                
-                foreach (var item in sale )
-                {
-                    item.SalePaid += Convert.ToDouble(txtPaid.Text);
-                    item.SaleCharge -= Convert.ToDouble(txtPaid.Text);
-                }
 
                 EDM.SalesPayment sp = new EDM.SalesPayment()
                         {
                             //salesPayments table
-                            SaleNumber = 0,
                             SalePayPaid = Convert.ToDouble(txtPaid.Text),
                             SalePayDate = Convert.ToDateTime(today),
                             SaleDescription = "سداد باقى قديم",
@@ -230,9 +229,13 @@ namespace Products.PL
             { return; }
         }
 
-        private void xtraTabPage1_Paint(object sender, PaintEventArgs e)
+        private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-
+            double charge = Convert.ToDouble(gridView2.GetFocusedRowCellValue("المتبقي"));
+            if (charge == 0)
+            {
+                btnPayOrder.Enabled = false;
+            }
         }
     }
 }

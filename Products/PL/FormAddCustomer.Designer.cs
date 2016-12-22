@@ -119,11 +119,13 @@
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.EnterMoveNextControl = true;
             this.txtName.Location = new System.Drawing.Point(27, 72);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtName.Properties.Appearance.Options.UseFont = true;
+            this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtName.Size = new System.Drawing.Size(202, 30);
             this.txtName.TabIndex = 6;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -133,39 +135,47 @@
             // txtTel
             // 
             this.txtTel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTel.EnterMoveNextControl = true;
             this.txtTel.Location = new System.Drawing.Point(27, 116);
             this.txtTel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTel.Name = "txtTel";
             this.txtTel.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtTel.Properties.Appearance.Options.UseFont = true;
+            this.txtTel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTel.Size = new System.Drawing.Size(202, 30);
             this.txtTel.TabIndex = 7;
             // 
             // txtPhone
             // 
             this.txtPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPhone.EnterMoveNextControl = true;
             this.txtPhone.Location = new System.Drawing.Point(27, 154);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPhone.Properties.Appearance.Options.UseFont = true;
+            this.txtPhone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtPhone.Size = new System.Drawing.Size(202, 30);
             this.txtPhone.TabIndex = 8;
             // 
             // txtAddress
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAddress.EnterMoveNextControl = true;
             this.txtAddress.Location = new System.Drawing.Point(27, 195);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtAddress.Properties.Appearance.Options.UseFont = true;
+            this.txtAddress.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtAddress.Size = new System.Drawing.Size(202, 30);
             this.txtAddress.TabIndex = 9;
             // 
             // txtCharge
             // 
             this.txtCharge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCharge.EditValue = 0D;
+            this.txtCharge.EnterMoveNextControl = true;
             this.txtCharge.Location = new System.Drawing.Point(27, 238);
             this.txtCharge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCharge.Name = "txtCharge";
@@ -173,6 +183,8 @@
             this.txtCharge.Properties.Appearance.Options.UseFont = true;
             this.txtCharge.Properties.Mask.EditMask = "f";
             this.txtCharge.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtCharge.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtCharge.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtCharge.Size = new System.Drawing.Size(202, 30);
             this.txtCharge.TabIndex = 10;
             // 

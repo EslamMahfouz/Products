@@ -19,13 +19,21 @@ namespace Products.PL
         public FormPurchasesReport()
         {
             InitializeComponent();
+            DateTime today = DateTime.Now.Date;
+            deFrom.EditValue = today;
+            deTo.EditValue = today;
         }
 
         private void FormPurchasesReport_Load(object sender, EventArgs e)
         {
-            DateTime today = DateTime.Now.Date;
-            deFrom.EditValue = today;
-            deTo.EditValue = today;
+            DateTime dateFrom = Convert.ToDateTime(deFrom.EditValue);
+            DateTime dateTo = Convert.ToDateTime(deTo.EditValue);
+
+            var pp = from p in db.PurchasesPayments
+                     where ((EntityFunctions.TruncateTime(p.PurchasePayDate)) >= dateFrom && (EntityFunctions.TruncateTime(p.PurchasePayDate)) <= dateTo)
+                     select new { رقم_الفاتورة = p.PurchaseNumber, الوصف = p.purchaseDescription, المدفوع = p.PurchasePayPaid, التاريخ = p.PurchasePayDate };
+            gridControl1.DataSource = pp.ToList();
+            gridView1.Columns["المدفوع"].Summary.Add(DevExpress.Data.SummaryItemType.Sum, "المدفوع", "الإجمالي ={0:n2}");
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -34,8 +42,8 @@ namespace Products.PL
             DateTime dateTo = Convert.ToDateTime(deTo.EditValue);
 
             var pp = from p in db.PurchasesPayments
-                       where ((EntityFunctions.TruncateTime(p.PurchasePayDate)) >= dateFrom && (EntityFunctions.TruncateTime(p.PurchasePayDate)) <= dateTo)
-                     select new { رقم_الفاتورة = p.PurchaseNumber, الوصف = p.purchaseDescription, المدفوع = p.PurchasePayPaid, التاريخ = p.PurchasePayDate};
+                     where ((EntityFunctions.TruncateTime(p.PurchasePayDate)) >= dateFrom && (EntityFunctions.TruncateTime(p.PurchasePayDate)) <= dateTo)
+                     select new { رقم_الفاتورة = p.PurchaseNumber, الوصف = p.purchaseDescription, المدفوع = p.PurchasePayPaid, التاريخ = p.PurchasePayDate };
             gridControl1.DataSource = pp.ToList();
         }
     }

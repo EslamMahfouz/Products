@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnAddCategory = new DevExpress.XtraNavBar.NavBarItem();
@@ -44,8 +45,8 @@
             this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnPurchasesReports = new DevExpress.XtraNavBar.NavBarItem();
             this.btnSalesReports = new DevExpress.XtraNavBar.NavBarItem();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
@@ -79,10 +80,10 @@
             this.btnAddSale,
             this.btnPurchasesReports,
             this.btnSalesReports});
-            this.navBarControl1.Location = new System.Drawing.Point(830, 20);
+            this.navBarControl1.Location = new System.Drawing.Point(978, 20);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 280;
-            this.navBarControl1.Size = new System.Drawing.Size(280, 425);
+            this.navBarControl1.Size = new System.Drawing.Size(280, 533);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             // 
@@ -195,6 +196,7 @@
             this.navBarGroup5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup5.Appearance.Options.UseFont = true;
             this.navBarGroup5.Caption = "تقارير";
+            this.navBarGroup5.Expanded = true;
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnPurchasesReports),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnSalesReports)});
@@ -204,7 +206,7 @@
             // 
             this.btnPurchasesReports.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnPurchasesReports.Appearance.Options.UseFont = true;
-            this.btnPurchasesReports.Caption = "تقارير شراء";
+            this.btnPurchasesReports.Caption = "تقرير مصروفات";
             this.btnPurchasesReports.Name = "btnPurchasesReports";
             this.btnPurchasesReports.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnPurchasesReports_LinkClicked);
             // 
@@ -212,7 +214,7 @@
             // 
             this.btnSalesReports.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnSalesReports.Appearance.Options.UseFont = true;
-            this.btnSalesReports.Caption = "تقارير بيع";
+            this.btnSalesReports.Caption = "تقرير إيرادات";
             this.btnSalesReports.Name = "btnSalesReports";
             this.btnSalesReports.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnSalesReports_LinkClicked);
             // 
@@ -273,34 +275,34 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1110, 20);
+            this.barDockControlTop.Size = new System.Drawing.Size(1258, 20);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 445);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1110, 34);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 553);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1258, 34);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 425);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 533);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1110, 20);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 425);
+            this.barDockControlRight.Location = new System.Drawing.Point(1258, 20);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 533);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 479);
+            this.ClientSize = new System.Drawing.Size(1258, 587);
             this.Controls.Add(this.navBarControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
