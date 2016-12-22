@@ -24,8 +24,8 @@ namespace Products.PL
         private void FormSalesReport_Load(object sender, EventArgs e)
         {
             DateTime today = DateTime.Now.Date;
-            deFrom.Text = Convert.ToString( today );
-            deTo.Text = Convert.ToString(today);
+            deFrom.EditValue = today ;
+            deTo.EditValue = today;
             
         }
 
@@ -34,10 +34,10 @@ namespace Products.PL
             DateTime dateFrom = Convert.ToDateTime(deFrom.EditValue);
             DateTime dateTo = Convert.ToDateTime(deTo.EditValue);
 
-            var pp = from p in db.PurchasesPayments
-                     where ((EntityFunctions.TruncateTime(p.PurchasePayDate)) >= dateFrom && (EntityFunctions.TruncateTime(p.PurchasePayDate)) <= dateTo)
-                     select new { رقم_الفاتورة = p.PurchaseNumber, الوصف = p.purchaseDescription, المدفوع = p.PurchasePayPaid, التاريخ = p.PurchasePayDate };
-            gridControl1.DataSource = pp.ToList();
+            var sp = from p in db.SalesPayments
+                     where ((EntityFunctions.TruncateTime(p.SalePayDate)) >= dateFrom && (EntityFunctions.TruncateTime(p.SalePayDate)) <= dateTo)
+                     select new { رقم_الفاتورة = p.SaleNumber, الوصف = p.SaleDescription, المدفوع = p.SalePayPaid, التاريخ = p.SalePayDate };
+            gridControl1.DataSource = sp.ToList();
 
         }
     }
