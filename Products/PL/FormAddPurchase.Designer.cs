@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lblOrderID = new DevExpress.XtraEditors.LabelControl();
             this.deDate = new DevExpress.XtraEditors.DateEdit();
@@ -132,7 +132,7 @@
             // lblOrderID
             // 
             this.lblOrderID.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblOrderID.Location = new System.Drawing.Point(393, 15);
+            this.lblOrderID.Location = new System.Drawing.Point(409, 15);
             this.lblOrderID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblOrderID.Name = "lblOrderID";
             this.lblOrderID.Size = new System.Drawing.Size(40, 19);
@@ -154,13 +154,13 @@
             this.deDate.Properties.Mask.EditMask = "g";
             this.deDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.deDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.deDate.Size = new System.Drawing.Size(177, 26);
+            this.deDate.Size = new System.Drawing.Size(245, 26);
             this.deDate.TabIndex = 5;
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl3.Location = new System.Drawing.Point(455, 13);
+            this.labelControl3.Location = new System.Drawing.Point(471, 13);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(89, 23);
@@ -170,7 +170,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl2.Location = new System.Drawing.Point(184, 12);
+            this.labelControl2.Location = new System.Drawing.Point(254, 13);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(97, 23);
@@ -222,9 +222,9 @@
             this.cmbCategories.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCategories.Size = new System.Drawing.Size(333, 26);
             this.cmbCategories.TabIndex = 18;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "برجاء إختيار صنف";
-            this.valCategory.SetValidationRule(this.cmbCategories, conditionValidationRule1);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "برجاء إختيار صنف";
+            this.valCategory.SetValidationRule(this.cmbCategories, conditionValidationRule4);
             this.cmbCategories.EditValueChanged += new System.EventHandler(this.cmbCategories_EditValueChanged);
             // 
             // gridView2
@@ -409,9 +409,9 @@
             this.cmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbProducts.Size = new System.Drawing.Size(333, 26);
             this.cmbProducts.TabIndex = 2;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "برجاء إختيار منتج";
-            this.valProduct.SetValidationRule(this.cmbProducts, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "برجاء إختيار منتج";
+            this.valProduct.SetValidationRule(this.cmbProducts, conditionValidationRule1);
             this.cmbProducts.EditValueChanged += new System.EventHandler(this.cmbProducts_EditValueChanged);
             // 
             // gridView1
@@ -459,9 +459,9 @@
             this.cmbSuppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbSuppliers.Size = new System.Drawing.Size(332, 26);
             this.cmbSuppliers.TabIndex = 0;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "برجاء إختيار مورد";
-            this.valSupplier.SetValidationRule(this.cmbSuppliers, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "برجاء إختيار مورد";
+            this.valSupplier.SetValidationRule(this.cmbSuppliers, conditionValidationRule2);
             this.cmbSuppliers.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmbSuppliers_ButtonClick);
             // 
             // searchLookUpEdit1View
@@ -484,7 +484,7 @@
             // txtTotal
             // 
             this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotal.Location = new System.Drawing.Point(5, 78);
+            this.txtTotal.Location = new System.Drawing.Point(6, 82);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -501,7 +501,7 @@
             // 
             this.txtDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiscount.EditValue = 0D;
-            this.txtDiscount.Location = new System.Drawing.Point(258, 77);
+            this.txtDiscount.Location = new System.Drawing.Point(259, 81);
             this.txtDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -518,7 +518,7 @@
             // 
             this.labelControl14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl14.Location = new System.Drawing.Point(231, 77);
+            this.labelControl14.Location = new System.Drawing.Point(232, 81);
             this.labelControl14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(19, 23);
@@ -563,7 +563,7 @@
             this.groupControl1.Location = new System.Drawing.Point(590, 253);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(447, 185);
+            this.groupControl1.Size = new System.Drawing.Size(447, 198);
             this.groupControl1.TabIndex = 12;
             this.groupControl1.Text = "بيانات الحساب";
             // 
@@ -571,9 +571,9 @@
             // 
             this.txtSave.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtSave.Appearance.Options.UseFont = true;
-            this.txtSave.Location = new System.Drawing.Point(5, 138);
+            this.txtSave.Location = new System.Drawing.Point(5, 148);
             this.txtSave.Name = "txtSave";
-            this.txtSave.Size = new System.Drawing.Size(337, 35);
+            this.txtSave.Size = new System.Drawing.Size(410, 50);
             this.txtSave.TabIndex = 28;
             this.txtSave.Text = "حفظ الفاتورة";
             this.txtSave.Click += new System.EventHandler(this.txtSave_Click);
@@ -582,7 +582,7 @@
             // 
             this.labelControl18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl18.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl18.Location = new System.Drawing.Point(364, 77);
+            this.labelControl18.Location = new System.Drawing.Point(365, 81);
             this.labelControl18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(51, 23);
@@ -592,7 +592,7 @@
             // txtCharge
             // 
             this.txtCharge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCharge.Location = new System.Drawing.Point(5, 105);
+            this.txtCharge.Location = new System.Drawing.Point(6, 112);
             this.txtCharge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCharge.Name = "txtCharge";
             this.txtCharge.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -609,7 +609,7 @@
             // 
             this.labelControl16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl16.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl16.Location = new System.Drawing.Point(124, 105);
+            this.labelControl16.Location = new System.Drawing.Point(125, 111);
             this.labelControl16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(65, 23);
@@ -620,7 +620,7 @@
             // 
             this.txtPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPaid.EditValue = 0D;
-            this.txtPaid.Location = new System.Drawing.Point(258, 104);
+            this.txtPaid.Location = new System.Drawing.Point(232, 112);
             this.txtPaid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPaid.Name = "txtPaid";
             this.txtPaid.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -629,7 +629,7 @@
             this.txtPaid.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPaid.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtPaid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPaid.Size = new System.Drawing.Size(84, 26);
+            this.txtPaid.Size = new System.Drawing.Size(111, 26);
             this.txtPaid.TabIndex = 27;
             this.txtPaid.EditValueChanged += new System.EventHandler(this.txtPaid_EditValueChanged);
             // 
@@ -637,7 +637,7 @@
             // 
             this.labelControl17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl17.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl17.Location = new System.Drawing.Point(357, 104);
+            this.labelControl17.Location = new System.Drawing.Point(358, 115);
             this.labelControl17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(60, 23);
@@ -648,7 +648,7 @@
             // 
             this.labelControl15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl15.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl15.Location = new System.Drawing.Point(117, 77);
+            this.labelControl15.Location = new System.Drawing.Point(118, 81);
             this.labelControl15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(72, 23);
@@ -679,7 +679,7 @@
             this.groupControl3.Location = new System.Drawing.Point(9, 55);
             this.groupControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(576, 382);
+            this.groupControl3.Size = new System.Drawing.Size(576, 396);
             this.groupControl3.TabIndex = 28;
             this.groupControl3.Text = "بيانات الفاتورة";
             // 
@@ -687,9 +687,9 @@
             // 
             this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.Location = new System.Drawing.Point(2, 336);
+            this.btnDelete.Location = new System.Drawing.Point(2, 346);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(278, 35);
+            this.btnDelete.Size = new System.Drawing.Size(278, 50);
             this.btnDelete.TabIndex = 30;
             this.btnDelete.Text = "مسح";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -698,9 +698,9 @@
             // 
             this.btnEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnEdit.Appearance.Options.UseFont = true;
-            this.btnEdit.Location = new System.Drawing.Point(294, 336);
+            this.btnEdit.Location = new System.Drawing.Point(294, 346);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(278, 35);
+            this.btnEdit.Size = new System.Drawing.Size(278, 50);
             this.btnEdit.TabIndex = 29;
             this.btnEdit.Text = "تعديل";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -713,7 +713,7 @@
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gridControl1.Size = new System.Drawing.Size(570, 291);
+            this.gridControl1.Size = new System.Drawing.Size(570, 307);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -730,7 +730,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1047, 441);
+            this.ClientSize = new System.Drawing.Size(1047, 453);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.panelControl2);

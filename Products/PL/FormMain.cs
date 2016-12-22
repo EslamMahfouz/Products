@@ -50,7 +50,7 @@ namespace Products.PL
         private void btnAddCategory_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             FormAddCategory frm = new FormAddCategory();
-            frm.ShowDialog();
+            AddForm(frm);
         }
         private void btnAddProduct_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
