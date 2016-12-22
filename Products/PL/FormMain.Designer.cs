@@ -197,6 +197,7 @@
             this.navBarGroup5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup5.Appearance.Options.UseFont = true;
             this.navBarGroup5.Caption = "تقارير";
+            this.navBarGroup5.Expanded = true;
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnPurchasesReports),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnSalesReports)});
@@ -206,7 +207,7 @@
             // 
             this.btnPurchasesReports.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnPurchasesReports.Appearance.Options.UseFont = true;
-            this.btnPurchasesReports.Caption = "تقارير شراء";
+            this.btnPurchasesReports.Caption = "تقرير مصروفات";
             this.btnPurchasesReports.Name = "btnPurchasesReports";
             this.btnPurchasesReports.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnPurchasesReports_LinkClicked);
             // 
@@ -214,7 +215,7 @@
             // 
             this.btnSalesReports.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnSalesReports.Appearance.Options.UseFont = true;
-            this.btnSalesReports.Caption = "تقارير بيع";
+            this.btnSalesReports.Caption = "تقرير إيرادات";
             this.btnSalesReports.Name = "btnSalesReports";
             this.btnSalesReports.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnSalesReports_LinkClicked);
             // 

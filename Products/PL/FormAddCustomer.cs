@@ -25,11 +25,6 @@ namespace Products.PL
             DateTime today = DateTime.Now;
             if (!valName.Validate())
             { return; }
-
-            if (txtCharge.Text == "")
-            {
-                txtCharge.Text = "0";
-            }
             
             EDM.Customer c = new EDM.Customer()
             {
@@ -40,27 +35,15 @@ namespace Products.PL
                 CustomerCharge = Convert.ToDouble(txtCharge.Text)              
             };
             db.Customers.Add(c);
-
-            EDM.Sale s = new EDM.Sale()
-            {
-                //Sales Table
-                CustomerID = Convert.ToInt32(c.CustomerID),
-                SaleDate = today,
-                SalePrice = 0,
-                SaleDiscount = 0,
-                SaleNetPrice = 0,
-                SalePaid = 0,
-                SaleCharge = Convert.ToDouble(txtCharge.Text),
-                SaleNumber = 0
-            };
-            db.Sales.Add(s);
             db.SaveChanges();
+
             XtraMessageBox.Show("تم إضافة العميل بنجاح", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtName.Text = "";
             txtTel.Text = "";
             txtPhone.Text = "";
             txtAddress.Text = "";
             txtCharge.Text = "";
+            txtName.Focus();
 
         }
         

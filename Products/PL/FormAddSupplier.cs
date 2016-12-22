@@ -26,9 +26,6 @@ namespace Products.PL
             if (!valName.Validate())
             { return; }
 
-            if (txtCharge.Text == "")
-            { txtCharge.Text = "0"; }
-
             EDM.Supplier s = new EDM.Supplier()
             {
                 SupplierName = txtName.Text,
@@ -39,20 +36,6 @@ namespace Products.PL
             };
             db.Suppliers.Add(s);
 
-            EDM.Purchase p = new EDM.Purchase()
-            {
-                //Sales Table
-                SupplierID = Convert.ToInt32(s.SupplierID),
-                PurchaseDate = Convert.ToDateTime(today),
-                PurchasePrice = 0,
-                PurchaseDiscount = 0,
-                PurchaseNetPrice = 0,
-                PurchasePaid = 0,
-                PurchaseCharge = Convert.ToDouble(txtCharge.Text),
-                PurchaseNumber = 0
-            };
-            db.Purchases.Add(p);
-
             db.SaveChanges();
             XtraMessageBox.Show("تم إضافة المورد بنجاح", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
@@ -61,7 +44,7 @@ namespace Products.PL
             txtPhone.Text = "";
             txtAddress.Text = "";
             txtCharge.Text = "";
-
+            txtName.Focus();
         }
     }
 }

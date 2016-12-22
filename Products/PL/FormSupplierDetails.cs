@@ -65,11 +65,17 @@ namespace Products.PL
             try
             {
                 int supplierID = Convert.ToInt32(cmbSuplierDetails.EditValue);
-                var suppliers = db.Suppliers.Find(supplierID);
-                txtTel.Text = suppliers.SupplierTel;
-                txtPhone.Text = suppliers.SupplierPhone;
-                txtAddress.Text = suppliers.SupplierAddress;
-                txtCharge.Text = suppliers.SupplierCharge.ToString();
+                var supplier = db.Suppliers.Find(supplierID);
+                txtTel.Text = supplier.SupplierTel;
+                txtPhone.Text = supplier.SupplierPhone;
+                txtAddress.Text = supplier.SupplierAddress;
+                txtCharge.Text = supplier.SupplierCharge.ToString();
+
+                if (supplier.SupplierCharge == 0)
+                {
+                    btnPay.Enabled = false;
+
+                }
 
                 //gridPruchases
                 var purchases = from x in db.Purchases
@@ -87,7 +93,15 @@ namespace Products.PL
 
                                 };
 
+
                 gridControl1.DataSource = purchases.ToList();
+
+                if (gridView2.RowCount == 0)
+                {
+                    btnShowRowDetails.Enabled = false;
+                    btnPayOrder.Enabled = false;
+                }
+
                 gridView2.BestFitColumns(); // دا لزمته انه بيظبط المسافات بين الاعمدة
             }
             catch
@@ -138,21 +152,10 @@ namespace Products.PL
             DateTime today = DateTime.Now;
             var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuplierDetails.EditValue));
             supplier.SupplierCharge -= Convert.ToDouble(txtPaid.Text);
-            int value = Convert.ToInt32(cmbSuplierDetails.EditValue);
-            var purchase = from x in db.Purchases
-                       where x.SupplierID == value && x.PurchaseNumber == 0
-                       select x;
-
-            foreach (var item in purchase)
-            {
-                item.PurchasePaid += Convert.ToDouble(txtPaid.Text);
-                item.PurchaseCharge -= Convert.ToDouble(txtPaid.Text);
-            }
 
             EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
             {
                 //purchasesPayments table
-                PurchaseNumber = 0,
                 PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
                 PurchasePayDate = Convert.ToDateTime(today),
                 purchaseDescription = "سداد باقى قديم",
@@ -202,6 +205,16 @@ namespace Products.PL
             {
                 return;
             }
+        }
+
+        private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            double charge = Convert.ToDouble(gridView2.GetFocusedRowCellValue("المتبقي"));
+            if (charge == 0)
+            {
+                btnPayOrder.Enabled = false;
+            }
+
         }
     }
 }
