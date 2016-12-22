@@ -156,24 +156,29 @@ namespace Products.PL
         }
         private void txtSaveCharge_Click(object sender, EventArgs e)
         {
-            DateTime today = DateTime.Now;
-            var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuplierDetails.EditValue));
-            supplier.SupplierCharge -= Convert.ToDouble(txtPaid.Text);
-
-            EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+            try
             {
-                //purchasesPayments table
-                PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
-                PurchasePayDate = Convert.ToDateTime(today),
-                purchaseDescription = "سداد باقى قديم",
-                SupplierID = Convert.ToInt32(cmbSuplierDetails.EditValue)
-            };
-            db.PurchasesPayments.Add(pp);
+                DateTime today = DateTime.Now;
+                var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuplierDetails.EditValue));
+                supplier.SupplierCharge -= Convert.ToDouble(txtPaid.Text);
 
-            db.SaveChanges();
-            XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            showBoxs(false);
-            cmbSuplierDetails_EditValueChanged(sender, e);
+                EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+                {
+                    //purchasesPayments table
+                    PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
+                    PurchasePayDate = Convert.ToDateTime(today),
+                    purchaseDescription = "سداد باقى قديم",
+                    SupplierID = Convert.ToInt32(cmbSuplierDetails.EditValue)
+                };
+                db.PurchasesPayments.Add(pp);
+
+                db.SaveChanges();
+                XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                showBoxs(false);
+                cmbSuplierDetails_EditValueChanged(sender, e);
+            }
+            catch
+            { return; }
         }
 
         private void btnPayOrder_Click(object sender, EventArgs e)
