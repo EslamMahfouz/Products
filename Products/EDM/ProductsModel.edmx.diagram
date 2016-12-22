@@ -10,10 +10,8 @@
         <EntityTypeShape EntityType="ProductsModel.Product" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProductsModel.Purchase" Width="1.5" PointX="10" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ProductsModel.PurchasesDetail" Width="1.5" PointX="12.25" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProductsModel.PurchasesPayment" Width="1.5" PointX="12.25" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="ProductsModel.Sale" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ProductsModel.SalesDetail" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProductsModel.SalesPayment" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="ProductsModel.Supplier" Width="1.5" PointX="7.75" PointY="2.625" IsExpanded="true" />
         <AssociationConnector Association="ProductsModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="ProductsModel.FK_Sales_Customers" ManuallyRouted="false" />
@@ -21,9 +19,11 @@
         <AssociationConnector Association="ProductsModel.FK_SalesDetails_Products" ManuallyRouted="false" />
         <AssociationConnector Association="ProductsModel.FK_Purchases_Suppliers" ManuallyRouted="false" />
         <AssociationConnector Association="ProductsModel.FK_PurchasesDetails_Purchases" ManuallyRouted="false" />
-        <AssociationConnector Association="ProductsModel.FK_PurchasesPayments_Purchases" ManuallyRouted="false" />
         <AssociationConnector Association="ProductsModel.FK_SalesDetails_Sales" ManuallyRouted="false" />
-        <AssociationConnector Association="ProductsModel.FK_SalesPayments_Sales" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProductsModel.PurchasesPayment" Width="1.5" PointX="10" PointY="6.75" />
+        <EntityTypeShape EntityType="ProductsModel.SalesPayment" Width="1.5" PointX="3" PointY="11.75" />
+        <AssociationConnector Association="ProductsModel.FK_SalesPayments_Customers" />
+        <AssociationConnector Association="ProductsModel.FK_PurchasesPayments_Suppliers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

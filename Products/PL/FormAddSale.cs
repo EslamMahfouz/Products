@@ -1,4 +1,4 @@
-﻿using DevExpress.DXCore.Controls.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Products.PL
 {
-    public partial class FormAddSale : Form
+    public partial class FormAddSale : XtraForm
     {
         EDM.ProductsEntities db = new EDM.ProductsEntities();
         DataTable dt = new DataTable();
@@ -255,6 +255,7 @@ namespace Products.PL
             }
             gridControl1.DataSource = dt;
             TotalCalc();
+            DisscountCalc();
         }
 
         private void txtEdit_Click(object sender, EventArgs e)
@@ -306,6 +307,17 @@ namespace Products.PL
             };
             db.Sales.Add(s);
 
+            EDM.SalesPayment sp = new EDM.SalesPayment()
+            {
+                //salesPayments table
+                SaleNumber = Convert.ToInt32(lblOrderID.Text),
+                SalePayPaid = Convert.ToDouble(txtPaid.Text),
+                SalePayDate = Convert.ToDateTime(deDate.EditValue),
+                SaleDescription = "فاتورة بيع جديدة",
+                CustomerID = Convert.ToInt32(cmbCustomers.EditValue)
+            };
+            db.SalesPayments.Add(sp);
+            
             foreach(DataRow dar in dt.Rows)
             {
                 EDM.SalesDetail sd = new EDM.SalesDetail()
@@ -324,6 +336,9 @@ namespace Products.PL
 
             var customer = db.Customers.Find(Convert.ToInt32(cmbCustomers.EditValue));
             customer.CustomerCharge += Convert.ToDouble(txtCharge.Text);
+
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
 
             db.SaveChanges();
 

@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.CodeRush.Common, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
     <Reference Include="DevExpress.CodeRush.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
     <Reference Include="DevExpress.CodeRush.Extensions, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
@@ -47,9 +48,11 @@
     <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -166,17 +169,23 @@
     <Compile Include="PL\FormCustomerDetails.Designer.cs">
       <DependentUpon>FormCustomerDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\FormOrderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FormOrderDetails.Designer.cs">
+      <DependentUpon>FormOrderDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PL\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormPurchasesPayments.cs">
+    <Compile Include="PL\FormProductEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormPurchasesPayments.Designer.cs">
-      <DependentUpon>FormPurchasesPayments.cs</DependentUpon>
+    <Compile Include="PL\FormProductEdit.Designer.cs">
+      <DependentUpon>FormProductEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FormPurchasesReport.cs">
       <SubType>Form</SubType>
@@ -184,17 +193,17 @@
     <Compile Include="PL\FormPurchasesReport.Designer.cs">
       <DependentUpon>FormPurchasesReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormSalesPayments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FormSalesPayments.Designer.cs">
-      <DependentUpon>FormSalesPayments.cs</DependentUpon>
-    </Compile>
     <Compile Include="PL\FormSalesReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PL\FormSalesReport.Designer.cs">
       <DependentUpon>FormSalesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FormShowProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FormShowProducts.Designer.cs">
+      <DependentUpon>FormShowProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FormSupplierDetails.cs">
       <SubType>Form</SubType>
@@ -222,8 +231,29 @@
     <EmbeddedResource Include="PL\FormAddSupplier.resx">
       <DependentUpon>FormAddSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormPurchasesPayments.resx">
-      <DependentUpon>FormPurchasesPayments.cs</DependentUpon>
+    <EmbeddedResource Include="PL\FormCustomerDetails.resx">
+      <DependentUpon>FormCustomerDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormOrderDetails.resx">
+      <DependentUpon>FormOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormProductEdit.resx">
+      <DependentUpon>FormProductEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormPurchasesReport.resx">
+      <DependentUpon>FormPurchasesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormSalesReport.resx">
+      <DependentUpon>FormSalesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormShowProducts.resx">
+      <DependentUpon>FormShowProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormSupplierDetails.resx">
+      <DependentUpon>FormSupplierDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

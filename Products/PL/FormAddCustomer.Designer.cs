@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -42,7 +41,7 @@
             this.txtAddress = new DevExpress.XtraEditors.TextEdit();
             this.txtCharge = new DevExpress.XtraEditors.TextEdit();
             this.btnAddCustomer = new DevExpress.XtraEditors.SimpleButton();
-            this.valName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.valName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
@@ -53,65 +52,81 @@
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.labelControl1.Location = new System.Drawing.Point(77, 12);
+            this.labelControl1.Location = new System.Drawing.Point(124, 15);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(108, 27);
+            this.labelControl1.Size = new System.Drawing.Size(131, 33);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "إضافة عميل";
             // 
             // labelControl2
             // 
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl2.Location = new System.Drawing.Point(191, 60);
+            this.labelControl2.Location = new System.Drawing.Point(236, 72);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(95, 23);
+            this.labelControl2.Size = new System.Drawing.Size(119, 29);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "إسم العميل";
             // 
             // labelControl3
             // 
+            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl3.Location = new System.Drawing.Point(224, 96);
+            this.labelControl3.Location = new System.Drawing.Point(274, 116);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(62, 23);
+            this.labelControl3.Size = new System.Drawing.Size(76, 29);
             this.labelControl3.TabIndex = 3;
             this.labelControl3.Text = "التليفون";
             // 
             // labelControl4
             // 
+            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl4.Location = new System.Drawing.Point(226, 127);
+            this.labelControl4.Location = new System.Drawing.Point(277, 154);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(60, 23);
+            this.labelControl4.Size = new System.Drawing.Size(77, 29);
             this.labelControl4.TabIndex = 2;
             this.labelControl4.Text = "الموبايل";
             // 
             // labelControl5
             // 
+            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl5.Location = new System.Drawing.Point(234, 160);
+            this.labelControl5.Location = new System.Drawing.Point(286, 195);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(52, 23);
+            this.labelControl5.Size = new System.Drawing.Size(66, 29);
             this.labelControl5.TabIndex = 5;
             this.labelControl5.Text = "العنوان";
             // 
             // labelControl6
             // 
+            this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl6.Location = new System.Drawing.Point(221, 195);
+            this.labelControl6.Location = new System.Drawing.Point(271, 238);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(65, 23);
+            this.labelControl6.Size = new System.Drawing.Size(80, 29);
             this.labelControl6.TabIndex = 4;
             this.labelControl6.Text = "المتبقى";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(12, 60);
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.EnterMoveNextControl = true;
+            this.txtName.Location = new System.Drawing.Point(27, 72);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Size = new System.Drawing.Size(173, 26);
+            this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtName.Size = new System.Drawing.Size(202, 30);
             this.txtName.TabIndex = 6;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "برجاء إدخال إسم العميل";
@@ -119,58 +134,78 @@
             // 
             // txtTel
             // 
-            this.txtTel.Location = new System.Drawing.Point(12, 96);
+            this.txtTel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTel.EnterMoveNextControl = true;
+            this.txtTel.Location = new System.Drawing.Point(27, 116);
+            this.txtTel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTel.Name = "txtTel";
             this.txtTel.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtTel.Properties.Appearance.Options.UseFont = true;
-            this.txtTel.Size = new System.Drawing.Size(173, 26);
+            this.txtTel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTel.Size = new System.Drawing.Size(202, 30);
             this.txtTel.TabIndex = 7;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(12, 127);
+            this.txtPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPhone.EnterMoveNextControl = true;
+            this.txtPhone.Location = new System.Drawing.Point(27, 154);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPhone.Properties.Appearance.Options.UseFont = true;
-            this.txtPhone.Size = new System.Drawing.Size(173, 26);
+            this.txtPhone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPhone.Size = new System.Drawing.Size(202, 30);
             this.txtPhone.TabIndex = 8;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(12, 160);
+            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAddress.EnterMoveNextControl = true;
+            this.txtAddress.Location = new System.Drawing.Point(27, 195);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtAddress.Properties.Appearance.Options.UseFont = true;
-            this.txtAddress.Size = new System.Drawing.Size(173, 26);
+            this.txtAddress.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtAddress.Size = new System.Drawing.Size(202, 30);
             this.txtAddress.TabIndex = 9;
             // 
             // txtCharge
             // 
-            this.txtCharge.Location = new System.Drawing.Point(12, 195);
+            this.txtCharge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCharge.EditValue = 0D;
+            this.txtCharge.EnterMoveNextControl = true;
+            this.txtCharge.Location = new System.Drawing.Point(27, 238);
+            this.txtCharge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCharge.Name = "txtCharge";
             this.txtCharge.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtCharge.Properties.Appearance.Options.UseFont = true;
             this.txtCharge.Properties.Mask.EditMask = "f";
             this.txtCharge.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtCharge.Size = new System.Drawing.Size(173, 26);
+            this.txtCharge.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtCharge.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtCharge.Size = new System.Drawing.Size(202, 30);
             this.txtCharge.TabIndex = 10;
             // 
             // btnAddCustomer
             // 
+            this.btnAddCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddCustomer.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnAddCustomer.Appearance.Options.UseFont = true;
-            this.btnAddCustomer.Location = new System.Drawing.Point(90, 234);
+            this.btnAddCustomer.Location = new System.Drawing.Point(118, 286);
+            this.btnAddCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(95, 39);
+            this.btnAddCustomer.Size = new System.Drawing.Size(111, 48);
             this.btnAddCustomer.TabIndex = 11;
             this.btnAddCustomer.Text = "إضافة";
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // FormAddCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 285);
+            this.ClientSize = new System.Drawing.Size(383, 351);
             this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.txtCharge);
             this.Controls.Add(this.txtAddress);
@@ -183,7 +218,9 @@
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormAddCustomer";
+            this.Text = "إضافة عميل";
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();

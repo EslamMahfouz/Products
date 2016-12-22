@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Products.PL
 {
-    public partial class FormAddSupplier : Form
+    public partial class FormAddSupplier : XtraForm
     {
         EDM.ProductsEntities db = new EDM.ProductsEntities();
 
@@ -22,11 +22,9 @@ namespace Products.PL
 
         private void btnAddSupplier_Click(object sender, EventArgs e)
         {
+            DateTime today = DateTime.Now;
             if (!valName.Validate())
             { return; }
-
-            if (txtCharge.Text == "")
-            { txtCharge.Text = "0"; }
 
             EDM.Supplier s = new EDM.Supplier()
             {
@@ -36,8 +34,8 @@ namespace Products.PL
                 SupplierAddress = txtAddress.Text,
                 SupplierCharge = Convert.ToDouble(txtCharge.Text)
             };
-
             db.Suppliers.Add(s);
+
             db.SaveChanges();
             XtraMessageBox.Show("تم إضافة المورد بنجاح", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
@@ -46,7 +44,7 @@ namespace Products.PL
             txtPhone.Text = "";
             txtAddress.Text = "";
             txtCharge.Text = "";
-
+            txtName.Focus();
         }
     }
 }

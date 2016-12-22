@@ -17,7 +17,6 @@ namespace Products.EDM
         public Purchase()
         {
             this.PurchasesDetails = new HashSet<PurchasesDetail>();
-            this.PurchasesPayments = new HashSet<PurchasesPayment>();
         }
     
         public int PurchaseID { get; set; }
@@ -32,6 +31,5 @@ namespace Products.EDM
     
         public virtual Supplier Supplier { get; set; }
         public virtual ICollection<PurchasesDetail> PurchasesDetails { get; set; }
-        public virtual ICollection<PurchasesPayment> PurchasesPayments { get; set; }
     }
 }
