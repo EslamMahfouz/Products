@@ -30,6 +30,7 @@ namespace Products.PL
                 {
                     if (page.Text == son.Text)
                     {
+                        xtraTabbedMdiManager1.SelectedPage = page;
                         NotExist = false;
                         break;
                     }
