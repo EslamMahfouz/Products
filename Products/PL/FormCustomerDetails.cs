@@ -101,21 +101,7 @@ namespace Products.PL
 
             db.SaveChanges();
         }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-            if (XtraMessageBox.Show("هل تريد تأكيد الحذف؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                int customerID = Convert.ToInt32(cmbCustomerDetails.EditValue);
-                var customer = db.Customers.Find(customerID);
-                db.Customers.Remove(customer);  
-                db.SaveChanges();
-                XtraMessageBox.Show("تم الحذف بنجاح", "حذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormCustomerDetails_Load(sender, e);
-            }
-        }
-
+        
         private void btnEdit_Click(object sender, EventArgs e)
         {
             readonlyBoxs(false);

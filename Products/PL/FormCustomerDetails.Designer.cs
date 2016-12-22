@@ -37,7 +37,6 @@
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.cmbCustomerDetails = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.lblCustomer = new DevExpress.XtraEditors.LabelControl();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -94,7 +93,6 @@
             this.xtraTabPage1.Controls.Add(this.btnPay);
             this.xtraTabPage1.Controls.Add(this.btnSave);
             this.xtraTabPage1.Controls.Add(this.cmbCustomerDetails);
-            this.xtraTabPage1.Controls.Add(this.btnDelete);
             this.xtraTabPage1.Controls.Add(this.lblCustomer);
             this.xtraTabPage1.Controls.Add(this.btnEdit);
             this.xtraTabPage1.Controls.Add(this.labelControl1);
@@ -163,10 +161,10 @@
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Location = new System.Drawing.Point(447, 143);
+            this.btnSave.Location = new System.Drawing.Point(447, 178);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(142, 45);
+            this.btnSave.Size = new System.Drawing.Size(142, 61);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "حفظ التعديلات";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -194,19 +192,6 @@
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.Location = new System.Drawing.Point(447, 200);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(142, 45);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "حذف";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // lblCustomer
             // 
             this.lblCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -225,7 +210,7 @@
             this.btnEdit.Location = new System.Drawing.Point(447, 86);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(142, 45);
+            this.btnEdit.Size = new System.Drawing.Size(142, 61);
             this.btnEdit.TabIndex = 0;
             this.btnEdit.Text = "تعديل";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -450,7 +435,6 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.LabelControl lblCustomer;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.LabelControl labelControl1;

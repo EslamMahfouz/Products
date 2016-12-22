@@ -95,19 +95,7 @@ namespace Products.PL
                 return;
             }
         }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (XtraMessageBox.Show("هل تريد تأكيد الحذف؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                int supplierID = Convert.ToInt32(cmbSuplierDetails.EditValue);
-                var supplier = db.Suppliers.Find(supplierID);
-                db.Suppliers.Remove(supplier);  // هنا بقوله بعد ما لقيت المورد امسحه من الداتابيز
-                db.SaveChanges();
-                XtraMessageBox.Show("تم الحذف بنجاح", "حذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormSupplierDetails_Load(sender, e);
-            }
-        }
+        
         private void btnEdit_Click(object sender, EventArgs e)
         {
             // هيخلي كل التيكست بوكس اعرف اكتب فيها عادي
