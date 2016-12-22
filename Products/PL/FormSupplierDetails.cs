@@ -117,15 +117,22 @@ namespace Products.PL
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            int supplierID = Convert.ToInt32(cmbSuplierDetails.EditValue);
-            var supplier = db.Suppliers.Find(supplierID);
-            supplier.SupplierTel = txtTel.Text;
-            supplier.SupplierPhone = txtPhone.Text;
-            supplier.SupplierAddress = txtAddress.Text;
-            db.SaveChanges();
-            XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            readonlyBoxs(true);
-            clrBoxs(true);
+            try
+            {
+                int supplierID = Convert.ToInt32(cmbSuplierDetails.EditValue);
+                var supplier = db.Suppliers.Find(supplierID);
+                supplier.SupplierTel = txtTel.Text;
+                supplier.SupplierPhone = txtPhone.Text;
+                supplier.SupplierAddress = txtAddress.Text;
+                db.SaveChanges();
+                XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                readonlyBoxs(true);
+                clrBoxs(true);
+            }
+            catch
+            {
+                return;
+            }
         }
         
         private void btnShowRowDetails_Click(object sender, EventArgs e)

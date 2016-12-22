@@ -120,15 +120,22 @@ namespace Products.PL
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            int customerID = Convert.ToInt32(cmbCustomerDetails.EditValue);
-            var customer = db.Customers.Find(customerID);
-            customer.CustomerTel = txtTel.Text;
-            customer.CustomerPhone = txtPhone.Text;
-            customer.CustomerAddress = txtAddress.Text;
-            db.SaveChanges();
-            XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            readonlyBoxs(true);
-            clrBoxs(true);
+            try
+            {
+                int customerID = Convert.ToInt32(cmbCustomerDetails.EditValue);
+                var customer = db.Customers.Find(customerID);
+                customer.CustomerTel = txtTel.Text;
+                customer.CustomerPhone = txtPhone.Text;
+                customer.CustomerAddress = txtAddress.Text;
+                db.SaveChanges();
+                XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                readonlyBoxs(true);
+                clrBoxs(true);
+            }
+            catch
+            {
+                return;
+            }
         }
 
         private void btnShowRowDetails_Click(object sender, EventArgs e)

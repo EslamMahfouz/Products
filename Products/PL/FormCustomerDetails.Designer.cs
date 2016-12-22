@@ -165,10 +165,10 @@
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Location = new System.Drawing.Point(447, 178);
+            this.btnSave.Location = new System.Drawing.Point(484, 187);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(142, 61);
+            this.btnSave.Size = new System.Drawing.Size(179, 61);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "حفظ التعديلات";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -213,10 +213,10 @@
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnEdit.Appearance.Options.UseFont = true;
-            this.btnEdit.Location = new System.Drawing.Point(521, 106);
+            this.btnEdit.Location = new System.Drawing.Point(484, 106);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(142, 61);
+            this.btnEdit.Size = new System.Drawing.Size(179, 61);
             this.btnEdit.TabIndex = 0;
             this.btnEdit.Text = "تعديل";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);

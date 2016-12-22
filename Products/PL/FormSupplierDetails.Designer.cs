@@ -173,7 +173,7 @@
             this.btnSave.Location = new System.Drawing.Point(447, 178);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(142, 61);
+            this.btnSave.Size = new System.Drawing.Size(188, 61);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "حفظ التعديلات";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -221,7 +221,7 @@
             this.btnEdit.Location = new System.Drawing.Point(447, 89);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(142, 61);
+            this.btnEdit.Size = new System.Drawing.Size(188, 61);
             this.btnEdit.TabIndex = 0;
             this.btnEdit.Text = "تعديل";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
