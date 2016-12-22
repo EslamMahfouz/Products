@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Skins;
+using DevExpress.XtraEditors;
 using DevExpress.XtraTabbedMdi;
 using System;
 using System.Collections.Generic;
