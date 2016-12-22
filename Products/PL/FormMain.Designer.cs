@@ -30,20 +30,20 @@
         {
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnAddCategory = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnAddProduct = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnAddSupplier = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnSupplierDetails = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnAddCustomer = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnCustomerDetails = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem8 = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnAddPurchase = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnAddSale = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem9 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem10 = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnPurchasesReports = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnSalesReports = new DevExpress.XtraNavBar.NavBarItem();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
             this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -69,16 +69,16 @@
             this.navBarGroup4,
             this.navBarGroup5});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.navBarItem1,
-            this.navBarItem2,
-            this.navBarItem3,
-            this.navBarItem4,
-            this.navBarItem5,
-            this.navBarItem6,
-            this.navBarItem7,
-            this.navBarItem8,
-            this.navBarItem9,
-            this.navBarItem10});
+            this.btnAddCategory,
+            this.btnAddProduct,
+            this.btnAddSupplier,
+            this.btnAddCustomer,
+            this.btnSupplierDetails,
+            this.btnCustomerDetails,
+            this.btnAddPurchase,
+            this.btnAddSale,
+            this.btnPurchasesReports,
+            this.btnSalesReports});
             this.navBarControl1.Location = new System.Drawing.Point(830, 20);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 280;
@@ -92,25 +92,25 @@
             this.navBarGroup1.Appearance.Options.UseFont = true;
             this.navBarGroup1.Caption = "الأصناف و المنتجات";
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddCategory),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddProduct)});
             this.navBarGroup1.Name = "navBarGroup1";
             // 
-            // navBarItem1
+            // btnAddCategory
             // 
-            this.navBarItem1.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.navBarItem1.Appearance.Options.UseFont = true;
-            this.navBarItem1.Caption = "إضافة صنف";
-            this.navBarItem1.Name = "navBarItem1";
-            this.navBarItem1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
+            this.btnAddCategory.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnAddCategory.Appearance.Options.UseFont = true;
+            this.btnAddCategory.Caption = "إضافة صنف";
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnAddCategory_LinkClicked);
             // 
-            // navBarItem2
+            // btnAddProduct
             // 
-            this.navBarItem2.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.navBarItem2.Appearance.Options.UseFont = true;
-            this.navBarItem2.Caption = "إضافة منتج";
-            this.navBarItem2.Name = "navBarItem2";
-            this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
+            this.btnAddProduct.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnAddProduct.Appearance.Options.UseFont = true;
+            this.btnAddProduct.Caption = "إضافة منتج";
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnAddProduct_LinkClicked);
             // 
             // navBarGroup2
             // 
@@ -118,25 +118,25 @@
             this.navBarGroup2.Appearance.Options.UseFont = true;
             this.navBarGroup2.Caption = "الموردين";
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem5)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddSupplier),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnSupplierDetails)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
-            // navBarItem3
+            // btnAddSupplier
             // 
-            this.navBarItem3.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.navBarItem3.Appearance.Options.UseFont = true;
-            this.navBarItem3.Caption = "إضافة مورد";
-            this.navBarItem3.Name = "navBarItem3";
-            this.navBarItem3.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem3_LinkClicked);
+            this.btnAddSupplier.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnAddSupplier.Appearance.Options.UseFont = true;
+            this.btnAddSupplier.Caption = "إضافة مورد";
+            this.btnAddSupplier.Name = "btnAddSupplier";
+            this.btnAddSupplier.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnAddSupplier_LinkClicked);
             // 
-            // navBarItem5
+            // btnSupplierDetails
             // 
-            this.navBarItem5.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.navBarItem5.Appearance.Options.UseFont = true;
-            this.navBarItem5.Caption = "عرض بيانات مورد";
-            this.navBarItem5.Name = "navBarItem5";
-            this.navBarItem5.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem5_LinkClicked);
+            this.btnSupplierDetails.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnSupplierDetails.Appearance.Options.UseFont = true;
+            this.btnSupplierDetails.Caption = "عرض بيانات مورد";
+            this.btnSupplierDetails.Name = "btnSupplierDetails";
+            this.btnSupplierDetails.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnSupplierDetails_LinkClicked);
             // 
             // navBarGroup3
             // 
@@ -144,25 +144,25 @@
             this.navBarGroup3.Appearance.Options.UseFont = true;
             this.navBarGroup3.Caption = "العملاء";
             this.navBarGroup3.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem4),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem6)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddCustomer),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnCustomerDetails)});
             this.navBarGroup3.Name = "navBarGroup3";
             // 
-            // navBarItem4
+            // btnAddCustomer
             // 
-            this.navBarItem4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.navBarItem4.Appearance.Options.UseFont = true;
-            this.navBarItem4.Caption = "إضافة عميل";
-            this.navBarItem4.Name = "navBarItem4";
-            this.navBarItem4.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem4_LinkClicked);
+            this.btnAddCustomer.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnAddCustomer.Appearance.Options.UseFont = true;
+            this.btnAddCustomer.Caption = "إضافة عميل";
+            this.btnAddCustomer.Name = "btnAddCustomer";
+            this.btnAddCustomer.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnAddCustomer_LinkClicked);
             // 
-            // navBarItem6
+            // btnCustomerDetails
             // 
-            this.navBarItem6.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.navBarItem6.Appearance.Options.UseFont = true;
-            this.navBarItem6.Caption = "عرض بيانات عميل";
-            this.navBarItem6.Name = "navBarItem6";
-            this.navBarItem6.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem6_LinkClicked);
+            this.btnCustomerDetails.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnCustomerDetails.Appearance.Options.UseFont = true;
+            this.btnCustomerDetails.Caption = "عرض بيانات عميل";
+            this.btnCustomerDetails.Name = "btnCustomerDetails";
+            this.btnCustomerDetails.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnCustomerDetails_LinkClicked);
             // 
             // navBarGroup4
             // 
@@ -170,25 +170,25 @@
             this.navBarGroup4.Appearance.Options.UseFont = true;
             this.navBarGroup4.Caption = "الفواتير";
             this.navBarGroup4.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem7),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem8)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddPurchase),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddSale)});
             this.navBarGroup4.Name = "navBarGroup4";
             // 
-            // navBarItem7
+            // btnAddPurchase
             // 
-            this.navBarItem7.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.navBarItem7.Appearance.Options.UseFont = true;
-            this.navBarItem7.Caption = "إضافة فاتورة شراء";
-            this.navBarItem7.Name = "navBarItem7";
-            this.navBarItem7.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem7_LinkClicked);
+            this.btnAddPurchase.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnAddPurchase.Appearance.Options.UseFont = true;
+            this.btnAddPurchase.Caption = "إضافة فاتورة شراء";
+            this.btnAddPurchase.Name = "btnAddPurchase";
+            this.btnAddPurchase.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnAddPurchase_LinkClicked);
             // 
-            // navBarItem8
+            // btnAddSale
             // 
-            this.navBarItem8.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.navBarItem8.Appearance.Options.UseFont = true;
-            this.navBarItem8.Caption = "إضافة فاتورة بيع";
-            this.navBarItem8.Name = "navBarItem8";
-            this.navBarItem8.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem8_LinkClicked);
+            this.btnAddSale.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnAddSale.Appearance.Options.UseFont = true;
+            this.btnAddSale.Caption = "إضافة فاتورة بيع";
+            this.btnAddSale.Name = "btnAddSale";
+            this.btnAddSale.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnAddSale_LinkClicked);
             // 
             // navBarGroup5
             // 
@@ -196,25 +196,25 @@
             this.navBarGroup5.Appearance.Options.UseFont = true;
             this.navBarGroup5.Caption = "تقارير";
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem9),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem10)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnPurchasesReports),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnSalesReports)});
             this.navBarGroup5.Name = "navBarGroup5";
             // 
-            // navBarItem9
+            // btnPurchasesReports
             // 
-            this.navBarItem9.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.navBarItem9.Appearance.Options.UseFont = true;
-            this.navBarItem9.Caption = "تقارير شراء";
-            this.navBarItem9.Name = "navBarItem9";
-            this.navBarItem9.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem9_LinkClicked);
+            this.btnPurchasesReports.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnPurchasesReports.Appearance.Options.UseFont = true;
+            this.btnPurchasesReports.Caption = "تقارير شراء";
+            this.btnPurchasesReports.Name = "btnPurchasesReports";
+            this.btnPurchasesReports.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnPurchasesReports_LinkClicked);
             // 
-            // navBarItem10
+            // btnSalesReports
             // 
-            this.navBarItem10.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.navBarItem10.Appearance.Options.UseFont = true;
-            this.navBarItem10.Caption = "تقارير بيع";
-            this.navBarItem10.Name = "navBarItem10";
-            this.navBarItem10.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem10_LinkClicked);
+            this.btnSalesReports.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnSalesReports.Appearance.Options.UseFont = true;
+            this.btnSalesReports.Caption = "تقارير بيع";
+            this.btnSalesReports.Name = "btnSalesReports";
+            this.btnSalesReports.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnSalesReports_LinkClicked);
             // 
             // xtraTabbedMdiManager1
             // 
@@ -327,17 +327,17 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup3;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem1;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem2;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem3;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem5;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem4;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem6;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem7;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem8;
+        private DevExpress.XtraNavBar.NavBarItem btnAddCategory;
+        private DevExpress.XtraNavBar.NavBarItem btnAddProduct;
+        private DevExpress.XtraNavBar.NavBarItem btnAddSupplier;
+        private DevExpress.XtraNavBar.NavBarItem btnSupplierDetails;
+        private DevExpress.XtraNavBar.NavBarItem btnAddCustomer;
+        private DevExpress.XtraNavBar.NavBarItem btnCustomerDetails;
+        private DevExpress.XtraNavBar.NavBarItem btnAddPurchase;
+        private DevExpress.XtraNavBar.NavBarItem btnAddSale;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup5;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem9;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem10;
+        private DevExpress.XtraNavBar.NavBarItem btnPurchasesReports;
+        private DevExpress.XtraNavBar.NavBarItem btnSalesReports;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
