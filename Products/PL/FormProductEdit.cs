@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Products.PL
 {
-    public partial class FormProductEdit : Form
+    public partial class FormProductEdit : XtraForm
     {
         EDM.ProductsEntities db = new EDM.ProductsEntities();
         public int ID;
@@ -30,8 +31,7 @@ namespace Products.PL
             cmbCategory.Properties.ValueMember = "م";
 
             var product = db.Products.Find(ID);
-            var category = db.Categories.Find(product.CategoryID);
-            cmbCategory.EditValue = category.CategoryName;
+            cmbCategory.EditValue = product.CategoryID;
             txtProductName.Text = product.ProductName;
             txtBuy.Text = Convert.ToString(product.ProductBuy);
             txtSell.Text = Convert.ToString(product.ProductSell);
@@ -48,6 +48,8 @@ namespace Products.PL
             product.NumberInStock = Convert.ToInt32(txtNumber.Text);
 
             db.SaveChanges();
+            XtraMessageBox.Show("تم التعديل بنجاح", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult = DialogResult.OK;
         }
     }
 }

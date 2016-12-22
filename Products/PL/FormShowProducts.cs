@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Products.PL
 {
-    public partial class FormShowProducts : Form
+    public partial class FormShowProducts : XtraForm
     {
         EDM.ProductsEntities db = new EDM.ProductsEntities();
 

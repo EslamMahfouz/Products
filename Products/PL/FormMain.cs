@@ -101,5 +101,11 @@ namespace Products.PL
             FormSalesReport frm = new FormSalesReport();
             AddForm(frm);
         }
+
+        private void btnShowProducts_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FormShowProducts frm = new PL.FormShowProducts();
+            AddForm(frm);
+        }
     }
 }
