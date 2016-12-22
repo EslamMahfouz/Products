@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
@@ -45,8 +44,8 @@
             this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem9 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem10 = new DevExpress.XtraNavBar.NavBarItem();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
@@ -80,15 +79,17 @@
             this.navBarItem8,
             this.navBarItem9,
             this.navBarItem10});
-            this.navBarControl1.Location = new System.Drawing.Point(935, 0);
+            this.navBarControl1.Location = new System.Drawing.Point(830, 20);
             this.navBarControl1.Name = "navBarControl1";
-            this.navBarControl1.OptionsNavPane.ExpandedWidth = 204;
-            this.navBarControl1.Size = new System.Drawing.Size(204, 536);
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 280;
+            this.navBarControl1.Size = new System.Drawing.Size(280, 425);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             // 
             // navBarGroup1
             // 
+            this.navBarGroup1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.navBarGroup1.Appearance.Options.UseFont = true;
             this.navBarGroup1.Caption = "الأصناف و المنتجات";
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1),
@@ -97,18 +98,24 @@
             // 
             // navBarItem1
             // 
+            this.navBarItem1.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem1.Appearance.Options.UseFont = true;
             this.navBarItem1.Caption = "إضافة صنف";
             this.navBarItem1.Name = "navBarItem1";
             this.navBarItem1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
             // 
             // navBarItem2
             // 
+            this.navBarItem2.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem2.Appearance.Options.UseFont = true;
             this.navBarItem2.Caption = "إضافة منتج";
             this.navBarItem2.Name = "navBarItem2";
             this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
             // navBarGroup2
             // 
+            this.navBarGroup2.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.navBarGroup2.Appearance.Options.UseFont = true;
             this.navBarGroup2.Caption = "الموردين";
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3),
@@ -117,18 +124,24 @@
             // 
             // navBarItem3
             // 
+            this.navBarItem3.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem3.Appearance.Options.UseFont = true;
             this.navBarItem3.Caption = "إضافة مورد";
             this.navBarItem3.Name = "navBarItem3";
             this.navBarItem3.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem3_LinkClicked);
             // 
             // navBarItem5
             // 
+            this.navBarItem5.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem5.Appearance.Options.UseFont = true;
             this.navBarItem5.Caption = "عرض بيانات مورد";
             this.navBarItem5.Name = "navBarItem5";
             this.navBarItem5.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem5_LinkClicked);
             // 
             // navBarGroup3
             // 
+            this.navBarGroup3.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.navBarGroup3.Appearance.Options.UseFont = true;
             this.navBarGroup3.Caption = "العملاء";
             this.navBarGroup3.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem4),
@@ -137,18 +150,24 @@
             // 
             // navBarItem4
             // 
+            this.navBarItem4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem4.Appearance.Options.UseFont = true;
             this.navBarItem4.Caption = "إضافة عميل";
             this.navBarItem4.Name = "navBarItem4";
             this.navBarItem4.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem4_LinkClicked);
             // 
             // navBarItem6
             // 
+            this.navBarItem6.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem6.Appearance.Options.UseFont = true;
             this.navBarItem6.Caption = "عرض بيانات عميل";
             this.navBarItem6.Name = "navBarItem6";
             this.navBarItem6.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem6_LinkClicked);
             // 
             // navBarGroup4
             // 
+            this.navBarGroup4.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.navBarGroup4.Appearance.Options.UseFont = true;
             this.navBarGroup4.Caption = "الفواتير";
             this.navBarGroup4.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem7),
@@ -157,18 +176,24 @@
             // 
             // navBarItem7
             // 
+            this.navBarItem7.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem7.Appearance.Options.UseFont = true;
             this.navBarItem7.Caption = "إضافة فاتورة شراء";
             this.navBarItem7.Name = "navBarItem7";
             this.navBarItem7.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem7_LinkClicked);
             // 
             // navBarItem8
             // 
+            this.navBarItem8.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem8.Appearance.Options.UseFont = true;
             this.navBarItem8.Caption = "إضافة فاتورة بيع";
             this.navBarItem8.Name = "navBarItem8";
             this.navBarItem8.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem8_LinkClicked);
             // 
             // navBarGroup5
             // 
+            this.navBarGroup5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.navBarGroup5.Appearance.Options.UseFont = true;
             this.navBarGroup5.Caption = "تقارير";
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem9),
@@ -177,12 +202,16 @@
             // 
             // navBarItem9
             // 
+            this.navBarItem9.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem9.Appearance.Options.UseFont = true;
             this.navBarItem9.Caption = "تقارير شراء";
             this.navBarItem9.Name = "navBarItem9";
             this.navBarItem9.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem9_LinkClicked);
             // 
             // navBarItem10
             // 
+            this.navBarItem10.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem10.Appearance.Options.UseFont = true;
             this.navBarItem10.Caption = "تقارير بيع";
             this.navBarItem10.Name = "navBarItem10";
             this.navBarItem10.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem10_LinkClicked);
@@ -244,28 +273,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1156, 20);
+            this.barDockControlTop.Size = new System.Drawing.Size(1110, 20);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 556);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1156, 34);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 445);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1110, 34);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 536);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 425);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1156, 20);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 536);
+            this.barDockControlRight.Location = new System.Drawing.Point(1110, 20);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 425);
             // 
             // FormMain
             // 
