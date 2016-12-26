@@ -46,5 +46,29 @@ namespace Products.PL
                      select new { رقم_الفاتورة = p.PurchaseNumber, الوصف = p.purchaseDescription, المدفوع = p.PurchasePayPaid, التاريخ = p.PurchasePayDate };
             gridControl1.DataSource = pp.ToList();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormShowOrder frm = new FormShowOrder();
+                int num = Convert.ToInt32(gridView1.GetFocusedRowCellValue("رقم_الفاتورة"));
+                DateTime dt = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("التاريخ"));
+                var purchase = from x in db.Purchases
+                           where (x.PurchaseDate == dt && x.PurchaseNumber == num)
+                           select x;
+                foreach (var item in purchase)
+                {
+                    frm.ID = item.PurchaseID;
+                }
+                frm.type = "purchase";
+                frm.ShowDialog();
+            }
+            catch
+            {
+                return;
+            }
+
+        }
     }
 }
