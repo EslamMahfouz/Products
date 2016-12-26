@@ -165,20 +165,21 @@ namespace Products.PL
                 DateTime today = DateTime.Now;
                 var customer = db.Customers.Find(Convert.ToInt32(cmbCustomerDetails.EditValue));
                 customer.CustomerCharge -= Convert.ToDouble(txtPaid.Text);
-
-                EDM.SalesPayment sp = new EDM.SalesPayment()
-                        {
-                            //salesPayments table
-                            SalePayPaid = Convert.ToDouble(txtPaid.Text),
-                            SalePayDate = Convert.ToDateTime(today),
-                            SaleDescription = "سداد باقى قديم",
-                            CustomerID = Convert.ToInt32(cmbCustomerDetails.EditValue)
-                         };
-                db.SalesPayments.Add(sp);
-
-                db.SaveChanges();
-                XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cmbCustomerDetails_EditValueChanged(sender, e);
+                if (Convert.ToDouble(txtPaid.Text) != 0)
+                {
+                    EDM.SalesPayment sp = new EDM.SalesPayment()
+                    {
+                        //salesPayments table
+                        SalePayPaid = Convert.ToDouble(txtPaid.Text),
+                        SalePayDate = Convert.ToDateTime(today),
+                        SaleDescription = "سداد باقى قديم",
+                        CustomerID = Convert.ToInt32(cmbCustomerDetails.EditValue)
+                    };
+                    db.SalesPayments.Add(sp);
+                    db.SaveChanges();
+                    XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cmbCustomerDetails_EditValueChanged(sender, e);
+                }
 
                 PayBoxs(false);
             }
@@ -201,22 +202,24 @@ namespace Products.PL
                 var customer = db.Customers.Find(Convert.ToInt32(cmbCustomerDetails.EditValue));
                 customer.CustomerCharge -= Convert.ToDouble(txtPaidOrder.Text);
 
-                DateTime today = DateTime.Now; 
-                EDM.SalesPayment sp = new EDM.SalesPayment()
+                DateTime today = DateTime.Now;
+                if (Convert.ToDouble(txtPaidOrder.Text) != 0)
                 {
-                    //salesPayments table
-                    SaleNumber = saleID,
-                    SalePayPaid = Convert.ToDouble(txtPaidOrder.Text),
-                    SalePayDate = Convert.ToDateTime(today),
-                    SaleDescription = "سداد فاتورة بيع قديمة",
-                    CustomerID = Convert.ToInt32(cmbCustomerDetails.EditValue)
-                };
-                db.SalesPayments.Add(sp);
-                
-                db.SaveChanges();
-                XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cmbCustomerDetails_EditValueChanged(sender, e);
+                    EDM.SalesPayment sp = new EDM.SalesPayment()
+                    {
+                        //salesPayments table
+                        SaleNumber = saleID,
+                        SalePayPaid = Convert.ToDouble(txtPaidOrder.Text),
+                        SalePayDate = Convert.ToDateTime(today),
+                        SaleDescription = "سداد فاتورة بيع قديمة",
+                        CustomerID = Convert.ToInt32(cmbCustomerDetails.EditValue)
+                    };
+                    db.SalesPayments.Add(sp);
 
+                    db.SaveChanges();
+                    XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cmbCustomerDetails_EditValueChanged(sender, e);
+                }
                 PayOrderBoxs(false);
             }
             catch

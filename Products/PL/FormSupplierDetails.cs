@@ -161,21 +161,23 @@ namespace Products.PL
                 DateTime today = DateTime.Now;
                 var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuplierDetails.EditValue));
                 supplier.SupplierCharge -= Convert.ToDouble(txtPaid.Text);
-
-                EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+                if (Convert.ToDouble(txtPaid.Text) != 0)
                 {
-                    //purchasesPayments table
-                    PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
-                    PurchasePayDate = Convert.ToDateTime(today),
-                    purchaseDescription = "سداد باقى قديم",
-                    SupplierID = Convert.ToInt32(cmbSuplierDetails.EditValue)
-                };
-                db.PurchasesPayments.Add(pp);
+                    EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+                    {
+                        //purchasesPayments table
+                        PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
+                        PurchasePayDate = Convert.ToDateTime(today),
+                        purchaseDescription = "سداد باقى قديم",
+                        SupplierID = Convert.ToInt32(cmbSuplierDetails.EditValue)
+                    };
+                    db.PurchasesPayments.Add(pp);
 
-                db.SaveChanges();
-                XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    db.SaveChanges();
+                    XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cmbSuplierDetails_EditValueChanged(sender, e);
+                }
                 showBoxs(false);
-                cmbSuplierDetails_EditValueChanged(sender, e);
             }
             catch
             { return; }
@@ -191,27 +193,32 @@ namespace Products.PL
             {
                 int purchaseID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
                 double paid = Convert.ToDouble(txtPaidOrder.Text);
-                DateTime today = DateTime.Now;
-                EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
-                {
-                    //salesPayments table
-                    PurchaseNumber = purchaseID,
-                    PurchasePayPaid = Convert.ToDouble(txtPaidOrder.Text),
-                    PurchasePayDate = Convert.ToDateTime(today),
-                    purchaseDescription = "سداد فاتورة شراء قديمة",
-                    SupplierID = Convert.ToInt32(cmbSuplierDetails.EditValue)
-                };
-                db.PurchasesPayments.Add(pp);
-                
+
                 var supplier = db.Suppliers.Find(Convert.ToDouble(cmbSuplierDetails.EditValue));
                 supplier.SupplierCharge -= paid;
 
                 var purchase = db.Purchases.Find(purchaseID);
                 purchase.PurchaseCharge -= paid;
-                db.SaveChanges();
-                XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                DateTime today = DateTime.Now;
+                if (Convert.ToDouble(txtPaidOrder.Text) != 0)
+                {
+                    EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+                    {
+                        //salesPayments table
+                        PurchaseNumber = purchaseID,
+                        PurchasePayPaid = Convert.ToDouble(txtPaidOrder.Text),
+                        PurchasePayDate = Convert.ToDateTime(today),
+                        purchaseDescription = "سداد فاتورة شراء قديمة",
+                        SupplierID = Convert.ToInt32(cmbSuplierDetails.EditValue)
+                    };
+                    db.PurchasesPayments.Add(pp);
+                    db.SaveChanges();
+                    XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cmbSuplierDetails_EditValueChanged(sender, e);
+                }
                 showBoxsOrder(false);
-                cmbSuplierDetails_EditValueChanged(sender, e);
+
             }
             catch
             {

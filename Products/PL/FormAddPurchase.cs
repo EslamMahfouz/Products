@@ -280,16 +280,19 @@ namespace Products.PL
             };
             db.Purchases.Add(p);
 
-            EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+            if (Convert.ToDouble(txtPaid.Text) != 0)
             {
-                //salesPayments table
-                PurchaseNumber = Convert.ToInt32(lblOrderID.Text),
-                PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
-                PurchasePayDate = Convert.ToDateTime(deDate.EditValue),
-                purchaseDescription = "فاتورة شراء جديدة",
-                SupplierID = Convert.ToInt32(cmbSuppliers.EditValue)
-            };
-            db.PurchasesPayments.Add(pp);
+                EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+                {
+                    //salesPayments table
+                    PurchaseNumber = Convert.ToInt32(lblOrderID.Text),
+                    PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
+                    PurchasePayDate = Convert.ToDateTime(deDate.EditValue),
+                    purchaseDescription = "فاتورة شراء جديدة",
+                    SupplierID = Convert.ToInt32(cmbSuppliers.EditValue)
+                };
+                db.PurchasesPayments.Add(pp);
+            }
 
             foreach (DataRow dr in dt.Rows)
             {
