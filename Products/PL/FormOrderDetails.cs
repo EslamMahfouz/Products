@@ -54,7 +54,6 @@ namespace Products.PL
                 gridControl1.DataSource = sales.ToList();
                 gridView1.BestFitColumns();
             }
-            
         }
     }
 }

@@ -21,14 +21,12 @@ namespace Products.PL
             txtPaidOrder.Visible= status;
             btnSaveChargeOrder.Visible = status;
         }
-
         void PayBoxs(bool status)
         {
             lblPaid.Visible = status;
             txtPaid.Visible = status;
             btnSaveCharge.Visible = status;
         }
-
         void readonlyBoxs(bool status)
         {
             txtTel.ReadOnly = status;
@@ -48,7 +46,6 @@ namespace Products.PL
         {
             InitializeComponent();
         }
-
         private void FormCustomerDetails_Load(object sender, EventArgs e)
         {
             //cmbCustomer
@@ -105,6 +102,17 @@ namespace Products.PL
                     btnPayOrder.Enabled = false;
                 }
 
+                var payments = from x in db.SalesPayments
+                               where x.CustomerID == customerID
+                               select new
+                               {
+                                   التاريخ = x.SalePayDate,
+                                   رقم_الفاتورة = x.SaleNumber,
+                                   المدفوع = x.SalePayPaid,
+                                   الوصف = x.SaleDescription
+                               };
+                gridControl2.DataSource = payments.ToList();
+                gridView1.BestFitColumns();
                 gridView2.BestFitColumns();
             }
             catch

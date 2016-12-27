@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnAddCategory = new DevExpress.XtraNavBar.NavBarItem();
             this.btnAddProduct = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnShowProducts = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnAddSupplier = new DevExpress.XtraNavBar.NavBarItem();
             this.btnSupplierDetails = new DevExpress.XtraNavBar.NavBarItem();
@@ -44,8 +46,8 @@
             this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnPurchasesReports = new DevExpress.XtraNavBar.NavBarItem();
             this.btnSalesReports = new DevExpress.XtraNavBar.NavBarItem();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
@@ -53,7 +55,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.btnShowProducts = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -116,6 +117,14 @@
             this.btnAddProduct.Caption = "إضافة منتج";
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnAddProduct_LinkClicked);
+            // 
+            // btnShowProducts
+            // 
+            this.btnShowProducts.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnShowProducts.Appearance.Options.UseFont = true;
+            this.btnShowProducts.Caption = "عرض المنتجات";
+            this.btnShowProducts.Name = "btnShowProducts";
+            this.btnShowProducts.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnShowProducts_LinkClicked);
             // 
             // navBarGroup2
             // 
@@ -305,14 +314,6 @@
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 602);
             // 
-            // btnShowProducts
-            // 
-            this.btnShowProducts.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnShowProducts.Appearance.Options.UseFont = true;
-            this.btnShowProducts.Caption = "عرض المنتجات";
-            this.btnShowProducts.Name = "btnShowProducts";
-            this.btnShowProducts.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnShowProducts_LinkClicked);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -328,6 +329,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormMain";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
