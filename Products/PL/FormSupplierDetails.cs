@@ -52,7 +52,7 @@ namespace Products.PL
             cmbSuplierDetails.Properties.DisplayMember = "المورد";
             cmbSuplierDetails.Properties.ValueMember = "م";
 
-            this.ActiveControl = lblSupplier;
+            this.ActiveControl = labelControl1;
         }
 
         private void cmbSuplierDetails_EditValueChanged(object sender, EventArgs e)
@@ -118,12 +118,12 @@ namespace Products.PL
         
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            // هيخلي كل التيكست بوكس اعرف اكتب فيها عادي
-            readonlyBoxs(false);
-        }
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            try
+            if (btnEdit.Text == "تعديل")
+            {
+                readonlyBoxs(false);
+                btnEdit.Text = "حفظ";
+            }
+            else
             {
                 int supplierID = Convert.ToInt32(cmbSuplierDetails.EditValue);
                 var supplier = db.Suppliers.Find(supplierID);
@@ -134,10 +134,7 @@ namespace Products.PL
                 XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 readonlyBoxs(true);
                 clrBoxs(true);
-            }
-            catch
-            {
-                return;
+                btnEdit.Text = "تعديل";
             }
         }
         
@@ -164,6 +161,9 @@ namespace Products.PL
         {
             try
             {
+                if (!valCharge.Validate())
+                { return; }
+
                 DateTime today = DateTime.Now;
                 var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuplierDetails.EditValue));
                 supplier.SupplierCharge -= Convert.ToDouble(txtPaid.Text);
@@ -197,6 +197,9 @@ namespace Products.PL
         {
             try
             {
+                if (valChargeOrder.Validate())
+                { return; }
+
                 int purchaseID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
                 double paid = Convert.ToDouble(txtPaidOrder.Text);
 

@@ -57,7 +57,7 @@ namespace Products.PL
             cmbCustomerDetails.Properties.DisplayMember = "العميل";
             cmbCustomerDetails.Properties.ValueMember = "م";
 
-            this.ActiveControl = lblCustomer;
+            this.ActiveControl = labelControl1;
 
             PayBoxs(false);
             PayOrderBoxs(false);
@@ -67,6 +67,7 @@ namespace Products.PL
         {
             try
             {
+                btnEdit.Enabled = true;
                 int customerID = Convert.ToInt32(cmbCustomerDetails.EditValue);
                 var customer = db.Customers.Find(customerID);
                 txtTel.Text = customer.CustomerTel.ToString();
@@ -120,15 +121,15 @@ namespace Products.PL
                 return;
             }
         }
-        
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            readonlyBoxs(false);
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            try
+            if (btnEdit.Text == "تعديل")
+            {
+                readonlyBoxs(false);
+                btnEdit.Text = "حفظ";
+            }
+            else
             {
                 int customerID = Convert.ToInt32(cmbCustomerDetails.EditValue);
                 var customer = db.Customers.Find(customerID);
@@ -139,10 +140,7 @@ namespace Products.PL
                 XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 readonlyBoxs(true);
                 clrBoxs(true);
-            }
-            catch
-            {
-                return;
+                btnEdit.Text = "تعديل";
             }
         }
 
@@ -168,8 +166,12 @@ namespace Products.PL
 
         private void btnSaveCharge_Click(object sender, EventArgs e)
         {
+
             try
             {
+                if (!valCharge.Validate())
+                { return; }
+
                 DateTime today = DateTime.Now;
                 var customer = db.Customers.Find(Convert.ToInt32(cmbCustomerDetails.EditValue));
                 customer.CustomerCharge -= Convert.ToDouble(txtPaid.Text);
@@ -204,6 +206,9 @@ namespace Products.PL
         {
             try
             {
+                if(!valChargeOrder.Validate())
+                { return; }
+
                 int saleID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
                 var charge = db.Sales.Find(saleID);
                 charge.SaleCharge -= Convert.ToDouble(txtPaidOrder.Text);
