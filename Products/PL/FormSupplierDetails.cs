@@ -1,12 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Products.PL
@@ -102,6 +97,17 @@ namespace Products.PL
                     btnPayOrder.Enabled = false;
                 }
 
+                var payments = from x in db.PurchasesPayments
+                               where x.SupplierID == supplierID
+                               select new
+                               {
+                                   التاريخ = x.PurchasePayDate,
+                                   رقم_الفاتورة = x.PurchaseNumber,
+                                   المدفوع = x.PurchasePayPaid,
+                                   الوصف = x.purchaseDescription,
+                               };
+                gridControl2.DataSource = payments.ToList();
+                gridView1.BestFitColumns();
                 gridView2.BestFitColumns(); // دا لزمته انه بيظبط المسافات بين الاعمدة
             }
             catch
