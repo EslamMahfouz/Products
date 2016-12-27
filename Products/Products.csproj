@@ -273,6 +273,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="EDM\ProductsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -305,6 +306,8 @@
       <DependentUpon>ProductsModel.edmx</DependentUpon>
       <LastGenOutput>ProductsModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\edit_32x32.png" />
+    <None Include="Resources\add_32x32.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -23,7 +23,10 @@ namespace Products.PL
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
             if(!valName.Validate())
-            { return; }
+            {
+                txtName.Focus();
+                return;
+            }
 
             var categories = (from x in db.Categories
                              where x.CategoryName == txtName.Text
@@ -49,6 +52,7 @@ namespace Products.PL
             XtraMessageBox.Show("تم إضافة الصنف بنجاح", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             txtName.Text = "";
+            txtName.Focus();
         }
     }
 }
