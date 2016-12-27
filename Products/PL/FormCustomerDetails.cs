@@ -68,6 +68,7 @@ namespace Products.PL
             try
             {
                 btnEdit.Enabled = true;
+                btnPay.Enabled = true;
                 int customerID = Convert.ToInt32(cmbCustomerDetails.EditValue);
                 var customer = db.Customers.Find(customerID);
                 txtTel.Text = customer.CustomerTel.ToString();

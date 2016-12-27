@@ -59,6 +59,8 @@ namespace Products.PL
         {
             try
             {
+                btnEdit.Enabled = true;
+                btnPay.Enabled = true;
                 int supplierID = Convert.ToInt32(cmbSuplierDetails.EditValue);
                 var supplier = db.Suppliers.Find(supplierID);
                 txtTel.Text = supplier.SupplierTel;
