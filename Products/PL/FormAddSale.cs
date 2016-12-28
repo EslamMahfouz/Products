@@ -157,22 +157,36 @@ namespace Products.PL
                 }
 
             }
-            DataRow dr = dt.NewRow();
-            dr["م"] = Convert.ToInt32(cmbProducts.EditValue);
-            dr["المنتج"] = cmbProducts.Text;
-            dr["السعر"] = Convert.ToDouble(txtSell.Text);
-            dr["العدد"] = Convert.ToInt32(txtNum.Text);
-            dr["الإجمالى"] = Convert.ToDouble(txtPrdTotal.Text);
-            dr["الخصم"] = Convert.ToDouble(txtPrdDiscount.Text);
-            dr["السعر بعد الخصم"] = Convert.ToDouble(txtPrdPrice.Text);
+            int CategoryID = Convert.ToInt32(cmbCategories.EditValue);
+            int ProductID = Convert.ToInt32(cmbProducts.EditValue);
+            var check = from x in db.Products
+                        where (x.CategoryID == CategoryID && x.ProductID == ProductID)
+                        select x;
+            foreach (var item in check)
+            {
+                if (Convert.ToInt32(txtNum.Text) <= item.NumberInStock)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["م"] = Convert.ToInt32(cmbProducts.EditValue);
+                    dr["المنتج"] = cmbProducts.Text;
+                    dr["السعر"] = Convert.ToDouble(txtSell.Text);
+                    dr["العدد"] = Convert.ToInt32(txtNum.Text);
+                    dr["الإجمالى"] = Convert.ToDouble(txtPrdTotal.Text);
+                    dr["الخصم"] = Convert.ToDouble(txtPrdDiscount.Text);
+                    dr["السعر بعد الخصم"] = Convert.ToDouble(txtPrdPrice.Text);
 
-            dt.Rows.Add(dr);
-            gridControl1.DataSource= dt;
+                    dt.Rows.Add(dr);
+                    gridControl1.DataSource = dt;
 
-            TotalCalc();
-            DisscountCalc();
-            PrdClear();
-
+                    TotalCalc();
+                    DisscountCalc();
+                    PrdClear();
+                }
+                else
+                {
+                    XtraMessageBox.Show("هذه الكمية غير متوفرة", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                };
+            };
         }
 
         private void cmbProducts_EditValueChanged(object sender, EventArgs e)

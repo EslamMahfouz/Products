@@ -40,16 +40,15 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gridControl1.Size = new System.Drawing.Size(1112, 413);
+            this.gridControl1.Size = new System.Drawing.Size(953, 336);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            
             // 
             // gridView1
             // 
@@ -69,22 +68,20 @@
             this.btnEdit.Appearance.Options.UseFont = true;
             this.btnEdit.Image = global::Products.Properties.Resources.edit_32x32;
             this.btnEdit.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnEdit.Location = new System.Drawing.Point(412, 421);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEdit.Location = new System.Drawing.Point(353, 342);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(289, 52);
+            this.btnEdit.Size = new System.Drawing.Size(248, 42);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "تعديل";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // FormShowProducts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 479);
+            this.ClientSize = new System.Drawing.Size(954, 389);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.gridControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormShowProducts";
             this.Text = "عرض المنتجات";
             this.Load += new System.EventHandler(this.FormShowProducts_Load);

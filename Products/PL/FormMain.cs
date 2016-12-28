@@ -15,7 +15,8 @@ namespace Products.PL
 {
     public partial class FormMain : XtraForm
     {
-        
+        EDM.ProductsEntities db = new EDM.ProductsEntities();
+
         public FormMain()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace Products.PL
         public void AddForm(XtraForm son)
         {
             bool NotExist = true;
+            groupControl1.Visible = false;
             try
             {
                 foreach (XtraMdiTabPage page in xtraTabbedMdiManager1.Pages)
@@ -47,6 +49,38 @@ namespace Products.PL
             }
         }
 
+        private void UpdateGrid()
+        {
+            var product = from x in db.Products
+                          where (x.NumberInStock <= 15)
+                          select new
+                          {
+                              الصنف = x.Category.CategoryName,
+                              المنتج = x.ProductName,
+                              الكميه = x.NumberInStock
+                          };
+            gridControl1.DataSource = product.ToList();
+            gridView1.PopulateColumns();
+            gridView1.BestFitColumns();
+
+            gridView1.Columns["الصنف"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+            gridView1.Columns["المنتج"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+            gridView1.Columns["الكميه"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+
+            gridView1.Columns["الصنف"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+            gridView1.Columns["المنتج"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+            gridView1.Columns["الكميه"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+
+            gridView1.Columns["الصنف"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridView1.Columns["المنتج"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridView1.Columns["الكميه"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            gridView1.Columns["الصنف"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridView1.Columns["المنتج"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridView1.Columns["الكميه"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+
+        }
         private void btnAddCategory_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             FormAddCategory frm = new FormAddCategory();
@@ -106,6 +140,26 @@ namespace Products.PL
         {
             FormShowProducts frm = new PL.FormShowProducts();
             AddForm(frm);
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            UpdateGrid();
+        }
+        
+        private void xtraTabbedMdiManager1_PageRemoved(object sender, MdiTabPageEventArgs e)
+        {
+            groupControl1.Visible = true;
+            UpdateGrid();
+        }
+
+        private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+                e.Info.Kind = DevExpress.Utils.Drawing.IndicatorKind.Row;
+            }
         }
     }
 }
