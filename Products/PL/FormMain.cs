@@ -149,8 +149,16 @@ namespace Products.PL
         
         private void xtraTabbedMdiManager1_PageRemoved(object sender, MdiTabPageEventArgs e)
         {
-            groupControl1.Visible = true;
-            UpdateGrid();
+            int num = 0;
+            foreach(XtraMdiTabPage page in xtraTabbedMdiManager1.Pages)
+            {
+                num++;
+            }
+            if (num == 0)
+            {
+                groupControl1.Visible = true;
+                UpdateGrid();
+            }
         }
 
         private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
