@@ -24,7 +24,10 @@ namespace Products.PL
         {
             DateTime today = DateTime.Now;
             if (!valName.Validate())
-            { return; }
+            {
+                txtName.Focus();
+                return;
+            }
 
             EDM.Supplier s = new EDM.Supplier()
             {
