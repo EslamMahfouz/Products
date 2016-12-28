@@ -56,6 +56,8 @@ namespace Products.PL
 
             cmbCustomerDetails.Properties.DisplayMember = "العميل";
             cmbCustomerDetails.Properties.ValueMember = "م";
+            cmbCustomerDetails.Properties.PopulateViewColumns();
+            cmbCustomerDetails.Properties.View.Columns["م"].Visible = false;
 
             this.ActiveControl = labelControl1;
 
