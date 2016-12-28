@@ -15,7 +15,7 @@ namespace Products.EDM
     public partial class SalesPayment
     {
         public int SalePayID { get; set; }
-        public int SaleNumber { get; set; }
+        public Nullable<int> SaleNumber { get; set; }
         public Nullable<double> SalePayPaid { get; set; }
         public Nullable<System.DateTime> SalePayDate { get; set; }
         public string SaleDescription { get; set; }

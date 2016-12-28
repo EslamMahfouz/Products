@@ -67,6 +67,8 @@ namespace Products.PL
         {
             try
             {
+                btnPayOrder.Enabled = true;
+                btnShowRowDetails.Enabled = true;
                 btnEdit.Enabled = true;
                 btnPay.Enabled = true;
                 int customerID = Convert.ToInt32(cmbCustomerDetails.EditValue);
@@ -108,13 +110,37 @@ namespace Products.PL
                                where x.CustomerID == customerID
                                select new
                                {
-                                   التاريخ = x.SalePayDate,
                                    رقم_الفاتورة = x.SaleNumber,
+                                   التاريخ = x.SalePayDate,
                                    المدفوع = x.SalePayPaid,
                                    الوصف = x.SaleDescription
                                };
                 gridControl2.DataSource = payments.ToList();
+                gridView1.PopulateColumns();
                 gridView1.BestFitColumns();
+                gridView1.Columns["رقم_الفاتورة"].BestFit();
+                gridView1.Columns["المدفوع"].Summary.Add(DevExpress.Data.SummaryItemType.Sum, "المدفوع", "الإجمالي ={0:n2}");
+
+                gridView1.Columns["التاريخ"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView1.Columns["رقم_الفاتورة"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView1.Columns["المدفوع"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView1.Columns["الوصف"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+
+                gridView1.Columns["التاريخ"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView1.Columns["رقم_الفاتورة"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView1.Columns["المدفوع"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView1.Columns["الوصف"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+
+                gridView1.Columns["التاريخ"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["رقم_الفاتورة"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["المدفوع"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الوصف"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+                gridView1.Columns["التاريخ"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["رقم_الفاتورة"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["المدفوع"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الوصف"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
                 gridView2.BestFitColumns();
             }
             catch
@@ -140,7 +166,6 @@ namespace Products.PL
                 db.SaveChanges();
                 XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 readonlyBoxs(true);
-                clrBoxs(true);
                 btnEdit.Text = "تعديل";
             }
         }
@@ -180,7 +205,6 @@ namespace Products.PL
                 {
                     EDM.SalesPayment sp = new EDM.SalesPayment()
                     {
-                        //salesPayments table
                         SalePayPaid = Convert.ToDouble(txtPaid.Text),
                         SalePayDate = Convert.ToDateTime(today),
                         SaleDescription = "سداد باقى قديم",
@@ -190,6 +214,7 @@ namespace Products.PL
                     db.SaveChanges();
                     XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cmbCustomerDetails_EditValueChanged(sender, e);
+                    txtPaid.Text = "";
                 }
 
                 PayBoxs(false);
@@ -246,6 +271,15 @@ namespace Products.PL
             if (charge == 0)
             {
                 btnPayOrder.Enabled = false;
+            }
+        }
+
+        private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+                e.Info.Kind = DevExpress.Utils.Drawing.IndicatorKind.Row;
             }
         }
     }

@@ -102,7 +102,7 @@
             <PropertyRef Name="SalePayID" />
           </Key>
           <Property Name="SalePayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SaleNumber" Type="int" Nullable="false" />
+          <Property Name="SaleNumber" Type="int" />
           <Property Name="SalePayPaid" Type="float" />
           <Property Name="SalePayDate" Type="datetime" />
           <Property Name="SaleDescription" Type="nvarchar" MaxLength="50" />
@@ -548,7 +548,7 @@
             <PropertyRef Name="SalePayID" />
           </Key>
           <Property Name="SalePayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SaleNumber" Type="Int32" Nullable="false" />
+          <Property Name="SaleNumber" Type="Int32" />
           <Property Name="SalePayPaid" Type="Double" />
           <Property Name="SalePayDate" Type="DateTime" Precision="3" />
           <Property Name="SaleDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

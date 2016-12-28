@@ -35,7 +35,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnShow = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnShowOrder = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFrom.Properties.CalendarTimeProperties)).BeginInit();
@@ -62,9 +62,18 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridView1.Appearance.FooterPanel.Options.UseFont = true;
+            this.gridView1.Appearance.FooterPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.FooterPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView1.ColumnPanelRowHeight = 50;
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.IndicatorWidth = 40;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.RowHeight = 40;
+            this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
             // deFrom
             // 
@@ -137,25 +146,25 @@
             this.btnShow.Text = "عرض ";
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
-            // simpleButton1
+            // btnShowOrder
             // 
-            this.simpleButton1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(259, 458);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(286, 58);
-            this.simpleButton1.TabIndex = 13;
-            this.simpleButton1.Text = "تفاصيل الفاتورة";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.btnShowOrder.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnShowOrder.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btnShowOrder.Appearance.Options.UseFont = true;
+            this.btnShowOrder.Location = new System.Drawing.Point(259, 458);
+            this.btnShowOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnShowOrder.Name = "btnShowOrder";
+            this.btnShowOrder.Size = new System.Drawing.Size(286, 58);
+            this.btnShowOrder.TabIndex = 13;
+            this.btnShowOrder.Text = "تفاصيل الفاتورة";
+            this.btnShowOrder.Click += new System.EventHandler(this.btnShowOrder_Click);
             // 
             // FormSalesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 518);
-            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.btnShowOrder);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
@@ -164,7 +173,7 @@
             this.Controls.Add(this.gridControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormSalesReport";
-            this.Text = "تقارير بيع";
+            this.Text = "تقرير إيرادات";
             this.Load += new System.EventHandler(this.FormSalesReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -186,6 +195,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton btnShow;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnShowOrder;
     }
 }

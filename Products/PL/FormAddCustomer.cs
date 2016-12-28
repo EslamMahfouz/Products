@@ -24,7 +24,10 @@ namespace Products.PL
         {
             DateTime today = DateTime.Now;
             if (!valName.Validate())
-            { return; }
+            {
+                txtName.Focus();
+                return;
+            }
             
             EDM.Customer c = new EDM.Customer()
             {
@@ -46,6 +49,5 @@ namespace Products.PL
             txtName.Focus();
 
         }
-        
     }
 }

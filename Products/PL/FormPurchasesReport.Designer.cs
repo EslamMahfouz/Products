@@ -130,7 +130,6 @@
             this.gridControl1.TabIndex = 6;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            
             // 
             // gridView1
             // 
@@ -174,7 +173,7 @@
             this.Controls.Add(this.gridControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormPurchasesReport";
-            this.Text = "تقارير شراء";
+            this.Text = "تقرير مصروفات";
             this.Load += new System.EventHandler(this.FormPurchasesReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.deTo.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deTo.Properties)).EndInit();

@@ -79,7 +79,14 @@ namespace Products.PL
 
             var pp = from p in db.PurchasesPayments
                      where ((EntityFunctions.TruncateTime(p.PurchasePayDate)) >= dateFrom && (EntityFunctions.TruncateTime(p.PurchasePayDate)) <= dateTo)
-                     select new { رقم_الفاتورة = p.PurchaseNumber, الوصف = p.purchaseDescription, المدفوع = p.PurchasePayPaid, التاريخ = p.PurchasePayDate };
+                     select new
+                     {
+                         رقم_الفاتورة = p.PurchaseNumber,
+                         الوصف = p.purchaseDescription,
+                         المدفوع = p.PurchasePayPaid,
+                         التاريخ = p.PurchasePayDate,
+                         المورد = p.Supplier.SupplierName
+                     };
             gridControl1.DataSource = pp.ToList();
         }
 
