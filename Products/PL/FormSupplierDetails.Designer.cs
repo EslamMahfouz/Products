@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -349,10 +349,10 @@
             this.txtPaid.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtPaid.Size = new System.Drawing.Size(112, 30);
             this.txtPaid.TabIndex = 47;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
-            conditionValidationRule3.ErrorText = "برجاء إدخال القيمة";
-            conditionValidationRule3.Value1 = 0D;
-            this.valCharge.SetValidationRule(this.txtPaid, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
+            conditionValidationRule2.ErrorText = "برجاء إدخال القيمة";
+            conditionValidationRule2.Value1 = 0D;
+            this.valCharge.SetValidationRule(this.txtPaid, conditionValidationRule2);
             this.txtPaid.Visible = false;
             // 
             // lblPaid
@@ -420,9 +420,9 @@
             this.txtPaidOrder.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtPaidOrder.Size = new System.Drawing.Size(141, 30);
             this.txtPaidOrder.TabIndex = 12;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
-            conditionValidationRule1.ErrorText = "برجاء إدخال القيمة";
-            this.valChargeOrder.SetValidationRule(this.txtPaidOrder, conditionValidationRule1);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
+            conditionValidationRule3.ErrorText = "برجاء إدخال القيمة";
+            this.valChargeOrder.SetValidationRule(this.txtPaidOrder, conditionValidationRule3);
             this.txtPaidOrder.Visible = false;
             // 
             // btnPayOrder
@@ -470,9 +470,13 @@
             // 
             // gridView2
             // 
+            this.gridView2.ColumnPanelRowHeight = 50;
             this.gridView2.GridControl = this.gridControl1;
+            this.gridView2.IndicatorWidth = 40;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
+            this.gridView2.RowHeight = 40;
+            this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
             this.gridView2.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView2_FocusedRowChanged);
             // 
             // xtraTabPage3

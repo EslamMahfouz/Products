@@ -89,6 +89,8 @@ namespace Products.PL
 
             cmbCustomers.Properties.DisplayMember = "العميل" ;
             cmbCustomers.Properties.ValueMember = "م" ;
+            cmbCustomers.Properties.PopulateViewColumns();
+            cmbCustomers.Properties.View.Columns["م"].Visible = false;
 
             //cmbCategories
             var categories = from y in db.Categories
@@ -98,6 +100,8 @@ namespace Products.PL
 
             cmbCategories.Properties.DisplayMember = "الصنف" ;
             cmbCategories.Properties.ValueMember = "م" ;
+            cmbCategories.Properties.PopulateViewColumns();
+            cmbCategories.Properties.View.Columns["م"].Visible = false;
 
             //l tare5
             DateTime today = DateTime.Now.Date;
@@ -131,6 +135,8 @@ namespace Products.PL
 
             cmbProducts.Properties.DisplayMember = "المنتج";
             cmbProducts.Properties.ValueMember = "م";
+            cmbProducts.Properties.PopulateViewColumns();
+            cmbProducts.Properties.View.Columns["م"].Visible = false;
 
         }
 
@@ -200,7 +206,9 @@ namespace Products.PL
                 PrdCalc();
             }
             catch
-            { return; }
+            {
+                return;
+            }
             
         }
 
@@ -274,92 +282,105 @@ namespace Products.PL
 
         private void txtEdit_Click(object sender, EventArgs e)
         {
-            int prdID = Convert.ToInt32(gridView3.GetFocusedRowCellValue("م"));
-            var product = db.Products.Find(prdID);
-
-            cmbCategories.EditValue = product.CategoryID;
-            cmbProducts.EditValue = product.ProductID;
-
-            double sell = Convert.ToDouble(gridView3.GetFocusedRowCellValue("السعر"));
-            int number = Convert.ToInt32(gridView3.GetFocusedRowCellValue("العدد"));
-            double total = Convert.ToDouble(gridView3.GetFocusedRowCellValue("الإجمالى"));
-            double discount = Convert.ToDouble(gridView3.GetFocusedRowCellValue("الخصم"));
-            double price = Convert.ToDouble(gridView3.GetFocusedRowCellValue("السعر بعد الخصم"));
-
-            txtNum.Text = number.ToString();
-            txtSell.Text = sell.ToString();
-            txtPrdTotal.Text = total.ToString();
-            txtPrdDiscount.Text = discount.ToString();
-            txtPrdPrice.Text = price.ToString();
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
-                DataRow dr = dt.Rows[i];
-                if (Convert.ToInt32(dr["م"]) == prdID)
+                int prdID = Convert.ToInt32(gridView3.GetFocusedRowCellValue("م"));
+                var product = db.Products.Find(prdID);
+
+                cmbCategories.EditValue = product.CategoryID;
+                cmbProducts.EditValue = product.ProductID;
+
+                double sell = Convert.ToDouble(gridView3.GetFocusedRowCellValue("السعر"));
+                int number = Convert.ToInt32(gridView3.GetFocusedRowCellValue("العدد"));
+                double total = Convert.ToDouble(gridView3.GetFocusedRowCellValue("الإجمالى"));
+                double discount = Convert.ToDouble(gridView3.GetFocusedRowCellValue("الخصم"));
+                double price = Convert.ToDouble(gridView3.GetFocusedRowCellValue("السعر بعد الخصم"));
+
+                txtNum.Text = number.ToString();
+                txtSell.Text = sell.ToString();
+                txtPrdTotal.Text = total.ToString();
+                txtPrdDiscount.Text = discount.ToString();
+                txtPrdPrice.Text = price.ToString();
+
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    dr.Delete();
-                    break;
+                    DataRow dr = dt.Rows[i];
+                    if (Convert.ToInt32(dr["م"]) == prdID)
+                    {
+                        dr.Delete();
+                        break;
+                    }
                 }
+                gridControl1.DataSource = dt;
+                TotalCalc();
             }
-            gridControl1.DataSource = dt;
-            TotalCalc();
+            catch
+            {
+                return;
+            }
         }
 
         private void txtSave_Click(object sender, EventArgs e)
         {
-            EDM.Sale s = new EDM.Sale()
+            try
             {
-                //Sales Table
-                CustomerID = Convert.ToInt32(cmbCustomers.EditValue),
-                SaleDate = Convert.ToDateTime(deDate.EditValue),
-                SalePrice = Convert.ToDouble(txtPrice.Text),
-                SaleDiscount = Convert.ToDouble(txtDiscount.Text),
-                SaleNetPrice = Convert.ToDouble(txtTotal.Text),
-                SalePaid = Convert.ToDouble(txtPaid.Text),
-                SaleCharge = Convert.ToDouble(txtCharge.Text),
-                SaleNumber = Convert.ToInt32(lblOrderID.Text)             
-            };
-            db.Sales.Add(s);
-
-            if (Convert.ToDouble(txtPaid.Text) != 0)
-            {
-                EDM.SalesPayment sp = new EDM.SalesPayment()
+                EDM.Sale s = new EDM.Sale()
                 {
-                    //salesPayments table
-                    SaleNumber = Convert.ToInt32(lblOrderID.Text),
-                    SalePayPaid = Convert.ToDouble(txtPaid.Text),
-                    SalePayDate = Convert.ToDateTime(deDate.EditValue),
-                    SaleDescription = "فاتورة بيع جديدة",
-                    CustomerID = Convert.ToInt32(cmbCustomers.EditValue)
+                    //Sales Table
+                    CustomerID = Convert.ToInt32(cmbCustomers.EditValue),
+                    SaleDate = Convert.ToDateTime(deDate.EditValue),
+                    SalePrice = Convert.ToDouble(txtPrice.Text),
+                    SaleDiscount = Convert.ToDouble(txtDiscount.Text),
+                    SaleNetPrice = Convert.ToDouble(txtTotal.Text),
+                    SalePaid = Convert.ToDouble(txtPaid.Text),
+                    SaleCharge = Convert.ToDouble(txtCharge.Text),
+                    SaleNumber = Convert.ToInt32(lblOrderID.Text)
                 };
-                db.SalesPayments.Add(sp);
-            }
-            foreach(DataRow dar in dt.Rows)
-            {
-                EDM.SalesDetail sd = new EDM.SalesDetail()
+                db.Sales.Add(s);
+
+                if (Convert.ToDouble(txtPaid.Text) != 0)
                 {
-                    ProductID = Convert.ToInt32(dar["م"]),
-                    ProductQte = Convert.ToInt32(dar["العدد"]),
-                    ProductPrice = Convert.ToDouble(dar["الإجمالى"]),
-                    ProductDiscount = Convert.ToDouble(dar["الخصم"]),
-                    ProductNetPrice = Convert.ToDouble(dar["السعر بعد الخصم"]),
-                    SaleID = s.SaleID
-                };
-                db.SalesDetails.Add(sd);
-                var product = db.Products.Find(sd.ProductID);
-                product.NumberInStock -= sd.ProductQte;
+                    EDM.SalesPayment sp = new EDM.SalesPayment()
+                    {
+                        //salesPayments table
+                        SaleNumber = Convert.ToInt32(lblOrderID.Text),
+                        SalePayPaid = Convert.ToDouble(txtPaid.Text),
+                        SalePayDate = Convert.ToDateTime(deDate.EditValue),
+                        SaleDescription = "فاتورة بيع جديدة",
+                        CustomerID = Convert.ToInt32(cmbCustomers.EditValue)
+                    };
+                    db.SalesPayments.Add(sp);
+                }
+                foreach (DataRow dar in dt.Rows)
+                {
+                    EDM.SalesDetail sd = new EDM.SalesDetail()
+                    {
+                        ProductID = Convert.ToInt32(dar["م"]),
+                        ProductQte = Convert.ToInt32(dar["العدد"]),
+                        ProductPrice = Convert.ToDouble(dar["الإجمالى"]),
+                        ProductDiscount = Convert.ToDouble(dar["الخصم"]),
+                        ProductNetPrice = Convert.ToDouble(dar["السعر بعد الخصم"]),
+                        SaleID = s.SaleID
+                    };
+                    db.SalesDetails.Add(sd);
+                    var product = db.Products.Find(sd.ProductID);
+                    product.NumberInStock -= sd.ProductQte;
+                }
+
+                var customer = db.Customers.Find(Convert.ToInt32(cmbCustomers.EditValue));
+                customer.CustomerCharge += Convert.ToDouble(txtCharge.Text);
+
+                btnDelete.Enabled = false;
+                btnEdit.Enabled = false;
+
+                db.SaveChanges();
+
+                XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            var customer = db.Customers.Find(Convert.ToInt32(cmbCustomers.EditValue));
-            customer.CustomerCharge += Convert.ToDouble(txtCharge.Text);
-
-            btnDelete.Enabled = false;
-            btnEdit.Enabled = false;
-
-            db.SaveChanges();
-
-            XtraMessageBox.Show("تم الحفظ","",MessageBoxButtons.OK,MessageBoxIcon.Information);
-         
+            catch
+            {
+                return;
+            }
         }
     }
 }

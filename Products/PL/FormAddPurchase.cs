@@ -76,6 +76,8 @@ namespace Products.PL
             cmbSuppliers.Properties.DataSource = suppliers.ToList();
             cmbSuppliers.Properties.DisplayMember = "الإسم";
             cmbSuppliers.Properties.ValueMember = "م";
+            cmbSuppliers.Properties.PopulateViewColumns();
+            cmbSuppliers.Properties.View.Columns["م"].Visible = false;
 
             //cmbCategories
             var categories = from x in db.Categories
@@ -83,6 +85,8 @@ namespace Products.PL
             cmbCategories.Properties.DataSource = categories.ToList();
             cmbCategories.Properties.DisplayMember = "الصنف";
             cmbCategories.Properties.ValueMember = "م";
+            cmbCategories.Properties.PopulateViewColumns();
+            cmbCategories.Properties.View.Columns["م"].Visible = false;
 
             //rqm l fatora
             DateTime today = DateTime.Now.Date;
@@ -112,6 +116,9 @@ namespace Products.PL
             cmbProducts.Properties.DataSource = products.ToList();
             cmbProducts.Properties.DisplayMember = "المنتج";
             cmbProducts.Properties.ValueMember = "م";
+            cmbProducts.Properties.PopulateViewColumns();
+            cmbProducts.Properties.View.Columns["م"].Visible = false;
+
         }
         private void cmbProducts_EditValueChanged(object sender, EventArgs e)
         {
@@ -203,15 +210,22 @@ namespace Products.PL
 
         private void txtBuy_Leave(object sender, EventArgs e)
         {
-            var product = db.Products.Find(Convert.ToInt32(cmbProducts.EditValue));
-            double buy = Convert.ToDouble(product.ProductBuy);
-            double temp = Convert.ToDouble(txtBuy.Text);
-            if (buy != temp)
+            try
             {
-                if (XtraMessageBox.Show("هل تريد تغيير السعر الاساسى؟", "سؤال", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                var product = db.Products.Find(Convert.ToInt32(cmbProducts.EditValue));
+                double buy = Convert.ToDouble(product.ProductBuy);
+                double temp = Convert.ToDouble(txtBuy.Text);
+                if (buy != temp)
                 {
-                    product.ProductBuy = Convert.ToDouble(txtBuy.Text);
+                    if (XtraMessageBox.Show("هل تريد تغيير السعر الاساسى؟", "سؤال", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        product.ProductBuy = Convert.ToDouble(txtBuy.Text);
+                    }
                 }
+            }
+            catch
+            {
+                return;
             }
         }
 
@@ -234,92 +248,105 @@ namespace Products.PL
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            int prdID = Convert.ToInt32(gridView3.GetFocusedRowCellValue("م"));
-            var product = db.Products.Find(prdID);
-
-            cmbCategories.EditValue = product.CategoryID;
-            cmbProducts.EditValue = product.ProductID;
-
-            double buy = Convert.ToDouble(gridView3.GetFocusedRowCellValue("السعر"));
-            int number = Convert.ToInt32(gridView3.GetFocusedRowCellValue("العدد"));
-            double total = Convert.ToDouble(gridView3.GetFocusedRowCellValue("الإجمالى"));
-            double discount = Convert.ToDouble(gridView3.GetFocusedRowCellValue("الخصم"));
-            double price = Convert.ToDouble(gridView3.GetFocusedRowCellValue("السعر بعد الخصم"));
-
-            txtNum.Text = number.ToString();
-            txtBuy.Text = buy.ToString();
-            txtPrdTotal.Text = total.ToString();
-            txtPrdDiscount.Text = discount.ToString();
-            txtPrdPrice.Text = price.ToString();
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
-                DataRow dr = dt.Rows[i];
-                if (Convert.ToInt32(dr["م"]) == prdID)
+                int prdID = Convert.ToInt32(gridView3.GetFocusedRowCellValue("م"));
+                var product = db.Products.Find(prdID);
+
+                cmbCategories.EditValue = product.CategoryID;
+                cmbProducts.EditValue = product.ProductID;
+
+                double buy = Convert.ToDouble(gridView3.GetFocusedRowCellValue("السعر"));
+                int number = Convert.ToInt32(gridView3.GetFocusedRowCellValue("العدد"));
+                double total = Convert.ToDouble(gridView3.GetFocusedRowCellValue("الإجمالى"));
+                double discount = Convert.ToDouble(gridView3.GetFocusedRowCellValue("الخصم"));
+                double price = Convert.ToDouble(gridView3.GetFocusedRowCellValue("السعر بعد الخصم"));
+
+                txtNum.Text = number.ToString();
+                txtBuy.Text = buy.ToString();
+                txtPrdTotal.Text = total.ToString();
+                txtPrdDiscount.Text = discount.ToString();
+                txtPrdPrice.Text = price.ToString();
+
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    dr.Delete();
-                    break;
+                    DataRow dr = dt.Rows[i];
+                    if (Convert.ToInt32(dr["م"]) == prdID)
+                    {
+                        dr.Delete();
+                        break;
+                    }
                 }
+                gridControl1.DataSource = dt;
+                TotalCalc();
             }
-            gridControl1.DataSource = dt;
-            TotalCalc();
+            catch
+            {
+                return;
+            }
         }
 
         private void txtSave_Click(object sender, EventArgs e)
         {
-            EDM.Purchase p = new EDM.Purchase()
+            try
             {
-                PurchaseDate = Convert.ToDateTime(deDate.EditValue),
-                PurchasePrice = Convert.ToDouble(txtPrice.Text),
-                PurchaseDiscount = Convert.ToDouble(txtDiscount.Text),
-                PurchaseNetPrice = Convert.ToDouble(txtTotal.Text),
-                PurchasePaid = Convert.ToDouble(txtPaid.Text),
-                PurchaseCharge = Convert.ToDouble(txtCharge.Text),
-                SupplierID = Convert.ToInt32(cmbSuppliers.EditValue),
-                PurchaseNumber = Convert.ToInt32(lblOrderID.Text)
-            };
-            db.Purchases.Add(p);
-
-            if (Convert.ToDouble(txtPaid.Text) != 0)
-            {
-                EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+                EDM.Purchase p = new EDM.Purchase()
                 {
-                    //salesPayments table
-                    PurchaseNumber = Convert.ToInt32(lblOrderID.Text),
-                    PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
-                    PurchasePayDate = Convert.ToDateTime(deDate.EditValue),
-                    purchaseDescription = "فاتورة شراء جديدة",
-                    SupplierID = Convert.ToInt32(cmbSuppliers.EditValue)
+                    PurchaseDate = Convert.ToDateTime(deDate.EditValue),
+                    PurchasePrice = Convert.ToDouble(txtPrice.Text),
+                    PurchaseDiscount = Convert.ToDouble(txtDiscount.Text),
+                    PurchaseNetPrice = Convert.ToDouble(txtTotal.Text),
+                    PurchasePaid = Convert.ToDouble(txtPaid.Text),
+                    PurchaseCharge = Convert.ToDouble(txtCharge.Text),
+                    SupplierID = Convert.ToInt32(cmbSuppliers.EditValue),
+                    PurchaseNumber = Convert.ToInt32(lblOrderID.Text)
                 };
-                db.PurchasesPayments.Add(pp);
-            }
+                db.Purchases.Add(p);
 
-            foreach (DataRow dr in dt.Rows)
-            {
-                EDM.PurchasesDetail pd = new EDM.PurchasesDetail()
+                if (Convert.ToDouble(txtPaid.Text) != 0)
                 {
-                    PurchaseID = p.PurchaseID,
-                    ProductID = Convert.ToInt32(dr["م"]),
-                    ProductQte = Convert.ToInt32(dr["العدد"]),
-                    ProductPrice = Convert.ToDouble(dr["الإجمالى"]),
-                    ProductDiscount = Convert.ToDouble(dr["الخصم"]),
-                    ProductNetPrice = Convert.ToDouble(dr["السعر بعد الخصم"]),
-                };
-                db.PurchasesDetails.Add(pd);
+                    EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
+                    {
+                        //salesPayments table
+                        PurchaseNumber = Convert.ToInt32(lblOrderID.Text),
+                        PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
+                        PurchasePayDate = Convert.ToDateTime(deDate.EditValue),
+                        purchaseDescription = "فاتورة شراء جديدة",
+                        SupplierID = Convert.ToInt32(cmbSuppliers.EditValue)
+                    };
+                    db.PurchasesPayments.Add(pp);
+                }
 
-                var product = db.Products.Find(pd.ProductID);
-                product.NumberInStock += pd.ProductQte;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    EDM.PurchasesDetail pd = new EDM.PurchasesDetail()
+                    {
+                        PurchaseID = p.PurchaseID,
+                        ProductID = Convert.ToInt32(dr["م"]),
+                        ProductQte = Convert.ToInt32(dr["العدد"]),
+                        ProductPrice = Convert.ToDouble(dr["الإجمالى"]),
+                        ProductDiscount = Convert.ToDouble(dr["الخصم"]),
+                        ProductNetPrice = Convert.ToDouble(dr["السعر بعد الخصم"]),
+                    };
+                    db.PurchasesDetails.Add(pd);
+
+                    var product = db.Products.Find(pd.ProductID);
+                    product.NumberInStock += pd.ProductQte;
+                }
+
+                var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuppliers.EditValue));
+                supplier.SupplierCharge += Convert.ToDouble(txtCharge.Text);
+
+                btnDelete.Enabled = false;
+                btnEdit.Enabled = false;
+
+                db.SaveChanges();
+                XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuppliers.EditValue));
-            supplier.SupplierCharge += Convert.ToDouble(txtCharge.Text);
-
-            btnDelete.Enabled = false;
-            btnEdit.Enabled = false;
-
-            db.SaveChanges();
-            XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            catch
+            {
+                return;
+            }
         }
     }
 }
