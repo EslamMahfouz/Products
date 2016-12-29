@@ -28,106 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.deDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtProfit = new DevExpress.XtraEditors.TextEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtOutcome = new DevExpress.XtraEditors.TextEdit();
+            this.txtIncome = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.deDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProfit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOutcome.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIncome.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.groupControl1.Appearance.Options.UseFont = true;
-            this.groupControl1.Controls.Add(this.gridControl1);
-            this.groupControl1.Location = new System.Drawing.Point(527, 36);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupControl1.Size = new System.Drawing.Size(552, 405);
-            this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "الإيرادات";
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 20);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(548, 383);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.ColumnPanelRowHeight = 50;
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.IndicatorWidth = 40;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsView.ShowFooter = true;
-            this.gridView1.RowHeight = 40;
-            this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl2.Appearance.Options.UseFont = true;
-            this.groupControl2.Controls.Add(this.gridControl2);
-            this.groupControl2.Location = new System.Drawing.Point(1, 36);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupControl2.Size = new System.Drawing.Size(522, 405);
-            this.groupControl2.TabIndex = 1;
-            this.groupControl2.Text = "المصروفات";
-            // 
-            // gridControl2
-            // 
-            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(2, 20);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(518, 383);
-            this.gridControl2.TabIndex = 1;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView2
-            // 
-            this.gridView2.ColumnPanelRowHeight = 50;
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.IndicatorWidth = 40;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsBehavior.Editable = false;
-            this.gridView2.OptionsView.ShowFooter = true;
-            this.gridView2.RowHeight = 40;
-            this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
             // 
             // deDate
             // 
+            this.deDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deDate.EditValue = "";
-            this.deDate.Location = new System.Drawing.Point(274, 4);
+            this.deDate.Location = new System.Drawing.Point(7, 13);
+            this.deDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.deDate.Name = "deDate";
             this.deDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.deDate.Properties.Appearance.Options.UseFont = true;
@@ -135,81 +59,156 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deDate.Size = new System.Drawing.Size(291, 26);
+            this.deDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.deDate.Size = new System.Drawing.Size(249, 30);
             this.deDate.TabIndex = 2;
             this.deDate.EditValueChanged += new System.EventHandler(this.deDate_EditValueChanged);
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl1.Location = new System.Drawing.Point(628, 4);
+            this.labelControl1.Location = new System.Drawing.Point(262, 13);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(48, 23);
+            this.labelControl1.Size = new System.Drawing.Size(105, 29);
             this.labelControl1.TabIndex = 3;
-            this.labelControl1.Text = "التاريخ";
+            this.labelControl1.Text = "تاريخ الجرد";
             // 
             // labelControl2
             // 
-            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl2.Location = new System.Drawing.Point(558, 447);
+            this.labelControl2.Location = new System.Drawing.Point(208, 122);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(102, 23);
+            this.labelControl2.Size = new System.Drawing.Size(114, 29);
             this.labelControl2.TabIndex = 4;
-            this.labelControl2.Text = "إجمالى الربح";
+            this.labelControl2.Text = "صافي الربح";
             // 
             // txtProfit
             // 
-            this.txtProfit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProfit.Location = new System.Drawing.Point(382, 447);
+            this.txtProfit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProfit.Location = new System.Drawing.Point(6, 122);
+            this.txtProfit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtProfit.Name = "txtProfit";
             this.txtProfit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtProfit.Properties.Appearance.Options.UseFont = true;
-            this.txtProfit.Size = new System.Drawing.Size(139, 26);
+            this.txtProfit.Properties.Mask.EditMask = "f";
+            this.txtProfit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtProfit.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtProfit.Properties.ReadOnly = true;
+            this.txtProfit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtProfit.Size = new System.Drawing.Size(161, 30);
             this.txtProfit.TabIndex = 5;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.labelControl3.Location = new System.Drawing.Point(184, 46);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(163, 29);
+            this.labelControl3.TabIndex = 6;
+            this.labelControl3.Text = "إجمالى الإيرادات";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.labelControl4.Location = new System.Drawing.Point(173, 84);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(185, 29);
+            this.labelControl4.TabIndex = 7;
+            this.labelControl4.Text = "إجمالى المصروفات";
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
+            this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.groupControl1.Controls.Add(this.txtOutcome);
+            this.groupControl1.Controls.Add(this.txtIncome);
+            this.groupControl1.Controls.Add(this.txtProfit);
+            this.groupControl1.Controls.Add(this.labelControl4);
+            this.groupControl1.Controls.Add(this.labelControl2);
+            this.groupControl1.Controls.Add(this.labelControl3);
+            this.groupControl1.Location = new System.Drawing.Point(1, 50);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(366, 165);
+            this.groupControl1.TabIndex = 8;
+            this.groupControl1.Text = "بيانات الجرد";
+            // 
+            // txtOutcome
+            // 
+            this.txtOutcome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtOutcome.Location = new System.Drawing.Point(6, 84);
+            this.txtOutcome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOutcome.Name = "txtOutcome";
+            this.txtOutcome.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtOutcome.Properties.Appearance.Options.UseFont = true;
+            this.txtOutcome.Properties.Mask.EditMask = "f";
+            this.txtOutcome.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtOutcome.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtOutcome.Properties.ReadOnly = true;
+            this.txtOutcome.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtOutcome.Size = new System.Drawing.Size(161, 30);
+            this.txtOutcome.TabIndex = 9;
+            // 
+            // txtIncome
+            // 
+            this.txtIncome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIncome.Location = new System.Drawing.Point(6, 46);
+            this.txtIncome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtIncome.Name = "txtIncome";
+            this.txtIncome.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtIncome.Properties.Appearance.Options.UseFont = true;
+            this.txtIncome.Properties.Mask.EditMask = "f";
+            this.txtIncome.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtIncome.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtIncome.Properties.ReadOnly = true;
+            this.txtIncome.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtIncome.Size = new System.Drawing.Size(161, 30);
+            this.txtIncome.TabIndex = 8;
             // 
             // FormDailyProfit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 477);
-            this.Controls.Add(this.txtProfit);
-            this.Controls.Add(this.labelControl2);
+            this.ClientSize = new System.Drawing.Size(383, 223);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.deDate);
-            this.Controls.Add(this.groupControl2);
-            this.Controls.Add(this.groupControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormDailyProfit";
             this.Text = "جرد يومى";
             this.Load += new System.EventHandler(this.FormDailyProfit_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProfit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOutcome.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIncome.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraEditors.DateEdit deDate;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtProfit;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.TextEdit txtOutcome;
+        private DevExpress.XtraEditors.TextEdit txtIncome;
     }
 }

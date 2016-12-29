@@ -31,7 +31,6 @@ namespace Products.PL
         {
             if (radioGroup1.SelectedIndex == 0)
             {
-
                 try
                 {
                     if (type == "customer")
@@ -72,8 +71,6 @@ namespace Products.PL
                         gridView1.Columns["الموبايل"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                         gridView1.Columns["العنوان"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                         gridView1.Columns["المتبقى"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
-
                     };
                     if (type == "supplier")
                     {
@@ -113,15 +110,15 @@ namespace Products.PL
                         gridView1.Columns["الموبايل"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                         gridView1.Columns["العنوان"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                         gridView1.Columns["المتبقى"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
                     };
                 }
                 catch
-                { return; }
-            };
+                {
+                    return;
+                }
+            }
             if (radioGroup1.SelectedIndex == 1)
             {
-
                 try
                 {
                     if (type == "customer")
@@ -163,8 +160,6 @@ namespace Products.PL
                         gridView1.Columns["الموبايل"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                         gridView1.Columns["العنوان"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                         gridView1.Columns["المتبقى"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
-
                     };
                     if (type == "supplier")
                     {
@@ -205,12 +200,13 @@ namespace Products.PL
                         gridView1.Columns["الموبايل"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                         gridView1.Columns["العنوان"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                         gridView1.Columns["المتبقى"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
                     };
                 }
                 catch
-                { return; }
-            };
+                {
+                    return;
+                }
+            }
         }
 
         private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)

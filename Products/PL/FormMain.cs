@@ -5,7 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -174,6 +176,7 @@ namespace Products.PL
         {
             FormCustomersAndSuppliers frm = new FormCustomersAndSuppliers();
             frm.type = "customer";
+            frm.Text = "عرض العملاء";
             AddForm(frm);
         }
 
@@ -181,12 +184,40 @@ namespace Products.PL
         {
             FormCustomersAndSuppliers frm = new FormCustomersAndSuppliers();
             frm.type = "supplier";
+            frm.Text = "عرض الموردين";
             AddForm(frm);
         }
 
         private void btnDailyProfit_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             FormDailyProfit frm = new FormDailyProfit();
+            AddForm(frm);
+        }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                SqlConnection sqlconnection = new SqlConnection(@"Server=.\SQLEXPRESS; Database=master; Integrated Security=true");
+                SqlCommand cmd;
+
+                string combined = Path.Combine(Properties.Settings.Default.BackupFolder, "ProductsBackup.bak");
+                File.Delete(combined);
+                string query = "Backup Database Products to Disk='" + combined + "'";
+                cmd = new SqlCommand(query, sqlconnection);
+                sqlconnection.Open();
+                cmd.ExecuteNonQuery();
+                sqlconnection.Close();
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void btnSettings_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FormBackupSettings frm = new PL.FormBackupSettings();
             AddForm(frm);
         }
     }

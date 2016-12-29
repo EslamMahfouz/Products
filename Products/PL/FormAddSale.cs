@@ -133,7 +133,7 @@ namespace Products.PL
             int CategoryID = Convert.ToInt32(cmbCategories.EditValue);
             var products = from z in db.Products
                            where z.CategoryID ==  CategoryID 
-                           select new { م = z.ProductID, المنتج = z.ProductName };
+                           select new { م = z.ProductID, المنتج = z.ProductName, الكمية = z.NumberInStock};
 
             cmbProducts.Properties.DataSource = products.ToList();
 

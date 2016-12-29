@@ -112,14 +112,14 @@ namespace Products.PL
             int categoryID = Convert.ToInt32(cmbCategories.EditValue);
             var products = from x in db.Products
                            where x.CategoryID == categoryID
-                           select new { م = x.ProductID, المنتج = x.ProductName };
+                           select new { م = x.ProductID, المنتج = x.ProductName, الكمية = x.NumberInStock };
             cmbProducts.Properties.DataSource = products.ToList();
             cmbProducts.Properties.DisplayMember = "المنتج";
             cmbProducts.Properties.ValueMember = "م";
             cmbProducts.Properties.PopulateViewColumns();
             cmbProducts.Properties.View.Columns["م"].Visible = false;
-
         }
+
         private void cmbProducts_EditValueChanged(object sender, EventArgs e)
         {
             try
