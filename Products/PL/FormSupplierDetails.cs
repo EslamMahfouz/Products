@@ -75,7 +75,6 @@ namespace Products.PL
                 if (supplier.SupplierCharge == 0)
                 {
                     btnPay.Enabled = false;
-
                 }
 
                 //gridPruchases
@@ -93,9 +92,43 @@ namespace Products.PL
                                     م = x.PurchaseID
 
                                 };
-
-
                 gridControl1.DataSource = purchases.ToList();
+                gridView2.PopulateColumns();
+                gridView2.Columns["م"].Visible = false;
+                gridView2.BestFitColumns();
+
+                gridView2.Columns["رقم_الفاتورة"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView2.Columns["التاريخ"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView2.Columns["الإجمالي"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView2.Columns["الخصم"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView2.Columns["الإجمالي_بعد_الخصم"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView2.Columns["المدفوع"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView2.Columns["المتبقي"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+
+                gridView2.Columns["رقم_الفاتورة"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView2.Columns["التاريخ"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView2.Columns["الإجمالي"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView2.Columns["الخصم"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView2.Columns["الإجمالي_بعد_الخصم"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView2.Columns["المدفوع"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView2.Columns["المتبقي"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+
+                gridView2.Columns["رقم_الفاتورة"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["التاريخ"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["الإجمالي"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["الخصم"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["الإجمالي_بعد_الخصم"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["المدفوع"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["المتبقي"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+                gridView2.Columns["رقم_الفاتورة"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["التاريخ"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["الإجمالي"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["الخصم"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["الإجمالي_بعد_الخصم"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["المدفوع"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView2.Columns["المتبقي"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
 
                 if (gridView2.RowCount == 0)
                 {
@@ -232,10 +265,11 @@ namespace Products.PL
         {
             try
             {
-                if (valChargeOrder.Validate())
+                if (!valChargeOrder.Validate())
                 { return; }
 
                 int purchaseID = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
+                int purchaseNumber = Convert.ToInt32(gridView2.GetFocusedRowCellValue("رقم_الفاتورة"));
                 double paid = Convert.ToDouble(txtPaidOrder.Text);
 
                 var supplier = db.Suppliers.Find(Convert.ToDouble(cmbSuplierDetails.EditValue));
@@ -243,6 +277,7 @@ namespace Products.PL
 
                 var purchase = db.Purchases.Find(purchaseID);
                 purchase.PurchaseCharge -= paid;
+                purchase.PurchasePaid += paid;
 
                 DateTime today = DateTime.Now;
                 if (Convert.ToDouble(txtPaidOrder.Text) != 0)
@@ -250,7 +285,7 @@ namespace Products.PL
                     EDM.PurchasesPayment pp = new EDM.PurchasesPayment()
                     {
                         //salesPayments table
-                        PurchaseNumber = purchaseID,
+                        PurchaseNumber = purchaseNumber,
                         PurchasePayPaid = Convert.ToDouble(txtPaidOrder.Text),
                         PurchasePayDate = Convert.ToDateTime(today),
                         purchaseDescription = "سداد فاتورة شراء قديمة",
@@ -262,7 +297,7 @@ namespace Products.PL
                     cmbSuplierDetails_EditValueChanged(sender, e);
                 }
                 showBoxsOrder(false);
-
+                cmbSuplierDetails_EditValueChanged(sender, e);
             }
             catch
             {
@@ -274,12 +309,21 @@ namespace Products.PL
         {
             double charge = Convert.ToDouble(gridView2.GetFocusedRowCellValue("المتبقي"));
             if (charge == 0)
-            {
                 btnPayOrder.Enabled = false;
-            }
+            else
+                btnPayOrder.Enabled = true;
         }
 
         private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+                e.Info.Kind = DevExpress.Utils.Drawing.IndicatorKind.Row;
+            }
+        }
+
+        private void gridView2_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
             if (e.Info.IsRowIndicator && e.RowHandle >= 0)
             {
