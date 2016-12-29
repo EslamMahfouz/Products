@@ -33,16 +33,20 @@ namespace Products.PL
 
         void PrdCalc()
         {
-            double sellPrice = Convert.ToDouble(txtSell.Text);
-            double Disscount = Convert.ToDouble(txtPrdDiscount.Text);
-            int Number = Convert.ToInt32(txtNum.Text);
+            try
+            {
+                double sellPrice = Convert.ToDouble(txtSell.Text);
+                double Disscount = Convert.ToDouble(txtPrdDiscount.Text);
+                int Number = Convert.ToInt32(txtNum.Text);
 
-            double prdTotal = sellPrice * Number;
-            txtPrdTotal.Text = Convert.ToString(prdTotal);
+                double prdTotal = sellPrice * Number;
+                txtPrdTotal.Text = Convert.ToString(prdTotal);
 
-            double prdPrice = prdTotal - (prdTotal * (Disscount / 100));
-            txtPrdPrice.Text = Convert.ToString(prdPrice);
-
+                double prdPrice = prdTotal - (prdTotal * (Disscount / 100));
+                txtPrdPrice.Text = Convert.ToString(prdPrice);
+            }
+            catch
+            { return; }
         }
         
         void TotalCalc ()
