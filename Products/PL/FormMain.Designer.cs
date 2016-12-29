@@ -37,15 +37,19 @@
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnAddSupplier = new DevExpress.XtraNavBar.NavBarItem();
             this.btnSupplierDetails = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnShowSuppliers = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnAddCustomer = new DevExpress.XtraNavBar.NavBarItem();
             this.btnCustomerDetails = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnShowCustomers = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnAddPurchase = new DevExpress.XtraNavBar.NavBarItem();
             this.btnAddSale = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnPurchasesReports = new DevExpress.XtraNavBar.NavBarItem();
             this.btnSalesReports = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnDailyProfit = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.ث = new DevExpress.XtraBars.Bar();
@@ -55,10 +59,10 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.skinBarSubItem2 = new DevExpress.XtraBars.SkinBarSubItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.skinBarSubItem2 = new DevExpress.XtraBars.SkinBarSubItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -89,7 +93,11 @@
             this.btnAddSale,
             this.btnPurchasesReports,
             this.btnSalesReports,
-            this.btnShowProducts});
+            this.btnShowProducts,
+            this.btnShowCustomers,
+            this.btnShowSuppliers,
+            this.navBarItem1,
+            this.btnDailyProfit});
             this.navBarControl1.Location = new System.Drawing.Point(927, 20);
             this.navBarControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.navBarControl1.Name = "navBarControl1";
@@ -138,9 +146,11 @@
             this.navBarGroup2.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup2.Appearance.Options.UseFont = true;
             this.navBarGroup2.Caption = "الموردين";
+            this.navBarGroup2.Expanded = true;
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddSupplier),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.btnSupplierDetails)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnSupplierDetails),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnShowSuppliers)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
             // btnAddSupplier
@@ -159,15 +169,23 @@
             this.btnSupplierDetails.Name = "btnSupplierDetails";
             this.btnSupplierDetails.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnSupplierDetails_LinkClicked);
             // 
+            // btnShowSuppliers
+            // 
+            this.btnShowSuppliers.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnShowSuppliers.Appearance.Options.UseFont = true;
+            this.btnShowSuppliers.Caption = "عرض الموردين";
+            this.btnShowSuppliers.Name = "btnShowSuppliers";
+            this.btnShowSuppliers.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
+            // 
             // navBarGroup3
             // 
             this.navBarGroup3.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup3.Appearance.Options.UseFont = true;
             this.navBarGroup3.Caption = "العملاء";
-            this.navBarGroup3.Expanded = true;
             this.navBarGroup3.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddCustomer),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.btnCustomerDetails)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnCustomerDetails),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnShowCustomers)});
             this.navBarGroup3.Name = "navBarGroup3";
             // 
             // btnAddCustomer
@@ -185,6 +203,14 @@
             this.btnCustomerDetails.Caption = "عرض بيانات عميل";
             this.btnCustomerDetails.Name = "btnCustomerDetails";
             this.btnCustomerDetails.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnCustomerDetails_LinkClicked);
+            // 
+            // btnShowCustomers
+            // 
+            this.btnShowCustomers.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnShowCustomers.Appearance.Options.UseFont = true;
+            this.btnShowCustomers.Caption = "عرض العملاء ";
+            this.btnShowCustomers.Name = "btnShowCustomers";
+            this.btnShowCustomers.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
             // 
             // navBarGroup4
             // 
@@ -217,9 +243,11 @@
             this.navBarGroup5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup5.Appearance.Options.UseFont = true;
             this.navBarGroup5.Caption = "تقارير";
+            this.navBarGroup5.Expanded = true;
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnPurchasesReports),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.btnSalesReports)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnSalesReports),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnDailyProfit)});
             this.navBarGroup5.Name = "navBarGroup5";
             // 
             // btnPurchasesReports
@@ -237,6 +265,19 @@
             this.btnSalesReports.Caption = "تقرير إيرادات";
             this.btnSalesReports.Name = "btnSalesReports";
             this.btnSalesReports.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnSalesReports_LinkClicked);
+            // 
+            // btnDailyProfit
+            // 
+            this.btnDailyProfit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnDailyProfit.Appearance.Options.UseFont = true;
+            this.btnDailyProfit.Caption = "جرد يومى";
+            this.btnDailyProfit.Name = "btnDailyProfit";
+            this.btnDailyProfit.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnDailyProfit_LinkClicked);
+            // 
+            // navBarItem1
+            // 
+            this.navBarItem1.Caption = "جرد يومى";
+            this.navBarItem1.Name = "navBarItem1";
             // 
             // xtraTabbedMdiManager1
             // 
@@ -324,6 +365,12 @@
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 488);
             // 
+            // skinBarSubItem2
+            // 
+            this.skinBarSubItem2.Caption = "skinBarSubItem2";
+            this.skinBarSubItem2.Id = 1;
+            this.skinBarSubItem2.Name = "skinBarSubItem2";
+            // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.gridControl1);
@@ -355,12 +402,6 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.RowHeight = 40;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
-            // 
-            // skinBarSubItem2
-            // 
-            this.skinBarSubItem2.Caption = "skinBarSubItem2";
-            this.skinBarSubItem2.Id = 1;
-            this.skinBarSubItem2.Name = "skinBarSubItem2";
             // 
             // FormMain
             // 
@@ -423,5 +464,9 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem2;
+        private DevExpress.XtraNavBar.NavBarItem btnShowSuppliers;
+        private DevExpress.XtraNavBar.NavBarItem btnShowCustomers;
+        private DevExpress.XtraNavBar.NavBarItem btnDailyProfit;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem1;
     }
 }

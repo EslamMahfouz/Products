@@ -161,5 +161,25 @@ namespace Products.PL
                 e.Info.Kind = DevExpress.Utils.Drawing.IndicatorKind.Row;
             }
         }
+
+        private void navBarItem1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FormCustomersAndSuppliers frm = new FormCustomersAndSuppliers();
+            frm.type = "customer";
+            AddForm(frm);
+        }
+
+        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FormCustomersAndSuppliers frm = new FormCustomersAndSuppliers();
+            frm.type = "supplier";
+            AddForm(frm);
+        }
+
+        private void btnDailyProfit_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FormDailyProfit frm = new FormDailyProfit();
+            AddForm(frm);
+        }
     }
 }

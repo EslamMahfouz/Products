@@ -169,6 +169,18 @@
     <Compile Include="PL\FormCustomerDetails.Designer.cs">
       <DependentUpon>FormCustomerDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\FormCustomersAndSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FormCustomersAndSuppliers.Designer.cs">
+      <DependentUpon>FormCustomersAndSuppliers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FormDailyProfit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FormDailyProfit.Designer.cs">
+      <DependentUpon>FormDailyProfit.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\FormOrderDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +251,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FormCustomerDetails.resx">
       <DependentUpon>FormCustomerDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormCustomersAndSuppliers.resx">
+      <DependentUpon>FormCustomersAndSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FormDailyProfit.resx">
+      <DependentUpon>FormDailyProfit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
