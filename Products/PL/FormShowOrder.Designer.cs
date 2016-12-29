@@ -68,98 +68,107 @@
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(301, 37);
+            this.txtName.Location = new System.Drawing.Point(351, 46);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtName.Properties.Appearance.Options.UseFont = true;
             this.txtName.Properties.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(365, 26);
+            this.txtName.Size = new System.Drawing.Size(426, 30);
             this.txtName.TabIndex = 0;
             // 
             // txtDate
             // 
             this.txtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDate.Location = new System.Drawing.Point(15, 37);
+            this.txtDate.Location = new System.Drawing.Point(17, 46);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDate.Name = "txtDate";
             this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtDate.Properties.Appearance.Options.UseFont = true;
             this.txtDate.Properties.ReadOnly = true;
-            this.txtDate.Size = new System.Drawing.Size(205, 26);
+            this.txtDate.Size = new System.Drawing.Size(239, 30);
             this.txtDate.TabIndex = 1;
             // 
             // txtDiscount
             // 
             this.txtDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDiscount.Location = new System.Drawing.Point(328, 72);
+            this.txtDiscount.Location = new System.Drawing.Point(383, 89);
+            this.txtDiscount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtDiscount.Properties.Appearance.Options.UseFont = true;
             this.txtDiscount.Properties.ReadOnly = true;
-            this.txtDiscount.Size = new System.Drawing.Size(100, 26);
+            this.txtDiscount.Size = new System.Drawing.Size(117, 30);
             this.txtDiscount.TabIndex = 3;
             // 
             // txtPrice
             // 
             this.txtPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPrice.Location = new System.Drawing.Point(520, 72);
+            this.txtPrice.Location = new System.Drawing.Point(607, 89);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPrice.Properties.Appearance.Options.UseFont = true;
             this.txtPrice.Properties.ReadOnly = true;
-            this.txtPrice.Size = new System.Drawing.Size(146, 26);
+            this.txtPrice.Size = new System.Drawing.Size(170, 30);
             this.txtPrice.TabIndex = 2;
             // 
             // txtPaid
             // 
             this.txtPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPaid.Location = new System.Drawing.Point(520, 106);
+            this.txtPaid.Location = new System.Drawing.Point(607, 130);
+            this.txtPaid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPaid.Name = "txtPaid";
             this.txtPaid.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPaid.Properties.Appearance.Options.UseFont = true;
             this.txtPaid.Properties.ReadOnly = true;
-            this.txtPaid.Size = new System.Drawing.Size(146, 26);
+            this.txtPaid.Size = new System.Drawing.Size(170, 30);
             this.txtPaid.TabIndex = 5;
             // 
             // txtNetPrice
             // 
             this.txtNetPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNetPrice.Location = new System.Drawing.Point(15, 72);
+            this.txtNetPrice.Location = new System.Drawing.Point(17, 89);
+            this.txtNetPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNetPrice.Name = "txtNetPrice";
             this.txtNetPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtNetPrice.Properties.Appearance.Options.UseFont = true;
             this.txtNetPrice.Properties.ReadOnly = true;
-            this.txtNetPrice.Size = new System.Drawing.Size(100, 26);
+            this.txtNetPrice.Size = new System.Drawing.Size(117, 30);
             this.txtNetPrice.TabIndex = 4;
             // 
             // txtNumber
             // 
             this.txtNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNumber.Location = new System.Drawing.Point(15, 106);
+            this.txtNumber.Location = new System.Drawing.Point(17, 130);
+            this.txtNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtNumber.Properties.Appearance.Options.UseFont = true;
             this.txtNumber.Properties.ReadOnly = true;
-            this.txtNumber.Size = new System.Drawing.Size(100, 26);
+            this.txtNumber.Size = new System.Drawing.Size(117, 30);
             this.txtNumber.TabIndex = 7;
             // 
             // txtCharge
             // 
             this.txtCharge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCharge.Location = new System.Drawing.Point(301, 106);
+            this.txtCharge.Location = new System.Drawing.Point(351, 130);
+            this.txtCharge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCharge.Name = "txtCharge";
             this.txtCharge.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtCharge.Properties.Appearance.Options.UseFont = true;
             this.txtCharge.Properties.ReadOnly = true;
-            this.txtCharge.Size = new System.Drawing.Size(127, 26);
+            this.txtCharge.Size = new System.Drawing.Size(148, 30);
             this.txtCharge.TabIndex = 6;
             // 
             // labelControl1
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl1.Location = new System.Drawing.Point(688, 37);
+            this.labelControl1.Location = new System.Drawing.Point(803, 46);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(49, 23);
+            this.labelControl1.Size = new System.Drawing.Size(61, 29);
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "الإسم";
             // 
@@ -167,9 +176,10 @@
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl2.Location = new System.Drawing.Point(238, 37);
+            this.labelControl2.Location = new System.Drawing.Point(278, 46);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(48, 23);
+            this.labelControl2.Size = new System.Drawing.Size(61, 29);
             this.labelControl2.TabIndex = 9;
             this.labelControl2.Text = "التاريخ";
             // 
@@ -177,9 +187,10 @@
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl3.Location = new System.Drawing.Point(687, 70);
+            this.labelControl3.Location = new System.Drawing.Point(801, 86);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(47, 23);
+            this.labelControl3.Size = new System.Drawing.Size(60, 29);
             this.labelControl3.TabIndex = 10;
             this.labelControl3.Text = "السعر";
             // 
@@ -187,9 +198,10 @@
             // 
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl4.Location = new System.Drawing.Point(447, 72);
+            this.labelControl4.Location = new System.Drawing.Point(521, 89);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(51, 23);
+            this.labelControl4.Size = new System.Drawing.Size(63, 29);
             this.labelControl4.TabIndex = 11;
             this.labelControl4.Text = "الخصم";
             // 
@@ -197,9 +209,10 @@
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl5.Location = new System.Drawing.Point(144, 72);
+            this.labelControl5.Location = new System.Drawing.Point(168, 89);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(134, 23);
+            this.labelControl5.Size = new System.Drawing.Size(171, 29);
             this.labelControl5.TabIndex = 12;
             this.labelControl5.Text = "السعر بعد الخصم";
             // 
@@ -207,9 +220,10 @@
             // 
             this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl6.Location = new System.Drawing.Point(668, 106);
+            this.labelControl6.Location = new System.Drawing.Point(779, 130);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(66, 23);
+            this.labelControl6.Size = new System.Drawing.Size(85, 29);
             this.labelControl6.TabIndex = 13;
             this.labelControl6.Text = "المدفوع ";
             // 
@@ -217,9 +231,10 @@
             // 
             this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl7.Location = new System.Drawing.Point(433, 106);
+            this.labelControl7.Location = new System.Drawing.Point(505, 130);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(65, 23);
+            this.labelControl7.Size = new System.Drawing.Size(80, 29);
             this.labelControl7.TabIndex = 14;
             this.labelControl7.Text = "المتبقى";
             // 
@@ -227,9 +242,10 @@
             // 
             this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl8.Location = new System.Drawing.Point(194, 106);
+            this.labelControl8.Location = new System.Drawing.Point(226, 130);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(89, 23);
+            this.labelControl8.Size = new System.Drawing.Size(113, 29);
             this.labelControl8.TabIndex = 15;
             this.labelControl8.Text = "رقم الفاتورة";
             // 
@@ -257,10 +273,11 @@
             this.groupControl1.Controls.Add(this.txtNetPrice);
             this.groupControl1.Controls.Add(this.txtPrice);
             this.groupControl1.Controls.Add(this.txtDiscount);
-            this.groupControl1.Location = new System.Drawing.Point(8, 11);
+            this.groupControl1.Location = new System.Drawing.Point(9, 14);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupControl1.Size = new System.Drawing.Size(749, 138);
+            this.groupControl1.Size = new System.Drawing.Size(874, 170);
             this.groupControl1.TabIndex = 16;
             this.groupControl1.Text = "بيانات الفاتورة";
             // 
@@ -268,20 +285,23 @@
             // 
             this.labelControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.labelControl9.Location = new System.Drawing.Point(301, 70);
+            this.labelControl9.Location = new System.Drawing.Point(351, 86);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(21, 27);
+            this.labelControl9.Size = new System.Drawing.Size(26, 33);
             this.labelControl9.TabIndex = 16;
             this.labelControl9.Text = "%";
             // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 32);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl1.Location = new System.Drawing.Point(2, 42);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gridControl1.Size = new System.Drawing.Size(745, 268);
+            this.gridControl1.Size = new System.Drawing.Size(870, 328);
             this.gridControl1.TabIndex = 17;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -305,22 +325,26 @@
             this.groupControl2.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl2.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.groupControl2.Controls.Add(this.gridControl1);
-            this.groupControl2.Location = new System.Drawing.Point(8, 154);
+            this.groupControl2.Location = new System.Drawing.Point(9, 190);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(749, 302);
+            this.groupControl2.Size = new System.Drawing.Size(874, 372);
             this.groupControl2.TabIndex = 18;
             this.groupControl2.Text = "بيانات المنتجات";
-            
             // 
             // FormShowOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 463);
+            this.ClientSize = new System.Drawing.Size(892, 570);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormShowOrder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "عرض تفاصيل الفاتورة";
             this.Load += new System.EventHandler(this.FormShowOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();

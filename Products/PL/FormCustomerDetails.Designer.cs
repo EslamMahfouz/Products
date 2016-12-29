@@ -399,6 +399,7 @@
             // txtPaidOrder
             // 
             this.txtPaidOrder.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txtPaidOrder.EditValue = 0D;
             this.txtPaidOrder.Location = new System.Drawing.Point(192, 334);
             this.txtPaidOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPaidOrder.Name = "txtPaidOrder";
@@ -406,6 +407,7 @@
             this.txtPaidOrder.Properties.Appearance.Options.UseFont = true;
             this.txtPaidOrder.Properties.Mask.EditMask = "f";
             this.txtPaidOrder.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPaidOrder.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtPaidOrder.Size = new System.Drawing.Size(141, 30);
             this.txtPaidOrder.TabIndex = 8;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
@@ -458,9 +460,13 @@
             // 
             // gridView2
             // 
+            this.gridView2.ColumnPanelRowHeight = 50;
             this.gridView2.GridControl = this.gridControl1;
+            this.gridView2.IndicatorWidth = 40;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
+            this.gridView2.RowHeight = 40;
+            this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
             this.gridView2.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView2_FocusedRowChanged);
             // 
             // xtraTabPage3

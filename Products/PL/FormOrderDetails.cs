@@ -38,6 +38,30 @@ namespace Products.PL
                                 };
                 gridControl1.DataSource = purchases.ToList();
                 gridView1.BestFitColumns();
+
+                gridView1.Columns["المنتج"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView1.Columns["العدد"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView1.Columns["الإجمالي"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView1.Columns["الخصم"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView1.Columns["الإجمالي_بعد_الخصم"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+
+                gridView1.Columns["المنتج"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView1.Columns["العدد"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView1.Columns["الإجمالي"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView1.Columns["الخصم"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView1.Columns["الإجمالي_بعد_الخصم"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+
+                gridView1.Columns["المنتج"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["العدد"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الإجمالي"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الخصم"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الإجمالي_بعد_الخصم"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+                gridView1.Columns["المنتج"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["العدد"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الإجمالي"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الخصم"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الإجمالي_بعد_الخصم"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             }
             else if( type == "sale" )
             {
@@ -53,6 +77,31 @@ namespace Products.PL
                                 };
                 gridControl1.DataSource = sales.ToList();
                 gridView1.BestFitColumns();
+
+                gridView1.Columns["المنتج"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView1.Columns["العدد"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView1.Columns["الإجمالي"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView1.Columns["الخصم"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                gridView1.Columns["الإجمالي_بعد_الخصم"].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
+
+                gridView1.Columns["المنتج"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView1.Columns["العدد"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView1.Columns["الإجمالي"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView1.Columns["الخصم"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                gridView1.Columns["الإجمالي_بعد_الخصم"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+
+                gridView1.Columns["المنتج"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["العدد"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الإجمالي"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الخصم"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الإجمالي_بعد_الخصم"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+                gridView1.Columns["المنتج"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["العدد"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الإجمالي"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الخصم"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridView1.Columns["الإجمالي_بعد_الخصم"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
             }
         }
 
