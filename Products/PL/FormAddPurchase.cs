@@ -342,6 +342,7 @@ namespace Products.PL
 
                 db.SaveChanges();
                 XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch
             {

@@ -252,16 +252,23 @@ namespace Products.PL
 
         private void txtSell_Leave(object sender, EventArgs e)
         {
-            var product = db.Products.Find(Convert.ToInt32(cmbProducts.EditValue));
-            double ProductSell = Convert.ToDouble(product.ProductSell);
-            if (Convert.ToDouble(txtSell.Text) != ProductSell)
+            try
             {
-                if (XtraMessageBox.Show("هل تريد تغيير السعر الأساسى ؟", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                var product = db.Products.Find(Convert.ToInt32(cmbProducts.EditValue));
+                double ProductSell = Convert.ToDouble(product.ProductSell);
+                if (Convert.ToDouble(txtSell.Text) != ProductSell)
                 {
-                    int FindProductID = Convert.ToInt32(cmbProducts.EditValue);
-                    var FindProduct = db.Products.Find(FindProductID);
-                    FindProduct.ProductSell = Convert.ToDouble(txtSell.Text);
+                    if (XtraMessageBox.Show("هل تريد تغيير السعر الأساسى ؟", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        int FindProductID = Convert.ToInt32(cmbProducts.EditValue);
+                        var FindProduct = db.Products.Find(FindProductID);
+                        FindProduct.ProductSell = Convert.ToDouble(txtSell.Text);
+                    }
                 }
+            }
+            catch
+            {
+                return;
             }
 
         }
@@ -380,6 +387,7 @@ namespace Products.PL
                 db.SaveChanges();
 
                 XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch
             {

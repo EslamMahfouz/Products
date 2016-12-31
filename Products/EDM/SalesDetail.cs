@@ -20,6 +20,9 @@ namespace Products.EDM
         public Nullable<double> ProductPrice { get; set; }
         public Nullable<double> ProductDiscount { get; set; }
         public Nullable<double> ProductNetPrice { get; set; }
+        public Nullable<double> ProductBuy { get; set; }
+        public Nullable<double> ProductSell { get; set; }
+        public Nullable<double> ProductBuyPrice { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual Sale Sale { get; set; }

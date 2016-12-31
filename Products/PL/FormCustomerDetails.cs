@@ -75,11 +75,10 @@ namespace Products.PL
                 btnPay.Enabled = true;
                 int customerID = Convert.ToInt32(cmbCustomerDetails.EditValue);
                 var customer = db.Customers.Find(customerID);
-                txtTel.Text = customer.CustomerTel.ToString();
-                txtPhone.Text = customer.CustomerPhone.ToString();
-                txtAddress.Text = customer.CustomerAddress.ToString();
+                txtTel.Text = customer.CustomerTel;
+                txtPhone.Text = customer.CustomerPhone;
+                txtAddress.Text = customer.CustomerAddress;
                 txtCharge.Text = customer.CustomerCharge.ToString();
-
                 if(customer.CustomerCharge == 0)
                 {
                     btnPay.Enabled = false;
