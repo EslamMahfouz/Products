@@ -68,6 +68,7 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -104,7 +105,8 @@
             this.navBarItem1,
             this.btnDailyProfit,
             this.navBarItem2,
-            this.navBarItem3});
+            this.navBarItem3,
+            this.navBarItem4});
             this.navBarControl1.Location = new System.Drawing.Point(613, 22);
             this.navBarControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.navBarControl1.Name = "navBarControl1";
@@ -249,10 +251,12 @@
             this.navBarGroup5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup5.Appearance.Options.UseFont = true;
             this.navBarGroup5.Caption = "تقارير";
+            this.navBarGroup5.Expanded = true;
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnPurchasesReports),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnSalesReports),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.btnDailyProfit)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnDailyProfit),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem4)});
             this.navBarGroup5.Name = "navBarGroup5";
             // 
             // btnPurchasesReports
@@ -453,6 +457,14 @@
             this.gridView1.RowHeight = 40;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
+            // navBarItem4
+            // 
+            this.navBarItem4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem4.Appearance.Options.UseFont = true;
+            this.navBarItem4.Caption = "جرد حسب المنتج";
+            this.navBarItem4.Name = "navBarItem4";
+            this.navBarItem4.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem4_LinkClicked);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -524,5 +536,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem2;
         private DevExpress.XtraNavBar.NavBarItem navBarItem3;
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem4;
     }
 }

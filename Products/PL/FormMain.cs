@@ -220,5 +220,11 @@ namespace Products.PL
             FormBackupSettings frm = new FormBackupSettings();
             AddForm(frm);
         }
+
+        private void navBarItem4_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FormProductProfit frm = new FormProductProfit();
+            AddForm(frm);
+        }
     }
 }
