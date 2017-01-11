@@ -152,7 +152,7 @@ namespace Products.PL
             if (!valCategory.Validate())
             { return; }
 
-            if(Convert.ToInt32(cmbProducts.EditValue) < 1)
+            if (Convert.ToInt32(cmbProducts.EditValue) < 1)
             {
                 XtraMessageBox.Show("برجاءإختيار منتج", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return ;

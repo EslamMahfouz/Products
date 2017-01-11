@@ -80,6 +80,7 @@
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.valCustomers = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.valCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -404,7 +405,6 @@
             this.txtPrdTotal.Properties.ReadOnly = true;
             this.txtPrdTotal.Size = new System.Drawing.Size(93, 26);
             this.txtPrdTotal.TabIndex = 11;
-            
             // 
             // labelControl7
             // 
@@ -707,6 +707,12 @@
             this.labelControl18.Size = new System.Drawing.Size(0, 23);
             this.labelControl18.TabIndex = 7;
             // 
+            // directorySearcher1
+            // 
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            // 
             // FormAddSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -811,5 +817,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
     }
 }
