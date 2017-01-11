@@ -31,6 +31,7 @@ namespace Products.PL
 
             var sp = from p in db.SalesPayments
                      where ((EntityFunctions.TruncateTime(p.SalePayDate)) >= dateFrom && (EntityFunctions.TruncateTime(p.SalePayDate)) <= dateTo)
+                     orderby p.SaleNumber, p.SalePayDate ascending
                      select new
                      {
                          رقم_الفاتورة = p.SaleNumber,
@@ -78,6 +79,7 @@ namespace Products.PL
 
             var sp = from p in db.SalesPayments
                      where ((EntityFunctions.TruncateTime(p.SalePayDate)) >= dateFrom && (EntityFunctions.TruncateTime(p.SalePayDate)) <= dateTo)
+                     orderby p.SaleNumber, p.SalePayDate ascending
                      select new
                      {
                          رقم_الفاتورة = p.SaleNumber,
@@ -102,13 +104,10 @@ namespace Products.PL
                 }
 
                 DateTime dt = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("التاريخ"));
-                var sale = from x in db.Sales
-                           where (x.SaleDate == dt && x.SaleNumber == num)
-                           select x;
-                foreach (var item in sale)
-                {
-                    frm.ID = item.SaleID;
-                }
+                dt = dt.Date;
+                frm.ID = Convert.ToInt32((from x in db.Sales
+                                          where x.SaleNumber == num && EntityFunctions.TruncateTime(x.SaleDate) == dt 
+                                          select x.SaleID).FirstOrDefault());
                 frm.type = "sale";
                 frm.ShowDialog();
             }

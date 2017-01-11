@@ -32,6 +32,7 @@ namespace Products.PL
 
             var pp = from p in db.PurchasesPayments
                      where ((EntityFunctions.TruncateTime(p.PurchasePayDate)) >= dateFrom && (EntityFunctions.TruncateTime(p.PurchasePayDate)) <= dateTo)
+                     orderby p.PurchaseNumber, p.PurchasePayDate ascending
                      select new
                      {
                          رقم_الفاتورة = p.PurchaseNumber,
@@ -68,7 +69,6 @@ namespace Products.PL
             gridView1.Columns["المدفوع"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridView1.Columns["التاريخ"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridView1.Columns["المورد"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
             gridView1.Columns["المدفوع"].Summary.Add(DevExpress.Data.SummaryItemType.Sum, "المدفوع", "الإجمالي ={0:n2}");
         }
 
@@ -79,6 +79,8 @@ namespace Products.PL
 
             var pp = from p in db.PurchasesPayments
                      where ((EntityFunctions.TruncateTime(p.PurchasePayDate)) >= dateFrom && (EntityFunctions.TruncateTime(p.PurchasePayDate)) <= dateTo)
+                     orderby p.PurchaseNumber, p.PurchasePayDate ascending
+
                      select new
                      {
                          رقم_الفاتورة = p.PurchaseNumber,

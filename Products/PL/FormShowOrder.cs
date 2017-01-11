@@ -47,11 +47,11 @@ namespace Products.PL
                                     select new
                                     {
                                         المنتج = x.Product.ProductName,
-                                        سعر_الشراء = (x.ProductBuy * x.ProductQte),
+                                        سعر_الشراء = x.ProductBuy,
                                         العدد = x.ProductQte,
-                                        الإجمالي = x.ProductPrice,
+                                        إجمالي_الشراء = x.ProductPrice,
                                         الخصم = x.ProductDiscount,
-                                        الإجمالي_بعد_الخصم = x.ProductNetPrice
+                                        الإجمالي_بعد_الخصم = x.ProductNetPrice,
                                     };
                     gridControl1.DataSource = purchases.ToList();
                     gridView1.BestFitColumns();
@@ -73,14 +73,17 @@ namespace Products.PL
                     txtNumber.Text = Convert.ToString(product.SaleNumber);
                     txtTotalBuy.Text = Convert.ToString(product.SaleBuyPrice);
                     txtProfit.Text = Convert.ToString(product.SaleNetPrice - product.SaleBuyPrice);
+
                     var sales = from x in db.SalesDetails
                                 where x.SaleID == ID
                                 select new
                                 {
                                     المنتج = x.Product.ProductName,
+                                    سعر_الشراء = x.ProductBuy,
+                                    سعر_البيع = x.ProductSell,
                                     العدد = x.ProductQte,
-                                    سعر_الشراء = x.ProductBuyPrice,
-                                    الإجمالي = x.ProductPrice,
+                                    إجمالي_الشراء = x.ProductBuyPrice,
+                                    إجمالي_البيع = x.ProductPrice,
                                     الخصم = x.ProductDiscount,
                                     الإجمالي_بعد_الخصم = x.ProductNetPrice,
                                     الربح = x.ProductNetPrice - x.ProductBuyPrice

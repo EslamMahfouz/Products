@@ -70,7 +70,6 @@ namespace Products.PL
             //L Mdfo3 W L Motbqi
             double Paid = Convert.ToDouble(txtPaid.Text);
             txtCharge.Text = (Total - Paid).ToString();
-
         }
 
         void PrdClear()
