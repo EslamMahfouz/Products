@@ -47,6 +47,7 @@ namespace Products.PL
                                     select new
                                     {
                                         المنتج = x.Product.ProductName,
+                                        سعر_الشراء = (x.ProductBuy * x.ProductQte),
                                         العدد = x.ProductQte,
                                         الإجمالي = x.ProductPrice,
                                         الخصم = x.ProductDiscount,
