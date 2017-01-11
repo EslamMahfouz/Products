@@ -217,7 +217,7 @@ namespace Products.PL
 
         private void btnSettings_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            FormBackupSettings frm = new PL.FormBackupSettings();
+            FormBackupSettings frm = new FormBackupSettings();
             AddForm(frm);
         }
     }

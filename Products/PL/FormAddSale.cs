@@ -335,6 +335,8 @@ namespace Products.PL
         {
             try
             {
+                double saleBuyPrice = 0;
+
                 EDM.Sale s = new EDM.Sale()
                 {
                     //Sales Table
@@ -364,20 +366,25 @@ namespace Products.PL
                 }
                 foreach (DataRow dar in dt.Rows)
                 {
+                    int productID = Convert.ToInt32(dar["م"]);
+                    var product = db.Products.Find(productID);
                     EDM.SalesDetail sd = new EDM.SalesDetail()
                     {
                         ProductID = Convert.ToInt32(dar["م"]),
+                        ProductBuy = product.ProductBuy,
+                        ProductSell = Convert.ToDouble(dar["السعر"]),
                         ProductQte = Convert.ToInt32(dar["العدد"]),
                         ProductPrice = Convert.ToDouble(dar["الإجمالى"]),
                         ProductDiscount = Convert.ToDouble(dar["الخصم"]),
                         ProductNetPrice = Convert.ToDouble(dar["السعر بعد الخصم"]),
+                        ProductBuyPrice = product.ProductBuy * Convert.ToInt32(dar["العدد"]),
                         SaleID = s.SaleID
                     };
                     db.SalesDetails.Add(sd);
-                    var product = db.Products.Find(sd.ProductID);
                     product.NumberInStock -= sd.ProductQte;
+                    saleBuyPrice += Convert.ToDouble(sd.ProductBuyPrice);
                 }
-
+                s.SaleBuyPrice = saleBuyPrice;
                 var customer = db.Customers.Find(Convert.ToInt32(cmbCustomers.EditValue));
                 customer.CustomerCharge += Convert.ToDouble(txtCharge.Text);
 

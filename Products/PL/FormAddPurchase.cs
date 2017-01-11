@@ -319,18 +319,20 @@ namespace Products.PL
 
                 foreach (DataRow dr in dt.Rows)
                 {
+                    int productID = Convert.ToInt32(Convert.ToInt32(dr["م"]));
+                    var product = db.Products.Find(productID);
+
                     EDM.PurchasesDetail pd = new EDM.PurchasesDetail()
                     {
                         PurchaseID = p.PurchaseID,
                         ProductID = Convert.ToInt32(dr["م"]),
+                        ProductBuy = Convert.ToInt32(dr["السعر"]),
                         ProductQte = Convert.ToInt32(dr["العدد"]),
                         ProductPrice = Convert.ToDouble(dr["الإجمالى"]),
                         ProductDiscount = Convert.ToDouble(dr["الخصم"]),
                         ProductNetPrice = Convert.ToDouble(dr["السعر بعد الخصم"]),
                     };
                     db.PurchasesDetails.Add(pd);
-
-                    var product = db.Products.Find(pd.ProductID);
                     product.NumberInStock += pd.ProductQte;
                 }
 
