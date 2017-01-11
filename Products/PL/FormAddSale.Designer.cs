@@ -404,6 +404,7 @@
             this.txtPrdTotal.Properties.ReadOnly = true;
             this.txtPrdTotal.Size = new System.Drawing.Size(93, 26);
             this.txtPrdTotal.TabIndex = 11;
+            
             // 
             // labelControl7
             // 
@@ -663,7 +664,6 @@
             this.deDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.deDate.Size = new System.Drawing.Size(242, 26);
             this.deDate.TabIndex = 5;
-            
             // 
             // labelControl3
             // 

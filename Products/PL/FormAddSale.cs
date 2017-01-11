@@ -207,6 +207,7 @@ namespace Products.PL
                 var product = db.Products.Find(ProductID);
                 txtSell.Text = product.ProductSell.ToString();
 
+
                 PrdCalc();
             }
             catch
@@ -341,7 +342,7 @@ namespace Products.PL
                 {
                     //Sales Table
                     CustomerID = Convert.ToInt32(cmbCustomers.EditValue),
-                    SaleDate = Convert.ToDateTime(deDate.EditValue),
+                    SaleDate = Convert.ToDateTime(deDate.EditValue), 
                     SalePrice = Convert.ToDouble(txtPrice.Text),
                     SaleDiscount = Convert.ToDouble(txtDiscount.Text),
                     SaleNetPrice = Convert.ToDouble(txtTotal.Text),

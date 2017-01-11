@@ -28,6 +28,10 @@ namespace Products.PL
             {
                 if (type == "purchase")
                 {
+                    txtTotalBuy.Visible = false;
+                    txtProfit.Visible = false;
+                    lblTotalBuy.Visible = false;
+                    lblProfit.Visible = false;
                     var product = db.Purchases.Find(ID);
                     txtName.Text = product.Supplier.SupplierName;
                     txtDate.Text = Convert.ToString(product.PurchaseDate);
@@ -53,6 +57,10 @@ namespace Products.PL
                 }
                 else if (type == "sale")
                 {
+                    txtTotalBuy.Visible = true;
+                    txtProfit.Visible = true;
+                    lblTotalBuy.Visible = true;
+                    lblProfit.Visible = true;
                     var product = db.Sales.Find(ID);
                     txtName.Text = product.Customer.CustomerName;
                     txtDate.Text = Convert.ToString(product.SaleDate);
@@ -62,16 +70,19 @@ namespace Products.PL
                     txtPaid.Text = Convert.ToString(product.SalePaid);
                     txtCharge.Text = Convert.ToString(product.SaleCharge);
                     txtNumber.Text = Convert.ToString(product.SaleNumber);
-
+                    txtTotalBuy.Text = Convert.ToString(product.SaleBuyPrice);
+                    txtProfit.Text = Convert.ToString(product.SaleNetPrice - product.SaleBuyPrice);
                     var sales = from x in db.SalesDetails
                                 where x.SaleID == ID
                                 select new
                                 {
                                     المنتج = x.Product.ProductName,
                                     العدد = x.ProductQte,
+                                    سعر_الشراء = x.ProductBuyPrice,
                                     الإجمالي = x.ProductPrice,
                                     الخصم = x.ProductDiscount,
-                                    الإجمالي_بعد_الخصم = x.ProductNetPrice
+                                    الإجمالي_بعد_الخصم = x.ProductNetPrice,
+                                    الربح = x.ProductNetPrice - x.ProductBuyPrice
                                 };
                     gridControl1.DataSource = sales.ToList();
                     gridView1.BestFitColumns();
