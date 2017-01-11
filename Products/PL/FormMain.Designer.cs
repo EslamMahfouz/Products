@@ -105,11 +105,11 @@
             this.btnDailyProfit,
             this.navBarItem2,
             this.navBarItem3});
-            this.navBarControl1.Location = new System.Drawing.Point(715, 29);
+            this.navBarControl1.Location = new System.Drawing.Point(613, 22);
             this.navBarControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.navBarControl1.Name = "navBarControl1";
-            this.navBarControl1.OptionsNavPane.ExpandedWidth = 280;
-            this.navBarControl1.Size = new System.Drawing.Size(280, 422);
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 240;
+            this.navBarControl1.Size = new System.Drawing.Size(240, 347);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             // 
@@ -385,31 +385,31 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlTop.Size = new System.Drawing.Size(995, 29);
+            this.barDockControlTop.Size = new System.Drawing.Size(853, 22);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 451);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 369);
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlBottom.Size = new System.Drawing.Size(995, 34);
+            this.barDockControlBottom.Size = new System.Drawing.Size(853, 25);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 29);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 422);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 347);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(995, 29);
+            this.barDockControlRight.Location = new System.Drawing.Point(853, 22);
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 422);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 347);
             // 
             // skinBarSubItem2
             // 
@@ -425,23 +425,20 @@
             this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.groupControl1.Controls.Add(this.gridControl1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 29);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupControl1.Location = new System.Drawing.Point(0, 22);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(715, 422);
+            this.groupControl1.Size = new System.Drawing.Size(613, 347);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "منتجات على وشك الإنتهاء";
             // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridControl1.Location = new System.Drawing.Point(2, 42);
+            this.gridControl1.Location = new System.Drawing.Point(2, 32);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(711, 378);
+            this.gridControl1.Size = new System.Drawing.Size(609, 313);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -458,9 +455,9 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 485);
+            this.ClientSize = new System.Drawing.Size(853, 394);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.navBarControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -469,7 +466,6 @@
             this.Controls.Add(this.barDockControlTop);
             this.IsMdiContainer = true;
             this.LookAndFeel.SkinName = "Metropolis Dark";
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormMain";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

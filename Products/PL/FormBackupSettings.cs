@@ -36,6 +36,7 @@ namespace Products.PL
             {
                 Properties.Settings.Default.BackupFolder = txtBackup.Text;
                 Properties.Settings.Default.Save();
+                // 34an y5li l folder 3leh access mn l brnamg bta3i
                 File.SetAttributes(Properties.Settings.Default.BackupFolder, File.GetAttributes(Properties.Settings.Default.BackupFolder) & ~FileAttributes.ReadOnly);
                 DirectoryInfo dInfo = new DirectoryInfo(Properties.Settings.Default.BackupFolder);
                 DirectorySecurity dSecurity = dInfo.GetAccessControl();
