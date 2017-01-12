@@ -44,5 +44,64 @@ namespace Products.Properties {
                 this["BackupFolder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PaidMonth {
+            get {
+                return ((bool)(this["PaidMonth"]));
+            }
+            set {
+                this["PaidMonth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PaidYear {
+            get {
+                return ((bool)(this["PaidYear"]));
+            }
+            set {
+                this["PaidYear"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PaidEver {
+            get {
+                return ((bool)(this["PaidEver"]));
+            }
+            set {
+                this["PaidEver"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime setupDate {
+            get {
+                return ((global::System.DateTime)(this["setupDate"]));
+            }
+            set {
+                this["setupDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool firstTimeUse {
+            get {
+                return ((bool)(this["firstTimeUse"]));
+            }
+            set {
+                this["firstTimeUse"] = value;
+            }
+        }
     }
 }

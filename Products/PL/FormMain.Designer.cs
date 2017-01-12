@@ -49,6 +49,7 @@
             this.btnPurchasesReports = new DevExpress.XtraNavBar.NavBarItem();
             this.btnSalesReports = new DevExpress.XtraNavBar.NavBarItem();
             this.btnDailyProfit = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
@@ -68,7 +69,7 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnActivate = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -107,11 +108,11 @@
             this.navBarItem2,
             this.navBarItem3,
             this.navBarItem4});
-            this.navBarControl1.Location = new System.Drawing.Point(613, 22);
+            this.navBarControl1.Location = new System.Drawing.Point(715, 29);
             this.navBarControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.navBarControl1.Name = "navBarControl1";
-            this.navBarControl1.OptionsNavPane.ExpandedWidth = 240;
-            this.navBarControl1.Size = new System.Drawing.Size(240, 347);
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 280;
+            this.navBarControl1.Size = new System.Drawing.Size(280, 422);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             // 
@@ -283,6 +284,14 @@
             this.btnDailyProfit.Name = "btnDailyProfit";
             this.btnDailyProfit.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnDailyProfit_LinkClicked);
             // 
+            // navBarItem4
+            // 
+            this.navBarItem4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.navBarItem4.Appearance.Options.UseFont = true;
+            this.navBarItem4.Caption = "جرد حسب المنتج";
+            this.navBarItem4.Name = "navBarItem4";
+            this.navBarItem4.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem4_LinkClicked);
+            // 
             // navBarItem1
             // 
             this.navBarItem1.Caption = "جرد يومى";
@@ -324,9 +333,10 @@
             this.skinBarSubItem2,
             this.barSubItem1,
             this.btnSettings,
-            this.barHeaderItem1});
+            this.barHeaderItem1,
+            this.btnActivate});
             this.barManager1.MainMenu = this.ث;
-            this.barManager1.MaxItemId = 5;
+            this.barManager1.MaxItemId = 6;
             this.barManager1.StatusBar = this.bar3;
             // 
             // ث
@@ -346,7 +356,8 @@
             this.barSubItem1.Caption = "إعدادات البرنامج";
             this.barSubItem1.Id = 2;
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnSettings)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnSettings),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnActivate)});
             this.barSubItem1.Name = "barSubItem1";
             // 
             // btnSettings
@@ -389,31 +400,31 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlTop.Size = new System.Drawing.Size(853, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(995, 29);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 369);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 451);
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlBottom.Size = new System.Drawing.Size(853, 25);
+            this.barDockControlBottom.Size = new System.Drawing.Size(995, 34);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 29);
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 347);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 422);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(853, 22);
+            this.barDockControlRight.Location = new System.Drawing.Point(995, 29);
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 347);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 422);
             // 
             // skinBarSubItem2
             // 
@@ -429,20 +440,23 @@
             this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.groupControl1.Controls.Add(this.gridControl1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 22);
+            this.groupControl1.Location = new System.Drawing.Point(0, 29);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(613, 347);
+            this.groupControl1.Size = new System.Drawing.Size(715, 422);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "منتجات على وشك الإنتهاء";
             // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 32);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl1.Location = new System.Drawing.Point(2, 42);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(609, 313);
+            this.gridControl1.Size = new System.Drawing.Size(711, 378);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -457,19 +471,18 @@
             this.gridView1.RowHeight = 40;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
-            // navBarItem4
+            // btnActivate
             // 
-            this.navBarItem4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.navBarItem4.Appearance.Options.UseFont = true;
-            this.navBarItem4.Caption = "جرد حسب المنتج";
-            this.navBarItem4.Name = "navBarItem4";
-            this.navBarItem4.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem4_LinkClicked);
+            this.btnActivate.Caption = "تفعيل البرنامج";
+            this.btnActivate.Id = 5;
+            this.btnActivate.Name = "btnActivate";
+            this.btnActivate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnActivate_ItemClick);
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 394);
+            this.ClientSize = new System.Drawing.Size(995, 485);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.navBarControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -478,6 +491,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.IsMdiContainer = true;
             this.LookAndFeel.SkinName = "Metropolis Dark";
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormMain";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -537,5 +551,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem3;
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
         private DevExpress.XtraNavBar.NavBarItem navBarItem4;
+        private DevExpress.XtraBars.BarButtonItem btnActivate;
     }
 }

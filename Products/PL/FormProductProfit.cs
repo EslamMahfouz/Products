@@ -30,7 +30,7 @@ namespace Products.PL
             DateTime dateTo = Convert.ToDateTime(deTo.EditValue);
 
             var products = from x in db.Products
-                             select new { م = x.ProductID , المنتج = x.ProductName };
+                             select new { م = x.ProductID , المنتج = x.ProductName, الصنف = x.Category.CategoryName };
 
             cmbProducts.Properties.DataSource = products.ToList();
             cmbProducts.Properties.DisplayMember = "المنتج";
@@ -42,7 +42,6 @@ namespace Products.PL
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-
             if (!valProducts.Validate())
             { return; }
 
