@@ -14,10 +14,12 @@ namespace Products.PL
 {
     public partial class FormActivate : DevExpress.XtraEditors.XtraForm
     {
+        bool _altF4Pressed = false;
         public static string GetMACAddress()
         {
             NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
             String sMacAddress = string.Empty;
+
             foreach (NetworkInterface adapter in nics)
             {
                 if (sMacAddress == String.Empty)// only return MAC Address from first card  
@@ -124,7 +126,21 @@ namespace Products.PL
                 return;
             }
         }
- 
+
+        private void FormActivate_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_altF4Pressed)
+            {
+                e.Cancel = e.CloseReason == CloseReason.UserClosing;
+                _altF4Pressed = false;
+            }
+        }
+
+        private void FormActivate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.KeyCode == Keys.F4)
+                _altF4Pressed = true;
+        }
     }
 }
 

@@ -90,7 +90,7 @@
             this.btnActivate.Text = "تفعيل";
             this.btnActivate.Click += new System.EventHandler(this.btnActivate_Click);
             // 
-            // frmActivate
+            // FormActivate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,13 +101,16 @@
             this.Controls.Add(this.txtCode);
             this.Controls.Add(this.txtSerial);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmActivate";
+            this.Name = "FormActivate";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "تفعيل";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormActivate_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormActivate_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.txtSerial.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
             this.ResumeLayout(false);
