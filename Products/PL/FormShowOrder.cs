@@ -90,6 +90,9 @@ namespace Products.PL
                                 };
                     gridControl1.DataSource = sales.ToList();
                     gridView1.BestFitColumns();
+                    gridView1.Columns["الربح"].Width = 150;
+                    gridView1.Columns["الربح"].Summary.Add(DevExpress.Data.SummaryItemType.Sum, "الربح", "الإجمالي ={0:n2}");
+
                 }
             }
             catch
