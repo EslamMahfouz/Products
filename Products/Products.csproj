@@ -147,8 +147,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\Repository\IRepository.cs" />
-    <Compile Include="BL\Repository\Repository.cs" />
     <Compile Include="EDM\Category.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
