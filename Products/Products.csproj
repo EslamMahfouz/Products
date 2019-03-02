@@ -82,6 +82,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\Repository\IRepository.cs" />
+    <Compile Include="BL\Repository\Repository.cs" />
     <Compile Include="EDM\Category.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
@@ -291,6 +293,7 @@
       <DependentUpon>ProductsModel.edmx</DependentUpon>
       <LastGenOutput>ProductsModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="EDM\ProductsModel.edmx.sql" />
     <Content Include="EDM\ProductsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ProductsModel.edmx</DependentUpon>
