@@ -147,6 +147,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\Repository\IRepository.cs" />
+    <Compile Include="BL\Repository\Repository.cs" />
     <Compile Include="EDM\Category.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
@@ -389,7 +391,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ProductsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="EDM\ProductsModel.edmx.diagram">
       <DependentUpon>ProductsModel.edmx</DependentUpon>
     </None>
@@ -1254,6 +1258,7 @@
       <DependentUpon>ProductsModel.edmx</DependentUpon>
       <LastGenOutput>ProductsModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="EDM\ProductsModel.edmx.sql" />
     <Content Include="EDM\ProductsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ProductsModel.edmx</DependentUpon>

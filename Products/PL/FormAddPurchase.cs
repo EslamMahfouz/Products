@@ -8,7 +8,6 @@ namespace Products.PL
 {
     public partial class FormAddPurchase : XtraForm
     {
-
         EDM.ProductsEntities db = new EDM.ProductsEntities();
         DataTable dt = new DataTable();
 
