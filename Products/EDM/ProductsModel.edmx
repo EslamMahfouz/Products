@@ -4,289 +4,284 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ProductsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Categories">
-          <Key>
-            <PropertyRef Name="CategoryID" />
-          </Key>
-          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Customers">
-          <Key>
-            <PropertyRef Name="CustomerID" />
-          </Key>
-          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
-          <Property Name="CustomerPhone" Type="nvarchar" MaxLength="50" />
-          <Property Name="CustomerTel" Type="nvarchar" MaxLength="50" />
-          <Property Name="CustomerAddress" Type="nvarchar" MaxLength="500" />
-          <Property Name="CustomerCharge" Type="float" />
-        </EntityType>
-        <EntityType Name="Products">
-          <Key>
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
-          <Property Name="ProductBuy" Type="float" />
-          <Property Name="ProductSell" Type="float" />
-          <Property Name="NumberInStock" Type="int" />
-          <Property Name="CategoryID" Type="int" />
-        </EntityType>
-        <EntityType Name="Purchases">
-          <Key>
-            <PropertyRef Name="PurchaseID" />
-          </Key>
-          <Property Name="PurchaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PurchaseDate" Type="datetime" />
-          <Property Name="PurchasePrice" Type="float" />
-          <Property Name="PurchaseDiscount" Type="float" />
-          <Property Name="PurchaseNetPrice" Type="float" />
-          <Property Name="PurchasePaid" Type="float" />
-          <Property Name="PurchaseCharge" Type="float" />
-          <Property Name="SupplierID" Type="int" Nullable="false" />
-          <Property Name="PurchaseNumber" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PurchasesDetails">
-          <Key>
-            <PropertyRef Name="PurchaseID" />
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="PurchaseID" Type="int" Nullable="false" />
-          <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="ProductBuy" Type="float" />
-          <Property Name="ProductQte" Type="int" />
-          <Property Name="ProductPrice" Type="float" />
-          <Property Name="ProductDiscount" Type="float" />
-          <Property Name="ProductNetPrice" Type="float" />
-        </EntityType>
-        <EntityType Name="PurchasesPayments">
-          <Key>
-            <PropertyRef Name="PurchasePayID" />
-          </Key>
-          <Property Name="PurchasePayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PurchaseNumber" Type="int" />
-          <Property Name="PurchasePayPaid" Type="float" />
-          <Property Name="PurchasePayDate" Type="datetime" />
-          <Property Name="purchaseDescription" Type="nvarchar" MaxLength="50" />
-          <Property Name="SupplierID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Sales">
-          <Key>
-            <PropertyRef Name="SaleID" />
-          </Key>
-          <Property Name="SaleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SaleDate" Type="datetime" />
-          <Property Name="SaleBuyPrice" Type="float" />
-          <Property Name="SalePrice" Type="float" />
-          <Property Name="SaleDiscount" Type="float" />
-          <Property Name="SaleNetPrice" Type="float" />
-          <Property Name="SalePaid" Type="float" />
-          <Property Name="SaleCharge" Type="float" />
-          <Property Name="CustomerID" Type="int" Nullable="false" />
-          <Property Name="SaleNumber" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="SalesDetails">
-          <Key>
-            <PropertyRef Name="SaleID" />
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="SaleID" Type="int" Nullable="false" />
-          <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="ProductBuy" Type="float" />
-          <Property Name="ProductSell" Type="float" />
-          <Property Name="ProductQte" Type="int" />
-          <Property Name="ProductPrice" Type="float" />
-          <Property Name="ProductDiscount" Type="float" />
-          <Property Name="ProductNetPrice" Type="float" />
-          <Property Name="ProductBuyPrice" Type="float" />
-        </EntityType>
-        <EntityType Name="SalesPayments">
-          <Key>
-            <PropertyRef Name="SalePayID" />
-          </Key>
-          <Property Name="SalePayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SaleNumber" Type="int" />
-          <Property Name="SalePayPaid" Type="float" />
-          <Property Name="SalePayDate" Type="datetime" />
-          <Property Name="SaleDescription" Type="nvarchar" MaxLength="50" />
-          <Property Name="CustomerID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Suppliers">
-          <Key>
-            <PropertyRef Name="SupplierID" />
-          </Key>
-          <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SupplierName" Type="nvarchar" MaxLength="50" />
-          <Property Name="SupplierPhone" Type="nvarchar" MaxLength="50" />
-          <Property Name="SupplierTel" Type="nvarchar" MaxLength="50" />
-          <Property Name="SupplierAddress" Type="nvarchar" MaxLength="500" />
-          <Property Name="SupplierCharge" Type="float" />
-        </EntityType>
-        <Association Name="FK_Products_Categories">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categories">
-              <PropertyRef Name="CategoryID" />
-            </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="CategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Purchases_Suppliers">
-          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
-          <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Suppliers">
-              <PropertyRef Name="SupplierID" />
-            </Principal>
-            <Dependent Role="Purchases">
-              <PropertyRef Name="SupplierID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PurchasesDetails_Products">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
-          <End Role="PurchasesDetails" Type="Self.PurchasesDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="PurchasesDetails">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PurchasesDetails_Purchases">
-          <End Role="Purchases" Type="Self.Purchases" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="PurchasesDetails" Type="Self.PurchasesDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Purchases">
-              <PropertyRef Name="PurchaseID" />
-            </Principal>
-            <Dependent Role="PurchasesDetails">
-              <PropertyRef Name="PurchaseID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PurchasesPayments_Suppliers">
-          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
-          <End Role="PurchasesPayments" Type="Self.PurchasesPayments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Suppliers">
-              <PropertyRef Name="SupplierID" />
-            </Principal>
-            <Dependent Role="PurchasesPayments">
-              <PropertyRef Name="SupplierID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sales_Customers">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
-          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="Sales">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SalesDetails_Products">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
-          <End Role="SalesDetails" Type="Self.SalesDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="SalesDetails">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SalesDetails_Sales">
-          <End Role="Sales" Type="Self.Sales" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="SalesDetails" Type="Self.SalesDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sales">
-              <PropertyRef Name="SaleID" />
-            </Principal>
-            <Dependent Role="SalesDetails">
-              <PropertyRef Name="SaleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SalesPayments_Customers">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
-          <End Role="SalesPayments" Type="Self.SalesPayments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="SalesPayments">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="ProductsModelStoreContainer">
-          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Purchases" EntityType="Self.Purchases" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PurchasesDetails" EntityType="Self.PurchasesDetails" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PurchasesPayments" EntityType="Self.PurchasesPayments" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SalesDetails" EntityType="Self.SalesDetails" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SalesPayments" EntityType="Self.SalesPayments" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
-            <End Role="Categories" EntitySet="Categories" />
-            <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Purchases_Suppliers" Association="Self.FK_Purchases_Suppliers">
-            <End Role="Suppliers" EntitySet="Suppliers" />
-            <End Role="Purchases" EntitySet="Purchases" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PurchasesDetails_Products" Association="Self.FK_PurchasesDetails_Products">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="PurchasesDetails" EntitySet="PurchasesDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PurchasesDetails_Purchases" Association="Self.FK_PurchasesDetails_Purchases">
-            <End Role="Purchases" EntitySet="Purchases" />
-            <End Role="PurchasesDetails" EntitySet="PurchasesDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PurchasesPayments_Suppliers" Association="Self.FK_PurchasesPayments_Suppliers">
-            <End Role="Suppliers" EntitySet="Suppliers" />
-            <End Role="PurchasesPayments" EntitySet="PurchasesPayments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sales_Customers" Association="Self.FK_Sales_Customers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Sales" EntitySet="Sales" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesDetails_Products" Association="Self.FK_SalesDetails_Products">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="SalesDetails" EntitySet="SalesDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesDetails_Sales" Association="Self.FK_SalesDetails_Sales">
-            <End Role="Sales" EntitySet="Sales" />
-            <End Role="SalesDetails" EntitySet="SalesDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesPayments_Customers" Association="Self.FK_SalesPayments_Customers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="SalesPayments" EntitySet="SalesPayments" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="ProductsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ProductsModelStoreContainer">
+    <EntitySet Name="Categories" EntityType="ProductsModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="ProductsModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="ProductsModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Purchases" EntityType="ProductsModel.Store.Purchases" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PurchasesDetails" EntityType="ProductsModel.Store.PurchasesDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sales" EntityType="ProductsModel.Store.Sales" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SalesDetails" EntityType="ProductsModel.Store.SalesDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Suppliers" EntityType="ProductsModel.Store.Suppliers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PurchasesPayments" EntityType="ProductsModel.Store.PurchasesPayments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SalesPayments" EntityType="ProductsModel.Store.SalesPayments" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Products_Categories" Association="ProductsModel.Store.FK_Products_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customers" Association="ProductsModel.Store.FK_Sales_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchasesDetails_Products" Association="ProductsModel.Store.FK_PurchasesDetails_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="PurchasesDetails" EntitySet="PurchasesDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesDetails_Products" Association="ProductsModel.Store.FK_SalesDetails_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="SalesDetails" EntitySet="SalesDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchases_Suppliers" Association="ProductsModel.Store.FK_Purchases_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Purchases" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchasesDetails_Purchases" Association="ProductsModel.Store.FK_PurchasesDetails_Purchases">
+      <End Role="Purchases" EntitySet="Purchases" />
+      <End Role="PurchasesDetails" EntitySet="PurchasesDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesDetails_Sales" Association="ProductsModel.Store.FK_SalesDetails_Sales">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="SalesDetails" EntitySet="SalesDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesPayments_Customers" Association="ProductsModel.Store.FK_SalesPayments_Customers">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="SalesPayment" EntitySet="SalesPayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchasesPayments_Suppliers" Association="ProductsModel.Store.FK_PurchasesPayments_Suppliers">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="PurchasesPayment" EntitySet="PurchasesPayments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CustomerPhone" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CustomerTel" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CustomerAddress" Type="nvarchar" Nullable="true" MaxLength="500" />
+    <Property Name="CustomerCharge" Type="float" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="ProductBuy" Type="float" Nullable="true" />
+    <Property Name="ProductSell" Type="float" Nullable="true" />
+    <Property Name="NumberInStock" Type="int" Nullable="true" />
+    <Property Name="CategoryID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Purchases">
+    <Key>
+      <PropertyRef Name="PurchaseID" />
+    </Key>
+    <Property Name="PurchaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurchaseDate" Type="datetime" Nullable="true" />
+    <Property Name="PurchasePrice" Type="float" Nullable="true" />
+    <Property Name="PurchaseDiscount" Type="float" Nullable="true" />
+    <Property Name="PurchaseNetPrice" Type="float" Nullable="true" />
+    <Property Name="PurchasePaid" Type="float" Nullable="true" />
+    <Property Name="PurchaseCharge" Type="float" Nullable="true" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="PurchaseNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchasesDetails">
+    <Key>
+      <PropertyRef Name="PurchaseID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="PurchaseID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ProductQte" Type="int" Nullable="true" />
+    <Property Name="ProductPrice" Type="float" Nullable="true" />
+    <Property Name="ProductDiscount" Type="float" Nullable="true" />
+    <Property Name="ProductNetPrice" Type="float" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="SaleID" />
+    </Key>
+    <Property Name="SaleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleDate" Type="datetime" Nullable="true" />
+    <Property Name="SalePrice" Type="float" Nullable="true" />
+    <Property Name="SaleDiscount" Type="float" Nullable="true" />
+    <Property Name="SaleNetPrice" Type="float" Nullable="true" />
+    <Property Name="SalePaid" Type="float" Nullable="true" />
+    <Property Name="SaleCharge" Type="float" Nullable="true" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="SaleNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesDetails">
+    <Key>
+      <PropertyRef Name="SaleID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="SaleID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ProductQte" Type="int" Nullable="true" />
+    <Property Name="ProductPrice" Type="float" Nullable="true" />
+    <Property Name="ProductDiscount" Type="float" Nullable="true" />
+    <Property Name="ProductNetPrice" Type="float" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="SupplierName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="SupplierPhone" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="SupplierTel" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="SupplierAddress" Type="nvarchar" Nullable="true" MaxLength="500" />
+    <Property Name="SupplierCharge" Type="float" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PurchasesPayments">
+    <Key>
+      <PropertyRef Name="PurchasePayID" />
+    </Key>
+    <Property Name="PurchasePayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurchaseNumber" Type="int" Nullable="true" />
+    <Property Name="PurchasePayPaid" Type="float" Nullable="true" />
+    <Property Name="PurchasePayDate" Type="datetime" Nullable="true" />
+    <Property Name="purchaseDescription" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesPayments">
+    <Key>
+      <PropertyRef Name="SalePayID" />
+    </Key>
+    <Property Name="SalePayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleNumber" Type="int" Nullable="false" />
+    <Property Name="SalePayPaid" Type="float" Nullable="true" />
+    <Property Name="SalePayDate" Type="datetime" Nullable="true" />
+    <Property Name="SaleDescription" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Products_Categories">
+    <End Role="Categories" Type="ProductsModel.Store.Categories" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="ProductsModel.Store.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Customers">
+    <End Role="Customers" Type="ProductsModel.Store.Customers" Multiplicity="1" />
+    <End Role="Sales" Type="ProductsModel.Store.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchasesDetails_Products">
+    <End Role="Products" Type="ProductsModel.Store.Products" Multiplicity="1" />
+    <End Role="PurchasesDetails" Type="ProductsModel.Store.PurchasesDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="PurchasesDetails">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesDetails_Products">
+    <End Role="Products" Type="ProductsModel.Store.Products" Multiplicity="1" />
+    <End Role="SalesDetails" Type="ProductsModel.Store.SalesDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="SalesDetails">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchases_Suppliers">
+    <End Role="Suppliers" Type="ProductsModel.Store.Suppliers" Multiplicity="1" />
+    <End Role="Purchases" Type="ProductsModel.Store.Purchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="Purchases">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchasesDetails_Purchases">
+    <End Role="Purchases" Type="ProductsModel.Store.Purchases" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PurchasesDetails" Type="ProductsModel.Store.PurchasesDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchases">
+        <PropertyRef Name="PurchaseID" />
+      </Principal>
+      <Dependent Role="PurchasesDetails">
+        <PropertyRef Name="PurchaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesDetails_Sales">
+    <End Role="Sales" Type="ProductsModel.Store.Sales" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SalesDetails" Type="ProductsModel.Store.SalesDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="SaleID" />
+      </Principal>
+      <Dependent Role="SalesDetails">
+        <PropertyRef Name="SaleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesPayments_Customers">
+    <End Role="Customer" Type="ProductsModel.Store.Customers" Multiplicity="1" />
+    <End Role="SalesPayment" Type="ProductsModel.Store.SalesPayments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="SalesPayment">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchasesPayments_Suppliers">
+    <End Role="Supplier" Type="ProductsModel.Store.Suppliers" Multiplicity="1" />
+    <End Role="PurchasesPayment" Type="ProductsModel.Store.PurchasesPayments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="PurchasesPayment">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProductsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -354,7 +349,6 @@
           <Property Name="ProductNetPrice" Type="Double" />
           <NavigationProperty Name="Product" Relationship="Self.FK_PurchasesDetails_Products" FromRole="PurchasesDetails" ToRole="Products" />
           <NavigationProperty Name="Purchase" Relationship="Self.FK_PurchasesDetails_Purchases" FromRole="PurchasesDetails" ToRole="Purchases" />
-          <Property Name="ProductBuy" Type="Double" />
         </EntityType>
         <EntityType Name="Sale">
           <Key>
@@ -371,7 +365,6 @@
           <NavigationProperty Name="Customer" Relationship="Self.FK_Sales_Customers" FromRole="Sales" ToRole="Customers" />
           <NavigationProperty Name="SalesDetails" Relationship="Self.FK_SalesDetails_Sales" FromRole="Sales" ToRole="SalesDetails" />
           <Property Name="SaleNumber" Type="Int32" Nullable="false" />
-          <Property Name="SaleBuyPrice" Type="Double" />
         </EntityType>
         <EntityType Name="SalesDetail">
           <Key>
@@ -386,9 +379,6 @@
           <Property Name="ProductNetPrice" Type="Double" />
           <NavigationProperty Name="Product" Relationship="Self.FK_SalesDetails_Products" FromRole="SalesDetails" ToRole="Products" />
           <NavigationProperty Name="Sale" Relationship="Self.FK_SalesDetails_Sales" FromRole="SalesDetails" ToRole="Sales" />
-          <Property Name="ProductBuy" Type="Double" />
-          <Property Name="ProductSell" Type="Double" />
-          <Property Name="ProductBuyPrice" Type="Double" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -558,7 +548,7 @@
             <PropertyRef Name="SalePayID" />
           </Key>
           <Property Name="SalePayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SaleNumber" Type="Int32" />
+          <Property Name="SaleNumber" Type="Int32" Nullable="false" />
           <Property Name="SalePayPaid" Type="Double" />
           <Property Name="SalePayDate" Type="DateTime" Precision="3" />
           <Property Name="SaleDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -593,138 +583,132 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ProductsModelStoreContainer" CdmEntityContainer="ProductsEntities">
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="ProductsModel.Category">
-              <MappingFragment StoreEntitySet="Categories">
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="ProductsModel.Customer">
-              <MappingFragment StoreEntitySet="Customers">
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
-                <ScalarProperty Name="CustomerTel" ColumnName="CustomerTel" />
-                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
-                <ScalarProperty Name="CustomerCharge" ColumnName="CustomerCharge" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="ProductsModel.Product">
-              <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="ProductBuy" ColumnName="ProductBuy" />
-                <ScalarProperty Name="ProductSell" ColumnName="ProductSell" />
-                <ScalarProperty Name="NumberInStock" ColumnName="NumberInStock" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Purchases">
-            <EntityTypeMapping TypeName="ProductsModel.Purchase">
-              <MappingFragment StoreEntitySet="Purchases">
-                <ScalarProperty Name="PurchaseNumber" ColumnName="PurchaseNumber" />
-                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
-                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
-                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
-                <ScalarProperty Name="PurchaseDiscount" ColumnName="PurchaseDiscount" />
-                <ScalarProperty Name="PurchaseNetPrice" ColumnName="PurchaseNetPrice" />
-                <ScalarProperty Name="PurchasePaid" ColumnName="PurchasePaid" />
-                <ScalarProperty Name="PurchaseCharge" ColumnName="PurchaseCharge" />
-                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PurchasesDetails">
-            <EntityTypeMapping TypeName="ProductsModel.PurchasesDetail">
-              <MappingFragment StoreEntitySet="PurchasesDetails">
-                <ScalarProperty Name="ProductBuy" ColumnName="ProductBuy" />
-                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="ProductQte" ColumnName="ProductQte" />
-                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
-                <ScalarProperty Name="ProductDiscount" ColumnName="ProductDiscount" />
-                <ScalarProperty Name="ProductNetPrice" ColumnName="ProductNetPrice" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sales">
-            <EntityTypeMapping TypeName="ProductsModel.Sale">
-              <MappingFragment StoreEntitySet="Sales">
-                <ScalarProperty Name="SaleBuyPrice" ColumnName="SaleBuyPrice" />
-                <ScalarProperty Name="SaleNumber" ColumnName="SaleNumber" />
-                <ScalarProperty Name="SaleID" ColumnName="SaleID" />
-                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
-                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-                <ScalarProperty Name="SaleDiscount" ColumnName="SaleDiscount" />
-                <ScalarProperty Name="SaleNetPrice" ColumnName="SaleNetPrice" />
-                <ScalarProperty Name="SalePaid" ColumnName="SalePaid" />
-                <ScalarProperty Name="SaleCharge" ColumnName="SaleCharge" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SalesDetails">
-            <EntityTypeMapping TypeName="ProductsModel.SalesDetail">
-              <MappingFragment StoreEntitySet="SalesDetails">
-                <ScalarProperty Name="ProductBuyPrice" ColumnName="ProductBuyPrice" />
-                <ScalarProperty Name="ProductSell" ColumnName="ProductSell" />
-                <ScalarProperty Name="ProductBuy" ColumnName="ProductBuy" />
-                <ScalarProperty Name="SaleID" ColumnName="SaleID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="ProductQte" ColumnName="ProductQte" />
-                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
-                <ScalarProperty Name="ProductDiscount" ColumnName="ProductDiscount" />
-                <ScalarProperty Name="ProductNetPrice" ColumnName="ProductNetPrice" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Suppliers">
-            <EntityTypeMapping TypeName="ProductsModel.Supplier">
-              <MappingFragment StoreEntitySet="Suppliers">
-                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
-                <ScalarProperty Name="SupplierPhone" ColumnName="SupplierPhone" />
-                <ScalarProperty Name="SupplierTel" ColumnName="SupplierTel" />
-                <ScalarProperty Name="SupplierAddress" ColumnName="SupplierAddress" />
-                <ScalarProperty Name="SupplierCharge" ColumnName="SupplierCharge" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PurchasesPayments">
-            <EntityTypeMapping TypeName="ProductsModel.PurchasesPayment">
-              <MappingFragment StoreEntitySet="PurchasesPayments">
-                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-                <ScalarProperty Name="purchaseDescription" ColumnName="purchaseDescription" />
-                <ScalarProperty Name="PurchasePayDate" ColumnName="PurchasePayDate" />
-                <ScalarProperty Name="PurchasePayPaid" ColumnName="PurchasePayPaid" />
-                <ScalarProperty Name="PurchaseNumber" ColumnName="PurchaseNumber" />
-                <ScalarProperty Name="PurchasePayID" ColumnName="PurchasePayID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SalesPayments">
-            <EntityTypeMapping TypeName="ProductsModel.SalesPayment">
-              <MappingFragment StoreEntitySet="SalesPayments">
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="SaleDescription" ColumnName="SaleDescription" />
-                <ScalarProperty Name="SalePayDate" ColumnName="SalePayDate" />
-                <ScalarProperty Name="SalePayPaid" ColumnName="SalePayPaid" />
-                <ScalarProperty Name="SaleNumber" ColumnName="SaleNumber" />
-                <ScalarProperty Name="SalePayID" ColumnName="SalePayID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProductsModelStoreContainer" CdmEntityContainer="ProductsEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Category)">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Customer)">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+          <ScalarProperty Name="CustomerTel" ColumnName="CustomerTel" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerCharge" ColumnName="CustomerCharge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductBuy" ColumnName="ProductBuy" />
+          <ScalarProperty Name="ProductSell" ColumnName="ProductSell" />
+          <ScalarProperty Name="NumberInStock" ColumnName="NumberInStock" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchases">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Purchase)">
+        <MappingFragment StoreEntitySet="Purchases">
+          <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="PurchaseDiscount" ColumnName="PurchaseDiscount" />
+          <ScalarProperty Name="PurchaseNetPrice" ColumnName="PurchaseNetPrice" />
+          <ScalarProperty Name="PurchasePaid" ColumnName="PurchasePaid" />
+          <ScalarProperty Name="PurchaseCharge" ColumnName="PurchaseCharge" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="PurchaseNumber" ColumnName="PurchaseNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchasesDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.PurchasesDetail)">
+        <MappingFragment StoreEntitySet="PurchasesDetails">
+          <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductQte" ColumnName="ProductQte" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductDiscount" ColumnName="ProductDiscount" />
+          <ScalarProperty Name="ProductNetPrice" ColumnName="ProductNetPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Sale)">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="SaleID" ColumnName="SaleID" />
+          <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="SaleDiscount" ColumnName="SaleDiscount" />
+          <ScalarProperty Name="SaleNetPrice" ColumnName="SaleNetPrice" />
+          <ScalarProperty Name="SalePaid" ColumnName="SalePaid" />
+          <ScalarProperty Name="SaleCharge" ColumnName="SaleCharge" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="SaleNumber" ColumnName="SaleNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.SalesDetail)">
+        <MappingFragment StoreEntitySet="SalesDetails">
+          <ScalarProperty Name="SaleID" ColumnName="SaleID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductQte" ColumnName="ProductQte" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductDiscount" ColumnName="ProductDiscount" />
+          <ScalarProperty Name="ProductNetPrice" ColumnName="ProductNetPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Supplier)">
+        <MappingFragment StoreEntitySet="Suppliers">
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+          <ScalarProperty Name="SupplierPhone" ColumnName="SupplierPhone" />
+          <ScalarProperty Name="SupplierTel" ColumnName="SupplierTel" />
+          <ScalarProperty Name="SupplierAddress" ColumnName="SupplierAddress" />
+          <ScalarProperty Name="SupplierCharge" ColumnName="SupplierCharge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchasesPayments">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.PurchasesPayment)">
+        <MappingFragment StoreEntitySet="PurchasesPayments">
+          <ScalarProperty Name="PurchasePayID" ColumnName="PurchasePayID" />
+          <ScalarProperty Name="PurchaseNumber" ColumnName="PurchaseNumber" />
+          <ScalarProperty Name="PurchasePayPaid" ColumnName="PurchasePayPaid" />
+          <ScalarProperty Name="PurchasePayDate" ColumnName="PurchasePayDate" />
+          <ScalarProperty Name="purchaseDescription" ColumnName="purchaseDescription" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesPayments">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.SalesPayment)">
+        <MappingFragment StoreEntitySet="SalesPayments">
+          <ScalarProperty Name="SalePayID" ColumnName="SalePayID" />
+          <ScalarProperty Name="SaleNumber" ColumnName="SaleNumber" />
+          <ScalarProperty Name="SalePayPaid" ColumnName="SalePayPaid" />
+          <ScalarProperty Name="SalePayDate" ColumnName="SalePayDate" />
+          <ScalarProperty Name="SaleDescription" ColumnName="SaleDescription" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -738,7 +722,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
