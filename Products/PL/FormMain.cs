@@ -1,16 +1,11 @@
-﻿using DevExpress.Skins;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraTabbedMdi;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Products.PL
@@ -23,7 +18,7 @@ namespace Products.PL
         {
             InitializeComponent();
         }
-        
+
         public void AddForm(XtraForm son)
         {
             bool NotExist = true;
@@ -96,22 +91,30 @@ namespace Products.PL
 
         private void btnAddSupplier_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            XtraMessageBox.Show("هذا القسم غير متاح", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return;
             FormAddSupplier frm = new FormAddSupplier();
             AddForm(frm);
         }
         private void btnSupplierDetails_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            XtraMessageBox.Show("هذا القسم غير متاح", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return;
             FormSupplierDetails frm = new FormSupplierDetails();
             AddForm(frm);
         }
 
         private void btnAddCustomer_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            XtraMessageBox.Show("هذا القسم غير متاح", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return;
             FormAddCustomer frm = new FormAddCustomer();
             AddForm(frm);
         }
         private void btnCustomerDetails_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            XtraMessageBox.Show("هذا القسم غير متاح", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return;
             FormCustomerDetails frm = new FormCustomerDetails();
             AddForm(frm);
         }
@@ -177,11 +180,11 @@ namespace Products.PL
             }
             UpdateGrid();
         }
-        
+
         private void xtraTabbedMdiManager1_PageRemoved(object sender, MdiTabPageEventArgs e)
         {
             int num = 0;
-            foreach(XtraMdiTabPage page in xtraTabbedMdiManager1.Pages)
+            foreach (XtraMdiTabPage page in xtraTabbedMdiManager1.Pages)
             {
                 num++;
             }
@@ -203,6 +206,8 @@ namespace Products.PL
 
         private void navBarItem1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            XtraMessageBox.Show("هذا القسم غير متاح", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return;
             FormCustomersAndSuppliers frm = new FormCustomersAndSuppliers();
             frm.type = "customer";
             frm.Text = "عرض العملاء";
@@ -211,6 +216,8 @@ namespace Products.PL
 
         private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            XtraMessageBox.Show("هذا القسم غير متاح", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return;
             FormCustomersAndSuppliers frm = new FormCustomersAndSuppliers();
             frm.type = "supplier";
             frm.Text = "عرض الموردين";
@@ -262,5 +269,6 @@ namespace Products.PL
             frm.FormBorderStyle = FormBorderStyle.FixedSingle;
             frm.ShowDialog();
         }
+
     }
 }

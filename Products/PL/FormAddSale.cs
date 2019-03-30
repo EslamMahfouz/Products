@@ -1,12 +1,9 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using Products.Reports;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Products.PL
@@ -48,18 +45,18 @@ namespace Products.PL
             catch
             { return; }
         }
-        
-        void TotalCalc ()
+
+        void TotalCalc()
         {
             double result = 0;
-            foreach(DataRow drr in dt.Rows)
-                {
-                    result += Convert.ToDouble(drr["السعر بعد الخصم"]) ;
-                }
+            foreach (DataRow drr in dt.Rows)
+            {
+                result += Convert.ToDouble(drr["السعر بعد الخصم"]);
+            }
             txtPrice.Text = result.ToString();
         }
 
-        void DisscountCalc ()
+        void DisscountCalc()
         {
             //L 5sm
             double result = Convert.ToDouble(txtPrice.Text);
@@ -80,8 +77,8 @@ namespace Products.PL
             txtPrdTotal.Text = "";
             txtPrdDiscount.Text = "";
             txtPrdPrice.Text = "";
-        } 
-        
+        }
+
         private void FormAddSale_Load(object sender, EventArgs e)
         {
             //cmbCustomers
@@ -90,8 +87,8 @@ namespace Products.PL
 
             cmbCustomers.Properties.DataSource = customers.ToList();
 
-            cmbCustomers.Properties.DisplayMember = "العميل" ;
-            cmbCustomers.Properties.ValueMember = "م" ;
+            cmbCustomers.Properties.DisplayMember = "العميل";
+            cmbCustomers.Properties.ValueMember = "م";
             cmbCustomers.Properties.PopulateViewColumns();
             cmbCustomers.Properties.View.Columns["م"].Visible = false;
 
@@ -101,8 +98,8 @@ namespace Products.PL
 
             cmbCategories.Properties.DataSource = categories.ToList();
 
-            cmbCategories.Properties.DisplayMember = "الصنف" ;
-            cmbCategories.Properties.ValueMember = "م" ;
+            cmbCategories.Properties.DisplayMember = "الصنف";
+            cmbCategories.Properties.ValueMember = "م";
             cmbCategories.Properties.PopulateViewColumns();
             cmbCategories.Properties.View.Columns["م"].Visible = false;
 
@@ -131,8 +128,8 @@ namespace Products.PL
             //cmbProducts
             int CategoryID = Convert.ToInt32(cmbCategories.EditValue);
             var products = from z in db.Products
-                           where z.CategoryID ==  CategoryID 
-                           select new { م = z.ProductID, المنتج = z.ProductName, الكمية = z.NumberInStock};
+                           where z.CategoryID == CategoryID
+                           select new { م = z.ProductID, المنتج = z.ProductName, الكمية = z.NumberInStock };
 
             cmbProducts.Properties.DataSource = products.ToList();
 
@@ -155,14 +152,14 @@ namespace Products.PL
             if (Convert.ToInt32(cmbProducts.EditValue) < 1)
             {
                 XtraMessageBox.Show("برجاءإختيار منتج", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return ;
+                return;
             }
             foreach (DataRow _dr in dt.Rows)
             {
                 if (Convert.ToInt32(_dr["م"]) == Convert.ToInt32(cmbProducts.EditValue))
                 {
                     XtraMessageBox.Show("هذاالمنتج موجود بالفعل", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return ;
+                    return;
                 }
 
             }
@@ -213,7 +210,7 @@ namespace Products.PL
             {
                 return;
             }
-            
+
         }
 
         private void txtNum_EditValueChanged(object sender, EventArgs e)
@@ -230,6 +227,9 @@ namespace Products.PL
         {
             if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)
             {
+                XtraMessageBox.Show("غير مسموح لك بإضافة عملاء", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+
                 FormAddCustomer frm = new FormAddCustomer();
                 frm.ShowDialog();
             }
@@ -341,7 +341,7 @@ namespace Products.PL
                 {
                     //Sales Table
                     CustomerID = Convert.ToInt32(cmbCustomers.EditValue),
-                    SaleDate = Convert.ToDateTime(deDate.EditValue), 
+                    SaleDate = Convert.ToDateTime(deDate.EditValue),
                     SalePrice = Convert.ToDouble(txtPrice.Text),
                     SaleDiscount = Convert.ToDouble(txtDiscount.Text),
                     SaleNetPrice = Convert.ToDouble(txtTotal.Text),
@@ -400,6 +400,34 @@ namespace Products.PL
             {
                 return;
             }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            var x = new repMonthly();
+            x.xrTable2.Rows.RemoveAt(0);
+            x.InvoiceNo.Value = lblOrderID.Text;
+            x.date.Value = deDate.Text.ToString();
+            x.xrTable3.Rows[0].Cells[0].Text = txtTotal.Text;
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                var item = dt.Rows[i];
+                var no = i + 1;
+                var row = new XRTableRow();
+                var cell0 = new XRTableCell() { Text = no.ToString(), WidthF = 31.84f };
+                var cell1 = new XRTableCell() { Text = item["المنتج"].ToString(), WidthF = 226.49f };
+                var cell2 = new XRTableCell() { Text = item["العدد"].ToString(), WidthF = 105.83f };
+                var cell3 = new XRTableCell() { Text = item["السعر"].ToString(), WidthF = 151.34f };
+                var cell4 = new XRTableCell() { Text = item["الإجمالى"].ToString(), WidthF = 161.5f };
+                row.Cells.Add(cell4);
+                row.Cells.Add(cell3);
+                row.Cells.Add(cell2);
+                row.Cells.Add(cell1);
+                row.Cells.Add(cell0);
+                x.xrTable2.Rows.Add(row);
+            }
+            x.ShowPreview();
         }
     }
 }

@@ -1,14 +1,9 @@
-﻿using DevExpress.Utils;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Objects;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Products.PL
@@ -104,9 +99,10 @@ namespace Products.PL
                     return;
                 }
                 DateTime dt = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("التاريخ"));
-                var purchase = from x in db.Purchases
-                           where (x.PurchaseDate == dt && x.PurchaseNumber == num)
-                           select x;
+                dt = dt.Date;
+                var purchase = (from x in db.Purchases
+                                where (EntityFunctions.TruncateTime(x.PurchaseDate) == dt && x.PurchaseNumber == num)
+                                select x).ToList();
                 foreach (var item in purchase)
                 {
                     frm.ID = item.PurchaseID;

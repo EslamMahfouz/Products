@@ -65,8 +65,8 @@ namespace Products.PL
             dt.Columns.Add("العدد");
             dt.Columns.Add("الإجمالى");
             dt.Columns.Add("الخصم");
-            dt.Columns.Add("السعر بعد الخصم");            
-         }
+            dt.Columns.Add("السعر بعد الخصم");
+        }
         private void FormAddPurchase_Load(object sender, EventArgs e)
         {
             //cmbSupliers
@@ -149,6 +149,8 @@ namespace Products.PL
 
         private void cmbSuppliers_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            XtraMessageBox.Show("غير مسموح لك بإضافة موردين", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return;
             if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)
             {
                 FormAddSupplier frm = new FormAddSupplier();
@@ -350,5 +352,6 @@ namespace Products.PL
                 return;
             }
         }
+
     }
 }

@@ -28,10 +28,6 @@ namespace Products.PL
             {
                 if (type == "purchase")
                 {
-                    txtTotalBuy.Visible = false;
-                    txtProfit.Visible = false;
-                    lblTotalBuy.Visible = false;
-                    lblProfit.Visible = false;
                     var product = db.Purchases.Find(ID);
                     txtName.Text = product.Supplier.SupplierName;
                     txtDate.Text = Convert.ToString(product.PurchaseDate);
@@ -47,7 +43,6 @@ namespace Products.PL
                                     select new
                                     {
                                         المنتج = x.Product.ProductName,
-                                        سعر_الشراء = x.ProductBuy,
                                         العدد = x.ProductQte,
                                         إجمالي_الشراء = x.ProductPrice,
                                         الخصم = x.ProductDiscount,
@@ -58,10 +53,6 @@ namespace Products.PL
                 }
                 else if (type == "sale")
                 {
-                    txtTotalBuy.Visible = true;
-                    txtProfit.Visible = true;
-                    lblTotalBuy.Visible = true;
-                    lblProfit.Visible = true;
                     var product = db.Sales.Find(ID);
                     txtName.Text = product.Customer.CustomerName;
                     txtDate.Text = Convert.ToString(product.SaleDate);
@@ -71,31 +62,23 @@ namespace Products.PL
                     txtPaid.Text = Convert.ToString(product.SalePaid);
                     txtCharge.Text = Convert.ToString(product.SaleCharge);
                     txtNumber.Text = Convert.ToString(product.SaleNumber);
-                    txtTotalBuy.Text = Convert.ToString(product.SaleBuyPrice);
-                    txtProfit.Text = Convert.ToString(product.SaleNetPrice - product.SaleBuyPrice);
 
                     var sales = from x in db.SalesDetails
                                 where x.SaleID == ID
                                 select new
                                 {
                                     المنتج = x.Product.ProductName,
-                                    سعر_الشراء = x.ProductBuy,
-                                    سعر_البيع = x.ProductSell,
                                     العدد = x.ProductQte,
-                                    إجمالي_الشراء = x.ProductBuyPrice,
                                     إجمالي_البيع = x.ProductPrice,
                                     الخصم = x.ProductDiscount,
-                                    الإجمالي_بعد_الخصم = x.ProductNetPrice,
-                                    الربح = x.ProductNetPrice - x.ProductBuyPrice
+                                    الإجمالي_بعد_الخصم = x.ProductNetPrice
                                 };
                     gridControl1.DataSource = sales.ToList();
                     gridView1.BestFitColumns();
-                    gridView1.Columns["الربح"].Width = 150;
-                    gridView1.Columns["الربح"].Summary.Add(DevExpress.Data.SummaryItemType.Sum, "الربح", "الإجمالي ={0:n2}");
 
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 return;
             }

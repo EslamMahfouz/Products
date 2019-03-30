@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnAddCategory = new DevExpress.XtraNavBar.NavBarItem();
@@ -52,8 +53,8 @@
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.ث = new DevExpress.XtraBars.Bar();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.btnSettings = new DevExpress.XtraBars.BarButtonItem();
@@ -167,6 +168,7 @@
             this.btnAddSupplier.Appearance.Options.UseFont = true;
             this.btnAddSupplier.Caption = "إضافة مورد";
             this.btnAddSupplier.Name = "btnAddSupplier";
+            this.btnAddSupplier.Visible = false;
             this.btnAddSupplier.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnAddSupplier_LinkClicked);
             // 
             // btnSupplierDetails
@@ -175,6 +177,7 @@
             this.btnSupplierDetails.Appearance.Options.UseFont = true;
             this.btnSupplierDetails.Caption = "عرض بيانات مورد";
             this.btnSupplierDetails.Name = "btnSupplierDetails";
+            this.btnSupplierDetails.Visible = false;
             this.btnSupplierDetails.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnSupplierDetails_LinkClicked);
             // 
             // btnShowSuppliers
@@ -183,6 +186,7 @@
             this.btnShowSuppliers.Appearance.Options.UseFont = true;
             this.btnShowSuppliers.Caption = "عرض الموردين";
             this.btnShowSuppliers.Name = "btnShowSuppliers";
+            this.btnShowSuppliers.Visible = false;
             this.btnShowSuppliers.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
             // navBarGroup3
@@ -251,6 +255,7 @@
             this.navBarGroup5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup5.Appearance.Options.UseFont = true;
             this.navBarGroup5.Caption = "تقارير";
+            this.navBarGroup5.Expanded = true;
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnPurchasesReports),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnSalesReports),

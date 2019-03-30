@@ -314,6 +314,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\repMonthly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\repMonthly.designer.cs">
+      <DependentUpon>repMonthly.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="PL\FormAddCategory.resx">
       <DependentUpon>FormAddCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,6 +391,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\repMonthly.resx">
+      <DependentUpon>repMonthly.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="EDM\ProductsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ProductsModel.Designer.cs</LastGenOutput>
