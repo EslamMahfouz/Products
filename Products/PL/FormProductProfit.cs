@@ -1,14 +1,9 @@
 ﻿using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Objects;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Products.PL
 {
@@ -30,14 +25,14 @@ namespace Products.PL
             DateTime dateTo = Convert.ToDateTime(deTo.EditValue);
 
             var products = from x in db.Products
-                             select new { م = x.ProductID , المنتج = x.ProductName, الصنف = x.Category.CategoryName };
+                           select new { م = x.ProductID, المنتج = x.ProductName, الصنف = x.Category.CategoryName };
 
             cmbProducts.Properties.DataSource = products.ToList();
             cmbProducts.Properties.DisplayMember = "المنتج";
             cmbProducts.Properties.ValueMember = "م";
             cmbProducts.Properties.PopulateViewColumns();
             cmbProducts.Properties.View.Columns["م"].Visible = false;
-            
+
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -55,7 +50,6 @@ namespace Products.PL
                      {
                          رقم_الفاتورة = x.SaleID,
                          التاريخ = x.Sale.SaleDate,
-                         سعر_الشراء = x.ProductBuy,
                          سعر_البيع = x.ProductSell,
                          العدد = x.ProductQte,
                          إجمالى_الشراء = x.ProductBuyPrice,

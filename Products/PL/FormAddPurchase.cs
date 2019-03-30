@@ -41,6 +41,7 @@ namespace Products.PL
             double charge;
             double total = price - (price * (Discount / 100));
             txtTotal.Text = total.ToString();
+            txtPaid.Text = total.ToString();
             charge = total - paid;
             txtCharge.Text = charge.ToString();
         }
@@ -149,10 +150,11 @@ namespace Products.PL
 
         private void cmbSuppliers_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            XtraMessageBox.Show("غير مسموح لك بإضافة موردين", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            return;
+
             if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)
             {
+                XtraMessageBox.Show("غير مسموح لك بإضافة موردين", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
                 FormAddSupplier frm = new FormAddSupplier();
                 frm.ShowDialog();
                 FormAddPurchase_Load(sender, e);

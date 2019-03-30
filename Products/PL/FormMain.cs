@@ -234,7 +234,7 @@ namespace Products.PL
         {
             try
             {
-                SqlConnection sqlconnection = new SqlConnection(@"Server=.\SQLEXPRESS; Database=master; Integrated Security=true");
+                SqlConnection sqlconnection = new SqlConnection(@"Server=ESLAMMAHFOUZ; Database=master; Integrated Security=true");
                 SqlCommand cmd;
 
                 string combined = Path.Combine(Properties.Settings.Default.BackupFolder, "ProductsBackup.bak");
@@ -245,7 +245,7 @@ namespace Products.PL
                 cmd.ExecuteNonQuery();
                 sqlconnection.Close();
             }
-            catch
+            catch (Exception)
             {
                 return;
             }
@@ -259,6 +259,8 @@ namespace Products.PL
 
         private void navBarItem4_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            XtraMessageBox.Show("هذه الخدمة غير متاحه", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return;
             FormProductProfit frm = new FormProductProfit();
             AddForm(frm);
         }

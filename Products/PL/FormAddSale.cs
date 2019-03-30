@@ -63,6 +63,7 @@ namespace Products.PL
             double Disscount = Convert.ToDouble(txtDiscount.Text);
             double Total = result - ((result * Disscount) / 100);
             txtTotal.Text = Total.ToString();
+            txtPaid.Text = result.ToString();
 
             //L Mdfo3 W L Motbqi
             double Paid = Convert.ToDouble(txtPaid.Text);
@@ -149,7 +150,7 @@ namespace Products.PL
             if (!valCategory.Validate())
             { return; }
 
-            if (Convert.ToInt32(cmbProducts.EditValue) < 1)
+            if (cmbProducts.Text == "")
             {
                 XtraMessageBox.Show("برجاءإختيار منتج", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
