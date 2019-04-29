@@ -20,7 +20,6 @@ namespace Products.PL.Sales
     {
         #region Fields
 
-        private readonly UnitOfWork _unitOfWork = new UnitOfWork();
         private readonly List<AddSaleDetailGridModel> _saleDetails = new List<AddSaleDetailGridModel>();
         private readonly Sale _sale = new Sale();
 
@@ -86,15 +85,15 @@ namespace Products.PL.Sales
 
         private void FormAddSale_Load(object sender, EventArgs e)
         {
-            var customers = _unitOfWork.Customers.GetCustomers();
+            var customers = UnitOfWork.Instance.Customers.GetCustomers();
             cmbCustomers.Properties.DataSource = customers;
             cmbCustomers.Initialize();
 
-            var products = _unitOfWork.Products.GetProductsForCombo();
+            var products = UnitOfWork.Instance.Products.GetProductsForCombo();
             cmbProducts.Properties.DataSource = products;
             cmbProducts.Initialize();
 
-            lblOrderID.Text = _unitOfWork.Sales.NewOrder();
+            lblOrderID.Text = UnitOfWork.Instance.Sales.NewOrder();
             gridControl1.DataSource = _saleDetails;
             gridView3.Initialize();
             var textEdit = BL.Custom.GetTextEditRepositoryItem();
@@ -120,7 +119,7 @@ namespace Products.PL.Sales
                 return;
             }
 
-            var product = _unitOfWork.Products.Get(Convert.ToInt32(cmbProducts.EditValue));
+            var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(cmbProducts.EditValue));
             _saleDetails.Add(new AddSaleDetailGridModel
             {
                 ProductId = Convert.ToInt32(cmbProducts.EditValue),
@@ -204,7 +203,7 @@ namespace Products.PL.Sales
         {
             try
             {
-                var product = _unitOfWork.Products.Get(Convert.ToInt32(cmbProducts.EditValue));
+                var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(cmbProducts.EditValue));
                 txtSell.Text = product.Sell.ToString();
                 PrdCalc();
             }
@@ -227,7 +226,7 @@ namespace Products.PL.Sales
 
         private void TxtNum_Validated(object sender, EventArgs e)
         {
-            var product = _unitOfWork.Products.Get((int)cmbProducts.EditValue);
+            var product = UnitOfWork.Instance.Products.Get((int)cmbProducts.EditValue);
             if (product.Qte > int.Parse(txtQte.Text))
             {
                 return;
@@ -241,7 +240,7 @@ namespace Products.PL.Sales
         {
             try
             {
-                var product = _unitOfWork.Products.Get(Convert.ToInt32(cmbProducts.EditValue));
+                var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(cmbProducts.EditValue));
                 var productSell = product?.Sell;
                 var newPrice = Convert.ToDouble(txtSell.Text);
                 // ReSharper disable once CompareOfFloatsByEqualityOperator
@@ -254,7 +253,7 @@ namespace Products.PL.Sales
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     product.Sell = newPrice;
-                    _unitOfWork.Complete();
+                    UnitOfWork.Instance.Complete();
                 }
             }
             catch (Exception ex)
@@ -289,12 +288,12 @@ namespace Products.PL.Sales
                     saleDetails.ForEach(sd => _sale.SaleDetails.Add(sd));
                     foreach (var saleDetail in _saleDetails)
                     {
-                        var product = _unitOfWork.Products.Get(saleDetail.ProductId);
+                        var product = UnitOfWork.Instance.Products.Get(saleDetail.ProductId);
                         product.Qte -= Convert.ToInt32(saleDetail.Qte);
                     }
 
-                    _unitOfWork.Sales.Add(_sale);
-                    _unitOfWork.Complete();
+                    UnitOfWork.Instance.Sales.Add(_sale);
+                    UnitOfWork.Instance.Complete();
 
                     btnDelete.Enabled = false;
                     btnEdit.Enabled = false;
@@ -303,7 +302,7 @@ namespace Products.PL.Sales
                 }
                 else
                 {
-                    var rep = _unitOfWork.Sales.GetSaleReport(_sale.Id);
+                    var rep = UnitOfWork.Instance.Sales.GetSaleReport(_sale.Id);
                     rep.ShowPreview();
                 }
             }

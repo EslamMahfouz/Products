@@ -10,7 +10,7 @@ namespace Products.PL.Products
 {
     public partial class FormShowProducts : XtraForm
     {
-        ProductsEntities db = new ProductsEntities();
+        //ProductsEntities db = new ProductsEntities();
 
         public FormShowProducts()
         {
