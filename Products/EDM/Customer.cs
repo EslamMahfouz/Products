@@ -17,17 +17,14 @@ namespace Products.EDM
         public Customer()
         {
             this.Sales = new HashSet<Sale>();
-            this.SalesPayments = new HashSet<SalesPayment>();
         }
     
-        public int CustomerID { get; set; }
-        public string CustomerName { get; set; }
-        public string CustomerPhone { get; set; }
-        public string CustomerTel { get; set; }
-        public string CustomerAddress { get; set; }
-        public Nullable<double> CustomerCharge { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Tel { get; set; }
+        public string Address { get; set; }
     
         public virtual ICollection<Sale> Sales { get; set; }
-        public virtual ICollection<SalesPayment> SalesPayments { get; set; }
     }
 }

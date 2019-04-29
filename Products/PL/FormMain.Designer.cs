@@ -1,11 +1,19 @@
-﻿namespace Products.PL
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraNavBar;
+using DevExpress.XtraTabbedMdi;
+using System.ComponentModel;
+
+namespace Products.PL
 {
     partial class FormMain
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -31,7 +39,7 @@
             this.components = new System.ComponentModel.Container();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.btnAddCategory = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnShowCategories = new DevExpress.XtraNavBar.NavBarItem();
             this.btnAddProduct = new DevExpress.XtraNavBar.NavBarItem();
             this.btnShowProducts = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
@@ -50,6 +58,9 @@
             this.btnSalesReports = new DevExpress.XtraNavBar.NavBarItem();
             this.btnDailyProfit = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup6 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroup7 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroup8 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
@@ -88,9 +99,11 @@
             this.navBarGroup2,
             this.navBarGroup3,
             this.navBarGroup4,
-            this.navBarGroup5});
+            this.navBarGroup5,
+            this.navBarGroup6,
+            this.navBarGroup7,
+            this.navBarGroup8});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.btnAddCategory,
             this.btnAddProduct,
             this.btnAddSupplier,
             this.btnAddCustomer,
@@ -107,7 +120,8 @@
             this.btnDailyProfit,
             this.navBarItem2,
             this.navBarItem3,
-            this.navBarItem4});
+            this.navBarItem4,
+            this.btnShowCategories});
             this.navBarControl1.Location = new System.Drawing.Point(715, 29);
             this.navBarControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.navBarControl1.Name = "navBarControl1";
@@ -121,19 +135,20 @@
             this.navBarGroup1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup1.Appearance.Options.UseFont = true;
             this.navBarGroup1.Caption = "الأصناف و المنتجات";
+            this.navBarGroup1.Expanded = true;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddCategory),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnShowCategories),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddProduct),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnShowProducts)});
             this.navBarGroup1.Name = "navBarGroup1";
             // 
-            // btnAddCategory
+            // btnShowCategories
             // 
-            this.btnAddCategory.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnAddCategory.Appearance.Options.UseFont = true;
-            this.btnAddCategory.Caption = "إضافة صنف";
-            this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnAddCategory_LinkClicked);
+            this.btnShowCategories.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowCategories.Appearance.Options.UseFont = true;
+            this.btnShowCategories.Caption = "عرض الأصناف";
+            this.btnShowCategories.Name = "btnShowCategories";
+            this.btnShowCategories.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnShowCategories_LinkClicked);
             // 
             // btnAddProduct
             // 
@@ -168,7 +183,6 @@
             this.btnAddSupplier.Appearance.Options.UseFont = true;
             this.btnAddSupplier.Caption = "إضافة مورد";
             this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Visible = false;
             this.btnAddSupplier.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnAddSupplier_LinkClicked);
             // 
             // btnSupplierDetails
@@ -177,7 +191,6 @@
             this.btnSupplierDetails.Appearance.Options.UseFont = true;
             this.btnSupplierDetails.Caption = "عرض بيانات مورد";
             this.btnSupplierDetails.Name = "btnSupplierDetails";
-            this.btnSupplierDetails.Visible = false;
             this.btnSupplierDetails.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnSupplierDetails_LinkClicked);
             // 
             // btnShowSuppliers
@@ -186,7 +199,6 @@
             this.btnShowSuppliers.Appearance.Options.UseFont = true;
             this.btnShowSuppliers.Caption = "عرض الموردين";
             this.btnShowSuppliers.Name = "btnShowSuppliers";
-            this.btnShowSuppliers.Visible = false;
             this.btnShowSuppliers.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
             // navBarGroup3
@@ -194,6 +206,7 @@
             this.navBarGroup3.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup3.Appearance.Options.UseFont = true;
             this.navBarGroup3.Caption = "العملاء";
+            this.navBarGroup3.Expanded = true;
             this.navBarGroup3.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddCustomer),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnCustomerDetails),
@@ -255,7 +268,6 @@
             this.navBarGroup5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup5.Appearance.Options.UseFont = true;
             this.navBarGroup5.Caption = "تقارير";
-            this.navBarGroup5.Expanded = true;
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnPurchasesReports),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnSalesReports),
@@ -294,6 +306,21 @@
             this.navBarItem4.Caption = "جرد حسب المنتج";
             this.navBarItem4.Name = "navBarItem4";
             this.navBarItem4.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem4_LinkClicked);
+            // 
+            // navBarGroup6
+            // 
+            this.navBarGroup6.Caption = "navBarGroup6";
+            this.navBarGroup6.Name = "navBarGroup6";
+            // 
+            // navBarGroup7
+            // 
+            this.navBarGroup7.Caption = "navBarGroup7";
+            this.navBarGroup7.Name = "navBarGroup7";
+            // 
+            // navBarGroup8
+            // 
+            this.navBarGroup8.Caption = "navBarGroup8";
+            this.navBarGroup8.Name = "navBarGroup8";
             // 
             // navBarItem1
             // 
@@ -514,46 +541,49 @@
 
         #endregion
 
-        private DevExpress.XtraNavBar.NavBarControl navBarControl1;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup2;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup3;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
-        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
-        private DevExpress.XtraNavBar.NavBarItem btnAddCategory;
-        private DevExpress.XtraNavBar.NavBarItem btnAddProduct;
-        private DevExpress.XtraNavBar.NavBarItem btnAddSupplier;
-        private DevExpress.XtraNavBar.NavBarItem btnSupplierDetails;
-        private DevExpress.XtraNavBar.NavBarItem btnAddCustomer;
-        private DevExpress.XtraNavBar.NavBarItem btnCustomerDetails;
-        private DevExpress.XtraNavBar.NavBarItem btnAddPurchase;
-        private DevExpress.XtraNavBar.NavBarItem btnAddSale;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup5;
-        private DevExpress.XtraNavBar.NavBarItem btnPurchasesReports;
-        private DevExpress.XtraNavBar.NavBarItem btnSalesReports;
-        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
-        private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
-        private DevExpress.XtraBars.BarDockControl barDockControlTop;
-        private DevExpress.XtraBars.BarManager barManager1;
-        private DevExpress.XtraBars.Bar ث;
-        private DevExpress.XtraBars.Bar bar3;
-        private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem1;
-        private DevExpress.XtraNavBar.NavBarItem btnShowProducts;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem2;
-        private DevExpress.XtraNavBar.NavBarItem btnShowSuppliers;
-        private DevExpress.XtraNavBar.NavBarItem btnShowCustomers;
-        private DevExpress.XtraNavBar.NavBarItem btnDailyProfit;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem1;
-        private DevExpress.XtraBars.BarSubItem barSubItem1;
-        private DevExpress.XtraBars.BarButtonItem btnSettings;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem2;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem3;
-        private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem4;
-        private DevExpress.XtraBars.BarButtonItem btnActivate;
+        private NavBarControl navBarControl1;
+        private NavBarGroup navBarGroup1;
+        private NavBarGroup navBarGroup2;
+        private NavBarGroup navBarGroup3;
+        private NavBarGroup navBarGroup4;
+        private XtraTabbedMdiManager xtraTabbedMdiManager1;
+        private NavBarItem btnAddProduct;
+        private NavBarItem btnAddSupplier;
+        private NavBarItem btnSupplierDetails;
+        private NavBarItem btnAddCustomer;
+        private NavBarItem btnCustomerDetails;
+        private NavBarItem btnAddPurchase;
+        private NavBarItem btnAddSale;
+        private NavBarGroup navBarGroup5;
+        private NavBarItem btnPurchasesReports;
+        private NavBarItem btnSalesReports;
+        private BarDockControl barDockControlLeft;
+        private BarDockControl barDockControlRight;
+        private BarDockControl barDockControlBottom;
+        private BarDockControl barDockControlTop;
+        private BarManager barManager1;
+        private Bar ث;
+        private Bar bar3;
+        private SkinBarSubItem skinBarSubItem1;
+        private NavBarItem btnShowProducts;
+        private GroupControl groupControl1;
+        private GridControl gridControl1;
+        private GridView gridView1;
+        private SkinBarSubItem skinBarSubItem2;
+        private NavBarItem btnShowSuppliers;
+        private NavBarItem btnShowCustomers;
+        private NavBarItem btnDailyProfit;
+        private NavBarItem navBarItem1;
+        private BarSubItem barSubItem1;
+        private BarButtonItem btnSettings;
+        private NavBarItem navBarItem2;
+        private NavBarItem navBarItem3;
+        private BarHeaderItem barHeaderItem1;
+        private NavBarItem navBarItem4;
+        private BarButtonItem btnActivate;
+        private NavBarGroup navBarGroup6;
+        private NavBarGroup navBarGroup7;
+        private NavBarGroup navBarGroup8;
+        private NavBarItem btnShowCategories;
     }
 }

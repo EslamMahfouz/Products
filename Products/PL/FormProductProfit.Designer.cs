@@ -1,11 +1,17 @@
-﻿namespace Products.PL
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.DXErrorProvider;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using System.ComponentModel;
+
+namespace Products.PL
 {
     partial class FormProductProfit
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -64,8 +70,8 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -220,16 +226,16 @@
         }
 
         #endregion
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraEditors.SearchLookUpEdit cmbProducts;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.SimpleButton btnShow;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.DateEdit deTo;
-        private DevExpress.XtraEditors.DateEdit deFrom;
-        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider valProducts;
+        private GridView gridView2;
+        private GridControl gridControl1;
+        private SearchLookUpEdit cmbProducts;
+        private GridView gridView1;
+        private LabelControl labelControl3;
+        private SimpleButton btnShow;
+        private LabelControl labelControl2;
+        private LabelControl labelControl1;
+        private DateEdit deTo;
+        private DateEdit deFrom;
+        private DXValidationProvider valProducts;
     }
 }

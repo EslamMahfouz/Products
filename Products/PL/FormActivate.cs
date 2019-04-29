@@ -1,60 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
+using Products.Properties;
+using System;
 using System.Net.NetworkInformation;
+using System.Windows.Forms;
 
 namespace Products.PL
 {
-    public partial class FormActivate : DevExpress.XtraEditors.XtraForm
+    public partial class FormActivate : XtraForm
     {
-        bool _altF4Pressed = false;
+        bool _altF4Pressed;
         public static string GetMACAddress()
         {
-            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
-            String sMacAddress = string.Empty;
+            var nics = NetworkInterface.GetAllNetworkInterfaces();
+            var sMacAddress = string.Empty;
 
-            foreach (NetworkInterface adapter in nics)
+            foreach (var adapter in nics)
             {
                 if (sMacAddress == String.Empty)// only return MAC Address from first card  
                 {
                     sMacAddress = adapter.GetPhysicalAddress().ToString();
                 }
-            } return sMacAddress;
+            }
+            return sMacAddress;
         }
 
         static int CalculateHashForMonth(string serial)
         {
-            int hashedValue = 0;
-            for (int i = 0; i < serial.Length; i++)
+            var hashedValue = 0;
+            for (var i = 0; i < serial.Length; i++)
             {
-                hashedValue += (int)Convert.ToChar(serial[i]);
+                hashedValue += Convert.ToChar(serial[i]);
                 hashedValue *= 4;
             }
             return hashedValue;
         }
         static int CalculateHashForYear(string serial)
         {
-            int hashedValue = 0;
-            for (int i = 0; i < serial.Length; i++)
+            var hashedValue = 0;
+            for (var i = 0; i < serial.Length; i++)
             {
-                hashedValue += (int)Convert.ToChar(serial[i]);
+                hashedValue += Convert.ToChar(serial[i]);
                 hashedValue *= 3;
             }
             return hashedValue;
         }
         static int CalculateHashForEver(string serial)
         {
-            int hashedValue = 0;
-            for (int i = 0; i < serial.Length; i++)
+            var hashedValue = 0;
+            for (var i = 0; i < serial.Length; i++)
             {
-                hashedValue += (int)Convert.ToChar(serial[i]);
+                hashedValue += Convert.ToChar(serial[i]);
                 hashedValue *= 2;
             }
             return hashedValue;
@@ -83,47 +78,45 @@ namespace Products.PL
         {
             try
             {
-                string checkMonth = calcForMonth();
-                string checkYear = calcForYear();
-                string checkEver = calcForEver();
+                var checkMonth = calcForMonth();
+                var checkYear = calcForYear();
+                var checkEver = calcForEver();
 
                 if (Convert.ToInt32(txtCode.Text) == Convert.ToInt32(checkMonth))
                 {
-                    Properties.Settings.Default.PaidMonth = true;
-                    Properties.Settings.Default.PaidYear = false;
-                    Properties.Settings.Default.PaidEver = false;
-                    Properties.Settings.Default.Save();
+                    Settings.Default.PaidMonth = true;
+                    Settings.Default.PaidYear = false;
+                    Settings.Default.PaidEver = false;
+                    Settings.Default.Save();
                     XtraMessageBox.Show("تم التفعيل لمدة شهر", "التفعيل", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.DialogResult = DialogResult.OK;
+                    DialogResult = DialogResult.OK;
                 }
                 else if (Convert.ToInt32(txtCode.Text) == Convert.ToInt32(checkYear))
                 {
-                    Properties.Settings.Default.PaidMonth = true;
-                    Properties.Settings.Default.PaidYear = true;
-                    Properties.Settings.Default.PaidEver = false;
-                    Properties.Settings.Default.Save();
+                    Settings.Default.PaidMonth = true;
+                    Settings.Default.PaidYear = true;
+                    Settings.Default.PaidEver = false;
+                    Settings.Default.Save();
                     XtraMessageBox.Show("تم التفعيل لمدة سنة", "التفعيل", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.DialogResult = DialogResult.OK;
+                    DialogResult = DialogResult.OK;
                 }
                 else if (Convert.ToInt32(txtCode.Text) == Convert.ToInt32(checkEver))
                 {
-                    Properties.Settings.Default.PaidMonth = true;
-                    Properties.Settings.Default.PaidYear = true;
-                    Properties.Settings.Default.PaidEver = true;
-                    Properties.Settings.Default.Save();
+                    Settings.Default.PaidMonth = true;
+                    Settings.Default.PaidYear = true;
+                    Settings.Default.PaidEver = true;
+                    Settings.Default.Save();
                     XtraMessageBox.Show("تم التفعيل مدي الحياة", "التفعيل", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.DialogResult = DialogResult.OK;
+                    DialogResult = DialogResult.OK;
                 }
                 else
                 {
                     XtraMessageBox.Show("من فضلك أدخل رقم سيريال صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
                 }
             }
             catch
             {
                 XtraMessageBox.Show("من فضلك أدخل رقم سيريال صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
             }
         }
 
@@ -139,10 +132,12 @@ namespace Products.PL
         private void FormActivate_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Alt && e.KeyCode == Keys.F4)
+            {
                 _altF4Pressed = true;
+            }
         }
     }
 }
 
-        
-    
+
+

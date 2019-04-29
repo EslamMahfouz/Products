@@ -1,11 +1,17 @@
-﻿namespace Products.PL
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.DXErrorProvider;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using System.ComponentModel;
+
+namespace Products.PL
 {
     partial class FormAddPurchase
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -29,9 +35,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lblOrderID = new DevExpress.XtraEditors.LabelControl();
             this.deDate = new DevExpress.XtraEditors.DateEdit();
@@ -225,9 +231,9 @@
             this.cmbCategories.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCategories.Size = new System.Drawing.Size(388, 30);
             this.cmbCategories.TabIndex = 18;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "برجاء إختيار صنف";
-            this.valCategory.SetValidationRule(this.cmbCategories, conditionValidationRule1);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "برجاء إختيار صنف";
+            this.valCategory.SetValidationRule(this.cmbCategories, conditionValidationRule4);
             this.cmbCategories.EditValueChanged += new System.EventHandler(this.cmbCategories_EditValueChanged);
             // 
             // gridView2
@@ -412,9 +418,9 @@
             this.cmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbProducts.Size = new System.Drawing.Size(388, 30);
             this.cmbProducts.TabIndex = 2;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "برجاء إختيار منتج";
-            this.valProduct.SetValidationRule(this.cmbProducts, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "برجاء إختيار منتج";
+            this.valProduct.SetValidationRule(this.cmbProducts, conditionValidationRule1);
             this.cmbProducts.EditValueChanged += new System.EventHandler(this.cmbProducts_EditValueChanged);
             // 
             // gridView1
@@ -462,9 +468,9 @@
             this.cmbSuppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbSuppliers.Size = new System.Drawing.Size(387, 30);
             this.cmbSuppliers.TabIndex = 0;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "برجاء إختيار مورد";
-            this.valSupplier.SetValidationRule(this.cmbSuppliers, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "برجاء إختيار مورد";
+            this.valSupplier.SetValidationRule(this.cmbSuppliers, conditionValidationRule2);
             this.cmbSuppliers.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmbSuppliers_ButtonClick);
             // 
             // searchLookUpEdit1View
@@ -791,54 +797,54 @@
         }
 
         #endregion
-        private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraEditors.DateEdit deDate;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraEditors.SimpleButton btnAddTo;
-        private DevExpress.XtraEditors.TextEdit txtPrdPrice;
-        private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.TextEdit txtPrdDiscount;
-        private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.TextEdit txtPrdTotal;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.TextEdit txtNum;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.TextEdit txtBuy;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.SearchLookUpEdit cmbProducts;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SearchLookUpEdit cmbSuppliers;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.SearchLookUpEdit cmbCategories;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
-        private DevExpress.XtraEditors.TextEdit txtTotal;
-        private DevExpress.XtraEditors.TextEdit txtDiscount;
-        private DevExpress.XtraEditors.LabelControl labelControl14;
-        private DevExpress.XtraEditors.TextEdit txtPrice;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl15;
-        private DevExpress.XtraEditors.LabelControl labelControl12;
-        private DevExpress.XtraEditors.TextEdit txtCharge;
-        private DevExpress.XtraEditors.LabelControl labelControl16;
-        private DevExpress.XtraEditors.TextEdit txtPaid;
-        private DevExpress.XtraEditors.LabelControl labelControl17;
-        private DevExpress.XtraEditors.GroupControl groupControl3;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl18;
-        private DevExpress.XtraEditors.SimpleButton txtSave;
-        private DevExpress.XtraEditors.LabelControl lblOrderID;
-        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider valSupplier;
-        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider valCategory;
-        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider valProduct;
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
-        private DevExpress.XtraEditors.SimpleButton btnEdit;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private PanelControl panelControl2;
+        private DateEdit deDate;
+        private LabelControl labelControl3;
+        private LabelControl labelControl2;
+        private GroupControl groupControl2;
+        private SimpleButton btnAddTo;
+        private TextEdit txtPrdPrice;
+        private LabelControl labelControl10;
+        private LabelControl labelControl9;
+        private TextEdit txtPrdDiscount;
+        private LabelControl labelControl8;
+        private TextEdit txtPrdTotal;
+        private LabelControl labelControl7;
+        private TextEdit txtNum;
+        private LabelControl labelControl6;
+        private TextEdit txtBuy;
+        private LabelControl labelControl5;
+        private SearchLookUpEdit cmbProducts;
+        private GridView gridView1;
+        private LabelControl labelControl4;
+        private PanelControl panelControl1;
+        private SearchLookUpEdit cmbSuppliers;
+        private GridView searchLookUpEdit1View;
+        private LabelControl labelControl1;
+        private SearchLookUpEdit cmbCategories;
+        private GridView gridView2;
+        private LabelControl labelControl11;
+        private TextEdit txtTotal;
+        private TextEdit txtDiscount;
+        private LabelControl labelControl14;
+        private TextEdit txtPrice;
+        private GroupControl groupControl1;
+        private LabelControl labelControl15;
+        private LabelControl labelControl12;
+        private TextEdit txtCharge;
+        private LabelControl labelControl16;
+        private TextEdit txtPaid;
+        private LabelControl labelControl17;
+        private GroupControl groupControl3;
+        private GridControl gridControl1;
+        private LabelControl labelControl18;
+        private SimpleButton txtSave;
+        private LabelControl lblOrderID;
+        private DXValidationProvider valSupplier;
+        private DXValidationProvider valCategory;
+        private DXValidationProvider valProduct;
+        private SimpleButton btnDelete;
+        private SimpleButton btnEdit;
+        private GridView gridView3;
     }
 }

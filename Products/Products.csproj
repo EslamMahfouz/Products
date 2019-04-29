@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Products</RootNamespace>
     <AssemblyName>Products</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -25,8 +25,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <TargetCulture>en</TargetCulture>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -71,21 +70,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.BonusSkins.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.CodeRush.Common, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
-    <Reference Include="DevExpress.CodeRush.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
-    <Reference Include="DevExpress.CodeRush.Extensions, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
-    <Reference Include="DevExpress.CodeRush.PlugInCore, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.CodeRush.StructuralParser, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
-    <Reference Include="DevExpress.CodeRush.UserControls, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
     <Reference Include="DevExpress.Data.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.DataAccess.v15.2.UI, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.DXCore.Controls.Utils.v6.3, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
-    <Reference Include="DevExpress.DXCore.Controls.XtraEditors.v6.3, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
-    <Reference Include="DevExpress.DXCore.Parser, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
-    <Reference Include="DevExpress.DXCore.Platform, Version=15.2.7.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
     <Reference Include="DevExpress.Images.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Office.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -120,9 +112,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs">
-      <HintPath>C:\Users\Nourhan Hesham\Downloads\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
@@ -136,6 +125,9 @@
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -148,6 +140,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\ExtensionMethods.cs" />
+    <Compile Include="BL\Custom.cs" />
+    <Compile Include="BL\Mapping\MappingProfile.cs" />
+    <Compile Include="BL\Models\CategoryModels.cs" />
+    <Compile Include="BL\Models\CustomerModels.cs" />
+    <Compile Include="BL\Models\ProductModels.cs" />
+    <Compile Include="BL\Models\SaleDetailsModels.cs" />
+    <Compile Include="BL\Models\SaleModels.cs" />
+    <Compile Include="BL\Models\SalePaymentModels.cs" />
+    <Compile Include="BL\Models\SupplierModels.cs" />
+    <Compile Include="BL\Repository\CategoryRepository.cs" />
+    <Compile Include="BL\Repository\IRepository.cs" />
+    <Compile Include="BL\Repository\CustomerRepository.cs" />
+    <Compile Include="BL\Repository\ISaleRepository.cs" />
+    <Compile Include="BL\Repository\ProductRepository.cs" />
+    <Compile Include="BL\Repository\SalePaymentRepository.cs" />
+    <Compile Include="BL\Repository\SaleDetailsRepository.cs" />
+    <Compile Include="BL\Repository\SalesRepository.cs" />
+    <Compile Include="BL\Repository\Repository.cs" />
+    <Compile Include="BL\Repository\SupplierRepository.cs" />
+    <Compile Include="BL\UnitOfWork\UnitOfWork.cs" />
     <Compile Include="EDM\Category.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
@@ -175,40 +188,34 @@
     <Compile Include="EDM\Purchase.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EDM\PurchasesDetail.cs">
+    <Compile Include="EDM\PurchaseDetail.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EDM\PurchasesPayment.cs">
+    <Compile Include="EDM\PurchasePayment.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EDM\Sale.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EDM\SalesDetail.cs">
+    <Compile Include="EDM\SaleDetail.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EDM\SalesPayment.cs">
+    <Compile Include="EDM\SalePayment.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EDM\Supplier.cs">
       <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormAddCategory.cs">
+    <Compile Include="PL\Customers\FormAddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormAddCategory.Designer.cs">
-      <DependentUpon>FormAddCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FormAddCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FormAddCustomer.Designer.cs">
+    <Compile Include="PL\Customers\FormAddCustomer.Designer.cs">
       <DependentUpon>FormAddCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormAddProduct.cs">
+    <Compile Include="PL\Products\FormAddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormAddProduct.Designer.cs">
+    <Compile Include="PL\Products\FormAddProduct.Designer.cs">
       <DependentUpon>FormAddProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FormAddPurchase.cs">
@@ -217,29 +224,41 @@
     <Compile Include="PL\FormAddPurchase.Designer.cs">
       <DependentUpon>FormAddPurchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormAddSale.cs">
+    <Compile Include="PL\Products\FormShowCategories.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormAddSale.Designer.cs">
+    <Compile Include="PL\Products\FormShowCategories.Designer.cs">
+      <DependentUpon>FormShowCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Sales\FormAddSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Sales\FormAddSale.Designer.cs">
       <DependentUpon>FormAddSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormAddSupplier.cs">
+    <Compile Include="PL\Shared\FormReturned.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormAddSupplier.Designer.cs">
+    <Compile Include="PL\Shared\FormReturned.Designer.cs">
+      <DependentUpon>FormReturned.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Suppliers\FormAddSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Suppliers\FormAddSupplier.Designer.cs">
       <DependentUpon>FormAddSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormCustomerDetails.cs">
+    <Compile Include="PL\Customers\FormCustomerDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormCustomerDetails.Designer.cs">
+    <Compile Include="PL\Customers\FormCustomerDetails.Designer.cs">
       <DependentUpon>FormCustomerDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormCustomersAndSuppliers.cs">
+    <Compile Include="PL\Customers\FormCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormCustomersAndSuppliers.Designer.cs">
-      <DependentUpon>FormCustomersAndSuppliers.cs</DependentUpon>
+    <Compile Include="PL\Customers\FormCustomers.Designer.cs">
+      <DependentUpon>FormCustomers.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FormDailyProfit.cs">
       <SubType>Form</SubType>
@@ -247,10 +266,10 @@
     <Compile Include="PL\FormDailyProfit.Designer.cs">
       <DependentUpon>FormDailyProfit.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormOrderDetails.cs">
+    <Compile Include="PL\Shared\FormOrderDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormOrderDetails.Designer.cs">
+    <Compile Include="PL\Shared\FormOrderDetails.Designer.cs">
       <DependentUpon>FormOrderDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FormMain.cs">
@@ -259,11 +278,11 @@
     <Compile Include="PL\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormProductEdit.cs">
+    <Compile Include="PL\Products\FormEditProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormProductEdit.Designer.cs">
-      <DependentUpon>FormProductEdit.cs</DependentUpon>
+    <Compile Include="PL\Products\FormEditProduct.Designer.cs">
+      <DependentUpon>FormEditProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FormProductProfit.cs">
       <SubType>Form</SubType>
@@ -277,10 +296,10 @@
     <Compile Include="PL\FormPurchasesReport.Designer.cs">
       <DependentUpon>FormPurchasesReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormSalesReport.cs">
+    <Compile Include="PL\Sales\FormSalesReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormSalesReport.Designer.cs">
+    <Compile Include="PL\Sales\FormSalesReport.Designer.cs">
       <DependentUpon>FormSalesReport.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FormShowOrder.cs">
@@ -289,16 +308,22 @@
     <Compile Include="PL\FormShowOrder.Designer.cs">
       <DependentUpon>FormShowOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormShowProducts.cs">
+    <Compile Include="PL\Products\FormShowProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormShowProducts.Designer.cs">
+    <Compile Include="PL\Products\FormShowProducts.Designer.cs">
       <DependentUpon>FormShowProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormSupplierDetails.cs">
+    <Compile Include="PL\Suppliers\FormSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormSupplierDetails.Designer.cs">
+    <Compile Include="PL\Suppliers\FormSuppliers.Designer.cs">
+      <DependentUpon>FormSuppliers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Suppliers\FormSupplierDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Suppliers\FormSupplierDetails.Designer.cs">
       <DependentUpon>FormSupplierDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FormBackupSettings.cs">
@@ -315,35 +340,38 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\repMonthly.cs">
+    <Compile Include="Reports\SaleReport.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\repMonthly.designer.cs">
-      <DependentUpon>repMonthly.cs</DependentUpon>
+    <Compile Include="Reports\SaleReport.designer.cs">
+      <DependentUpon>SaleReport.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PL\FormAddCategory.resx">
-      <DependentUpon>FormAddCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormAddCustomer.resx">
+    <EmbeddedResource Include="PL\Customers\FormAddCustomer.resx">
       <DependentUpon>FormAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormAddProduct.resx">
+    <EmbeddedResource Include="PL\Products\FormAddProduct.resx">
       <DependentUpon>FormAddProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FormAddPurchase.resx">
       <DependentUpon>FormAddPurchase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormAddSale.resx">
+    <EmbeddedResource Include="PL\Products\FormShowCategories.resx">
+      <DependentUpon>FormShowCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Sales\FormAddSale.resx">
       <DependentUpon>FormAddSale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormAddSupplier.resx">
+    <EmbeddedResource Include="PL\Shared\FormReturned.resx">
+      <DependentUpon>FormReturned.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Suppliers\FormAddSupplier.resx">
       <DependentUpon>FormAddSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormCustomerDetails.resx">
+    <EmbeddedResource Include="PL\Customers\FormCustomerDetails.resx">
       <DependentUpon>FormCustomerDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormCustomersAndSuppliers.resx">
-      <DependentUpon>FormCustomersAndSuppliers.cs</DependentUpon>
+    <EmbeddedResource Include="PL\Customers\FormCustomers.resx">
+      <DependentUpon>FormCustomers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FormDailyProfit.resx">
       <DependentUpon>FormDailyProfit.cs</DependentUpon>
@@ -351,11 +379,11 @@
     <EmbeddedResource Include="PL\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormOrderDetails.resx">
+    <EmbeddedResource Include="PL\Shared\FormOrderDetails.resx">
       <DependentUpon>FormOrderDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormProductEdit.resx">
-      <DependentUpon>FormProductEdit.cs</DependentUpon>
+    <EmbeddedResource Include="PL\Products\FormEditProduct.resx">
+      <DependentUpon>FormEditProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FormProductProfit.resx">
       <DependentUpon>FormProductProfit.cs</DependentUpon>
@@ -363,16 +391,19 @@
     <EmbeddedResource Include="PL\FormPurchasesReport.resx">
       <DependentUpon>FormPurchasesReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormSalesReport.resx">
+    <EmbeddedResource Include="PL\Sales\FormSalesReport.resx">
       <DependentUpon>FormSalesReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FormShowOrder.resx">
       <DependentUpon>FormShowOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormShowProducts.resx">
+    <EmbeddedResource Include="PL\Products\FormShowProducts.resx">
       <DependentUpon>FormShowProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormSupplierDetails.resx">
+    <EmbeddedResource Include="PL\Suppliers\FormSuppliers.resx">
+      <DependentUpon>FormSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Suppliers\FormSupplierDetails.resx">
       <DependentUpon>FormSupplierDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FormBackupSettings.resx">
@@ -392,8 +423,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\repMonthly.resx">
-      <DependentUpon>repMonthly.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\SaleReport.resx">
+      <DependentUpon>SaleReport.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="EDM\ProductsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -408,6 +439,15 @@
     <None Include="packages.config" />
     <None Include="Products_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\Products.BL.Models.AddCategoryModel.datasource" />
+    <None Include="Properties\DataSources\Products.BL.Models.AddCustomerModel.datasource" />
+    <None Include="Properties\DataSources\Products.BL.Models.AddProductModel.datasource" />
+    <None Include="Properties\DataSources\Products.BL.Models.AddSaleGridModel.datasource" />
+    <None Include="Properties\DataSources\Products.BL.Models.AddSupplierModel.datasource" />
+    <None Include="Properties\DataSources\Products.BL.Models.CategoryGridModel.datasource" />
+    <None Include="Properties\DataSources\Products.BL.Models.EditCustomerModel.datasource" />
+    <None Include="Properties\DataSources\Products.EDM.Customer.datasource" />
+    <None Include="Properties\DataSources\Products.EDM.Product.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -459,57 +499,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.CodeRush.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.CodeRush.Extensions">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
     <PublishFile Include="DevExpress.CodeRush.Interop">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.CodeRush.PlugInCore">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.CodeRush.StructuralParser">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.CodeRush.UserControls">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -589,27 +579,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.DXCore.Controls.Utils.v6.3">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
     <PublishFile Include="DevExpress.DXCore.Controls.XtraBars.v6.3">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.DXCore.Controls.XtraEditors.v6.3">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -690,26 +660,6 @@
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.DXCore.Mvvm.UI">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.DXCore.Parser">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.DXCore.Platform">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -1079,16 +1029,6 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="Microsoft.VisualBasic.PowerPacks.Vs">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
     <PublishFile Include="Microsoft.VisualStudio.CoreUtility">
       <Visible>False</Visible>
       <Group>
@@ -1293,6 +1233,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

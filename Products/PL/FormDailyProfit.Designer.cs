@@ -1,11 +1,14 @@
-﻿namespace Products.PL
+﻿using DevExpress.XtraEditors;
+using System.ComponentModel;
+
+namespace Products.PL
 {
     partial class FormDailyProfit
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -201,14 +204,14 @@
         }
 
         #endregion
-        private DevExpress.XtraEditors.DateEdit deDate;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit txtProfit;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.TextEdit txtOutcome;
-        private DevExpress.XtraEditors.TextEdit txtIncome;
+        private DateEdit deDate;
+        private LabelControl labelControl1;
+        private LabelControl labelControl2;
+        private TextEdit txtProfit;
+        private LabelControl labelControl3;
+        private LabelControl labelControl4;
+        private GroupControl groupControl1;
+        private TextEdit txtOutcome;
+        private TextEdit txtIncome;
     }
 }

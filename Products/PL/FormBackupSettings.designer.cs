@@ -1,11 +1,15 @@
-﻿namespace Products.PL
+﻿using DevExpress.XtraEditors;
+using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Products.PL
 {
     partial class FormBackupSettings
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -113,10 +117,10 @@
         }
 
         #endregion
-        private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.TextEdit txtBackup;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.SimpleButton btnBrowse;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private SimpleButton btnSave;
+        private TextEdit txtBackup;
+        private LabelControl labelControl1;
+        private SimpleButton btnBrowse;
+        private FolderBrowserDialog folderBrowserDialog1;
     }
 }

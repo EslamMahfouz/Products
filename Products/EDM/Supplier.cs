@@ -17,17 +17,14 @@ namespace Products.EDM
         public Supplier()
         {
             this.Purchases = new HashSet<Purchase>();
-            this.PurchasesPayments = new HashSet<PurchasesPayment>();
         }
     
-        public int SupplierID { get; set; }
-        public string SupplierName { get; set; }
-        public string SupplierPhone { get; set; }
-        public string SupplierTel { get; set; }
-        public string SupplierAddress { get; set; }
-        public Nullable<double> SupplierCharge { get; set; }
+        public double Id { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Tel { get; set; }
+        public string Address { get; set; }
     
         public virtual ICollection<Purchase> Purchases { get; set; }
-        public virtual ICollection<PurchasesPayment> PurchasesPayments { get; set; }
     }
 }

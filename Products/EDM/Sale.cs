@@ -16,21 +16,18 @@ namespace Products.EDM
     {
         public Sale()
         {
-            this.SalesDetails = new HashSet<SalesDetail>();
+            this.SaleDetails = new HashSet<SaleDetail>();
+            this.SalePayments = new HashSet<SalePayment>();
         }
     
-        public int SaleID { get; set; }
-        public Nullable<System.DateTime> SaleDate { get; set; }
-        public Nullable<double> SalePrice { get; set; }
-        public Nullable<double> SaleDiscount { get; set; }
-        public Nullable<double> SaleNetPrice { get; set; }
-        public Nullable<double> SalePaid { get; set; }
-        public Nullable<double> SaleCharge { get; set; }
-        public int CustomerID { get; set; }
-        public int SaleNumber { get; set; }
-        public Nullable<double> SaleBuyPrice { get; set; }
+        public int Id { get; set; }
+        public int CustomerId { get; set; }
+        public System.DateTime Date { get; set; }
+        public int Number { get; set; }
+        public double Discount { get; set; }
     
         public virtual Customer Customer { get; set; }
-        public virtual ICollection<SalesDetail> SalesDetails { get; set; }
+        public virtual ICollection<SaleDetail> SaleDetails { get; set; }
+        public virtual ICollection<SalePayment> SalePayments { get; set; }
     }
 }

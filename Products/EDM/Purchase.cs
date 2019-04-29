@@ -16,20 +16,20 @@ namespace Products.EDM
     {
         public Purchase()
         {
-            this.PurchasesDetails = new HashSet<PurchasesDetail>();
+            this.PurchaseDetails = new HashSet<PurchaseDetail>();
+            this.PurchasePayments = new HashSet<PurchasePayment>();
         }
     
-        public int PurchaseID { get; set; }
-        public Nullable<System.DateTime> PurchaseDate { get; set; }
-        public Nullable<double> PurchasePrice { get; set; }
-        public Nullable<double> PurchaseDiscount { get; set; }
-        public Nullable<double> PurchaseNetPrice { get; set; }
-        public Nullable<double> PurchasePaid { get; set; }
-        public Nullable<double> PurchaseCharge { get; set; }
-        public int SupplierID { get; set; }
-        public int PurchaseNumber { get; set; }
+        public int Id { get; set; }
+        public double SupplierId { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public int Number { get; set; }
+        public Nullable<double> Total { get; set; }
+        public Nullable<double> Discount { get; set; }
+        public Nullable<double> TotalAfterDiscount { get; set; }
     
+        public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
+        public virtual ICollection<PurchasePayment> PurchasePayments { get; set; }
         public virtual Supplier Supplier { get; set; }
-        public virtual ICollection<PurchasesDetail> PurchasesDetails { get; set; }
     }
 }

@@ -1,11 +1,16 @@
-﻿namespace Products.PL
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using System.ComponentModel;
+
+namespace Products.PL
 {
     partial class FormPurchasesReport
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -75,7 +80,7 @@
             this.labelControl1.Size = new System.Drawing.Size(35, 27);
             this.labelControl1.TabIndex = 9;
             this.labelControl1.Text = "من ";
-            
+
             // 
             // deTo
             // 
@@ -113,8 +118,8 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(7, 42);
             this.gridControl1.MainView = this.gridView1;
@@ -180,13 +185,13 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton btnShow;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.DateEdit deTo;
-        private DevExpress.XtraEditors.DateEdit deFrom;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.SimpleButton btnShowOrder;
+        private SimpleButton btnShow;
+        private LabelControl labelControl2;
+        private LabelControl labelControl1;
+        private DateEdit deTo;
+        private DateEdit deFrom;
+        private GridControl gridControl1;
+        private GridView gridView1;
+        private SimpleButton btnShowOrder;
     }
 }

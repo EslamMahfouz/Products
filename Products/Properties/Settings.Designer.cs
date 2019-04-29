@@ -8,98 +8,128 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Products.Properties {
-    
-    
-    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-        
-        public static Settings Default {
-            get {
+using System;
+using System.CodeDom.Compiler;
+using System.Configuration;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+
+namespace Products.Properties
+{
+
+
+    [CompilerGenerated()]
+    [GeneratedCode("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
+    internal sealed partial class Settings : ApplicationSettingsBase
+    {
+
+        private static Settings defaultInstance = ((Settings)(Synchronized(new Settings())));
+
+        public static Settings Default
+        {
+            get
+            {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string BackupFolder {
-            get {
+
+        [UserScopedSetting()]
+        [DebuggerNonUserCode()]
+        [DefaultSettingValue("")]
+        public string BackupFolder
+        {
+            get
+            {
                 return ((string)(this["BackupFolder"]));
             }
-            set {
+            set
+            {
                 this["BackupFolder"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool PaidMonth {
-            get {
+
+        [UserScopedSetting()]
+        [DebuggerNonUserCode()]
+        [DefaultSettingValue("False")]
+        public bool PaidMonth
+        {
+            get
+            {
                 return ((bool)(this["PaidMonth"]));
             }
-            set {
+            set
+            {
                 this["PaidMonth"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool PaidYear {
-            get {
+
+        [UserScopedSetting()]
+        [DebuggerNonUserCode()]
+        [DefaultSettingValue("False")]
+        public bool PaidYear
+        {
+            get
+            {
                 return ((bool)(this["PaidYear"]));
             }
-            set {
+            set
+            {
                 this["PaidYear"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool PaidEver {
-            get {
+
+        [UserScopedSetting()]
+        [DebuggerNonUserCode()]
+        [DefaultSettingValue("False")]
+        public bool PaidEver
+        {
+            get
+            {
                 return ((bool)(this["PaidEver"]));
             }
-            set {
+            set
+            {
                 this["PaidEver"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.DateTime setupDate {
-            get {
-                return ((global::System.DateTime)(this["setupDate"]));
+
+        [UserScopedSetting()]
+        [DebuggerNonUserCode()]
+        public DateTime setupDate
+        {
+            get
+            {
+                return ((DateTime)(this["setupDate"]));
             }
-            set {
+            set
+            {
                 this["setupDate"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool firstTimeUse {
-            get {
+
+        [UserScopedSetting()]
+        [DebuggerNonUserCode()]
+        [DefaultSettingValue("True")]
+        public bool firstTimeUse
+        {
+            get
+            {
                 return ((bool)(this["firstTimeUse"]));
             }
-            set {
+            set
+            {
                 this["firstTimeUse"] = value;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ESLAMMAHFOUZ;Initial Catalog=Products;Integrated Security=True")]
-        public string ProductsConnectionString {
-            get {
+
+        [ApplicationScopedSetting()]
+        [DebuggerNonUserCode()]
+        [SpecialSetting(SpecialSetting.ConnectionString)]
+        [DefaultSettingValue("Data Source=ESLAMMAHFOUZ;Initial Catalog=Products;Integrated Security=True")]
+        public string ProductsConnectionString
+        {
+            get
+            {
                 return ((string)(this["ProductsConnectionString"]));
             }
         }

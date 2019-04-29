@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
+using Products.Properties;
+using System;
 using System.IO;
 using System.Security.AccessControl;
+using System.Windows.Forms;
 
 namespace Products.PL
 {
@@ -18,12 +16,12 @@ namespace Products.PL
 
         private void ForBackupSettings_Load(object sender, EventArgs e)
         {
-            txtBackup.Text = Properties.Settings.Default.BackupFolder;
+            txtBackup.Text = Settings.Default.BackupFolder;
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            DialogResult result = folderBrowserDialog1.ShowDialog();
+            var result = folderBrowserDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
                 txtBackup.Text = folderBrowserDialog1.SelectedPath;
@@ -34,12 +32,12 @@ namespace Products.PL
         {
             try
             {
-                Properties.Settings.Default.BackupFolder = txtBackup.Text;
-                Properties.Settings.Default.Save();
+                Settings.Default.BackupFolder = txtBackup.Text;
+                Settings.Default.Save();
                 // 34an y5li l folder 3leh access mn l brnamg bta3i
-                File.SetAttributes(Properties.Settings.Default.BackupFolder, File.GetAttributes(Properties.Settings.Default.BackupFolder) & ~FileAttributes.ReadOnly);
-                DirectoryInfo dInfo = new DirectoryInfo(Properties.Settings.Default.BackupFolder);
-                DirectorySecurity dSecurity = dInfo.GetAccessControl();
+                File.SetAttributes(Settings.Default.BackupFolder, File.GetAttributes(Settings.Default.BackupFolder) & ~FileAttributes.ReadOnly);
+                var dInfo = new DirectoryInfo(Settings.Default.BackupFolder);
+                var dSecurity = dInfo.GetAccessControl();
                 dSecurity.AddAccessRule(new FileSystemAccessRule("Everyone", FileSystemRights.FullControl, AccessControlType.Allow));
                 dInfo.SetAccessControl(dSecurity);
                 XtraMessageBox.Show("تم حفظ التعديلات بنجاح", "تعديل", MessageBoxButtons.OK, MessageBoxIcon.Information);

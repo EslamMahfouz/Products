@@ -19,8 +19,8 @@ namespace Products.EDM
             this.Products = new HashSet<Product>();
         }
     
-        public int CategoryID { get; set; }
-        public string CategoryName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     
         public virtual ICollection<Product> Products { get; set; }
     }

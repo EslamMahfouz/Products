@@ -1,11 +1,14 @@
-﻿namespace Products.PL
+﻿using DevExpress.XtraEditors;
+using System.ComponentModel;
+
+namespace Products.PL
 {
     partial class FormActivate
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -120,10 +123,10 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.TextEdit txtSerial;
-        private DevExpress.XtraEditors.TextEdit txtCode;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.SimpleButton btnActivate;
+        private TextEdit txtSerial;
+        private TextEdit txtCode;
+        private LabelControl labelControl1;
+        private LabelControl labelControl2;
+        private SimpleButton btnActivate;
     }
 }

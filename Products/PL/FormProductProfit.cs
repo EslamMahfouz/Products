@@ -1,6 +1,8 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Data;
+using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using Products.EDM;
 using System;
-using System.Data;
 using System.Data.Objects;
 using System.Drawing;
 using System.Linq;
@@ -9,23 +11,23 @@ namespace Products.PL
 {
     public partial class FormProductProfit : XtraForm
     {
-        EDM.ProductsEntities db = new EDM.ProductsEntities();
+        ProductsEntities db = new ProductsEntities();
 
         public FormProductProfit()
         {
             InitializeComponent();
-            DateTime today = DateTime.Now.Date;
+            var today = DateTime.Now.Date;
             deFrom.EditValue = today;
             deTo.EditValue = today;
         }
 
         private void FormProductProfit_Load(object sender, EventArgs e)
         {
-            DateTime dateFrom = Convert.ToDateTime(deFrom.EditValue);
-            DateTime dateTo = Convert.ToDateTime(deTo.EditValue);
+            var dateFrom = Convert.ToDateTime(deFrom.EditValue);
+            var dateTo = Convert.ToDateTime(deTo.EditValue);
 
             var products = from x in db.Products
-                           select new { م = x.ProductID, المنتج = x.ProductName, الصنف = x.Category.CategoryName };
+                           select new { م = x.Id, المنتج = x.Name, الصنف = x.Category.Name };
 
             cmbProducts.Properties.DataSource = products.ToList();
             cmbProducts.Properties.DisplayMember = "المنتج";
@@ -40,21 +42,22 @@ namespace Products.PL
             if (!valProducts.Validate())
             { return; }
 
-            DateTime dateFrom = Convert.ToDateTime(deFrom.EditValue);
-            DateTime dateTo = Convert.ToDateTime(deTo.EditValue);
-            int productID = Convert.ToInt32(cmbProducts.EditValue);
+            var dateFrom = Convert.ToDateTime(deFrom.EditValue);
+            var dateTo = Convert.ToDateTime(deTo.EditValue);
+            var productID = Convert.ToInt32(cmbProducts.EditValue);
 
-            var sd = from x in db.SalesDetails
-                     where ((EntityFunctions.TruncateTime(x.Sale.SaleDate)) >= dateFrom && (EntityFunctions.TruncateTime(x.Sale.SaleDate)) <= dateTo && x.ProductID == productID)
+            var sd = from x in db.SaleDetails
+                     where ((EntityFunctions.TruncateTime(x.Sale.Date)) >= dateFrom && (EntityFunctions.TruncateTime(x.Sale.Date)) <= dateTo && x.ProductId == productID)
                      select new
                      {
-                         رقم_الفاتورة = x.SaleID,
-                         التاريخ = x.Sale.SaleDate,
-                         سعر_البيع = x.ProductSell,
-                         العدد = x.ProductQte,
-                         إجمالى_الشراء = x.ProductBuyPrice,
-                         إجمالى_البيع = x.ProductNetPrice,
-                         الربح = (x.ProductNetPrice - x.ProductBuyPrice)
+                         رقم_الفاتورة = x.Id,
+                         التاريخ = x.Sale.Date
+                         //سعر_الشراء = x.ProductBuy,
+                         //سعر_البيع = x.ProductSell,
+                         //العدد = x.ProductQte,
+                         //إجمالى_الشراء = x.ProductBuyPrice,
+                         //إجمالى_البيع = x.ProductNetPrice,
+                         //الربح = (x.ProductNetPrice - x.ProductBuyPrice)
                      };
             gridControl1.DataSource = sd.ToList();
 
@@ -80,27 +83,27 @@ namespace Products.PL
             gridView2.Columns["الربح"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
             gridView2.Columns["التاريخ"].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
 
-            gridView2.Columns["رقم_الفاتورة"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["سعر_الشراء"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["سعر_البيع"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["العدد"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["إجمالى_الشراء"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["إجمالى_البيع"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["الربح"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["التاريخ"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridView2.Columns["رقم_الفاتورة"].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["سعر_الشراء"].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["سعر_البيع"].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["العدد"].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["إجمالى_الشراء"].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["إجمالى_البيع"].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["الربح"].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["التاريخ"].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
 
-            gridView2.Columns["رقم_الفاتورة"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["سعر_الشراء"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["سعر_البيع"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["العدد"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["إجمالى_الشراء"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["إجمالى_البيع"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["الربح"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView2.Columns["التاريخ"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridView2.Columns["رقم_الفاتورة"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["سعر_الشراء"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["سعر_البيع"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["العدد"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["إجمالى_الشراء"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["إجمالى_البيع"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["الربح"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
+            gridView2.Columns["التاريخ"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
 
             gridView2.Columns["الربح"].Width = 400;
             gridView2.Columns["رقم_الفاتورة"].Width = 100;
-            gridView2.Columns["الربح"].Summary.Add(DevExpress.Data.SummaryItemType.Sum, "الربح", "الإجمالي ={0:n2}");
+            gridView2.Columns["الربح"].Summary.Add(SummaryItemType.Sum, "الربح", "الإجمالي ={0:n2}");
 
         }
     }

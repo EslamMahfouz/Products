@@ -35,11 +35,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Sales_Customers]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Sales] DROP CONSTRAINT [FK_Sales_Customers];
 GO
-IF OBJECT_ID(N'[dbo].[FK_SalesDetails_Products]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[SalesDetails] DROP CONSTRAINT [FK_SalesDetails_Products];
+IF OBJECT_ID(N'[dbo].[FK_SaleDetails_Products]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SaleDetails] DROP CONSTRAINT [FK_SaleDetails_Products];
 GO
-IF OBJECT_ID(N'[dbo].[FK_SalesDetails_Sales]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[SalesDetails] DROP CONSTRAINT [FK_SalesDetails_Sales];
+IF OBJECT_ID(N'[dbo].[FK_SaleDetails_Sales]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SaleDetails] DROP CONSTRAINT [FK_SaleDetails_Sales];
 GO
 IF OBJECT_ID(N'[dbo].[FK_SalesPayments_Customers]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SalesPayments] DROP CONSTRAINT [FK_SalesPayments_Customers];
@@ -70,8 +70,8 @@ GO
 IF OBJECT_ID(N'[dbo].[Sales]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Sales];
 GO
-IF OBJECT_ID(N'[dbo].[SalesDetails]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SalesDetails];
+IF OBJECT_ID(N'[dbo].[SaleDetails]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SaleDetails];
 GO
 IF OBJECT_ID(N'[dbo].[SalesPayments]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SalesPayments];
@@ -152,8 +152,8 @@ CREATE TABLE [dbo].[Sales] (
 );
 GO
 
--- Creating table 'SalesDetails'
-CREATE TABLE [dbo].[SalesDetails] (
+-- Creating table 'SaleDetails'
+CREATE TABLE [dbo].[SaleDetails] (
     [SaleID] int  NOT NULL,
     [ProductID] int  NOT NULL,
     [ProductQte] int  NULL,
@@ -236,9 +236,9 @@ ADD CONSTRAINT [PK_Sales]
     PRIMARY KEY CLUSTERED ([SaleID] ASC);
 GO
 
--- Creating primary key on [SaleID], [ProductID] in table 'SalesDetails'
-ALTER TABLE [dbo].[SalesDetails]
-ADD CONSTRAINT [PK_SalesDetails]
+-- Creating primary key on [SaleID], [ProductID] in table 'SaleDetails'
+ALTER TABLE [dbo].[SaleDetails]
+ADD CONSTRAINT [PK_SaleDetails]
     PRIMARY KEY CLUSTERED ([SaleID], [ProductID] ASC);
 GO
 
@@ -309,18 +309,18 @@ ON [dbo].[PurchasesDetails]
     ([ProductID]);
 GO
 
--- Creating foreign key on [ProductID] in table 'SalesDetails'
-ALTER TABLE [dbo].[SalesDetails]
-ADD CONSTRAINT [FK_SalesDetails_Products]
+-- Creating foreign key on [ProductID] in table 'SaleDetails'
+ALTER TABLE [dbo].[SaleDetails]
+ADD CONSTRAINT [FK_SaleDetails_Products]
     FOREIGN KEY ([ProductID])
     REFERENCES [dbo].[Products]
         ([ProductID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_SalesDetails_Products'
-CREATE INDEX [IX_FK_SalesDetails_Products]
-ON [dbo].[SalesDetails]
+-- Creating non-clustered index for FOREIGN KEY 'FK_SaleDetails_Products'
+CREATE INDEX [IX_FK_SaleDetails_Products]
+ON [dbo].[SaleDetails]
     ([ProductID]);
 GO
 
@@ -348,9 +348,9 @@ ADD CONSTRAINT [FK_PurchasesDetails_Purchases]
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [SaleID] in table 'SalesDetails'
-ALTER TABLE [dbo].[SalesDetails]
-ADD CONSTRAINT [FK_SalesDetails_Sales]
+-- Creating foreign key on [SaleID] in table 'SaleDetails'
+ALTER TABLE [dbo].[SaleDetails]
+ADD CONSTRAINT [FK_SaleDetails_Sales]
     FOREIGN KEY ([SaleID])
     REFERENCES [dbo].[Sales]
         ([SaleID])

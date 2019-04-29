@@ -16,19 +16,20 @@ namespace Products.EDM
     {
         public Product()
         {
-            this.PurchasesDetails = new HashSet<PurchasesDetail>();
-            this.SalesDetails = new HashSet<SalesDetail>();
+            this.PurchaseDetails = new HashSet<PurchaseDetail>();
+            this.SaleDetails = new HashSet<SaleDetail>();
         }
     
-        public int ProductID { get; set; }
-        public string ProductName { get; set; }
-        public Nullable<double> ProductBuy { get; set; }
-        public Nullable<double> ProductSell { get; set; }
-        public Nullable<int> NumberInStock { get; set; }
-        public Nullable<int> CategoryID { get; set; }
+        public int Id { get; set; }
+        public int CategoryId { get; set; }
+        public string Name { get; set; }
+        public double Buy { get; set; }
+        public double Sell { get; set; }
+        public int Qte { get; set; }
+        public Nullable<int> Minimum { get; set; }
     
         public virtual Category Category { get; set; }
-        public virtual ICollection<PurchasesDetail> PurchasesDetails { get; set; }
-        public virtual ICollection<SalesDetail> SalesDetails { get; set; }
+        public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
+        public virtual ICollection<SaleDetail> SaleDetails { get; set; }
     }
 }
