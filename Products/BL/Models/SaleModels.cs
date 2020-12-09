@@ -1,4 +1,4 @@
-﻿using Products.EDM;
+﻿using Dukan.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

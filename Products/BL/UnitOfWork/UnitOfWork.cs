@@ -1,5 +1,5 @@
-﻿using Products.BL.Repository;
-using Products.EDM;
+﻿using Dukan.Data;
+using Products.BL.Repository;
 
 namespace Products.BL.UnitOfWork
 {

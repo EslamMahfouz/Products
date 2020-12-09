@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Dukan.Data;
 using Products.BL.Models;
-using Products.EDM;
 using System.Linq;
 
 namespace Products.BL.Mapping

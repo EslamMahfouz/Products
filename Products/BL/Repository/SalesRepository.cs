@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Dukan.Data;
 using Products.BL.Models;
-using Products.EDM;
 using Products.Reports;
 using System;
 using System.Collections.Generic;
