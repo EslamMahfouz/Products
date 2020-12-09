@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using Dukan.Core.Models.Product;
 using System.ComponentModel;
 
 namespace Products.PL.Products
@@ -138,7 +139,7 @@ namespace Products.PL.Products
             // 
             // addProductModelBindingSource
             // 
-            this.addProductModelBindingSource.DataSource = typeof(BL.Models.AddProductModel);
+            this.addProductModelBindingSource.DataSource = typeof(AddProductModel);
             // 
             // txtBuy
             // 

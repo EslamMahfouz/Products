@@ -2,10 +2,9 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraReports.UI;
-using Products.BL;
-using Products.BL.Models;
-using Products.BL.UnitOfWork;
+using Dukan.Core;
+using Dukan.Core.Models;
+using Dukan.Core.UnitOfWork;
 using Products.PL.Shared;
 using System;
 using System.Collections.Generic;
@@ -78,7 +77,7 @@ namespace Products.PL.Customers
                 _sales.Clear();
                 _sales.AddRange(_unitOfWork.Sales.GetCustomerSales(id));
                 gridControl1.RefreshDataSource();
-                var textEdit = BL.Custom.GetTextEditRepositoryItem();
+                var textEdit = Custom.GetTextEditRepositoryItem();
                 gridControl1.RepositoryItems.Add(textEdit);
                 gridView2.Columns["Discount"].ColumnEdit = textEdit;
 
@@ -206,8 +205,9 @@ namespace Products.PL.Customers
         private void BtnPrint_Click(object sender, EventArgs e)
         {
             var saleId = Convert.ToInt32(gridView2.GetFocusedRowCellValue("Id"));
-            var rep = _unitOfWork.Sales.GetSaleReport(saleId);
-            rep.ShowPreview();
+            //todo refactor
+            //var rep = _unitOfWork.Sales.GetSaleReport(saleId);
+            //rep.ShowPreview();
         }
 
         private void BtnReturned_Click(object sender, EventArgs e)

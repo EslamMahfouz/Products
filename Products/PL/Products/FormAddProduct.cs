@@ -1,8 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using Products.BL;
-using Products.BL.Models;
-using Products.BL.UnitOfWork;
+using Dukan.Core;
+using Dukan.Core.Models.Product;
+using Dukan.Core.UnitOfWork;
 using System;
 
 namespace Products.PL.Products
@@ -77,7 +77,7 @@ namespace Products.PL.Products
             }
             catch (Exception ex)
             {
-                BL.Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex);
             }
         }
 
@@ -87,19 +87,18 @@ namespace Products.PL.Products
             {
                 if (val.Validate())
                 {
+                    var exists = UnitOfWork.Instance.Products.IsExisting(_product.Name);
+                    if (exists)
+                        Custom.ShowExistingMessage("يوجد منتج بهذا الاسم");
+
                     UnitOfWork.Instance.Products.Add(_product);
-                    UnitOfWork.Instance.Complete();
-                    BL.Custom.ShowAddedMessage();
+                    Custom.ShowAddedMessage();
                     ClearArea();
                 }
             }
-            catch (ArgumentException ex)
-            {
-                BL.Custom.ShowExistingMessage(ex);
-            }
             catch (Exception ex)
             {
-                BL.Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex);
             }
         }
 

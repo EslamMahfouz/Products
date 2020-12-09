@@ -2,7 +2,7 @@
 using DevExpress.LookAndFeel;
 using DevExpress.Skins;
 using DevExpress.UserSkins;
-using Products.BL.Mapping;
+using Dukan.Core.Mapping;
 using Products.PL;
 using System;
 using System.Windows.Forms;

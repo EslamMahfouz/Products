@@ -1,8 +1,8 @@
 ﻿using DevExpress.XtraEditors;
-using Products.BL.UnitOfWork;
-using Products.EDM;
+using Dukan.Core;
+using Dukan.Core.UnitOfWork;
+using Dukan.Data;
 using System;
-using Products.BL;
 
 namespace Products.PL.Customers
 {

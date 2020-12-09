@@ -2,9 +2,9 @@
 using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Products.BL;
-using Products.BL.Models;
-using Products.BL.UnitOfWork;
+using Dukan.Core;
+using Dukan.Core.Models;
+using Dukan.Core.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -83,7 +83,7 @@ namespace Products.PL.Shared
                 _saleDetails.AddRange(_unitOfWork.SaleDetails.GetSaleDetails(Id));
                 gridControl1.DataSource = _saleDetails;
                 gridView1.Initialize();
-                var textEdit = BL.Custom.GetTextEditRepositoryItem();
+                var textEdit = Custom.GetTextEditRepositoryItem();
                 gridView1.Columns["Discount"].ColumnEdit = textEdit;
             }
             else if (Type == "salePayments")

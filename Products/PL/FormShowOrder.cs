@@ -2,7 +2,7 @@
 using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Products.EDM;
+using Dukan.Data;
 using System;
 
 namespace Products.PL

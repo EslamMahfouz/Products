@@ -1,9 +1,10 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
+using Dukan.Core.Models;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Products.PL
+namespace Products.PL.Suppliers
 {
     partial class FormAddSupplier
     {
@@ -86,7 +87,7 @@ namespace Products.PL
             // 
             // addSupplierModelBindingSource
             // 
-            this.addSupplierModelBindingSource.DataSource = typeof(BL.Models.AddSupplierModel);
+            this.addSupplierModelBindingSource.DataSource = typeof(AddSupplierModel);
             // 
             // txtPhone
             // 

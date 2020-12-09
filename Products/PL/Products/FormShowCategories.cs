@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
-using Products.BL;
-using Products.BL.UnitOfWork;
+using Dukan.Core;
+using Dukan.Core.UnitOfWork;
 using System;
 
 namespace Products.PL.Products
@@ -40,19 +40,18 @@ namespace Products.PL.Products
             {
                 if (val.Validate())
                 {
+                    var exists = UnitOfWork.Instance.Categories.IsExisting(txtName.Text);
+                    if (exists)
+                        Custom.ShowExistingMessage("هذا الصنف موجود");
+
                     UnitOfWork.Instance.Categories.Add(txtName.Text);
-                    UnitOfWork.Instance.Complete();
                     ClearArea();
                     gridControl1.DataSource = UnitOfWork.Instance.Categories.GetCategoriesForGrid();
                 }
             }
-            catch (ArgumentException ex)
-            {
-                BL.Custom.ShowExistingMessage(ex);
-            }
             catch (Exception ex)
             {
-                BL.Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex);
             }
         }
 

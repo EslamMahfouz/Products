@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
-using Products.BL;
-using Products.BL.UnitOfWork;
+using Dukan.Core;
+using Dukan.Core.UnitOfWork;
 using System;
 using System.Globalization;
 using System.Windows.Forms;

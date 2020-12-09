@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using Products.EDM;
+using Dukan.Data;
+using Products.PL.Suppliers;
 using System;
 using System.Data;
 using System.Linq;

@@ -1,17 +1,14 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Products.BL;
-using Products.BL.UnitOfWork;
-using Products.EDM;
+using Dukan.Core;
+using Dukan.Core.UnitOfWork;
 using System;
 
 namespace Products.PL.Products
 {
     public partial class FormShowProducts : XtraForm
     {
-        //ProductsEntities db = new ProductsEntities();
-
         public FormShowProducts()
         {
             InitializeComponent();
@@ -26,7 +23,7 @@ namespace Products.PL.Products
             }
             catch (Exception ex)
             {
-                BL.Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex);
             }
         }
 
@@ -55,7 +52,7 @@ namespace Products.PL.Products
             }
             catch (Exception ex)
             {
-                BL.Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex);
             }
         }
     }

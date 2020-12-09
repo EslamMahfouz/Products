@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Products.Reports
+﻿namespace Products.Reports
 {
     public partial class SaleReport : DevExpress.XtraReports.UI.XtraReport
     {

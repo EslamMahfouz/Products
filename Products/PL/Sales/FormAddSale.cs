@@ -2,11 +2,10 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraPrinting.Native;
-using DevExpress.XtraReports.UI;
-using Products.BL;
-using Products.BL.Models;
-using Products.BL.UnitOfWork;
-using Products.EDM;
+using Dukan.Core;
+using Dukan.Core.Models;
+using Dukan.Core.UnitOfWork;
+using Dukan.Data;
 using Products.PL.Customers;
 using System;
 using System.Collections.Generic;
@@ -96,7 +95,7 @@ namespace Products.PL.Sales
             lblOrderID.Text = UnitOfWork.Instance.Sales.NewOrder();
             gridControl1.DataSource = _saleDetails;
             gridView3.Initialize();
-            var textEdit = BL.Custom.GetTextEditRepositoryItem();
+            var textEdit = Custom.GetTextEditRepositoryItem();
             gridView3.Columns["Discount"].ColumnEdit = textEdit;
         }
 
@@ -302,8 +301,9 @@ namespace Products.PL.Sales
                 }
                 else
                 {
-                    var rep = UnitOfWork.Instance.Sales.GetSaleReport(_sale.Id);
-                    rep.ShowPreview();
+                    //todo refactor
+                    //var rep = UnitOfWork.Instance.Sales.GetSaleReport(_sale.Id);
+                    //rep.ShowPreview();
                 }
             }
             catch (Exception ex)

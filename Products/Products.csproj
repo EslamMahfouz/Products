@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Products</RootNamespace>
     <AssemblyName>Products</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -30,6 +31,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -104,9 +107,11 @@
     <Reference Include="DevExpress.XtraReports.v15.2.Extensions, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraVerticalGrid.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -140,76 +145,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\ExtensionMethods.cs" />
-    <Compile Include="BL\Custom.cs" />
-    <Compile Include="BL\Mapping\MappingProfile.cs" />
-    <Compile Include="BL\Models\CategoryModels.cs" />
-    <Compile Include="BL\Models\CustomerModels.cs" />
-    <Compile Include="BL\Models\ProductModels.cs" />
-    <Compile Include="BL\Models\SaleDetailsModels.cs" />
-    <Compile Include="BL\Models\SaleModels.cs" />
-    <Compile Include="BL\Models\SalePaymentModels.cs" />
-    <Compile Include="BL\Models\SupplierModels.cs" />
-    <Compile Include="BL\Repository\CategoryRepository.cs" />
-    <Compile Include="BL\Repository\IRepository.cs" />
-    <Compile Include="BL\Repository\CustomerRepository.cs" />
-    <Compile Include="BL\Repository\ISaleRepository.cs" />
-    <Compile Include="BL\Repository\ModuleRepository.cs" />
-    <Compile Include="BL\Repository\ProductRepository.cs" />
-    <Compile Include="BL\Repository\SalePaymentRepository.cs" />
-    <Compile Include="BL\Repository\SaleDetailsRepository.cs" />
-    <Compile Include="BL\Repository\SalesRepository.cs" />
-    <Compile Include="BL\Repository\Repository.cs" />
-    <Compile Include="BL\Repository\SupplierRepository.cs" />
-    <Compile Include="BL\UnitOfWork\UnitOfWork.cs" />
-    <Compile Include="EDM\Category.cs">
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\Customer.cs">
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\Module.cs">
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\Product.cs">
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\ProductsModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductsModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\ProductsModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\ProductsModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductsModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\Purchase.cs">
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\PurchaseDetail.cs">
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\PurchasePayment.cs">
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\Sale.cs">
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\SaleDetail.cs">
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\SalePayment.cs">
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDM\Supplier.cs">
-      <DependentUpon>ProductsModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="PL\Customers\FormAddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -437,15 +372,8 @@
       <DependentUpon>SaleReport.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EntityDeploy Include="EDM\ProductsModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ProductsModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="App.Config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="EDM\ProductsModel.edmx.diagram">
-      <DependentUpon>ProductsModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
@@ -1211,17 +1139,6 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EDM\ProductsModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProductsModel.edmx</DependentUpon>
-      <LastGenOutput>ProductsModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EDM\ProductsModel.edmx.sql" />
-    <Content Include="EDM\ProductsModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProductsModel.edmx</DependentUpon>
-      <LastGenOutput>ProductsModel.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\edit_32x32.png" />
     <None Include="Resources\add_32x32.png" />
   </ItemGroup>
@@ -1243,8 +1160,25 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Dukan.Data.csproj">
+      <Project>{db9eb7ec-a107-4cf4-90b8-b4f8a2b9e181}</Project>
+      <Name>Dukan.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dukan.Core\Dukan.Core.csproj">
+      <Project>{0b490b56-3165-419d-b0bf-8776c69634b5}</Project>
+      <Name>Dukan.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

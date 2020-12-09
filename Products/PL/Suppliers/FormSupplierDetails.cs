@@ -4,13 +4,13 @@ using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
-using Products.EDM;
+using Dukan.Data;
 using Products.PL.Shared;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Products.PL
+namespace Products.PL.Suppliers
 {
     public partial class FormSupplierDetails : XtraForm
     {

@@ -1,12 +1,12 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Products.BL;
-using Products.BL.UnitOfWork;
+using Dukan.Core;
+using Dukan.Core.UnitOfWork;
 using System;
 using System.Windows.Forms;
 
-namespace Products.PL
+namespace Products.PL.Suppliers
 {
     public partial class FormSuppliers : XtraForm
     {
