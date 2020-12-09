@@ -68,28 +68,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\Custom.cs" />
-    <Compile Include="BL\ExtensionMethods.cs" />
-    <Compile Include="BL\Mapping\MappingProfile.cs" />
-    <Compile Include="BL\Models\CategoryModels.cs" />
-    <Compile Include="BL\Models\CustomerModels.cs" />
-    <Compile Include="BL\Models\ProductModels.cs" />
-    <Compile Include="BL\Models\SaleDetailsModels.cs" />
-    <Compile Include="BL\Models\SaleModels.cs" />
-    <Compile Include="BL\Models\SalePaymentModels.cs" />
-    <Compile Include="BL\Models\SupplierModels.cs" />
-    <Compile Include="BL\Repository\CategoryRepository.cs" />
-    <Compile Include="BL\Repository\CustomerRepository.cs" />
-    <Compile Include="BL\Repository\IRepository.cs" />
-    <Compile Include="BL\Repository\ISaleRepository.cs" />
-    <Compile Include="BL\Repository\ModuleRepository.cs" />
-    <Compile Include="BL\Repository\ProductRepository.cs" />
-    <Compile Include="BL\Repository\Repository.cs" />
-    <Compile Include="BL\Repository\SaleDetailsRepository.cs" />
-    <Compile Include="BL\Repository\SalePaymentRepository.cs" />
-    <Compile Include="BL\Repository\SalesRepository.cs" />
-    <Compile Include="BL\Repository\SupplierRepository.cs" />
-    <Compile Include="BL\UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="Custom.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Mapping\MappingProfile.cs" />
+    <Compile Include="Models\Category\CategoryModel.cs" />
+    <Compile Include="Models\CustomerModels.cs" />
+    <Compile Include="Models\Product\AddProductModel.cs" />
+    <Compile Include="Models\Product\ProductComboModel.cs" />
+    <Compile Include="Models\Product\ProductGridModel.cs" />
+    <Compile Include="Models\SaleDetailsModels.cs" />
+    <Compile Include="Models\SaleModels.cs" />
+    <Compile Include="Models\SalePaymentModels.cs" />
+    <Compile Include="Models\SupplierModels.cs" />
+    <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\ISaleRepository.cs" />
+    <Compile Include="Repository\ModuleRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\SaleDetailsRepository.cs" />
+    <Compile Include="Repository\SalePaymentRepository.cs" />
+    <Compile Include="Repository\SalesRepository.cs" />
+    <Compile Include="Repository\SupplierRepository.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +104,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

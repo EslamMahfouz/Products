@@ -1,4 +1,4 @@
-﻿namespace Dukan.Core.BL.Repository
+﻿namespace Dukan.Core.Repository
 {
     internal interface ISaleRepository
     {

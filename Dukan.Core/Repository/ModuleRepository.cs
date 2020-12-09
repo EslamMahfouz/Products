@@ -1,7 +1,7 @@
 ﻿using Dukan.Data;
 using Module = System.Reflection.Module;
 
-namespace Dukan.Core.BL.Repository
+namespace Dukan.Core.Repository
 {
     public class ModuleRepository : Repository<Module>
     {

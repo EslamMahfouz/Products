@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using Dukan.Core.BL.Models;
+using Dukan.Core.Models.Category;
 using Dukan.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dukan.Core.BL.Repository
+namespace Dukan.Core.Repository
 {
     public class CategoryRepository : Repository<Category>
     {
@@ -26,12 +25,7 @@ namespace Dukan.Core.BL.Repository
 
         public int Add(string name)
         {
-            if (IsExisting(name))
-            {
-                throw new ArgumentException("هذا الصنف موجود");
-            }
             var added = Insert(new Category { Name = name });
-            Complete();
             return added.Id;
         }
 

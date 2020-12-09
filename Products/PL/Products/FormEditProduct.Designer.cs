@@ -1,7 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using Dukan.Core.Models.Product;
 using System.ComponentModel;
-using Dukan.Core.BL.Models;
 
 namespace Products.PL.Products
 {

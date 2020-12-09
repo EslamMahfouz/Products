@@ -1,16 +1,14 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Dukan.Core.BL;
-using Dukan.Core.BL.UnitOfWork;
+using Dukan.Core;
+using Dukan.Core.UnitOfWork;
 using System;
 
 namespace Products.PL.Products
 {
     public partial class FormShowProducts : XtraForm
     {
-        //ProductsEntities db = new ProductsEntities();
-
         public FormShowProducts()
         {
             InitializeComponent();

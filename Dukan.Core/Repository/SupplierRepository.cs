@@ -1,11 +1,11 @@
-﻿using Dukan.Core.BL.Models;
+﻿using AutoMapper;
+using Dukan.Core.Models;
 using Dukan.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
 
-namespace Dukan.Core.BL.Repository
+namespace Dukan.Core.Repository
 {
     public class SupplierRepository : Repository<Supplier>
     {

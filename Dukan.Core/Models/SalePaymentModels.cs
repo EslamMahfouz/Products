@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Dukan.Core.BL.Models
+namespace Dukan.Core.Models
 {
 
     public class SalePaymentModel

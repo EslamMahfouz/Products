@@ -3,7 +3,7 @@ using DevExpress.XtraEditors.Repository;
 using System;
 using System.Windows.Forms;
 
-namespace Dukan.Core.BL
+namespace Dukan.Core
 {
     public static class Custom
     {
@@ -43,9 +43,9 @@ namespace Dukan.Core.BL
         {
             XtraMessageBox.Show("تمت التعديل بنجاح", "تعديل", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        public static void ShowExistingMessage(Exception ex)
+        public static void ShowExistingMessage(string msg)
         {
-            XtraMessageBox.Show(ex.Message, "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            XtraMessageBox.Show(msg, "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
         public static void ShowExceptionMessage(Exception ex)
         {

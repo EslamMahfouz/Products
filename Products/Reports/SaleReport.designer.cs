@@ -1,4 +1,4 @@
-﻿using Dukan.Core.BL.Models;
+﻿using Dukan.Core.Models;
 
 namespace Products.Reports
 {

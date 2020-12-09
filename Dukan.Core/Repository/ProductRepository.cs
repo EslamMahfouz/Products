@@ -1,17 +1,15 @@
 ﻿using AutoMapper;
-using Dukan.Core.BL.Models;
+using Dukan.Core.Models.Product;
 using Dukan.Data;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 
-namespace Dukan.Core.BL.Repository
+namespace Dukan.Core.Repository
 {
     public class ProductRepository : Repository<Product>
     {
         #region Constructors
-
         public ProductRepository(ProductsEntities context) : base(context)
         {
         }
@@ -20,17 +18,13 @@ namespace Dukan.Core.BL.Repository
 
         #region Methods
 
-        private bool IsExisting(string name)
+        public bool IsExisting(string name)
         {
             return GetAll(p => p.Name == name).Any();
         }
 
         public void Add(AddProductModel product)
         {
-            if (IsExisting(product.Name))
-            {
-                throw new ArgumentException("يوجد منتج بهذا الاسم");
-            }
             var added = Mapper.Map<AddProductModel, Product>(product);
             Insert(added);
         }

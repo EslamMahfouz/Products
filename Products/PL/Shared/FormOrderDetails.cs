@@ -2,9 +2,9 @@
 using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Dukan.Core.BL;
-using Dukan.Core.BL.Models;
-using Dukan.Core.BL.UnitOfWork;
+using Dukan.Core;
+using Dukan.Core.Models;
+using Dukan.Core.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

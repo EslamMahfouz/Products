@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
-using Dukan.Core.BL.Models;
-using Dukan.Core.BL.UnitOfWork;
+using Dukan.Core.Models;
+using Dukan.Core.UnitOfWork;
 using System;
 using System.Windows.Forms;
 

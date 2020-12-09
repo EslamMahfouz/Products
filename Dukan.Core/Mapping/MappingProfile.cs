@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
-using Dukan.Core.BL.Models;
+using Dukan.Core.Models;
+using Dukan.Core.Models.Category;
+using Dukan.Core.Models.Product;
 using Dukan.Data;
 using System.Linq;
 
-namespace Dukan.Core.BL.Mapping
+namespace Dukan.Core.Mapping
 {
     public class MappingProfile : Profile
     {
@@ -13,7 +15,6 @@ namespace Dukan.Core.BL.Mapping
 
             CreateMap<Category, CategoryModel>();
             //CreateMap<Category, CategoryGridModel>();
-
             #endregion
 
             #region Products

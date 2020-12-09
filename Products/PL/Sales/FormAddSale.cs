@@ -2,9 +2,9 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraPrinting.Native;
-using Dukan.Core.BL;
-using Dukan.Core.BL.Models;
-using Dukan.Core.BL.UnitOfWork;
+using Dukan.Core;
+using Dukan.Core.Models;
+using Dukan.Core.UnitOfWork;
 using Dukan.Data;
 using Products.PL.Customers;
 using System;
