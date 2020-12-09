@@ -1,10 +1,10 @@
 ﻿using DevExpress.XtraEditors;
-using Products.BL.Models;
-using Products.BL.UnitOfWork;
+using Dukan.Core.BL.Models;
+using Dukan.Core.BL.UnitOfWork;
 using System;
 using System.Windows.Forms;
 
-namespace Products.PL
+namespace Products.PL.Suppliers
 {
     public partial class FormAddSupplier : XtraForm
     {

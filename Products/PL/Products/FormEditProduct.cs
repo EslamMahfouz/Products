@@ -1,7 +1,7 @@
 ﻿using DevExpress.XtraEditors;
-using Products.BL;
-using Products.BL.UnitOfWork;
-using Products.EDM;
+using Dukan.Core.BL;
+using Dukan.Core.BL.UnitOfWork;
+using Dukan.Data;
 using System;
 using System.Windows.Forms;
 

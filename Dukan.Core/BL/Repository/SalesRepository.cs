@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
+using Dukan.Core.BL.Models;
 using Dukan.Data;
-using Products.BL.Models;
-using Products.Reports;
 using System;
 using System.Collections.Generic;
-using System.Data.Objects;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 
-namespace Products.BL.Repository
+namespace Dukan.Core.BL.Repository
 {
     public class SalesRepository : Repository<Sale>
     {
@@ -39,23 +38,21 @@ namespace Products.BL.Repository
             return Mapper.Map<IEnumerable<Sale>, IEnumerable<SaleGridModel>>(sales);
         }
 
-        public SaleReport GetSaleReport(int saleId)
-        {
-            var sale = Mapper.Map<Sale, SaleReportModel>(Get(saleId));
-            return new SaleReport
-            {
-                DataSource = sale.SaleDetails,
-
-                CustomerName = { Value = sale.CustomerName },
-                CustomerPhone = { Value = sale.CustomerPhone },
-                Date = { Value = sale.Date },
-                Number = { Value = sale.Number },
-
-                SaleTotal = { Value = sale.Total },
-                SaleDiscount = { Value = sale.Discount },
-                SaleTotalAfterDiscount = { Value = sale.TotalAfterDiscount }
-            };
-        }
+        //public SaleReport GetSaleReport(int saleId)
+        //{
+        //    var sale = Mapper.Map<Sale, SaleReportModel>(Get(saleId));
+        //    return new SaleReport
+        //    {
+        //        DataSource = sale.SaleDetails,
+        //        CustomerName = { Value = sale.CustomerName },
+        //        CustomerPhone = { Value = sale.CustomerPhone },
+        //        Date = { Value = sale.Date },
+        //        Number = { Value = sale.Number },
+        //        SaleTotal = { Value = sale.Total },
+        //        SaleDiscount = { Value = sale.Discount },
+        //        SaleTotalAfterDiscount = { Value = sale.TotalAfterDiscount }
+        //    };
+        //}
 
         #endregion
     }

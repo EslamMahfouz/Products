@@ -1,8 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using Products.BL;
-using Products.BL.Models;
-using Products.BL.UnitOfWork;
+using Dukan.Core.BL;
+using Dukan.Core.BL.Models;
+using Dukan.Core.BL.UnitOfWork;
 using System;
 
 namespace Products.PL.Products
@@ -77,7 +77,7 @@ namespace Products.PL.Products
             }
             catch (Exception ex)
             {
-                BL.Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex);
             }
         }
 
@@ -89,17 +89,17 @@ namespace Products.PL.Products
                 {
                     UnitOfWork.Instance.Products.Add(_product);
                     UnitOfWork.Instance.Complete();
-                    BL.Custom.ShowAddedMessage();
+                    Custom.ShowAddedMessage();
                     ClearArea();
                 }
             }
             catch (ArgumentException ex)
             {
-                BL.Custom.ShowExistingMessage(ex);
+                Custom.ShowExistingMessage(ex);
             }
             catch (Exception ex)
             {
-                BL.Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex);
             }
         }
 

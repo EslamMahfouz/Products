@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
-using Products.BL;
-using Products.BL.UnitOfWork;
+using Dukan.Core.BL;
+using Dukan.Core.BL.UnitOfWork;
 using System;
 
 namespace Products.PL.Products
@@ -48,11 +48,11 @@ namespace Products.PL.Products
             }
             catch (ArgumentException ex)
             {
-                BL.Custom.ShowExistingMessage(ex);
+                Custom.ShowExistingMessage(ex);
             }
             catch (Exception ex)
             {
-                BL.Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex);
             }
         }
 

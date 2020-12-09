@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
+using Dukan.Core.BL.Models;
 using Dukan.Data;
-using Products.BL.Models;
 using System.Collections.Generic;
 
-namespace Products.BL.Repository
+namespace Dukan.Core.BL.Repository
 {
     public class SaleDetailsRepository : Repository<SaleDetail>
     {

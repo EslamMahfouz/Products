@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Products.BL.Models
+namespace Dukan.Core.BL.Models
 {
     public class EditCustomerModel
     {

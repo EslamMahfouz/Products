@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors.DXErrorProvider;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Dukan.Core.BL.Models;
 
 namespace Products.PL.Products
 {
@@ -121,7 +122,7 @@ namespace Products.PL.Products
             // 
             // addProductModelBindingSource
             // 
-            this.addProductModelBindingSource.DataSource = typeof(BL.Models.AddProductModel);
+            this.addProductModelBindingSource.DataSource = typeof(AddProductModel);
             // 
             // labelControl5
             // 

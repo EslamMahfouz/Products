@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products", "Products\Produc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dukan.Data", "Data\Dukan.Data.csproj", "{DB9EB7EC-A107-4CF4-90B8-B4F8A2B9E181}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dukan.Core", "Dukan.Core\Dukan.Core.csproj", "{0B490B56-3165-419D-B0BF-8776C69634B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DB9EB7EC-A107-4CF4-90B8-B4F8A2B9E181}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB9EB7EC-A107-4CF4-90B8-B4F8A2B9E181}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB9EB7EC-A107-4CF4-90B8-B4F8A2B9E181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B490B56-3165-419D-B0BF-8776C69634B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B490B56-3165-419D-B0BF-8776C69634B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B490B56-3165-419D-B0BF-8776C69634B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B490B56-3165-419D-B0BF-8776C69634B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

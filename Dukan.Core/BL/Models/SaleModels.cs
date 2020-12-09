@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Products.BL.Models
+namespace Dukan.Core.BL.Models
 {
     public class SaleModel
     {

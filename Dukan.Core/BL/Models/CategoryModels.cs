@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Products.BL.Models
+namespace Dukan.Core.BL.Models
 {
     /// <summary>
     /// Applies for combo and grid

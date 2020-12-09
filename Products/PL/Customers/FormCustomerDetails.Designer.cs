@@ -3,6 +3,7 @@ using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraTab;
+using Dukan.Core.BL.Models;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -87,7 +88,7 @@ namespace Products.PL.Customers
             // 
             // editCustomerModelBindingSource
             // 
-            this.editCustomerModelBindingSource.DataSource = typeof(BL.Models.EditCustomerModel);
+            this.editCustomerModelBindingSource.DataSource = typeof(EditCustomerModel);
             // 
             // txtName
             // 

@@ -2,7 +2,7 @@
 using DevExpress.XtraGrid.Views.Grid;
 using System.ComponentModel;
 
-namespace Products.PL
+namespace Products.PL.Suppliers
 {
     partial class FormSuppliers
     {

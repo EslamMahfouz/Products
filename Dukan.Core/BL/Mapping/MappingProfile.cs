@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
+using Dukan.Core.BL.Models;
 using Dukan.Data;
-using Products.BL.Models;
 using System.Linq;
 
-namespace Products.BL.Mapping
+namespace Dukan.Core.BL.Mapping
 {
-    internal class MappingProfile : Profile
+    public class MappingProfile : Profile
     {
         public MappingProfile()
         {

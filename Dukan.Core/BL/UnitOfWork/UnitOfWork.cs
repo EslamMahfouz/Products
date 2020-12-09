@@ -1,7 +1,7 @@
-﻿using Dukan.Data;
-using Products.BL.Repository;
+﻿using Dukan.Core.BL.Repository;
+using Dukan.Data;
 
-namespace Products.BL.UnitOfWork
+namespace Dukan.Core.BL.UnitOfWork
 {
     public class UnitOfWork
     {

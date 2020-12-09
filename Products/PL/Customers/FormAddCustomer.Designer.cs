@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors.DXErrorProvider;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Dukan.Data;
 
 namespace Products.PL.Customers
 {
@@ -120,7 +121,7 @@ namespace Products.PL.Customers
             // 
             // customerBindingSource
             // 
-            this.customerBindingSource.DataSource = typeof(EDM.Customer);
+            this.customerBindingSource.DataSource = typeof(Customer);
             // 
             // txtTel
             // 

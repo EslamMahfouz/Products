@@ -1,7 +1,7 @@
 ﻿using DevExpress.Data;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
-using Products.EDM;
+using Dukan.Data;
 using System;
 using System.Data.Objects;
 using System.Drawing;

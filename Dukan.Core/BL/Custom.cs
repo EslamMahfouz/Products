@@ -3,7 +3,7 @@ using DevExpress.XtraEditors.Repository;
 using System;
 using System.Windows.Forms;
 
-namespace Products.BL
+namespace Dukan.Core.BL
 {
     public static class Custom
     {

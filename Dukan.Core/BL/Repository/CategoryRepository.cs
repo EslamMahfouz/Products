@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
+using Dukan.Core.BL.Models;
 using Dukan.Data;
-using Products.BL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Products.BL.Repository
+namespace Dukan.Core.BL.Repository
 {
     public class CategoryRepository : Repository<Category>
     {

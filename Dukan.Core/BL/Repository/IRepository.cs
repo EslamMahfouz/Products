@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Products.BL.Repository
+namespace Dukan.Core.BL.Repository
 {
     public interface IRepository<TEntity> where TEntity : class
     {

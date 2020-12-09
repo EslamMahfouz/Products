@@ -1,9 +1,8 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Products.BL;
-using Products.BL.UnitOfWork;
-using Products.EDM;
+using Dukan.Core.BL;
+using Dukan.Core.BL.UnitOfWork;
 using System;
 
 namespace Products.PL.Products
@@ -26,7 +25,7 @@ namespace Products.PL.Products
             }
             catch (Exception ex)
             {
-                BL.Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex);
             }
         }
 
@@ -55,7 +54,7 @@ namespace Products.PL.Products
             }
             catch (Exception ex)
             {
-                BL.Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex);
             }
         }
     }

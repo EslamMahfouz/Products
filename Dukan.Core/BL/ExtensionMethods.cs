@@ -3,7 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Drawing;
 
-namespace Products.BL
+namespace Dukan.Core.BL
 {
     public static class ExtensionMethods
     {

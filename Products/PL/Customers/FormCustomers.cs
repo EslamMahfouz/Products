@@ -1,8 +1,8 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Products.BL;
-using Products.BL.UnitOfWork;
+using Dukan.Core.BL;
+using Dukan.Core.BL.UnitOfWork;
 using System;
 
 namespace Products.PL.Customers
@@ -33,11 +33,11 @@ namespace Products.PL.Customers
                 var customers = UnitOfWork.Instance.Customers.GetCustomersForGrid();
                 gridControl1.DataSource = customers;
                 gridView1.Initialize();
-                
+
             }
             catch (Exception ex)
             {
-                BL.Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex);
             }
         }
 
