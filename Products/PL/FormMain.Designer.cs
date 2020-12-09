@@ -81,6 +81,7 @@ namespace Products.PL
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -364,9 +365,10 @@ namespace Products.PL
             this.barSubItem1,
             this.btnSettings,
             this.barHeaderItem1,
-            this.btnActivate});
+            this.btnActivate,
+            this.barButtonItem1});
             this.barManager1.MainMenu = this.ث;
-            this.barManager1.MaxItemId = 6;
+            this.barManager1.MaxItemId = 7;
             this.barManager1.StatusBar = this.bar3;
             // 
             // ث
@@ -387,7 +389,8 @@ namespace Products.PL
             this.barSubItem1.Id = 2;
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSettings),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnActivate)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnActivate),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
             this.barSubItem1.Name = "barSubItem1";
             // 
             // btnSettings
@@ -508,6 +511,12 @@ namespace Products.PL
             this.gridView1.RowHeight = 40;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "إعداد الوحدات";
+            this.barButtonItem1.Id = 6;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -585,5 +594,6 @@ namespace Products.PL
         private NavBarGroup navBarGroup7;
         private NavBarGroup navBarGroup8;
         private NavBarItem btnShowCategories;
+        private BarButtonItem barButtonItem1;
     }
 }

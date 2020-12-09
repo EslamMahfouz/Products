@@ -35,5 +35,6 @@ namespace Products.EDM
         public DbSet<SaleDetail> SaleDetails { get; set; }
         public DbSet<SalePayment> SalePayments { get; set; }
         public DbSet<Sale> Sales { get; set; }
+        public DbSet<Module> Modules { get; set; }
     }
 }
