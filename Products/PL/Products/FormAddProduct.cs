@@ -89,11 +89,15 @@ namespace Products.PL.Products
                 {
                     var exists = UnitOfWork.Instance.Products.IsExisting(_product.Name);
                     if (exists)
+                    {
                         Custom.ShowExistingMessage("يوجد منتج بهذا الاسم");
-
-                    UnitOfWork.Instance.Products.Add(_product);
-                    Custom.ShowAddedMessage();
-                    ClearArea();
+                    }
+                    else
+                    {
+                        UnitOfWork.Instance.Products.Add(_product);
+                        Custom.ShowAddedMessage();
+                        ClearArea();
+                    }
                 }
             }
             catch (Exception ex)

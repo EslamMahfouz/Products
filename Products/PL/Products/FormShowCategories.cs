@@ -42,11 +42,15 @@ namespace Products.PL.Products
                 {
                     var exists = UnitOfWork.Instance.Categories.IsExisting(txtName.Text);
                     if (exists)
+                    {
                         Custom.ShowExistingMessage("هذا الصنف موجود");
-
-                    UnitOfWork.Instance.Categories.Add(txtName.Text);
-                    ClearArea();
-                    gridControl1.DataSource = UnitOfWork.Instance.Categories.GetCategoriesForGrid();
+                    }
+                    else
+                    {
+                        UnitOfWork.Instance.Categories.Add(txtName.Text);
+                        ClearArea();
+                        gridControl1.DataSource = UnitOfWork.Instance.Categories.GetCategoriesForGrid();
+                    }
                 }
             }
             catch (Exception ex)
@@ -60,13 +64,21 @@ namespace Products.PL.Products
             var value = e.Value.ToString();
             if (!string.IsNullOrEmpty(value))
             {
-                var id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
-                UnitOfWork.Instance.Categories.Edit(id, value);
-                UnitOfWork.Instance.Complete();
+                var exists = UnitOfWork.Instance.Categories.IsExisting(value);
+                if (exists)
+                {
+                    Custom.ShowExistingMessage("هذا الصنف موجود");
+                    FormShowCategories_Load(sender, e);
+                }
+                else
+                {
+                    var id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+                    UnitOfWork.Instance.Categories.Edit(id, value);
+                    UnitOfWork.Instance.Complete();
+                }
             }
         }
 
         #endregion
-
     }
 }
