@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormShowCategories));
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -96,10 +96,10 @@
             this.BtnAddCategory.Appearance.Options.UseFont = true;
             this.BtnAddCategory.Image = ((System.Drawing.Image)(resources.GetObject("BtnAddCategory.Image")));
             this.BtnAddCategory.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.BtnAddCategory.Location = new System.Drawing.Point(28, 52);
+            this.BtnAddCategory.Location = new System.Drawing.Point(28, 45);
             this.BtnAddCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnAddCategory.Name = "BtnAddCategory";
-            this.BtnAddCategory.Size = new System.Drawing.Size(58, 40);
+            this.BtnAddCategory.Size = new System.Drawing.Size(58, 51);
             this.BtnAddCategory.TabIndex = 2;
             this.BtnAddCategory.Click += new System.EventHandler(this.BtnAddCategory_Click);
             // 
@@ -115,9 +115,9 @@
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtName.Size = new System.Drawing.Size(178, 34);
             this.txtName.TabIndex = 1;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            this.val.SetValidationRule(this.txtName, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.val.SetValidationRule(this.txtName, conditionValidationRule1);
             // 
             // labelControl2
             // 

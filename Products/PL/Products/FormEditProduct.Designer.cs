@@ -125,6 +125,7 @@ namespace Products.PL.Products
             // 
             this.txtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProductName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Name", true));
+            this.txtProductName.Enabled = false;
             this.txtProductName.Location = new System.Drawing.Point(9, 73);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtProductName.Name = "txtProductName";
@@ -139,7 +140,7 @@ namespace Products.PL.Products
             // 
             // addProductModelBindingSource
             // 
-            this.addProductModelBindingSource.DataSource = typeof(AddProductModel);
+            this.addProductModelBindingSource.DataSource = typeof(Dukan.Core.Models.Product.AddProductModel);
             // 
             // txtBuy
             // 
@@ -215,6 +216,7 @@ namespace Products.PL.Products
             this.cmbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbCategory.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addProductModelBindingSource, "CategoryId", true));
             this.cmbCategory.EditValue = "";
+            this.cmbCategory.Enabled = false;
             this.cmbCategory.Location = new System.Drawing.Point(9, 15);
             this.cmbCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbCategory.Name = "cmbCategory";

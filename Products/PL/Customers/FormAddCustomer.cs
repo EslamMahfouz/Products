@@ -55,7 +55,7 @@ namespace Products.PL.Customers
             }
             catch (ArgumentException ex)
             {
-                Custom.ShowExistingMessage(ex);
+                Custom.ShowExistingMessage(ex.Message);
             }
             catch (Exception ex)
             {
