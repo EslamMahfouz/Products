@@ -10,14 +10,20 @@ namespace Products.PL.Products
     public partial class FormAddProduct : XtraForm
     {
         #region Fields
-
         private AddProductModel _product = new AddProductModel();
+        #endregion
 
+        #region Constructor
+        public FormAddProduct()
+        {
+            InitializeComponent();
+
+        }
         #endregion
 
         #region Methods
 
-        private void CategoryBox(bool status)
+        private void ShowCategoryBox(bool status = true)
         {
             txtCategory.Visible = status;
             btnAddCategory.Visible = status;
@@ -33,18 +39,7 @@ namespace Products.PL.Products
 
         #endregion
 
-        #region Constructor
-
-        public FormAddProduct()
-        {
-            InitializeComponent();
-
-        }
-
-        #endregion
-
         #region Form events
-
         private void FormAddProduct_Load(object sender, EventArgs e)
         {
             var categories = UnitOfWork.Instance.Categories.GetCategoriesForCombo();
@@ -57,8 +52,14 @@ namespace Products.PL.Products
         {
             if (e.Button.Kind == ButtonPredefines.Plus)
             {
-                CategoryBox(true);
+                ShowCategoryBox();
                 txtCategory.Focus();
+                e.Button.Kind = ButtonPredefines.Close;
+            }
+            else if (e.Button.Kind == ButtonPredefines.Close)
+            {
+                ShowCategoryBox(false);
+                e.Button.Kind = ButtonPredefines.Plus;
             }
         }
 
@@ -68,11 +69,10 @@ namespace Products.PL.Products
             {
                 if (!string.IsNullOrEmpty(txtCategory.Text))
                 {
-                    var id = UnitOfWork.Instance.Categories.Add(txtCategory.Text);
-                    UnitOfWork.Instance.Complete();
-                    CategoryBox(false);
+                    _product.CategoryId = UnitOfWork.Instance.Categories.Add(txtCategory.Text);
+                    ShowCategoryBox(false);
                     FormAddProduct_Load(sender, e);
-                    cmbCategories.EditValue = id;
+                    cmbCategories.EditValue = _product.CategoryId;
                 }
             }
             catch (Exception ex)
@@ -101,7 +101,6 @@ namespace Products.PL.Products
                 Custom.ShowExceptionMessage(ex);
             }
         }
-
         #endregion
     }
 }
