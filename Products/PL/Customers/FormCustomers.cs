@@ -9,23 +9,14 @@ namespace Products.PL.Customers
 {
     public partial class FormCustomers : XtraForm
     {
-        #region Methods
-
-
-        #endregion
-
         #region Constructor
-
         public FormCustomers()
         {
             InitializeComponent();
         }
-
-
         #endregion
 
         #region Form events
-
         private void FormCustomers_Load(object sender, EventArgs e)
         {
             try
@@ -40,7 +31,11 @@ namespace Products.PL.Customers
                 Custom.ShowExceptionMessage(ex);
             }
         }
-
+        private void FormCustomers_Enter(object sender, EventArgs e)
+        {
+            var customers = UnitOfWork.Instance.Customers.GetCustomersForGrid();
+            gridControl1.DataSource = customers;
+        }
         private void GridView1_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
         {
             if (e.Info.IsRowIndicator && e.RowHandle >= 0)
@@ -49,13 +44,7 @@ namespace Products.PL.Customers
                 e.Info.Kind = IndicatorKind.Row;
             }
         }
-
         #endregion
 
-        private void FormCustomers_Enter(object sender, EventArgs e)
-        {
-            var customers = UnitOfWork.Instance.Customers.GetCustomersForGrid();
-            gridControl1.DataSource = customers;
-        }
     }
 }

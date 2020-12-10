@@ -118,6 +118,7 @@
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This value is not valid";
             this.val.SetValidationRule(this.txtName, conditionValidationRule1);
+            this.txtName.EditValueChanged += new System.EventHandler(this.txtName_EditValueChanged);
             // 
             // labelControl2
             // 

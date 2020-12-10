@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Dukan.Core.Models;
 using Dukan.Core.Models.Category;
+using Dukan.Core.Models.Customer;
 using Dukan.Core.Models.Product;
 using Dukan.Data;
 using System.Linq;
@@ -30,9 +31,7 @@ namespace Dukan.Core.Mapping
 
             #region Customers
 
-            CreateMap<Customer, CustomerComboModel>()
-                .ForMember(d => d.Id, o => o.MapFrom(s => s.Id))
-                .ForMember(d => d.Name, o => o.MapFrom(s => s.Name));
+            CreateMap<Customer, CustomerComboModel>();
 
             CreateMap<Customer, CustomerGridModel>()
                 .ForMember(d => d.Charge, o => o.MapFrom(s =>
@@ -41,7 +40,8 @@ namespace Dukan.Core.Mapping
                             (sd.Qte - sd.ReturnedQte) * sd.ProductSell * sd.Discount))
                     - s.Sales.Sum(p =>
                         p.SalePayments.Sum(sp => sp.Paid))));
-
+            CreateMap<AddCustomerModel, Customer>();
+            CreateMap<EditCustomerModel, Customer>();
             #endregion
 
             #region Suppliers
