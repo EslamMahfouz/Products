@@ -1,7 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using Dukan.Core;
+using Dukan.Core.Models.Customer;
 using Dukan.Core.UnitOfWork;
-using Dukan.Data;
 using System;
 
 namespace Products.PL.Customers
@@ -10,15 +10,14 @@ namespace Products.PL.Customers
     {
         #region Fields
 
-        private Customer _customer = new Customer();
+        private AddCustomerModel _customer = new AddCustomerModel();
 
         #endregion
 
         #region Methods
-
         private void ClearArea()
         {
-            _customer = new Customer();
+            _customer = new AddCustomerModel();
             AddCustomerBindingSource.DataSource = _customer;
             txtName.Focus();
         }
@@ -26,12 +25,10 @@ namespace Products.PL.Customers
         #endregion
 
         #region Constructor
-
         public FormAddCustomer()
         {
             InitializeComponent();
         }
-
         #endregion
 
         #region Form events
@@ -47,16 +44,20 @@ namespace Products.PL.Customers
             {
                 if (val.Validate())
                 {
-                    UnitOfWork.Instance.Customers.Add(_customer);
-                    UnitOfWork.Instance.Complete();
-                    Custom.ShowAddedMessage();
-                    ClearArea();
+                    var exists = UnitOfWork.Instance.Customers.IsExisting(txtName.Text);
+                    if (exists)
+                    {
+                        Custom.ShowExistingMessage("يوجد عميل بهذا الاسم");
+                    }
+                    else
+                    {
+                        UnitOfWork.Instance.Customers.Add(_customer);
+                        Custom.ShowAddedMessage();
+                        ClearArea();
+                    }
                 }
             }
-            catch (ArgumentException ex)
-            {
-                Custom.ShowExistingMessage(ex.Message);
-            }
+
             catch (Exception ex)
             {
                 Custom.ShowExceptionMessage(ex);

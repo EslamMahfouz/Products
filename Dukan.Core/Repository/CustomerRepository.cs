@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Dukan.Core.Models.Customer;
 using Dukan.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,19 +18,15 @@ namespace Dukan.Core.Repository
 
         #region Methods
 
-        private bool IsExisting(string name)
+        public bool IsExisting(string name)
         {
             return GetAll(c => c.Name == name).Any();
         }
 
-        public void Add(Customer customer)
+        public void Add(AddCustomerModel customer)
         {
-            if (IsExisting(customer.Name))
-            {
-                throw new ArgumentException("يوجد عميل بهذا الاسم");
-            }
-            //var src = Mapper.Map<AddCustomerModel, Customer>(model);
-            Insert(customer);
+            var src = Mapper.Map<AddCustomerModel, Customer>(customer);
+            Insert(src);
         }
 
         public void Edit(EditCustomerModel model)

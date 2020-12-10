@@ -42,7 +42,7 @@ namespace Dukan.Core.Mapping
                             (sd.Qte - sd.ReturnedQte) * sd.ProductSell * sd.Discount))
                     - s.Sales.Sum(p =>
                         p.SalePayments.Sum(sp => sp.Paid))));
-
+            CreateMap<AddCustomerModel, Customer>();
             #endregion
 
             #region Suppliers
