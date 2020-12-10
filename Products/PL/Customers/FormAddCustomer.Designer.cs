@@ -34,22 +34,21 @@ namespace Products.PL.Customers
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.AddCustomerBindingSource = new System.Windows.Forms.BindingSource();
             this.txtTel = new DevExpress.XtraEditors.TextEdit();
             this.txtPhone = new DevExpress.XtraEditors.TextEdit();
             this.txtAddress = new DevExpress.XtraEditors.TextEdit();
             this.BtnAddCustomer = new DevExpress.XtraEditors.SimpleButton();
-            this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddCustomerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
@@ -105,7 +104,7 @@ namespace Products.PL.Customers
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Name", true));
+            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AddCustomerBindingSource, "Name", true));
             this.txtName.EnterMoveNextControl = true;
             this.txtName.Location = new System.Drawing.Point(9, 60);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -119,14 +118,14 @@ namespace Products.PL.Customers
             conditionValidationRule1.ErrorText = "برجاء إدخال إسم العميل";
             this.val.SetValidationRule(this.txtName, conditionValidationRule1);
             // 
-            // customerBindingSource
+            // AddCustomerBindingSource
             // 
-            this.customerBindingSource.DataSource = typeof(Customer);
+            this.AddCustomerBindingSource.DataSource = typeof(Dukan.Core.Models.Customer.AddCustomerModel);
             // 
             // txtTel
             // 
             this.txtTel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Tel", true));
+            this.txtTel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AddCustomerBindingSource, "Tel", true));
             this.txtTel.EnterMoveNextControl = true;
             this.txtTel.Location = new System.Drawing.Point(9, 104);
             this.txtTel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -140,7 +139,7 @@ namespace Products.PL.Customers
             // txtPhone
             // 
             this.txtPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Phone", true));
+            this.txtPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AddCustomerBindingSource, "Phone", true));
             this.txtPhone.EnterMoveNextControl = true;
             this.txtPhone.Location = new System.Drawing.Point(9, 142);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -154,7 +153,7 @@ namespace Products.PL.Customers
             // txtAddress
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Address", true));
+            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AddCustomerBindingSource, "Address", true));
             this.txtAddress.EnterMoveNextControl = true;
             this.txtAddress.Location = new System.Drawing.Point(9, 183);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -211,7 +210,7 @@ namespace Products.PL.Customers
             this.Text = "إضافة عميل";
             this.Load += new System.EventHandler(this.FormAddCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddCustomerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
@@ -235,6 +234,6 @@ namespace Products.PL.Customers
         private SimpleButton BtnAddCustomer;
         private DXValidationProvider val;
         private GroupControl groupControl1;
-        private BindingSource customerBindingSource;
+        private BindingSource AddCustomerBindingSource;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Dukan.Core.Models;
 using Dukan.Core.Models.Category;
+using Dukan.Core.Models.Customer;
 using Dukan.Core.Models.Product;
 using Dukan.Data;
 using System.Linq;

@@ -1,25 +1,7 @@
 ﻿using System.ComponentModel;
 
-namespace Dukan.Core.Models
+namespace Dukan.Core.Models.Customer
 {
-    public class EditCustomerModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Tel { get; set; }
-        public string Address { get; set; }
-    }
-
-    public class CustomerComboModel
-    {
-        [DisplayName("م")]
-        public int Id { get; set; }
-
-        [DisplayName("العميل")]
-        public string Name { get; set; }
-    }
-
     public class CustomerGridModel
     {
         [Browsable(false)]

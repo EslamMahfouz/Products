@@ -19,7 +19,7 @@ namespace Products.PL.Customers
         private void ClearArea()
         {
             _customer = new Customer();
-            customerBindingSource.DataSource = _customer;
+            AddCustomerBindingSource.DataSource = _customer;
             txtName.Focus();
         }
 
@@ -38,7 +38,7 @@ namespace Products.PL.Customers
 
         private void FormAddCustomer_Load(object sender, EventArgs e)
         {
-            customerBindingSource.DataSource = _customer;
+            AddCustomerBindingSource.DataSource = _customer;
         }
 
         private void BtnAddCustomer_Click(object sender, EventArgs e)

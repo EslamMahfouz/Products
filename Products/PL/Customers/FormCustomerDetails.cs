@@ -4,6 +4,7 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using Dukan.Core;
 using Dukan.Core.Models;
+using Dukan.Core.Models.Customer;
 using Dukan.Core.UnitOfWork;
 using Products.PL.Shared;
 using System;

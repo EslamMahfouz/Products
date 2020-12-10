@@ -3,7 +3,7 @@ using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraTab;
-using Dukan.Core.Models;
+using Dukan.Core.Models.Customer;
 using System.ComponentModel;
 using System.Windows.Forms;
 

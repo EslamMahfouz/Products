@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Dukan.Core.Models;
+using Dukan.Core.Models.Customer;
 using Dukan.Data;
 using System;
 using System.Collections.Generic;
