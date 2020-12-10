@@ -5,6 +5,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using Dukan.Core;
 using Dukan.Core.Models;
 using Dukan.Core.Models.Customer;
+using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using Products.PL.Shared;
 using System;
@@ -95,10 +96,10 @@ namespace Products.PL.Customers
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            if (btnEdit.Text == @"تعديل")
+            if (btnEdit.Text == FormResource.Edit)
             {
                 ReadonlyBox(false);
-                btnEdit.Text = @"حفظ";
+                btnEdit.Text = FormResource.Save;
             }
             else
             {
@@ -107,12 +108,13 @@ namespace Products.PL.Customers
                     var exists = _unitOfWork.Customers.IsExisting(_customer.Name);
                     if (exists)
                     {
-                        Custom.ShowExistingMessage("يوجد عميل بهذا الاسم");
+                        Custom.ShowExistingMessage(FormResource.ExistingCustomer);
                     }
                     else
                     {
                         _unitOfWork.Customers.Edit(_customer);
                         _unitOfWork.Complete();
+                        Custom.ShowAddedMessage();
                         XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ReadonlyBox(true);
                         btnEdit.Text = @"تعديل";

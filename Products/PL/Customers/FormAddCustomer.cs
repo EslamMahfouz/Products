@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using Dukan.Core;
 using Dukan.Core.Models.Customer;
+using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using System;
 
@@ -32,7 +33,6 @@ namespace Products.PL.Customers
         #endregion
 
         #region Form events
-
         private void FormAddCustomer_Load(object sender, EventArgs e)
         {
             AddCustomerBindingSource.DataSource = _customer;
@@ -47,7 +47,7 @@ namespace Products.PL.Customers
                     var exists = UnitOfWork.Instance.Customers.IsExisting(txtName.Text);
                     if (exists)
                     {
-                        Custom.ShowExistingMessage("يوجد عميل بهذا الاسم");
+                        Custom.ShowExistingMessage(FormResource.ExistingCustomer);
                     }
                     else
                     {
@@ -63,7 +63,6 @@ namespace Products.PL.Customers
                 Custom.ShowExceptionMessage(ex);
             }
         }
-
         #endregion
     }
 }

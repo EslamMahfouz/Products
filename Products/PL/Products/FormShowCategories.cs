@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using Dukan.Core;
+using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using System;
 
@@ -43,7 +44,7 @@ namespace Products.PL.Products
                     var exists = UnitOfWork.Instance.Categories.IsExisting(txtName.Text);
                     if (exists)
                     {
-                        Custom.ShowExistingMessage("هذا الصنف موجود");
+                        Custom.ShowExistingMessage(FormResource.ExistingCategory);
                     }
                     else
                     {
@@ -67,7 +68,7 @@ namespace Products.PL.Products
                 var exists = UnitOfWork.Instance.Categories.IsExisting(value);
                 if (exists)
                 {
-                    Custom.ShowExistingMessage("هذا الصنف موجود");
+                    Custom.ShowExistingMessage(FormResource.ExistingCategory);
                     FormShowCategories_Load(sender, e);
                 }
                 else
@@ -81,9 +82,5 @@ namespace Products.PL.Products
 
         #endregion
 
-        private void txtName_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

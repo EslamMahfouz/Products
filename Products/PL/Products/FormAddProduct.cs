@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors.Controls;
 using Dukan.Core;
 using Dukan.Core.Models.Product;
+using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using System;
 
@@ -90,7 +91,7 @@ namespace Products.PL.Products
                     var exists = UnitOfWork.Instance.Products.IsExisting(_product.Name);
                     if (exists)
                     {
-                        Custom.ShowExistingMessage("يوجد منتج بهذا الاسم");
+                        Custom.ShowExistingMessage(FormResource.ExistingProduct);
                     }
                     else
                     {

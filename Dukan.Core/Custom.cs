@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using Dukan.Core.Resources;
 using System;
 using System.Windows.Forms;
 
@@ -37,11 +38,11 @@ namespace Dukan.Core
 
         public static void ShowAddedMessage()
         {
-            XtraMessageBox.Show("تمت الإضافة بنجاح", "إضافة", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(FormResource.AddedSuccessfully, FormResource.Add, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         public static void ShowEditedMessage()
         {
-            XtraMessageBox.Show("تمت التعديل بنجاح", "تعديل", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(FormResource.EditedSuccessfully, FormResource.Edit, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         public static void ShowExistingMessage(string msg)
         {
