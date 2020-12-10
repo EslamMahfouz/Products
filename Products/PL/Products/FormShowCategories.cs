@@ -80,5 +80,10 @@ namespace Products.PL.Products
         }
 
         #endregion
+
+        private void txtName_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

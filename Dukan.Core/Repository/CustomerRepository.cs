@@ -32,10 +32,7 @@ namespace Dukan.Core.Repository
         public void Edit(EditCustomerModel model)
         {
             var customer = Get(model.Id);
-            customer.Name = model.Name;
-            customer.Tel = model.Tel;
-            customer.Phone = model.Phone;
-            customer.Address = model.Address;
+            Mapper.Map(model, customer);
         }
 
         public EditCustomerModel GetCustomerForEdit(int id)

@@ -39,7 +39,8 @@ namespace Products.PL.Customers
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            this.editCustomerModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            this.EditCustomerModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
@@ -67,7 +68,7 @@ namespace Products.PL.Customers
             this.cmbCustomers = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            ((System.ComponentModel.ISupportInitialize)(this.editCustomerModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EditCustomerModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.val)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
@@ -86,14 +87,14 @@ namespace Products.PL.Customers
             this.xtraTabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // editCustomerModelBindingSource
+            // EditCustomerModelBindingSource
             // 
-            this.editCustomerModelBindingSource.DataSource = typeof(EditCustomerModel);
+            this.EditCustomerModelBindingSource.DataSource = typeof(Dukan.Core.Models.Customer.EditCustomerModel);
             // 
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.editCustomerModelBindingSource, "Name", true));
+            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EditCustomerModelBindingSource, "Name", true));
             this.txtName.Location = new System.Drawing.Point(15, 106);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
@@ -120,6 +121,7 @@ namespace Products.PL.Customers
             this.xtraTabPage2.Controls.Add(this.gridControl1);
             this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.PageVisible = false;
             this.xtraTabPage2.Size = new System.Drawing.Size(1273, 379);
             this.xtraTabPage2.Text = "عمليات الشراء";
             // 
@@ -231,10 +233,13 @@ namespace Products.PL.Customers
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            gridLevelNode1.RelationName = "Level1";
+            this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView2;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -348,7 +353,7 @@ namespace Products.PL.Customers
             // txtTel
             // 
             this.txtTel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.editCustomerModelBindingSource, "Tel", true));
+            this.txtTel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EditCustomerModelBindingSource, "Tel", true));
             this.txtTel.Location = new System.Drawing.Point(15, 151);
             this.txtTel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTel.Name = "txtTel";
@@ -362,7 +367,7 @@ namespace Products.PL.Customers
             // txtPhone
             // 
             this.txtPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.editCustomerModelBindingSource, "Phone", true));
+            this.txtPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EditCustomerModelBindingSource, "Phone", true));
             this.txtPhone.Location = new System.Drawing.Point(15, 189);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPhone.Name = "txtPhone";
@@ -376,7 +381,7 @@ namespace Products.PL.Customers
             // txtAddress
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.editCustomerModelBindingSource, "Address", true));
+            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EditCustomerModelBindingSource, "Address", true));
             this.txtAddress.Location = new System.Drawing.Point(15, 228);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
@@ -435,6 +440,7 @@ namespace Products.PL.Customers
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
             this.xtraTabPage2});
+            this.xtraTabControl1.SelectedPageChanging += new DevExpress.XtraTab.TabPageChangingEventHandler(this.xtraTabControl1_SelectedPageChanging);
             // 
             // FormCustomerDetails
             // 
@@ -447,7 +453,7 @@ namespace Products.PL.Customers
             this.Text = "بيانات عميل";
             this.Load += new System.EventHandler(this.FormCustomerDetails_Load);
             this.Enter += new System.EventHandler(this.FormCustomerDetails_Enter);
-            ((System.ComponentModel.ISupportInitialize)(this.editCustomerModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EditCustomerModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.val)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
@@ -472,7 +478,7 @@ namespace Products.PL.Customers
 
         #endregion
         private DXValidationProvider val;
-        private BindingSource editCustomerModelBindingSource;
+        private BindingSource EditCustomerModelBindingSource;
         private XtraTabPage xtraTabPage2;
         private SimpleButton btnShowPayments;
         private SimpleButton btnSavePaid;

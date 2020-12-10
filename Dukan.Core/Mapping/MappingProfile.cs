@@ -31,9 +31,7 @@ namespace Dukan.Core.Mapping
 
             #region Customers
 
-            CreateMap<Customer, CustomerComboModel>()
-                .ForMember(d => d.Id, o => o.MapFrom(s => s.Id))
-                .ForMember(d => d.Name, o => o.MapFrom(s => s.Name));
+            CreateMap<Customer, CustomerComboModel>();
 
             CreateMap<Customer, CustomerGridModel>()
                 .ForMember(d => d.Charge, o => o.MapFrom(s =>
@@ -43,6 +41,7 @@ namespace Dukan.Core.Mapping
                     - s.Sales.Sum(p =>
                         p.SalePayments.Sum(sp => sp.Paid))));
             CreateMap<AddCustomerModel, Customer>();
+            CreateMap<EditCustomerModel, Customer>();
             #endregion
 
             #region Suppliers

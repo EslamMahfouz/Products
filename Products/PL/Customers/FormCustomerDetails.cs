@@ -9,6 +9,7 @@ using Dukan.Core.UnitOfWork;
 using Products.PL.Shared;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Products.PL.Customers
@@ -16,15 +17,20 @@ namespace Products.PL.Customers
     public partial class FormCustomerDetails : XtraForm
     {
         #region Fields
-
         private readonly UnitOfWork _unitOfWork = new UnitOfWork();
         private EditCustomerModel _customer;
         private readonly List<SaleGridModel> _sales = new List<SaleGridModel>();
         private bool _isFirst = true;
         #endregion
 
-        #region Methods
+        #region Constructor
+        public FormCustomerDetails()
+        {
+            InitializeComponent();
+        }
+        #endregion
 
+        #region Methods
         private void PayOrderBox(bool status)
         {
             lblPaidOrder.Visible = status;
@@ -32,7 +38,6 @@ namespace Products.PL.Customers
             btnSavePaid.Visible = status;
             txtPaid.Text = "";
         }
-
         private void ReadonlyBox(bool status)
         {
             txtName.ReadOnly = status;
@@ -40,26 +45,14 @@ namespace Products.PL.Customers
             txtPhone.ReadOnly = status;
             txtAddress.ReadOnly = status;
         }
-
         #endregion
 
         #region Form events
-
-        public FormCustomerDetails()
-        {
-            InitializeComponent();
-        }
-
         private void FormCustomerDetails_Load(object sender, EventArgs e)
         {
             var customers = _unitOfWork.Customers.GetCustomers();
             cmbCustomers.Properties.DataSource = customers;
             cmbCustomers.Initialize();
-            ActiveControl = labelControl1;
-
-            gridControl1.DataSource = _sales;
-            gridView2.Initialize();
-            PayOrderBox(false);
         }
 
         #endregion
@@ -68,19 +61,23 @@ namespace Products.PL.Customers
         {
             try
             {
-                btnPay.Enabled = true;
-                btnShowDetails.Enabled = true;
+                var customerId = Convert.ToInt32(cmbCustomers.EditValue);
+                _customer = _unitOfWork.Customers.GetCustomerForEdit(customerId);
+                EditCustomerModelBindingSource.DataSource = _customer;
                 btnEdit.Enabled = true;
-                var id = Convert.ToInt32(cmbCustomers.EditValue);
-                _customer = _unitOfWork.Customers.GetCustomerForEdit(id);
-                editCustomerModelBindingSource.DataSource = _customer;
 
-                _sales.Clear();
-                _sales.AddRange(_unitOfWork.Sales.GetCustomerSales(id));
-                gridControl1.RefreshDataSource();
+                var customerSales = _unitOfWork.Sales.GetCustomerSales(customerId).ToList();
+                if (customerSales.Any())
+                {
+                    _sales.Clear();
+                    _sales.AddRange(customerSales);
+                    gridControl1.RefreshDataSource();
+                    xtraTabPage2.Visible = true;
+                }
+
                 var textEdit = Custom.GetTextEditRepositoryItem();
                 gridControl1.RepositoryItems.Add(textEdit);
-                gridView2.Columns["Discount"].ColumnEdit = textEdit;
+                //gridView2.Columns["Discount"].ColumnEdit = textEdit;
 
                 if (gridView2.RowCount != 0)
                 {
@@ -105,18 +102,24 @@ namespace Products.PL.Customers
             }
             else
             {
-                if (!val.Validate())
+                if (val.Validate())
                 {
-                    return;
+                    var exists = _unitOfWork.Customers.IsExisting(_customer.Name);
+                    if (exists)
+                    {
+                        Custom.ShowExistingMessage("يوجد عميل بهذا الاسم");
+                    }
+                    else
+                    {
+                        _unitOfWork.Customers.Edit(_customer);
+                        _unitOfWork.Complete();
+                        XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ReadonlyBox(true);
+                        btnEdit.Text = @"تعديل";
+                        FormCustomerDetails_Load(sender, e);
+                        cmbCustomers.EditValue = _customer.Id;
+                    }
                 }
-
-                _unitOfWork.Customers.Edit(_customer);
-                _unitOfWork.Complete();
-                XtraMessageBox.Show("تم الحفظ بنجاح", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ReadonlyBox(true);
-                btnEdit.Text = @"تعديل";
-                FormCustomerDetails_Load(sender, e);
-                cmbCustomers.EditValue = _customer.Id;
             }
         }
 
@@ -227,6 +230,11 @@ namespace Products.PL.Customers
             {
                 CmbCustomers_EditValueChanged(sender, e);
             }
+        }
+
+        private void xtraTabControl1_SelectedPageChanging(object sender, DevExpress.XtraTab.TabPageChangingEventArgs e)
+        {
+            //var x = e.Page.
         }
     }
 }
