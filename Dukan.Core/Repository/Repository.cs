@@ -23,6 +23,11 @@ namespace Dukan.Core.Repository
             return Context.Set<TEntity>().Find(id);
         }
 
+        public TEntity Get(Expression<Func<TEntity, bool>> filter)
+        {
+            return DbSet.FirstOrDefault(filter ?? throw new ArgumentNullException(nameof(filter)));
+        }
+
         public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "")
         {

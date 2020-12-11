@@ -28,6 +28,7 @@ namespace Dukan.Core.UnitOfWork
         public SalesRepository Sales { get; }
         public SaleDetailsRepository SaleDetails { get; }
         public SalePaymentRepository SalePayments { get; }
+        public ModuleRepository Modules { get; }
 
         #endregion
 
@@ -42,6 +43,7 @@ namespace Dukan.Core.UnitOfWork
             Sales = new SalesRepository(_context);
             SaleDetails = new SaleDetailsRepository(_context);
             SalePayments = new SalePaymentRepository(_context);
+            Modules = new ModuleRepository(_context);
         }
 
         #endregion

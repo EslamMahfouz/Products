@@ -46,7 +46,7 @@ namespace Products.PL
             this.btnAddSupplier = new DevExpress.XtraNavBar.NavBarItem();
             this.btnSupplierDetails = new DevExpress.XtraNavBar.NavBarItem();
             this.btnShowSuppliers = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.NavCustomers = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnAddCustomer = new DevExpress.XtraNavBar.NavBarItem();
             this.btnCustomerDetails = new DevExpress.XtraNavBar.NavBarItem();
             this.btnShowCustomers = new DevExpress.XtraNavBar.NavBarItem();
@@ -70,6 +70,7 @@ namespace Products.PL
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.btnSettings = new DevExpress.XtraBars.BarButtonItem();
             this.btnActivate = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
@@ -81,7 +82,6 @@ namespace Products.PL
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -98,7 +98,7 @@ namespace Products.PL
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup1,
             this.navBarGroup2,
-            this.navBarGroup3,
+            this.NavCustomers,
             this.navBarGroup4,
             this.navBarGroup5,
             this.navBarGroup6,
@@ -202,17 +202,17 @@ namespace Products.PL
             this.btnShowSuppliers.Name = "btnShowSuppliers";
             this.btnShowSuppliers.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
-            // navBarGroup3
+            // NavCustomers
             // 
-            this.navBarGroup3.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.navBarGroup3.Appearance.Options.UseFont = true;
-            this.navBarGroup3.Caption = "العملاء";
-            this.navBarGroup3.Expanded = true;
-            this.navBarGroup3.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            this.NavCustomers.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.NavCustomers.Appearance.Options.UseFont = true;
+            this.NavCustomers.Caption = "العملاء";
+            this.NavCustomers.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddCustomer),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnCustomerDetails),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnShowCustomers)});
-            this.navBarGroup3.Name = "navBarGroup3";
+            this.NavCustomers.Name = "NavCustomers";
+            this.NavCustomers.Visible = false;
             // 
             // btnAddCustomer
             // 
@@ -407,6 +407,12 @@ namespace Products.PL
             this.btnActivate.Name = "btnActivate";
             this.btnActivate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnActivate_ItemClick);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "إعداد الوحدات";
+            this.barButtonItem1.Id = 6;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // bar3
             // 
             this.bar3.BarName = "Status bar";
@@ -511,12 +517,6 @@ namespace Products.PL
             this.gridView1.RowHeight = 40;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "إعداد الوحدات";
-            this.barButtonItem1.Id = 6;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -553,7 +553,7 @@ namespace Products.PL
         private NavBarControl navBarControl1;
         private NavBarGroup navBarGroup1;
         private NavBarGroup navBarGroup2;
-        private NavBarGroup navBarGroup3;
+        private NavBarGroup NavCustomers;
         private NavBarGroup navBarGroup4;
         private XtraTabbedMdiManager xtraTabbedMdiManager1;
         private NavBarItem btnAddProduct;

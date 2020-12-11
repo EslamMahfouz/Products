@@ -158,6 +158,8 @@ namespace Products.PL
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            var modules = db.Modules.ToList();
+            NavCustomers.Visible = modules.FirstOrDefault(m => m.Name == "CustomerModule") != null && modules.FirstOrDefault(m => m.Name == "CustomerModule").IsActive;
             //if (Properties.Settings.Default.firstTimeUse)
             //{
             //    Properties.Settings.Default.setupDate = DateTime.Now.Date;

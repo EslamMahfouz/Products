@@ -622,7 +622,7 @@ namespace Products.PL.Sales
             // 
             this.lblOrderID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOrderID.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderID.Location = new System.Drawing.Point(344, 8);
+            this.lblOrderID.Location = new System.Drawing.Point(408, 8);
             this.lblOrderID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblOrderID.Name = "lblOrderID";
             this.lblOrderID.Size = new System.Drawing.Size(37, 26);
@@ -633,7 +633,7 @@ namespace Products.PL.Sales
             // 
             this.deDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deDate.EditValue = null;
-            this.deDate.Location = new System.Drawing.Point(9, 5);
+            this.deDate.Location = new System.Drawing.Point(5, 5);
             this.deDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.deDate.Name = "deDate";
             this.deDate.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -644,15 +644,16 @@ namespace Products.PL.Sales
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deDate.Properties.Mask.EditMask = "g";
             this.deDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.deDate.Properties.ReadOnly = true;
             this.deDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.deDate.Size = new System.Drawing.Size(194, 32);
+            this.deDate.Size = new System.Drawing.Size(262, 32);
             this.deDate.TabIndex = 5;
             // 
             // labelControl3
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(398, 8);
+            this.labelControl3.Location = new System.Drawing.Point(462, 8);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(93, 26);
@@ -663,7 +664,7 @@ namespace Products.PL.Sales
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(209, 8);
+            this.labelControl2.Location = new System.Drawing.Point(273, 8);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(110, 26);
@@ -681,14 +682,14 @@ namespace Products.PL.Sales
             this.panelControl2.Location = new System.Drawing.Point(759, 11);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(499, 45);
+            this.panelControl2.Size = new System.Drawing.Size(563, 45);
             this.panelControl2.TabIndex = 31;
             // 
             // labelControl18
             // 
             this.labelControl18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl18.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl18.Location = new System.Drawing.Point(245, 24);
+            this.labelControl18.Location = new System.Drawing.Point(309, 24);
             this.labelControl18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(0, 25);

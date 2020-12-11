@@ -54,8 +54,12 @@ namespace Products.PL.Customers
             var customers = _unitOfWork.Customers.GetCustomers();
             cmbCustomers.Properties.DataSource = customers;
             cmbCustomers.Initialize();
-        }
 
+            gridControl1.DataSource = _sales;
+            gridView2.Initialize();
+            PayOrderBox(false);
+
+        }
         #endregion
 
         private void CmbCustomers_EditValueChanged(object sender, EventArgs e)
@@ -73,7 +77,7 @@ namespace Products.PL.Customers
                     _sales.Clear();
                     _sales.AddRange(customerSales);
                     gridControl1.RefreshDataSource();
-                    xtraTabPage2.Visible = true;
+                    xtraTabPage2.PageVisible = true;
                 }
 
                 var textEdit = Custom.GetTextEditRepositoryItem();

@@ -1,5 +1,5 @@
 ﻿using Dukan.Data;
-using Module = System.Reflection.Module;
+using System.Linq;
 
 namespace Dukan.Core.Repository
 {
@@ -7,6 +7,12 @@ namespace Dukan.Core.Repository
     {
         public ModuleRepository(ProductsEntities context) : base(context)
         {
+        }
+
+        public bool ModuleStatus(string moduleName)
+        {
+            var module = GetAll(m => m.Name == moduleName).FirstOrDefault();
+            return module.IsActive;
         }
     }
 }

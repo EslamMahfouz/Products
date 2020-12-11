@@ -97,6 +97,13 @@ namespace Products.PL.Sales
             gridView3.Initialize();
             var textEdit = Custom.GetTextEditRepositoryItem();
             gridView3.Columns["Discount"].ColumnEdit = textEdit;
+
+            var customerModule = UnitOfWork.Instance.Modules.ModuleStatus("CustomerModule");
+            if (!customerModule)
+            {
+                cmbCustomers.EditValue = UnitOfWork.Instance.Customers.GetCustomers().FirstOrDefault().Id;
+                cmbCustomers.ReadOnly = true;
+            }
         }
 
         #endregion
