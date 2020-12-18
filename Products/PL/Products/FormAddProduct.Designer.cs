@@ -37,10 +37,13 @@ namespace Products.PL.Products
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.cmbCategories = new DevExpress.XtraEditors.LookUpEdit();
+            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
@@ -54,8 +57,8 @@ namespace Products.PL.Products
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtMinimum = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).BeginInit();
@@ -65,7 +68,6 @@ namespace Products.PL.Products
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl2
@@ -124,6 +126,10 @@ namespace Products.PL.Products
             conditionValidationRule1.ErrorText = "برجاء إختيار الصنف";
             this.val.SetValidationRule(this.cmbCategories, conditionValidationRule1);
             // 
+            // addProductModelBindingSource
+            // 
+            this.addProductModelBindingSource.DataSource = typeof(Dukan.Core.Models.Product.AddProductModel);
+            // 
             // labelControl5
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -180,6 +186,14 @@ namespace Products.PL.Products
             this.txtBuy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtBuy.Size = new System.Drawing.Size(119, 30);
             this.txtBuy.TabIndex = 4;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = "سعر الشراء يجب أن يكون أكبر من 0";
+            conditionValidationRule3.Value1 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.val.SetValidationRule(this.txtBuy, conditionValidationRule3);
             // 
             // txtSell
             // 
@@ -198,6 +212,14 @@ namespace Products.PL.Products
             this.txtSell.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtSell.Size = new System.Drawing.Size(117, 30);
             this.txtSell.TabIndex = 6;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule4.ErrorText = "سعر البيع يجب أن يكون أكبر من 0";
+            conditionValidationRule4.Value1 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.val.SetValidationRule(this.txtSell, conditionValidationRule4);
             // 
             // txtNumber
             // 
@@ -321,10 +343,6 @@ namespace Products.PL.Products
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "الحد الأدني للطلب";
             // 
-            // addProductModelBindingSource
-            // 
-            this.addProductModelBindingSource.DataSource = typeof(AddProductModel);
-            // 
             // FormAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -337,6 +355,7 @@ namespace Products.PL.Products
             this.Text = "إضافة منتج";
             this.Load += new System.EventHandler(this.FormAddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).EndInit();
@@ -347,7 +366,6 @@ namespace Products.PL.Products
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
