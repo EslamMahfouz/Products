@@ -159,7 +159,11 @@ namespace Products.PL
         private void FormMain_Load(object sender, EventArgs e)
         {
             var modules = db.Modules.ToList();
-            NavCustomers.Visible = modules.FirstOrDefault(m => m.Name == "CustomerModule") != null && modules.FirstOrDefault(m => m.Name == "CustomerModule").IsActive;
+            NavCustomers.Visible = modules.FirstOrDefault(m => m.Name == "CustomerModule") != null &&
+                                   modules.FirstOrDefault(m => m.Name == "CustomerModule").IsActive;
+            NavSuppliers.Visible = modules.FirstOrDefault(m => m.Name == "CustomerModule") != null &&
+                                   modules.FirstOrDefault(m => m.Name == "CustomerModule").IsActive;
+
             //if (Properties.Settings.Default.firstTimeUse)
             //{
             //    Properties.Settings.Default.setupDate = DateTime.Now.Date;
@@ -237,16 +241,15 @@ namespace Products.PL
         {
             try
             {
-                var sqlconnection = new SqlConnection(@"Server=.\SQLEXPRESS; Database=master; Integrated Security=true");
-                SqlCommand cmd;
+                var sqlConnection = new SqlConnection(@"Server=.; Database=master; Integrated Security=true");
 
                 var combined = Path.Combine(Settings.Default.BackupFolder, "ProductsBackup.bak");
                 File.Delete(combined);
                 var query = "Backup Database Products to Disk='" + combined + "'";
-                cmd = new SqlCommand(query, sqlconnection);
-                sqlconnection.Open();
+                var cmd = new SqlCommand(query, sqlConnection);
+                sqlConnection.Open();
                 cmd.ExecuteNonQuery();
-                sqlconnection.Close();
+                sqlConnection.Close();
             }
             catch (Exception ex)
             {
