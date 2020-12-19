@@ -235,6 +235,7 @@ namespace Products.PL
             this.navBarGroup4.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup4.Appearance.Options.UseFont = true;
             this.navBarGroup4.Caption = "الفواتير";
+            this.navBarGroup4.Expanded = true;
             this.navBarGroup4.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddPurchase),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddSale)});

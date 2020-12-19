@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
+using System.ComponentModel;
 
 namespace Products.PL.Sales
 {
@@ -38,10 +38,14 @@ namespace Products.PL.Sales
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddSale));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.txtTotal = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.txtSave = new DevExpress.XtraEditors.SimpleButton();
+            this.BtnSave = new DevExpress.XtraEditors.SimpleButton();
             this.txtCharge = new DevExpress.XtraEditors.TextEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.txtPaid = new DevExpress.XtraEditors.TextEdit();
@@ -50,27 +54,27 @@ namespace Products.PL.Sales
             this.txtDiscount = new DevExpress.XtraEditors.TextEdit();
             this.txtTotalAfterDiscount = new DevExpress.XtraEditors.TextEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.BtnAddItem = new DevExpress.XtraEditors.SimpleButton();
             this.txtPrdTotalAfterDiscount = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPrdDiscount = new DevExpress.XtraEditors.TextEdit();
+            this.TxtPrdDiscount = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtPrdTotal = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.txtQte = new DevExpress.XtraEditors.TextEdit();
+            this.TxtQte = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.txtSell = new DevExpress.XtraEditors.TextEdit();
+            this.TxtSell = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.cmbProducts = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.BtnDeleteItem = new DevExpress.XtraEditors.SimpleButton();
+            this.BtnEditItem = new DevExpress.XtraEditors.SimpleButton();
+            this.gridControlItems = new DevExpress.XtraGrid.GridControl();
+            this.gridViewItems = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.CmbProducts = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.cmbCustomers = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.CmbCustomers = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -89,18 +93,18 @@ namespace Products.PL.Sales
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalAfterDiscount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdTotalAfterDiscount.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdDiscount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtPrdDiscount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdTotal.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtQte.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtQte.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtSell.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbProducts.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbProducts.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCustomers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbCustomers.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -115,6 +119,7 @@ namespace Products.PL.Sales
             // txtTotal
             // 
             this.txtTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTotal.EditValue = "0";
             this.txtTotal.Location = new System.Drawing.Point(1053, 68);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTotal.Name = "txtTotal";
@@ -145,7 +150,7 @@ namespace Products.PL.Sales
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.groupControl1.Controls.Add(this.txtSave);
+            this.groupControl1.Controls.Add(this.BtnSave);
             this.groupControl1.Controls.Add(this.txtCharge);
             this.groupControl1.Controls.Add(this.labelControl16);
             this.groupControl1.Controls.Add(this.txtPaid);
@@ -163,24 +168,26 @@ namespace Products.PL.Sales
             this.groupControl1.TabIndex = 32;
             this.groupControl1.Text = "بيانات الحساب";
             // 
-            // txtSave
+            // BtnSave
             // 
-            this.txtSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSave.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSave.Appearance.Options.UseFont = true;
-            this.txtSave.Image = ((System.Drawing.Image)(resources.GetObject("txtSave.Image")));
-            this.txtSave.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.txtSave.Location = new System.Drawing.Point(513, 117);
-            this.txtSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtSave.Name = "txtSave";
-            this.txtSave.Size = new System.Drawing.Size(303, 53);
-            this.txtSave.TabIndex = 28;
-            this.txtSave.Text = "حفظ";
-            this.txtSave.Click += new System.EventHandler(this.TxtSave_Click);
+            this.BtnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnSave.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSave.Appearance.Options.UseFont = true;
+            this.BtnSave.Enabled = false;
+            this.BtnSave.Image = ((System.Drawing.Image)(resources.GetObject("BtnSave.Image")));
+            this.BtnSave.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.BtnSave.Location = new System.Drawing.Point(513, 117);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(303, 53);
+            this.BtnSave.TabIndex = 28;
+            this.BtnSave.Text = "حفظ";
+            this.BtnSave.Click += new System.EventHandler(this.TxtSave_Click);
             // 
             // txtCharge
             // 
             this.txtCharge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCharge.EditValue = "0";
             this.txtCharge.Location = new System.Drawing.Point(52, 68);
             this.txtCharge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCharge.Name = "txtCharge";
@@ -216,6 +223,7 @@ namespace Products.PL.Sales
             this.txtPaid.Properties.Mask.EditMask = "f";
             this.txtPaid.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPaid.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtPaid.Properties.ReadOnly = true;
             this.txtPaid.Size = new System.Drawing.Size(142, 32);
             this.txtPaid.TabIndex = 27;
             this.txtPaid.EditValueChanged += new System.EventHandler(this.TxtPaid_EditValueChanged);
@@ -256,11 +264,20 @@ namespace Products.PL.Sales
             this.txtDiscount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtDiscount.Size = new System.Drawing.Size(112, 32);
             this.txtDiscount.TabIndex = 21;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            conditionValidationRule1.Value1 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.val.SetValidationRule(this.txtDiscount, conditionValidationRule1);
             this.txtDiscount.EditValueChanged += new System.EventHandler(this.TxtDiscount_EditValueChanged);
             // 
             // txtTotalAfterDiscount
             // 
             this.txtTotalAfterDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTotalAfterDiscount.EditValue = "0";
             this.txtTotalAfterDiscount.Location = new System.Drawing.Point(513, 68);
             this.txtTotalAfterDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTotalAfterDiscount.Name = "txtTotalAfterDiscount";
@@ -284,28 +301,31 @@ namespace Products.PL.Sales
             this.labelControl12.TabIndex = 20;
             this.labelControl12.Text = "الإجمالي";
             // 
-            // btnAdd
+            // BtnAddItem
             // 
-            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAdd.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Appearance.Options.UseFont = true;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAdd.Location = new System.Drawing.Point(18, 42);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(49, 38);
-            this.btnAdd.TabIndex = 17;
-            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            this.BtnAddItem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnAddItem.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAddItem.Appearance.Options.UseFont = true;
+            this.BtnAddItem.Image = ((System.Drawing.Image)(resources.GetObject("BtnAddItem.Image")));
+            this.BtnAddItem.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.BtnAddItem.Location = new System.Drawing.Point(22, 43);
+            this.BtnAddItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnAddItem.Name = "BtnAddItem";
+            this.BtnAddItem.Size = new System.Drawing.Size(49, 38);
+            this.BtnAddItem.TabIndex = 17;
+            this.BtnAddItem.Click += new System.EventHandler(this.BtnAddItem_Click);
             // 
             // txtPrdTotalAfterDiscount
             // 
             this.txtPrdTotalAfterDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPrdTotalAfterDiscount.Location = new System.Drawing.Point(73, 47);
+            this.txtPrdTotalAfterDiscount.EditValue = "0";
+            this.txtPrdTotalAfterDiscount.Location = new System.Drawing.Point(77, 48);
             this.txtPrdTotalAfterDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrdTotalAfterDiscount.Name = "txtPrdTotalAfterDiscount";
             this.txtPrdTotalAfterDiscount.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrdTotalAfterDiscount.Properties.Appearance.Options.UseFont = true;
+            this.txtPrdTotalAfterDiscount.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtPrdTotalAfterDiscount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtPrdTotalAfterDiscount.Properties.Mask.EditMask = "f";
             this.txtPrdTotalAfterDiscount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPrdTotalAfterDiscount.Properties.Mask.UseMaskAsDisplayFormat = true;
@@ -317,34 +337,45 @@ namespace Products.PL.Sales
             // 
             this.labelControl10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Location = new System.Drawing.Point(212, 50);
+            this.labelControl10.Location = new System.Drawing.Point(216, 51);
             this.labelControl10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(129, 26);
+            this.labelControl10.Size = new System.Drawing.Size(154, 26);
             this.labelControl10.TabIndex = 15;
-            this.labelControl10.Text = "الثمن بعد الخصم";
+            this.labelControl10.Text = "الإجمالي بعد الخصم";
             // 
-            // txtPrdDiscount
+            // TxtPrdDiscount
             // 
-            this.txtPrdDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPrdDiscount.EditValue = 0D;
-            this.txtPrdDiscount.Location = new System.Drawing.Point(391, 47);
-            this.txtPrdDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPrdDiscount.Name = "txtPrdDiscount";
-            this.txtPrdDiscount.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrdDiscount.Properties.Appearance.Options.UseFont = true;
-            this.txtPrdDiscount.Properties.Mask.EditMask = "p0";
-            this.txtPrdDiscount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtPrdDiscount.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtPrdDiscount.Size = new System.Drawing.Size(91, 32);
-            this.txtPrdDiscount.TabIndex = 13;
-            this.txtPrdDiscount.EditValueChanged += new System.EventHandler(this.TxtPrdDiscount_EditValueChanged);
+            this.TxtPrdDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtPrdDiscount.EditValue = 0D;
+            this.TxtPrdDiscount.Location = new System.Drawing.Point(388, 48);
+            this.TxtPrdDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtPrdDiscount.Name = "TxtPrdDiscount";
+            this.TxtPrdDiscount.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPrdDiscount.Properties.Appearance.Options.UseFont = true;
+            this.TxtPrdDiscount.Properties.Appearance.Options.UseTextOptions = true;
+            this.TxtPrdDiscount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.TxtPrdDiscount.Properties.Mask.EditMask = "p0";
+            this.TxtPrdDiscount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.TxtPrdDiscount.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.TxtPrdDiscount.Properties.ReadOnly = true;
+            this.TxtPrdDiscount.Size = new System.Drawing.Size(74, 32);
+            this.TxtPrdDiscount.TabIndex = 13;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.Value1 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.val.SetValidationRule(this.TxtPrdDiscount, conditionValidationRule2);
+            this.TxtPrdDiscount.EditValueChanged += new System.EventHandler(this.TxtPrdDiscount_EditValueChanged);
             // 
             // labelControl8
             // 
             this.labelControl8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Location = new System.Drawing.Point(488, 50);
+            this.labelControl8.Location = new System.Drawing.Point(468, 51);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(52, 26);
@@ -354,78 +385,100 @@ namespace Products.PL.Sales
             // txtPrdTotal
             // 
             this.txtPrdTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPrdTotal.Location = new System.Drawing.Point(555, 47);
+            this.txtPrdTotal.EditValue = "0";
+            this.txtPrdTotal.Location = new System.Drawing.Point(535, 48);
             this.txtPrdTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrdTotal.Name = "txtPrdTotal";
             this.txtPrdTotal.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrdTotal.Properties.Appearance.Options.UseFont = true;
+            this.txtPrdTotal.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtPrdTotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtPrdTotal.Properties.Mask.EditMask = "f";
             this.txtPrdTotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPrdTotal.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtPrdTotal.Properties.ReadOnly = true;
-            this.txtPrdTotal.Size = new System.Drawing.Size(108, 32);
+            this.txtPrdTotal.Size = new System.Drawing.Size(133, 32);
             this.txtPrdTotal.TabIndex = 11;
             // 
             // labelControl7
             // 
             this.labelControl7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(668, 50);
+            this.labelControl7.Location = new System.Drawing.Point(675, 51);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(41, 26);
+            this.labelControl7.Size = new System.Drawing.Size(66, 26);
             this.labelControl7.TabIndex = 10;
-            this.labelControl7.Text = "الثمن";
+            this.labelControl7.Text = "الإجمالي";
             // 
-            // txtQte
+            // TxtQte
             // 
-            this.txtQte.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtQte.EditValue = 1;
-            this.txtQte.Location = new System.Drawing.Point(715, 47);
-            this.txtQte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtQte.Name = "txtQte";
-            this.txtQte.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQte.Properties.Appearance.Options.UseFont = true;
-            this.txtQte.Properties.Mask.EditMask = "d";
-            this.txtQte.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtQte.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtQte.Size = new System.Drawing.Size(78, 32);
-            this.txtQte.TabIndex = 9;
-            this.txtQte.EditValueChanged += new System.EventHandler(this.TxtNum_EditValueChanged);
-            this.txtQte.Validated += new System.EventHandler(this.TxtNum_Validated);
+            this.TxtQte.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtQte.EditValue = 1;
+            this.TxtQte.Location = new System.Drawing.Point(757, 48);
+            this.TxtQte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtQte.Name = "TxtQte";
+            this.TxtQte.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtQte.Properties.Appearance.Options.UseFont = true;
+            this.TxtQte.Properties.Appearance.Options.UseTextOptions = true;
+            this.TxtQte.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.TxtQte.Properties.Mask.EditMask = "d";
+            this.TxtQte.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.TxtQte.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.TxtQte.Properties.ReadOnly = true;
+            this.TxtQte.Size = new System.Drawing.Size(53, 32);
+            this.TxtQte.TabIndex = 9;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = "This value is not valid";
+            conditionValidationRule3.Value1 = 0;
+            this.val.SetValidationRule(this.TxtQte, conditionValidationRule3);
+            this.TxtQte.EditValueChanged += new System.EventHandler(this.TxtNum_EditValueChanged);
+            this.TxtQte.Validated += new System.EventHandler(this.TxtQte_Validated);
             // 
             // labelControl6
             // 
             this.labelControl6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(799, 50);
+            this.labelControl6.Location = new System.Drawing.Point(816, 51);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(36, 26);
             this.labelControl6.TabIndex = 8;
             this.labelControl6.Text = "العدد";
             // 
-            // txtSell
+            // TxtSell
             // 
-            this.txtSell.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSell.Location = new System.Drawing.Point(852, 47);
-            this.txtSell.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSell.Name = "txtSell";
-            this.txtSell.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSell.Properties.Appearance.Options.UseFont = true;
-            this.txtSell.Properties.Mask.EditMask = "f";
-            this.txtSell.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtSell.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtSell.Size = new System.Drawing.Size(91, 32);
-            this.txtSell.TabIndex = 7;
-            this.txtSell.EditValueChanged += new System.EventHandler(this.TxtSell_EditValueChanged);
-            this.txtSell.Leave += new System.EventHandler(this.TxtSell_Leave);
+            this.TxtSell.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtSell.EditValue = "0";
+            this.TxtSell.Location = new System.Drawing.Point(858, 48);
+            this.TxtSell.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtSell.Name = "TxtSell";
+            this.TxtSell.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSell.Properties.Appearance.Options.UseFont = true;
+            this.TxtSell.Properties.Appearance.Options.UseTextOptions = true;
+            this.TxtSell.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.TxtSell.Properties.Mask.EditMask = "f";
+            this.TxtSell.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.TxtSell.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.TxtSell.Properties.ReadOnly = true;
+            this.TxtSell.Size = new System.Drawing.Size(133, 32);
+            this.TxtSell.TabIndex = 7;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule4.ErrorText = "This value is not valid";
+            conditionValidationRule4.Value1 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.val.SetValidationRule(this.TxtSell, conditionValidationRule4);
+            this.TxtSell.EditValueChanged += new System.EventHandler(this.TxtSell_EditValueChanged);
+            this.TxtSell.Leave += new System.EventHandler(this.TxtSell_Leave);
             // 
             // labelControl5
             // 
             this.labelControl5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(949, 50);
+            this.labelControl5.Location = new System.Drawing.Point(997, 51);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(45, 26);
@@ -434,16 +487,16 @@ namespace Products.PL.Sales
             // 
             // groupControl3
             // 
-            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl3.AppearanceCaption.Options.UseFont = true;
             this.groupControl3.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl3.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.groupControl3.Controls.Add(this.btnDelete);
-            this.groupControl3.Controls.Add(this.btnEdit);
-            this.groupControl3.Controls.Add(this.gridControl1);
+            this.groupControl3.Controls.Add(this.BtnDeleteItem);
+            this.groupControl3.Controls.Add(this.BtnEditItem);
+            this.groupControl3.Controls.Add(this.gridControlItems);
             this.groupControl3.Location = new System.Drawing.Point(10, 159);
             this.groupControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl3.Name = "groupControl3";
@@ -451,77 +504,79 @@ namespace Products.PL.Sales
             this.groupControl3.TabIndex = 33;
             this.groupControl3.Text = "بيانات الفاتورة";
             // 
-            // btnDelete
+            // BtnDeleteItem
             // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.Location = new System.Drawing.Point(5, 226);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(320, 41);
-            this.btnDelete.TabIndex = 35;
-            this.btnDelete.Text = "مسح";
-            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            this.BtnDeleteItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnDeleteItem.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDeleteItem.Appearance.Options.UseFont = true;
+            this.BtnDeleteItem.Enabled = false;
+            this.BtnDeleteItem.Location = new System.Drawing.Point(5, 226);
+            this.BtnDeleteItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnDeleteItem.Name = "BtnDeleteItem";
+            this.BtnDeleteItem.Size = new System.Drawing.Size(320, 41);
+            this.BtnDeleteItem.TabIndex = 35;
+            this.BtnDeleteItem.Text = "مسح";
+            this.BtnDeleteItem.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // btnEdit
+            // BtnEditItem
             // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEdit.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Appearance.Options.UseFont = true;
-            this.btnEdit.Location = new System.Drawing.Point(344, 226);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(320, 41);
-            this.btnEdit.TabIndex = 34;
-            this.btnEdit.Text = "تعديل";
-            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
+            this.BtnEditItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnEditItem.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditItem.Appearance.Options.UseFont = true;
+            this.BtnEditItem.Enabled = false;
+            this.BtnEditItem.Location = new System.Drawing.Point(344, 226);
+            this.BtnEditItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnEditItem.Name = "BtnEditItem";
+            this.BtnEditItem.Size = new System.Drawing.Size(320, 41);
+            this.BtnEditItem.TabIndex = 34;
+            this.BtnEditItem.Text = "تعديل";
+            this.BtnEditItem.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
-            // gridControl1
+            // gridControlItems
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gridControlItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gridControl1.Location = new System.Drawing.Point(2, 39);
-            this.gridControl1.MainView = this.gridView3;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gridControl1.Size = new System.Drawing.Size(1463, 181);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView3});
+            this.gridControlItems.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gridControlItems.Location = new System.Drawing.Point(2, 39);
+            this.gridControlItems.MainView = this.gridViewItems;
+            this.gridControlItems.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gridControlItems.Name = "gridControlItems";
+            this.gridControlItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.gridControlItems.Size = new System.Drawing.Size(1463, 181);
+            this.gridControlItems.TabIndex = 0;
+            this.gridControlItems.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewItems});
             // 
-            // gridView3
+            // gridViewItems
             // 
-            this.gridView3.ColumnPanelRowHeight = 50;
-            this.gridView3.GridControl = this.gridControl1;
-            this.gridView3.IndicatorWidth = 40;
-            this.gridView3.Name = "gridView3";
-            this.gridView3.OptionsBehavior.Editable = false;
-            this.gridView3.RowHeight = 40;
+            this.gridViewItems.ColumnPanelRowHeight = 50;
+            this.gridViewItems.GridControl = this.gridControlItems;
+            this.gridViewItems.IndicatorWidth = 40;
+            this.gridViewItems.Name = "gridViewItems";
+            this.gridViewItems.OptionsBehavior.Editable = false;
+            this.gridViewItems.RowHeight = 40;
             // 
-            // cmbProducts
+            // CmbProducts
             // 
-            this.cmbProducts.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbProducts.EditValue = "";
-            this.cmbProducts.Location = new System.Drawing.Point(1016, 47);
-            this.cmbProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbProducts.Name = "cmbProducts";
-            this.cmbProducts.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbProducts.Properties.Appearance.Options.UseFont = true;
-            this.cmbProducts.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CmbProducts.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CmbProducts.EditValue = "";
+            this.CmbProducts.Location = new System.Drawing.Point(1061, 48);
+            this.CmbProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CmbProducts.Name = "CmbProducts";
+            this.CmbProducts.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbProducts.Properties.Appearance.Options.UseFont = true;
+            this.CmbProducts.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbProducts.Properties.NullText = "";
-            this.cmbProducts.Properties.View = this.gridView1;
-            this.cmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbProducts.Size = new System.Drawing.Size(221, 32);
-            this.cmbProducts.TabIndex = 2;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "برجاء إختيار منتج";
-            this.val.SetValidationRule(this.cmbProducts, conditionValidationRule1);
-            this.cmbProducts.EditValueChanged += new System.EventHandler(this.CmbProducts_EditValueChanged);
+            this.CmbProducts.Properties.NullText = "";
+            this.CmbProducts.Properties.View = this.gridView1;
+            this.CmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.CmbProducts.Size = new System.Drawing.Size(209, 32);
+            this.CmbProducts.TabIndex = 2;
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "برجاء إختيار منتج";
+            this.val.SetValidationRule(this.CmbProducts, conditionValidationRule5);
+            this.CmbProducts.EditValueChanged += new System.EventHandler(this.CmbProducts_EditValueChanged);
             // 
             // gridView1
             // 
@@ -547,32 +602,31 @@ namespace Products.PL.Sales
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
-            // cmbCustomers
+            // CmbCustomers
             // 
-            this.cmbCustomers.EditValue = "";
-            this.cmbCustomers.Location = new System.Drawing.Point(5, 5);
-            this.cmbCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbCustomers.Name = "cmbCustomers";
-            this.cmbCustomers.Properties.ActionButtonIndex = 1;
-            this.cmbCustomers.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCustomers.Properties.Appearance.Options.UseFont = true;
-            this.cmbCustomers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CmbCustomers.Location = new System.Drawing.Point(5, 5);
+            this.CmbCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CmbCustomers.Name = "CmbCustomers";
+            this.CmbCustomers.Properties.ActionButtonIndex = 1;
+            this.CmbCustomers.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbCustomers.Properties.Appearance.Options.UseFont = true;
+            this.CmbCustomers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbCustomers.Properties.NullText = "";
-            this.cmbCustomers.Properties.View = this.searchLookUpEdit1View;
-            this.cmbCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbCustomers.Size = new System.Drawing.Size(406, 32);
-            this.cmbCustomers.TabIndex = 0;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "برجاء إختيار العميل";
-            this.val.SetValidationRule(this.cmbCustomers, conditionValidationRule2);
-            this.cmbCustomers.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CmbCustomers_ButtonClick);
+            this.CmbCustomers.Properties.NullText = "";
+            this.CmbCustomers.Properties.View = this.searchLookUpEdit1View;
+            this.CmbCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.CmbCustomers.Size = new System.Drawing.Size(406, 32);
+            this.CmbCustomers.TabIndex = 0;
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "برجاء إختيار العميل";
+            this.val.SetValidationRule(this.CmbCustomers, conditionValidationRule6);
+            this.CmbCustomers.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CmbCustomers_ButtonClick);
             // 
             // panelControl1
             // 
             this.panelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panelControl1.Controls.Add(this.cmbCustomers);
+            this.panelControl1.Controls.Add(this.CmbCustomers);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Location = new System.Drawing.Point(227, 11);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -584,7 +638,7 @@ namespace Products.PL.Sales
             // 
             this.labelControl4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(1248, 47);
+            this.labelControl4.Location = new System.Drawing.Point(1282, 51);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(48, 26);
@@ -598,23 +652,23 @@ namespace Products.PL.Sales
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl2.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.groupControl2.Controls.Add(this.btnAdd);
+            this.groupControl2.Controls.Add(this.BtnAddItem);
             this.groupControl2.Controls.Add(this.txtPrdTotalAfterDiscount);
             this.groupControl2.Controls.Add(this.labelControl10);
-            this.groupControl2.Controls.Add(this.txtPrdDiscount);
+            this.groupControl2.Controls.Add(this.TxtPrdDiscount);
             this.groupControl2.Controls.Add(this.labelControl8);
             this.groupControl2.Controls.Add(this.txtPrdTotal);
             this.groupControl2.Controls.Add(this.labelControl7);
-            this.groupControl2.Controls.Add(this.txtQte);
+            this.groupControl2.Controls.Add(this.TxtQte);
             this.groupControl2.Controls.Add(this.labelControl6);
-            this.groupControl2.Controls.Add(this.txtSell);
+            this.groupControl2.Controls.Add(this.TxtSell);
             this.groupControl2.Controls.Add(this.labelControl5);
-            this.groupControl2.Controls.Add(this.cmbProducts);
+            this.groupControl2.Controls.Add(this.CmbProducts);
             this.groupControl2.Controls.Add(this.labelControl4);
-            this.groupControl2.Location = new System.Drawing.Point(85, 67);
+            this.groupControl2.Location = new System.Drawing.Point(69, 67);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1315, 88);
+            this.groupControl2.Size = new System.Drawing.Size(1347, 88);
             this.groupControl2.TabIndex = 30;
             this.groupControl2.Text = "بيانات المنتج";
             // 
@@ -718,18 +772,18 @@ namespace Products.PL.Sales
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalAfterDiscount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdTotalAfterDiscount.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdDiscount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtPrdDiscount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdTotal.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtQte.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtQte.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtSell.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbProducts.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbProducts.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCustomers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbCustomers.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -751,7 +805,7 @@ namespace Products.PL.Sales
         private TextEdit txtTotal;
         private LabelControl labelControl13;
         private GroupControl groupControl1;
-        private SimpleButton txtSave;
+        private SimpleButton BtnSave;
         private TextEdit txtCharge;
         private LabelControl labelControl16;
         private TextEdit txtPaid;
@@ -760,25 +814,25 @@ namespace Products.PL.Sales
         private TextEdit txtDiscount;
         private TextEdit txtTotalAfterDiscount;
         private LabelControl labelControl12;
-        private SimpleButton btnAdd;
+        private SimpleButton BtnAddItem;
         private TextEdit txtPrdTotalAfterDiscount;
         private LabelControl labelControl10;
-        private TextEdit txtPrdDiscount;
+        private TextEdit TxtPrdDiscount;
         private LabelControl labelControl8;
         private TextEdit txtPrdTotal;
         private LabelControl labelControl7;
-        private TextEdit txtQte;
+        private TextEdit TxtQte;
         private LabelControl labelControl6;
-        private TextEdit txtSell;
+        private TextEdit TxtSell;
         private LabelControl labelControl5;
         private GroupControl groupControl3;
-        private GridControl gridControl1;
-        private GridView gridView3;
-        private SearchLookUpEdit cmbProducts;
+        private GridControl gridControlItems;
+        private GridView gridViewItems;
+        private SearchLookUpEdit CmbProducts;
         private GridView gridView1;
         private LabelControl labelControl1;
         private GridView searchLookUpEdit1View;
-        private SearchLookUpEdit cmbCustomers;
+        private SearchLookUpEdit CmbCustomers;
         private PanelControl panelControl1;
         private LabelControl labelControl4;
         private GroupControl groupControl2;
@@ -789,7 +843,7 @@ namespace Products.PL.Sales
         private PanelControl panelControl2;
         private DXValidationProvider val;
         private LabelControl labelControl18;
-        private SimpleButton btnEdit;
-        private SimpleButton btnDelete;
+        private SimpleButton BtnEditItem;
+        private SimpleButton BtnDeleteItem;
     }
 }
