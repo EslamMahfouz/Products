@@ -70,10 +70,18 @@ namespace Products.PL.Products
             {
                 if (!string.IsNullOrEmpty(txtCategory.Text))
                 {
-                    _product.CategoryId = UnitOfWork.Instance.Categories.Add(txtCategory.Text);
-                    ShowCategoryBox(false);
-                    FormAddProduct_Load(sender, e);
-                    cmbCategories.EditValue = _product.CategoryId;
+                    var exists = UnitOfWork.Instance.Categories.IsExisting(txtCategory.Text);
+                    if (exists)
+                    {
+                        Custom.ShowExistingMessage(FormResource.ExistingCategory);
+                    }
+                    else
+                    {
+                        _product.CategoryId = UnitOfWork.Instance.Categories.Add(txtCategory.Text);
+                        ShowCategoryBox(false);
+                        FormAddProduct_Load(sender, e);
+                        cmbCategories.EditValue = _product.CategoryId;
+                    }
                 }
             }
             catch (Exception ex)

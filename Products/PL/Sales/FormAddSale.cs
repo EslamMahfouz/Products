@@ -4,6 +4,7 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraPrinting.Native;
 using Dukan.Core;
 using Dukan.Core.Models;
+using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using Dukan.Data;
 using Products.PL.Customers;
@@ -24,15 +25,23 @@ namespace Products.PL.Sales
 
         #endregion
 
+        #region Ctor
+        public FormAddSale()
+        {
+            InitializeComponent();
+            deDate.EditValue = DateTime.Now;
+        }
+        #endregion
+
         #region Methods
 
-        private void PrdCalc()
+        private void CalculateForItem()
         {
             try
             {
-                var sellPrice = Convert.ToDouble(txtSell.Text);
-                var discount = Convert.ToDouble(txtPrdDiscount.EditValue);
-                var qte = Convert.ToInt32(txtQte.Text);
+                var sellPrice = Math.Round(Convert.ToDecimal(TxtSell.Text), 2);
+                var discount = Math.Round(Convert.ToDecimal(TxtPrdDiscount.EditValue), 2);
+                var qte = Convert.ToInt32(TxtQte.Text);
 
                 var prdTotal = sellPrice * qte;
                 txtPrdTotal.Text = prdTotal.ToString(CultureInfo.CurrentCulture);
@@ -46,64 +55,62 @@ namespace Products.PL.Sales
             }
         }
 
-        private void TotalCalc()
+        private void CalculateTotal()
         {
-            txtTotal.Text = _saleDetails.Sum(s => Convert.ToDouble(s.TotalAfterDiscount))
+            txtTotal.Text = _saleDetails.Sum(s => Math.Round(Convert.ToDouble(s.TotalAfterDiscount), 2))
                 .ToString(CultureInfo.CurrentCulture);
         }
 
-        private void DiscountCalc()
+        private void CalculateDiscount()
         {
-            var result = Convert.ToDouble(txtTotal.Text);
-            var discount = Convert.ToDouble(txtDiscount.EditValue);
+            var result = Math.Round(Convert.ToDouble(txtTotal.Text), 2);
+            var discount = Math.Round(Convert.ToDouble(txtDiscount.EditValue), 2);
             var total = result * (1 - discount);
             txtTotalAfterDiscount.Text = total.ToString(CultureInfo.CurrentCulture);
 
-            var paid = Convert.ToDouble(txtPaid.Text);
-            txtCharge.Text = (total - paid).ToString(CultureInfo.CurrentCulture);
+            txtPaid.Text = txtTotalAfterDiscount.Text;
+            txtCharge.Text = @"0";
         }
 
-        private void PrdClear()
+        private void ClearItemFields()
         {
-            txtSell.Text = "";
-            txtQte.Text = @"1";
-            txtPrdTotal.Text = "";
-            txtPrdDiscount.EditValue = 0.0f;
-            txtPrdTotalAfterDiscount.Text = "";
+            TxtSell.Text = @"0";
+            TxtQte.Text = @"1";
+            txtPrdTotal.Text = @"0";
+            TxtPrdDiscount.EditValue = 0.0f;
+            txtPrdTotalAfterDiscount.Text = @"0";
         }
 
         #endregion
 
         #region Form events
 
-        public FormAddSale()
-        {
-            InitializeComponent();
-            deDate.EditValue = DateTime.Now;
-        }
-
         private void FormAddSale_Load(object sender, EventArgs e)
         {
             var customers = UnitOfWork.Instance.Customers.GetCustomers();
-            cmbCustomers.Properties.DataSource = customers;
-            cmbCustomers.Initialize();
+            CmbCustomers.Properties.DataSource = customers;
+            CmbCustomers.Initialize();
 
-            var products = UnitOfWork.Instance.Products.GetProductsForCombo();
-            cmbProducts.Properties.DataSource = products;
-            cmbProducts.Initialize();
-
-            lblOrderID.Text = UnitOfWork.Instance.Sales.NewOrder();
-            gridControl1.DataSource = _saleDetails;
-            gridView3.Initialize();
-            var textEdit = Custom.GetTextEditRepositoryItem();
-            gridView3.Columns["Discount"].ColumnEdit = textEdit;
-
-            var customerModule = UnitOfWork.Instance.Modules.ModuleStatus("CustomerModule");
+            var customerModule = UnitOfWork.Instance.Modules.GetModuleStatus(Modules.Customer);
             if (!customerModule)
             {
-                cmbCustomers.EditValue = UnitOfWork.Instance.Customers.GetCustomers().FirstOrDefault().Id;
-                cmbCustomers.ReadOnly = true;
+                CmbCustomers.Properties.Buttons.RemoveAt(0);
+                CmbCustomers.ReadOnly = true;
             }
+            CmbCustomers.EditValue = customers.FirstOrDefault().Id;
+
+            var products = UnitOfWork.Instance.Products.GetProductsForCombo();
+            CmbProducts.Properties.DataSource = products;
+            CmbProducts.Initialize();
+
+            lblOrderID.Text = UnitOfWork.Instance.Sales.NewOrder();
+            gridControlItems.DataSource = _saleDetails;
+            gridViewItems.Initialize();
+            var textEdit = Custom.GetTextEditRepositoryItem();
+            gridViewItems.Columns["Discount"].ColumnEdit = textEdit;
+
+            TxtSell.Leave -= TxtSell_Leave;
+            TxtQte.Validated -= TxtQte_Validated;
         }
 
         #endregion
@@ -112,61 +119,64 @@ namespace Products.PL.Sales
 
         #region Invoice grid CRUD
 
-        private void BtnAdd_Click(object sender, EventArgs e)
+        private void BtnAddItem_Click(object sender, EventArgs e)
         {
-            if (!val.Validate())
+            if (val.Validate())
             {
-                return;
-            }
+                if (_saleDetails.Exists(s => s.ProductId == Convert.ToInt32(CmbProducts.EditValue)))
+                {
+                    Custom.ShowExistingMessage(FormResource.ExistingProduct);
+                    return;
+                }
 
-            if (_saleDetails.Exists(s => s.ProductId == Convert.ToInt32(cmbProducts.EditValue)))
-            {
-                XtraMessageBox.Show("هذا المنتج موجود بالفعل", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(CmbProducts.EditValue));
+                _saleDetails.Add(new AddSaleDetailGridModel
+                {
+                    ProductId = Convert.ToInt32(CmbProducts.EditValue),
+                    Name = CmbProducts.Text,
+                    ProductSell = Convert.ToDouble(TxtSell.Text),
+                    ProductBuy = Convert.ToDouble(product.Buy),
+                    Qte = Convert.ToInt32(TxtQte.Text),
+                    Total = Convert.ToDouble(txtPrdTotal.Text),
+                    Discount = Convert.ToDouble(TxtPrdDiscount.EditValue),
+                    TotalAfterDiscount = Convert.ToDouble(txtPrdTotalAfterDiscount.Text)
+                });
+                gridControlItems.RefreshDataSource();
+                CalculateTotal();
+                CalculateDiscount();
+                ClearItemFields();
+                BtnEditItem.Enabled = true;
+                BtnDeleteItem.Enabled = true;
+                BtnSave.Enabled = true;
             }
-
-            var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(cmbProducts.EditValue));
-            _saleDetails.Add(new AddSaleDetailGridModel
-            {
-                ProductId = Convert.ToInt32(cmbProducts.EditValue),
-                Name = cmbProducts.Text,
-                ProductSell = Convert.ToDouble(txtSell.Text),
-                ProductBuy = Convert.ToDouble(product.Buy),
-                Qte = Convert.ToInt32(txtQte.Text),
-                Total = Convert.ToDouble(txtPrdTotal.Text),
-                Discount = Convert.ToDouble(txtPrdDiscount.EditValue),
-                TotalAfterDiscount = Convert.ToDouble(txtPrdTotalAfterDiscount.Text)
-            });
-            gridControl1.RefreshDataSource();
-            TotalCalc();
-            DiscountCalc();
-            PrdClear();
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            var prdId = Convert.ToInt32(gridView3.GetFocusedRowCellValue("ProductId"));
+            var prdId = Convert.ToInt32(gridViewItems.GetFocusedRowCellValue("ProductId"));
             _saleDetails.Remove(_saleDetails.Find(s => s.ProductId == prdId));
-            gridControl1.RefreshDataSource();
-            TotalCalc();
-            DiscountCalc();
+            gridControlItems.RefreshDataSource();
+            CalculateTotal();
+            CalculateDiscount();
+            if (!_saleDetails.Any())
+                BtnSave.Enabled = false;
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
             try
             {
-                var prdId = Convert.ToInt32(gridView3.GetFocusedRowCellValue("ProductId"));
+                var prdId = Convert.ToInt32(gridViewItems.GetFocusedRowCellValue("ProductId"));
                 var saleDetail = _saleDetails.Find(sd => sd.ProductId == prdId);
-                cmbProducts.EditValue = prdId;
-                txtSell.Text = saleDetail.ProductSell.ToString(CultureInfo.CurrentCulture);
-                txtQte.Text = saleDetail.Qte.ToString();
+                CmbProducts.EditValue = prdId;
+                TxtSell.Text = saleDetail.ProductSell.ToString(CultureInfo.CurrentCulture);
+                TxtQte.Text = saleDetail.Qte.ToString();
                 txtPrdTotal.Text = saleDetail.Total.ToString(CultureInfo.CurrentCulture);
-                txtPrdDiscount.EditValue = saleDetail.Discount;
+                TxtPrdDiscount.EditValue = saleDetail.Discount;
                 txtPrdTotalAfterDiscount.Text = saleDetail.TotalAfterDiscount.ToString(CultureInfo.CurrentCulture);
 
                 BtnDelete_Click(sender, e);
-                TotalCalc();
+                CalculateTotal();
             }
             catch (Exception ex)
             {
@@ -180,43 +190,43 @@ namespace Products.PL.Sales
 
         private void TxtNum_EditValueChanged(object sender, EventArgs e)
         {
-            PrdCalc();
+            CalculateForItem();
         }
 
         private void TxtPrdDiscount_EditValueChanged(object sender, EventArgs e)
         {
-            PrdCalc();
+            CalculateForItem();
         }
 
         private void TxtSell_EditValueChanged(object sender, EventArgs e)
         {
-            PrdCalc();
+            CalculateForItem();
         }
 
         private void TxtDiscount_EditValueChanged(object sender, EventArgs e)
         {
-            DiscountCalc();
+            CalculateDiscount();
         }
 
         private void TxtPaid_EditValueChanged(object sender, EventArgs e)
         {
-            DiscountCalc();
+            CalculateDiscount();
         }
 
         #endregion
 
         private void CmbProducts_EditValueChanged(object sender, EventArgs e)
         {
-            try
-            {
-                var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(cmbProducts.EditValue));
-                txtSell.Text = product.Sell.ToString();
-                PrdCalc();
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            TxtSell.Leave += TxtSell_Leave;
+            TxtQte.Validated += TxtQte_Validated;
+            TxtSell.ReadOnly = false;
+            TxtQte.ReadOnly = false;
+            TxtPrdDiscount.ReadOnly = false;
+
+            var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(CmbProducts.EditValue));
+            TxtSell.Text = product.Sell.ToString(CultureInfo.InvariantCulture);
+            CalculateForItem();
+            val.Validate();
         }
 
         private void CmbCustomers_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -230,25 +240,25 @@ namespace Products.PL.Sales
             frm.ShowDialog();
         }
 
-        private void TxtNum_Validated(object sender, EventArgs e)
+        private void TxtQte_Validated(object sender, EventArgs e)
         {
-            var product = UnitOfWork.Instance.Products.Get((int)cmbProducts.EditValue);
-            if (product.Qte > int.Parse(txtQte.Text))
+            var product = UnitOfWork.Instance.Products.Get((int)CmbProducts.EditValue);
+            if (product.Qte > int.Parse(TxtQte.Text))
             {
                 return;
             }
 
             XtraMessageBox.Show("هذه الكمية غير متوفرة", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            txtQte.Text = product.Qte.ToString();
+            TxtQte.Text = product.Qte.ToString();
         }
 
         private void TxtSell_Leave(object sender, EventArgs e)
         {
             try
             {
-                var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(cmbProducts.EditValue));
+                var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(CmbProducts.EditValue));
                 var productSell = product?.Sell;
-                var newPrice = Convert.ToDouble(txtSell.Text);
+                var newPrice = Convert.ToDouble(TxtSell.Text);
                 // ReSharper disable once CompareOfFloatsByEqualityOperator
                 if (productSell == newPrice)
                 {
@@ -272,9 +282,9 @@ namespace Products.PL.Sales
         {
             try
             {
-                if (txtSave.Text == @"حفظ")
+                if (BtnSave.Text == @"حفظ")
                 {
-                    _sale.CustomerId = Convert.ToInt32(cmbCustomers.EditValue);
+                    _sale.CustomerId = Convert.ToInt32(CmbCustomers.EditValue);
                     _sale.Date = Convert.ToDateTime(deDate.EditValue);
                     _sale.Number = Convert.ToInt32(lblOrderID.Text);
                     _sale.Discount = Convert.ToDouble(txtDiscount.EditValue);
@@ -301,10 +311,10 @@ namespace Products.PL.Sales
                     UnitOfWork.Instance.Sales.Add(_sale);
                     UnitOfWork.Instance.Complete();
 
-                    btnDelete.Enabled = false;
-                    btnEdit.Enabled = false;
+                    BtnDeleteItem.Enabled = false;
+                    BtnEditItem.Enabled = false;
                     XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtSave.Text = @"طباعة";
+                    BtnSave.Text = @"طباعة";
                 }
                 else
                 {

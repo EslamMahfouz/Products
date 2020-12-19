@@ -4,6 +4,7 @@ namespace Dukan.Core.Models
 {
     public class AddSaleDetailGridModel
     {
+        [Browsable(false)]
         public int ProductId { get; set; }
 
         [DisplayName("المنتج")]

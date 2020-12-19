@@ -9,7 +9,7 @@ namespace Dukan.Core.Repository
         {
         }
 
-        public bool ModuleStatus(string moduleName)
+        public bool GetModuleStatus(string moduleName)
         {
             var module = GetAll(m => m.Name == moduleName).FirstOrDefault();
             return module.IsActive;

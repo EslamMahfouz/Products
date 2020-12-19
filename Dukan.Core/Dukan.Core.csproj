@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Custom.cs" />
+    <Compile Include="Modules.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Mapping\MappingProfile.cs" />
     <Compile Include="Models\Category\CategoryModel.cs" />
