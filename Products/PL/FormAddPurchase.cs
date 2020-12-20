@@ -126,7 +126,6 @@ namespace Products.PL
             txtSell.Leave -= txtSell_Leave;
             txtQte.Validated -= txtQte_Validated;
         }
-
         private void cmbProducts_EditValueChanged(object sender, EventArgs e)
         {
             txtBuy.Leave += txtBuy_Leave;
@@ -221,10 +220,6 @@ namespace Products.PL
         {
             CalculateForItem();
         }
-
-        #endregion
-
-        #endregion
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             if (!val.Validate())
@@ -255,115 +250,6 @@ namespace Products.PL
             btnDeleteItem.Enabled = true;
             BtnSave.Enabled = true;
         }
-
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var prdId = Convert.ToInt32(gridViewItems.GetFocusedRowCellValue("م"));
-                var product = db.Products.Find(prdId);
-
-                cmbProducts.EditValue = product.Id;
-
-                var buy = Convert.ToDouble(gridViewItems.GetFocusedRowCellValue("السعر"));
-                var number = Convert.ToInt32(gridViewItems.GetFocusedRowCellValue("العدد"));
-                var total = Convert.ToDouble(gridViewItems.GetFocusedRowCellValue("الإجمالى"));
-                var discount = Convert.ToDouble(gridViewItems.GetFocusedRowCellValue("الخصم"));
-                var price = Convert.ToDouble(gridViewItems.GetFocusedRowCellValue("السعر بعد الخصم"));
-
-                txtQte.Text = number.ToString();
-                txtBuy.Text = buy.ToString(CultureInfo.InvariantCulture);
-                txtPrdTotal.Text = total.ToString(CultureInfo.InvariantCulture);
-                txtPrdDiscount.Text = discount.ToString(CultureInfo.InvariantCulture);
-                txtPrdTotal.Text = price.ToString(CultureInfo.InvariantCulture);
-
-                for (var i = 0; i < dt.Rows.Count; i++)
-                {
-                    var dr = dt.Rows[i];
-                    if (Convert.ToInt32(dr["م"]) == prdId)
-                    {
-                        dr.Delete();
-                        break;
-                    }
-                }
-                gridControlItems.DataSource = dt;
-                CalculateTotal();
-            }
-            catch
-            {
-            }
-        }
-
-        private void txtSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //var p = new Purchase
-                //{
-                //    PurchaseDate = Convert.ToDateTime(deDate.EditValue),
-                //    PurchasePrice = Convert.ToDouble(txtPrice.Text),
-                //    PurchaseDiscount = Convert.ToDouble(txtDiscount.Text),
-                //    PurchaseNetPrice = Convert.ToDouble(txtTotal.Text),
-                //    PurchasePaid = Convert.ToDouble(txtPaid.Text),
-                //    PurchaseCharge = Convert.ToDouble(txtCharge.Text),
-                //    SupplierID = Convert.ToInt32(cmbSuppliers.EditValue),
-                //    PurchaseNumber = Convert.ToInt32(lblOrderID.Text)
-                //};
-                //db.Purchases.Add(p);
-
-                //if (Convert.ToDouble(txtPaid.Text) != 0)
-                //{
-                //    var pp = new PurchasesPayment
-                //    {
-                //        //salesPayments table
-                //        PurchaseNumber = Convert.ToInt32(lblOrderID.Text),
-                //        PurchasePayPaid = Convert.ToDouble(txtPaid.Text),
-                //        PurchasePayDate = Convert.ToDateTime(deDate.EditValue),
-                //        purchaseDescription = "فاتورة شراء جديدة",
-                //        SupplierID = Convert.ToInt32(cmbSuppliers.EditValue)
-                //    };
-                //    db.PurchasesPayments.Add(pp);
-                //}
-
-                foreach (DataRow dr in dt.Rows)
-                {
-                    var productID = Convert.ToInt32(Convert.ToInt32(dr["م"]));
-                    var product = db.Products.Find(productID);
-
-                    //var pd = new PurchasesDetail
-                    //{
-                    //    PurchaseID = p.PurchaseID,
-                    //    ProductID = Convert.ToInt32(dr["م"]),
-                    //    //ProductBuy = Convert.ToInt32(dr["السعر"]),
-                    //    ProductQte = Convert.ToInt32(dr["العدد"]),
-                    //    ProductPrice = Convert.ToDouble(dr["الإجمالى"]),
-                    //    ProductDiscount = Convert.ToDouble(dr["الخصم"]),
-                    //    ProductNetPrice = Convert.ToDouble(dr["السعر بعد الخصم"])
-                    //};
-                    //db.PurchasesDetails.Add(pd);
-                    //product.NumberInStock += pd.ProductQte;
-                }
-
-                var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuppliers.EditValue));
-
-                btnDeleteItem.Enabled = false;
-                btnEditItem.Enabled = false;
-
-                db.SaveChanges();
-                XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-            }
-            catch
-            {
-            }
-        }
-
-        private void groupControl1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
             var prdId = Convert.ToInt32(gridViewItems.GetFocusedRowCellValue("ProductId"));
@@ -403,7 +289,6 @@ namespace Products.PL
             }
 
         }
-
         private void txtDiscount_EditValueChanged(object sender, EventArgs e)
         {
             CalculateDiscount();
@@ -459,5 +344,11 @@ namespace Products.PL
             }
 
         }
+
+        #endregion
+
+        #endregion
+
+
     }
 }
