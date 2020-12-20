@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
-using Dukan.Core.Models;
 using Dukan.Core.Models.Category;
 using Dukan.Core.Models.Customer;
 using Dukan.Core.Models.Product;
+using Dukan.Core.Models.Purchase;
+using Dukan.Core.Models.Sale;
+using Dukan.Core.Models.Supplier;
 using Dukan.Data;
 using System.Linq;
 
@@ -48,9 +50,16 @@ namespace Dukan.Core.Mapping
 
             CreateMap<AddSupplierModel, Supplier>();
             CreateMap<Supplier, SupplierGridModel>();
+            CreateMap<Supplier, SupplierComoModel>();
 
             #endregion
 
+            #region Purchase details
+
+            CreateMap<AddPurchaseDetailGridModel, PurchaseDetail>()
+                .ForMember(d => d.ReturnedQte, o => o.MapFrom(s => 0));
+
+            #endregion
             #region Sale
 
             //CreateMap<Sale, SaleModel>()

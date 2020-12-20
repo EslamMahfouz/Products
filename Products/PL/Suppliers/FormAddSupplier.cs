@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraEditors;
-using Dukan.Core.Models;
+using Dukan.Core.Models.Supplier;
 using Dukan.Core.UnitOfWork;
 using System;
 using System.Windows.Forms;

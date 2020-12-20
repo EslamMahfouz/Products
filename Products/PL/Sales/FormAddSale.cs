@@ -3,7 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraPrinting.Native;
 using Dukan.Core;
-using Dukan.Core.Models;
+using Dukan.Core.Models.Sale;
 using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using Dukan.Data;
@@ -20,8 +20,8 @@ namespace Products.PL.Sales
     {
         #region Fields
 
-        private readonly List<AddSaleDetailGridModel> _saleDetails = new List<AddSaleDetailGridModel>();
         private readonly Sale _sale = new Sale();
+        private readonly List<AddSaleDetailGridModel> _saleDetails = new List<AddSaleDetailGridModel>();
 
         #endregion
 
@@ -83,11 +83,12 @@ namespace Products.PL.Sales
 
         #endregion
 
+        #region events
         #region Form events
 
         private void FormAddSale_Load(object sender, EventArgs e)
         {
-            var customers = UnitOfWork.Instance.Customers.GetCustomers();
+            var customers = UnitOfWork.Instance.Customers.GetCustomersForCombo();
             CmbCustomers.Properties.DataSource = customers;
             CmbCustomers.Initialize();
 
@@ -112,109 +113,6 @@ namespace Products.PL.Sales
             TxtSell.Leave -= TxtSell_Leave;
             TxtQte.Validated -= TxtQte_Validated;
         }
-
-        #endregion
-
-        #region Members events
-
-        #region Invoice grid CRUD
-
-        private void BtnAddItem_Click(object sender, EventArgs e)
-        {
-            if (val.Validate())
-            {
-                if (_saleDetails.Exists(s => s.ProductId == Convert.ToInt32(CmbProducts.EditValue)))
-                {
-                    Custom.ShowExistingMessage(FormResource.ExistingProduct);
-                    return;
-                }
-
-                var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(CmbProducts.EditValue));
-                _saleDetails.Add(new AddSaleDetailGridModel
-                {
-                    ProductId = Convert.ToInt32(CmbProducts.EditValue),
-                    Name = CmbProducts.Text,
-                    ProductSell = Convert.ToDouble(TxtSell.Text),
-                    ProductBuy = Convert.ToDouble(product.Buy),
-                    Qte = Convert.ToInt32(TxtQte.Text),
-                    Total = Convert.ToDouble(txtPrdTotal.Text),
-                    Discount = Convert.ToDouble(TxtPrdDiscount.EditValue),
-                    TotalAfterDiscount = Convert.ToDouble(txtPrdTotalAfterDiscount.Text)
-                });
-                gridControlItems.RefreshDataSource();
-                CalculateTotal();
-                CalculateDiscount();
-                ClearItemFields();
-                BtnEditItem.Enabled = true;
-                BtnDeleteItem.Enabled = true;
-                BtnSave.Enabled = true;
-            }
-        }
-
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            var prdId = Convert.ToInt32(gridViewItems.GetFocusedRowCellValue("ProductId"));
-            _saleDetails.Remove(_saleDetails.Find(s => s.ProductId == prdId));
-            gridControlItems.RefreshDataSource();
-            CalculateTotal();
-            CalculateDiscount();
-            if (!_saleDetails.Any())
-                BtnSave.Enabled = false;
-        }
-
-        private void BtnEdit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var prdId = Convert.ToInt32(gridViewItems.GetFocusedRowCellValue("ProductId"));
-                var saleDetail = _saleDetails.Find(sd => sd.ProductId == prdId);
-                CmbProducts.EditValue = prdId;
-                TxtSell.Text = saleDetail.ProductSell.ToString(CultureInfo.CurrentCulture);
-                TxtQte.Text = saleDetail.Qte.ToString();
-                txtPrdTotal.Text = saleDetail.Total.ToString(CultureInfo.CurrentCulture);
-                TxtPrdDiscount.EditValue = saleDetail.Discount;
-                txtPrdTotalAfterDiscount.Text = saleDetail.TotalAfterDiscount.ToString(CultureInfo.CurrentCulture);
-
-                BtnDelete_Click(sender, e);
-                CalculateTotal();
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
-        #endregion
-
-        #region Invoice calculations
-
-        private void TxtNum_EditValueChanged(object sender, EventArgs e)
-        {
-            CalculateForItem();
-        }
-
-        private void TxtPrdDiscount_EditValueChanged(object sender, EventArgs e)
-        {
-            CalculateForItem();
-        }
-
-        private void TxtSell_EditValueChanged(object sender, EventArgs e)
-        {
-            CalculateForItem();
-        }
-
-        private void TxtDiscount_EditValueChanged(object sender, EventArgs e)
-        {
-            CalculateDiscount();
-        }
-
-        private void TxtPaid_EditValueChanged(object sender, EventArgs e)
-        {
-            CalculateDiscount();
-        }
-
-        #endregion
-
         private void CmbProducts_EditValueChanged(object sender, EventArgs e)
         {
             TxtSell.Leave += TxtSell_Leave;
@@ -228,7 +126,6 @@ namespace Products.PL.Sales
             CalculateForItem();
             val.Validate();
         }
-
         private void CmbCustomers_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             if (e.Button.Kind != ButtonPredefines.Plus)
@@ -239,7 +136,6 @@ namespace Products.PL.Sales
             var frm = new FormAddCustomer();
             frm.ShowDialog();
         }
-
         private void TxtQte_Validated(object sender, EventArgs e)
         {
             var product = UnitOfWork.Instance.Products.Get((int)CmbProducts.EditValue);
@@ -329,6 +225,109 @@ namespace Products.PL.Sales
             }
         }
 
+        #endregion
+
+        #region Invoice grid CRUD
+
+        private void BtnAddItem_Click(object sender, EventArgs e)
+        {
+            if (val.Validate())
+            {
+                if (_saleDetails.Exists(s => s.ProductId == Convert.ToInt32(CmbProducts.EditValue)))
+                {
+                    Custom.ShowExistingMessage(FormResource.ExistingProduct);
+                    return;
+                }
+
+                var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(CmbProducts.EditValue));
+                _saleDetails.Add(new AddSaleDetailGridModel
+                {
+                    ProductId = Convert.ToInt32(CmbProducts.EditValue),
+                    Name = CmbProducts.Text,
+                    ProductSell = Convert.ToDouble(TxtSell.Text),
+                    ProductBuy = Convert.ToDouble(product.Buy),
+                    Qte = Convert.ToInt32(TxtQte.Text),
+                    Total = Convert.ToDouble(txtPrdTotal.Text),
+                    Discount = Convert.ToDouble(TxtPrdDiscount.EditValue),
+                    TotalAfterDiscount = Convert.ToDouble(txtPrdTotalAfterDiscount.Text)
+                });
+                gridControlItems.RefreshDataSource();
+                CalculateTotal();
+                CalculateDiscount();
+                ClearItemFields();
+                BtnEditItem.Enabled = true;
+                BtnDeleteItem.Enabled = true;
+                BtnSave.Enabled = true;
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            var prdId = Convert.ToInt32(gridViewItems.GetFocusedRowCellValue("ProductId"));
+            _saleDetails.Remove(_saleDetails.Find(s => s.ProductId == prdId));
+            gridControlItems.RefreshDataSource();
+            CalculateTotal();
+            CalculateDiscount();
+            if (!_saleDetails.Any())
+            {
+                BtnSave.Enabled = false;
+                BtnEditItem.Enabled = false;
+                BtnDeleteItem.Enabled = false;
+            }
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var prdId = Convert.ToInt32(gridViewItems.GetFocusedRowCellValue("ProductId"));
+                var saleDetail = _saleDetails.Find(sd => sd.ProductId == prdId);
+                CmbProducts.EditValue = prdId;
+                TxtSell.Text = saleDetail.ProductSell.ToString(CultureInfo.CurrentCulture);
+                TxtQte.Text = saleDetail.Qte.ToString();
+                txtPrdTotal.Text = saleDetail.Total.ToString(CultureInfo.CurrentCulture);
+                TxtPrdDiscount.EditValue = saleDetail.Discount;
+                txtPrdTotalAfterDiscount.Text = saleDetail.TotalAfterDiscount.ToString(CultureInfo.CurrentCulture);
+
+                BtnDelete_Click(sender, e);
+                CalculateTotal();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        #endregion
+
+        #region Invoice calculations
+
+        private void TxtNum_EditValueChanged(object sender, EventArgs e)
+        {
+            CalculateForItem();
+        }
+
+        private void TxtPrdDiscount_EditValueChanged(object sender, EventArgs e)
+        {
+            CalculateForItem();
+        }
+
+        private void TxtSell_EditValueChanged(object sender, EventArgs e)
+        {
+            CalculateForItem();
+        }
+
+        private void TxtDiscount_EditValueChanged(object sender, EventArgs e)
+        {
+            CalculateDiscount();
+        }
+
+        private void TxtPaid_EditValueChanged(object sender, EventArgs e)
+        {
+            CalculateDiscount();
+        }
+
+        #endregion
         #endregion
     }
 }

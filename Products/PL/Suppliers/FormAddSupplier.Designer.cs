@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
-using Dukan.Core.Models;
+using Dukan.Core.Models.Supplier;
 using System.ComponentModel;
 using System.Windows.Forms;
 

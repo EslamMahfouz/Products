@@ -3,8 +3,8 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using Dukan.Core;
-using Dukan.Core.Models;
 using Dukan.Core.Models.Customer;
+using Dukan.Core.Models.Sale;
 using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using Products.PL.Shared;
@@ -51,7 +51,7 @@ namespace Products.PL.Customers
         #region Form events
         private void FormCustomerDetails_Load(object sender, EventArgs e)
         {
-            var customers = _unitOfWork.Customers.GetCustomers();
+            var customers = _unitOfWork.Customers.GetCustomersForCombo();
             cmbCustomers.Properties.DataSource = customers;
             cmbCustomers.Initialize();
 
