@@ -1,18 +1,18 @@
 ﻿using AutoMapper;
-using Dukan.Core.Models.Sale;
+using Dukan.Core.Models.Purchase;
 using Dukan.Data;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Objects;
 using System.Linq;
+using static System.Data.Entity.Core.Objects.EntityFunctions;
 
 namespace Dukan.Core.Repository
 {
-    public class SalesRepository : Repository<Sale>
+    public class PurchaseRepository : Repository<Purchase>
     {
         #region Constructors
 
-        public SalesRepository(ProductsEntities context) : base(context)
+        public PurchaseRepository(ProductsEntities context) : base(context)
         {
         }
 
@@ -20,22 +20,21 @@ namespace Dukan.Core.Repository
 
         #region methods
 
-        public Sale Add(Sale sale)
+        public Purchase Add(Purchase purchase)
         {
-            Insert(sale);
-            Complete();
-            return sale;
+            Insert(purchase);
+            return purchase;
         }
         public string NewOrder()
         {
-            var lastOrder = GetAll(o => EntityFunctions.TruncateTime(o.Date) == EntityFunctions.TruncateTime(DateTime.Now)).LastOrDefault();
+            var lastOrder = GetAll(o => TruncateTime(o.Date) == TruncateTime(DateTime.Now)).LastOrDefault();
             return lastOrder != null ? (lastOrder.Number + 1).ToString() : "1";
         }
 
-        public IEnumerable<SaleGridModel> GetCustomerSales(int customerId)
+        public IEnumerable<PurchaseGridModel> GetSupplierPurchases(int supplierId)
         {
-            var sales = GetAll(s => s.CustomerId == customerId, null, "SalePayments, SaleDetails");
-            return Mapper.Map<IEnumerable<Sale>, IEnumerable<SaleGridModel>>(sales);
+            var purchases = GetAll(s => s.SupplierId == supplierId, null, "PurchasePayments, PurchaseDetails");
+            return Mapper.Map<IEnumerable<Purchase>, IEnumerable<PurchaseGridModel>>(purchases);
         }
 
         //public SaleReport GetSaleReport(int saleId)

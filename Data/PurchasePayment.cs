@@ -18,7 +18,7 @@ namespace Dukan.Data
         public Nullable<int> PurchaseId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public double Paid { get; set; }
-        public string Description { get; set; }
+        public string Type { get; set; }
     
         public virtual Purchase Purchase { get; set; }
     }

@@ -29,12 +29,12 @@ namespace Dukan.Data
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Module> Modules { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
-        public virtual DbSet<PurchasePayment> PurchasePayments { get; set; }
         public virtual DbSet<SaleDetail> SaleDetails { get; set; }
         public virtual DbSet<SalePayment> SalePayments { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
-        public virtual DbSet<Purchase> Purchases { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<PurchasePayment> PurchasePayments { get; set; }
+        public virtual DbSet<Purchase> Purchases { get; set; }
+        public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
     }
 }

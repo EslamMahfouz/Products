@@ -3,7 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraPrinting.Native;
 using Dukan.Core;
-using Dukan.Core.Models;
+using Dukan.Core.Models.Sale;
 using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using Dukan.Data;
@@ -20,8 +20,8 @@ namespace Products.PL.Sales
     {
         #region Fields
 
-        private readonly List<AddSaleDetailGridModel> _saleDetails = new List<AddSaleDetailGridModel>();
         private readonly Sale _sale = new Sale();
+        private readonly List<AddSaleDetailGridModel> _saleDetails = new List<AddSaleDetailGridModel>();
 
         #endregion
 
@@ -82,7 +82,6 @@ namespace Products.PL.Sales
         }
 
         #endregion
-
 
         #region events
         #region Form events
@@ -270,7 +269,11 @@ namespace Products.PL.Sales
             CalculateTotal();
             CalculateDiscount();
             if (!_saleDetails.Any())
+            {
                 BtnSave.Enabled = false;
+                BtnEditItem.Enabled = false;
+                BtnDeleteItem.Enabled = false;
+            }
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)

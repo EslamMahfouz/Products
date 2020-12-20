@@ -222,7 +222,7 @@ namespace Products.PL.Suppliers
                         //purchasesPayments table
                         Paid = Convert.ToDouble(txtPaid.Text),
                         Date = Convert.ToDateTime(today),
-                        Description = "سداد باقى قديم",
+                        Type = "سداد باقى قديم",
                     };
                     db.PurchasePayments.Add(pp);
                     db.SaveChanges();
@@ -265,7 +265,7 @@ namespace Products.PL.Suppliers
                         //salesPayments table
                         Paid = Convert.ToDouble(txtPaidOrder.Text),
                         Date = Convert.ToDateTime(today),
-                        Description = "سداد فاتورة شراء قديمة",
+                        Type = "سداد فاتورة شراء قديمة",
                     };
                     db.PurchasePayments.Add(pp);
                     db.SaveChanges();

@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using Dukan.Core;
 using Dukan.Core.Models;
+using Dukan.Core.Models.Sale;
 using Dukan.Core.UnitOfWork;
 using System;
 using System.Collections.Generic;
