@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using Dukan.Core;
+using Dukan.Core.UnitOfWork;
 using Dukan.Data;
 using Products.PL.Suppliers;
 using System;
@@ -11,8 +13,31 @@ namespace Products.PL
 {
     public partial class FormAddPurchase : XtraForm
     {
+        #region Fields
         ProductsEntities db = new ProductsEntities();
         DataTable dt = new DataTable();
+        #endregion
+
+        #region Ctor
+        public FormAddPurchase()
+        {
+            InitializeComponent();
+            deDate.EditValue = DateTime.Now;
+
+            dt.Columns.Add("م");
+            dt.Columns.Add("المنتج");
+            dt.Columns.Add("السعر");
+            dt.Columns.Add("العدد");
+            dt.Columns.Add("الإجمالى");
+            dt.Columns.Add("الخصم");
+            dt.Columns.Add("السعر بعد الخصم");
+        }
+
+
+
+        #endregion
+
+        #region Methods
 
         void PrdCalc()
         {
@@ -57,29 +82,17 @@ namespace Products.PL
             txtPrdPrice.Text = "";
         }
 
-        public FormAddPurchase()
-        {
-            InitializeComponent();
-            deDate.EditValue = DateTime.Now;
 
-            dt.Columns.Add("م");
-            dt.Columns.Add("المنتج");
-            dt.Columns.Add("السعر");
-            dt.Columns.Add("العدد");
-            dt.Columns.Add("الإجمالى");
-            dt.Columns.Add("الخصم");
-            dt.Columns.Add("السعر بعد الخصم");
-        }
+        #endregion
+
+        #region Events
+
+        #region Form Events
         private void FormAddPurchase_Load(object sender, EventArgs e)
         {
-            //cmbSupliers
-            //var suppliers = from x in db.Suppliers
-            //                select new { م = x.SupplierID, الإسم = x.SupplierName };
-            //cmbSuppliers.Properties.DataSource = suppliers.ToList();
-            cmbSuppliers.Properties.DisplayMember = "الإسم";
-            cmbSuppliers.Properties.ValueMember = "م";
-            cmbSuppliers.Properties.PopulateViewColumns();
-            cmbSuppliers.Properties.View.Columns["م"].Visible = false;
+            var suppliers = UnitOfWork.Instance.Suppliers.GetSuppliersForCombo();
+            cmbSuppliers.Properties.DataSource = suppliers;
+            cmbSuppliers.Initialize();
 
             //cmbCategories
             var categories = from x in db.Categories
@@ -108,6 +121,12 @@ namespace Products.PL
             //    lblOrderID.Text = "1";
             //}
         }
+
+
+
+        #endregion
+
+        #endregion
 
         private void cmbCategories_EditValueChanged(object sender, EventArgs e)
         {

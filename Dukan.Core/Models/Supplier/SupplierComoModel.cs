@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace Dukan.Core.Models.Customer
+namespace Dukan.Core.Models.Supplier
 {
-    public class CustomerComboModel
+    public class SupplierComoModel
     {
         [DisplayName("م")]
         public int Id { get; set; }

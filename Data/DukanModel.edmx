@@ -70,7 +70,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SupplierId" Type="float" Nullable="false" />
+          <Property Name="SupplierId" Type="int" Nullable="false" />
           <Property Name="Date" Type="datetime" />
           <Property Name="Number" Type="int" Nullable="false" />
           <Property Name="Total" Type="float" />
@@ -114,7 +114,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="float" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
           <Property Name="Tel" Type="nvarchar" MaxLength="50" />
@@ -348,7 +348,7 @@
           <Property Name="Discount" Type="Double" />
           <Property Name="TotalAfterDiscount" Type="Double" />
           <NavigationProperty Name="Product" Relationship="Self.FK_PurchasesDetails_Products" FromRole="PurchaseDetails" ToRole="Products" />
-          <NavigationProperty Name="Purchase" Relationship="Self.FK_PurchasesDetails_Purchases" FromRole="PurchaseDetails" ToRole="Purchases" />
+          <NavigationProperty Name="Purchase" Relationship="ProductsModel.FK_PurchasesDetails_Purchases" FromRole="PurchaseDetail" ToRole="Purchase" />
         </EntityType>
         <EntityType Name="PurchasePayment">
           <Key>
@@ -359,22 +359,7 @@
           <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="Paid" Type="Double" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Purchase" Relationship="Self.FK_PurchasePayments_Purchases" FromRole="PurchasePayments" ToRole="Purchases" />
-        </EntityType>
-        <EntityType Name="Purchase">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SupplierId" Type="Double" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Precision="3" />
-          <Property Name="Number" Type="Int32" Nullable="false" />
-          <Property Name="Total" Type="Double" />
-          <Property Name="Discount" Type="Double" />
-          <Property Name="TotalAfterDiscount" Type="Double" />
-          <NavigationProperty Name="PurchaseDetails" Relationship="Self.FK_PurchasesDetails_Purchases" FromRole="Purchases" ToRole="PurchaseDetails" />
-          <NavigationProperty Name="PurchasePayments" Relationship="Self.FK_PurchasePayments_Purchases" FromRole="Purchases" ToRole="PurchasePayments" />
-          <NavigationProperty Name="Supplier" Relationship="Self.FK_Purchases_Suppliers" FromRole="Purchases" ToRole="Suppliers" />
+          <NavigationProperty Name="Purchase" Relationship="ProductsModel.FK_PurchasePayments_Purchases" FromRole="PurchasePayment" ToRole="Purchase" />
         </EntityType>
         <EntityType Name="SaleDetail">
           <Key>
@@ -414,17 +399,6 @@
           <NavigationProperty Name="Customer" Relationship="Self.FK_Sales_Customers" FromRole="Sales" ToRole="Customers" />
           <NavigationProperty Name="SaleDetails" Relationship="Self.FK_SalesDetails_Sales" FromRole="Sales" ToRole="SaleDetails" />
           <NavigationProperty Name="SalePayments" Relationship="Self.FK_SalesPayments_Sales" FromRole="Sales" ToRole="SalePayments" />
-        </EntityType>
-        <EntityType Name="Supplier">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Double" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Purchases" Relationship="Self.FK_Purchases_Suppliers" FromRole="Suppliers" ToRole="Purchases" />
         </EntityType>
         <Association Name="FK_Products_Categories">
           <End Role="Categories" Type="Self.Category" Multiplicity="1">
@@ -480,44 +454,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PurchasesDetails_Purchases">
-          <End Role="Purchases" Type="Self.Purchase" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="PurchaseDetails" Type="Self.PurchaseDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Purchases">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PurchaseDetails">
-              <PropertyRef Name="PurchaseId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PurchasePayments_Purchases">
-          <End Role="Purchases" Type="Self.Purchase" Multiplicity="0..1" />
-          <End Role="PurchasePayments" Type="Self.PurchasePayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Purchases">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PurchasePayments">
-              <PropertyRef Name="PurchaseId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Purchases_Suppliers">
-          <End Role="Suppliers" Type="Self.Supplier" Multiplicity="1" />
-          <End Role="Purchases" Type="Self.Purchase" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Suppliers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Purchases">
-              <PropertyRef Name="SupplierId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SalesDetails_Sales">
           <End Role="Sales" Type="Self.Sale" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -553,11 +489,9 @@
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="PurchaseDetails" EntityType="Self.PurchaseDetail" />
           <EntitySet Name="PurchasePayments" EntityType="Self.PurchasePayment" />
-          <EntitySet Name="Purchases" EntityType="Self.Purchase" />
           <EntitySet Name="SaleDetails" EntityType="Self.SaleDetail" />
           <EntitySet Name="SalePayments" EntityType="Self.SalePayment" />
           <EntitySet Name="Sales" EntityType="Self.Sale" />
-          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
           <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
@@ -574,18 +508,6 @@
             <End Role="Products" EntitySet="Products" />
             <End Role="SaleDetails" EntitySet="SaleDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_PurchasesDetails_Purchases" Association="Self.FK_PurchasesDetails_Purchases">
-            <End Role="Purchases" EntitySet="Purchases" />
-            <End Role="PurchaseDetails" EntitySet="PurchaseDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PurchasePayments_Purchases" Association="Self.FK_PurchasePayments_Purchases">
-            <End Role="Purchases" EntitySet="Purchases" />
-            <End Role="PurchasePayments" EntitySet="PurchasePayments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Purchases_Suppliers" Association="Self.FK_Purchases_Suppliers">
-            <End Role="Suppliers" EntitySet="Suppliers" />
-            <End Role="Purchases" EntitySet="Purchases" />
-          </AssociationSet>
           <AssociationSet Name="FK_SalesDetails_Sales" Association="Self.FK_SalesDetails_Sales">
             <End Role="Sales" EntitySet="Sales" />
             <End Role="SaleDetails" EntitySet="SaleDetails" />
@@ -594,7 +516,85 @@
             <End Role="Sales" EntitySet="Sales" />
             <End Role="SalePayments" EntitySet="SalePayments" />
           </AssociationSet>
+          <EntitySet Name="Purchases" EntityType="ProductsModel.Purchase" />
+          <EntitySet Name="Suppliers" EntityType="ProductsModel.Supplier" />
+          <AssociationSet Name="FK_PurchasesDetails_Purchases" Association="ProductsModel.FK_PurchasesDetails_Purchases">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchasePayments_Purchases" Association="ProductsModel.FK_PurchasePayments_Purchases">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchasePayment" EntitySet="PurchasePayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Suppliers" Association="ProductsModel.FK_Purchases_Suppliers">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="TotalAfterDiscount" Type="Double" />
+          <NavigationProperty Name="PurchaseDetails" Relationship="ProductsModel.FK_PurchasesDetails_Purchases" FromRole="Purchase" ToRole="PurchaseDetail" />
+          <NavigationProperty Name="PurchasePayments" Relationship="ProductsModel.FK_PurchasePayments_Purchases" FromRole="Purchase" ToRole="PurchasePayment" />
+          <NavigationProperty Name="Supplier" Relationship="ProductsModel.FK_Purchases_Suppliers" FromRole="Purchase" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Purchases" Relationship="ProductsModel.FK_Purchases_Suppliers" FromRole="Supplier" ToRole="Purchase" />
+        </EntityType>
+        <Association Name="FK_PurchasesDetails_Purchases">
+          <End Type="ProductsModel.Purchase" Role="Purchase" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ProductsModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="PurchaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchasePayments_Purchases">
+          <End Type="ProductsModel.Purchase" Role="Purchase" Multiplicity="0..1" />
+          <End Type="ProductsModel.PurchasePayment" Role="PurchasePayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchasePayment">
+              <PropertyRef Name="PurchaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Suppliers">
+          <End Type="ProductsModel.Supplier" Role="Supplier" Multiplicity="1" />
+          <End Type="ProductsModel.Purchase" Role="Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -667,19 +667,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Purchases">
-            <EntityTypeMapping TypeName="ProductsModel.Purchase">
-              <MappingFragment StoreEntitySet="Purchases">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="TotalAfterDiscount" ColumnName="TotalAfterDiscount" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SaleDetails">
             <EntityTypeMapping TypeName="ProductsModel.SaleDetail">
               <MappingFragment StoreEntitySet="SaleDetails">
@@ -716,14 +703,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Purchases">
+            <EntityTypeMapping TypeName="ProductsModel.Purchase">
+              <MappingFragment StoreEntitySet="Purchases">
+                <ScalarProperty Name="TotalAfterDiscount" ColumnName="TotalAfterDiscount" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Suppliers">
             <EntityTypeMapping TypeName="ProductsModel.Supplier">
               <MappingFragment StoreEntitySet="Suppliers">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Tel" ColumnName="Tel" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

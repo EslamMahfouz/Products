@@ -22,7 +22,7 @@ namespace Dukan.Data
         }
     
         public int Id { get; set; }
-        public double SupplierId { get; set; }
+        public int SupplierId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public int Number { get; set; }
         public Nullable<double> Total { get; set; }

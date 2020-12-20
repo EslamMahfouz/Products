@@ -40,7 +40,7 @@ namespace Dukan.Core.Repository
             return Mapper.Map<Customer, EditCustomerModel>(Get(id));
         }
 
-        public IEnumerable<CustomerComboModel> GetCustomers()
+        public IEnumerable<CustomerComboModel> GetCustomersForCombo()
         {
             return Mapper.Map<IEnumerable<Customer>, IEnumerable<CustomerComboModel>>(GetAll());
         }

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using Dukan.Core.Models;
+using Dukan.Core.Models.Supplier;
 using Dukan.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,19 +18,21 @@ namespace Dukan.Core.Repository
 
         #region Methods
 
-        private bool IsExisting(string name)
+        public bool IsExisting(string name)
         {
             return GetAll(c => c.Name == name).Any();
         }
 
         public void Add(AddSupplierModel model)
         {
-            if (IsExisting(model.SupplierName))
-            {
-                throw new Exception("يوجد مورد بهذا الاسم");
-            }
             var src = Mapper.Map<AddSupplierModel, Supplier>(model);
             Insert(src);
+        }
+
+
+        public IEnumerable<SupplierComoModel> GetSuppliersForCombo()
+        {
+            return Mapper.Map<IEnumerable<Supplier>, IEnumerable<SupplierComoModel>>(GetAll());
         }
 
         public IEnumerable<SupplierGridModel> GetSuppliersForGrid()

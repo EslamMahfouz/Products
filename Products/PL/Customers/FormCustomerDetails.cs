@@ -51,7 +51,7 @@ namespace Products.PL.Customers
         #region Form events
         private void FormCustomerDetails_Load(object sender, EventArgs e)
         {
-            var customers = _unitOfWork.Customers.GetCustomers();
+            var customers = _unitOfWork.Customers.GetCustomersForCombo();
             cmbCustomers.Properties.DataSource = customers;
             cmbCustomers.Initialize();
 

@@ -20,7 +20,7 @@ namespace Dukan.Data
             this.Purchases = new HashSet<Purchase>();
         }
     
-        public double Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Tel { get; set; }
