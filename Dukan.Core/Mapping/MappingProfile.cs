@@ -60,6 +60,12 @@ namespace Dukan.Core.Mapping
                 .ForMember(d => d.ReturnedQte, o => o.MapFrom(s => 0));
 
             #endregion
+
+            #region Purchase payments
+
+            CreateMap<PurchasePayment, PurchasePaymentModel>();
+
+            #endregion
             #region Sale
 
             //CreateMap<Sale, SaleModel>()

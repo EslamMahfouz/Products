@@ -8,7 +8,6 @@ using Dukan.Core.UnitOfWork;
 using Dukan.Data;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -18,8 +17,6 @@ namespace Products.PL
     public partial class FormAddPurchase : XtraForm
     {
         #region Fields
-        ProductsEntities db = new ProductsEntities();
-        DataTable dt = new DataTable();
         private readonly List<AddPurchaseDetailGridModel> _purchaseDetails = new List<AddPurchaseDetailGridModel>();
         private readonly Purchase _purchase = new Purchase();
         #endregion
@@ -29,18 +26,7 @@ namespace Products.PL
         {
             InitializeComponent();
             deDate.EditValue = DateTime.Now;
-
-            dt.Columns.Add("م");
-            dt.Columns.Add("المنتج");
-            dt.Columns.Add("السعر");
-            dt.Columns.Add("العدد");
-            dt.Columns.Add("الإجمالى");
-            dt.Columns.Add("الخصم");
-            dt.Columns.Add("السعر بعد الخصم");
         }
-
-
-
         #endregion
 
         #region Methods
@@ -90,9 +76,6 @@ namespace Products.PL
             txtPrdDiscount.EditValue = 0.0f;
             txtPrdTotalAfterDiscount.Text = @"0";
         }
-
-
-
         #endregion
 
         #region Events
