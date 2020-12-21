@@ -378,6 +378,7 @@
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Dukan.Core.Models.Customer.AddCustomerModel.datasource" />
+    <None Include="Properties\DataSources\Dukan.Core.Models.Sale.SaleGridModel.datasource" />
     <None Include="Properties\DataSources\Products.BL.Models.AddCategoryModel.datasource" />
     <None Include="Properties\DataSources\Products.BL.Models.AddCustomerModel.datasource" />
     <None Include="Properties\DataSources\Products.BL.Models.AddProductModel.datasource" />

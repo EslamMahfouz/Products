@@ -46,7 +46,7 @@ namespace Products.PL.Sales
                 var prdTotal = sellPrice * qte;
                 txtPrdTotal.Text = prdTotal.ToString(CultureInfo.CurrentCulture);
 
-                var prdTotalAfterDiscount = prdTotal * (1 - discount);
+                var prdTotalAfterDiscount = Math.Round(prdTotal * (1 - discount), 2);
                 txtPrdTotalAfterDiscount.Text = prdTotalAfterDiscount.ToString(CultureInfo.CurrentCulture);
             }
             catch (Exception ex)
@@ -183,14 +183,14 @@ namespace Products.PL.Sales
                     _sale.CustomerId = Convert.ToInt32(CmbCustomers.EditValue);
                     _sale.Date = Convert.ToDateTime(deDate.EditValue);
                     _sale.Number = Convert.ToInt32(lblOrderID.Text);
-                    _sale.Discount = Convert.ToDouble(txtDiscount.EditValue);
+                    _sale.Discount = Math.Round(Convert.ToDouble(txtDiscount.EditValue), 2);
 
                     if (Convert.ToDouble(txtPaid.Text) > 0)
                     {
                         _sale.SalePayments.Add(new SalePayment
                         {
                             Date = Convert.ToDateTime(deDate.EditValue),
-                            Paid = Convert.ToDouble(txtPaid.Text),
+                            Paid = Math.Round(Convert.ToDouble(txtPaid.Text), 2),
                             Type = "إيراد"
                         });
                     }

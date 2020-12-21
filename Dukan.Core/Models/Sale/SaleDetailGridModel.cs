@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace Dukan.Core.Models.Sale
 {
@@ -26,6 +27,6 @@ namespace Dukan.Core.Models.Sale
         public int ReturnedQte { get; set; }
 
         [DisplayName(" الإجمالي بعد الخصم والمرتجع")]
-        public double TotalAfterDiscount => ProductSell * (Qte - ReturnedQte) * (1 - Discount);
+        public double TotalAfterDiscount => ProductSell * (Qte - ReturnedQte) * (1 - Math.Round(Discount, 2));
     }
 }

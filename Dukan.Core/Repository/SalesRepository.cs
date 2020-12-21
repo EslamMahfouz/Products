@@ -38,6 +38,11 @@ namespace Dukan.Core.Repository
             return Get(p => TruncateTime(p.Date) == TruncateTime(date) && p.Number == number);
         }
 
+        public SaleGridModel GetSaleById(int id)
+        {
+            var sale = Get(id);
+            return Mapper.Map<Sale, SaleGridModel>(sale);
+        }
 
         public IEnumerable<SaleGridModel> GetCustomerSales(int customerId)
         {

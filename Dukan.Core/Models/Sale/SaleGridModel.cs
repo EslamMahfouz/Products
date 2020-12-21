@@ -23,18 +23,21 @@ namespace Dukan.Core.Models.Sale
         [DisplayName("التاريخ")]
         public DateTime? Date { get; set; }
 
+        [DisplayName("العميل")]
+        public string CustomerName { get; set; }
+
         [DisplayName("الإجمالي")]
-        public double Total => SaleDetails.Sum(s => s.TotalAfterDiscount);
+        public double Total => Math.Round(SaleDetails.Sum(s => s.TotalAfterDiscount), 2);
 
         [DisplayName("الخصم")]
         public double Discount { get; set; }
 
         [DisplayName("الإجمالي بعد الخصم")]
-        public double TotalAfterDiscount => Total * (1 - Discount);
+        public double TotalAfterDiscount => Math.Round(Total * (1 - Discount), 2);
 
         [DisplayName("المدفوع")]
-        public double? Paid => SalePayments.Where(p => p.Type == "إيراد").Sum(p => p.Paid)
-                               - SalePayments.Where(p => p.Type == "مرتجع").Sum(p => p.Paid);
+        public double? Paid => Math.Round(SalePayments.Where(p => p.Type == "إيراد").Sum(p => p.Paid)
+                               - SalePayments.Where(p => p.Type == "مرتجع").Sum(p => p.Paid), 2);
 
         [DisplayName("المتبقي")]
         public double? Charge => TotalAfterDiscount - Paid;

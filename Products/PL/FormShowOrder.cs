@@ -1,6 +1,7 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using Dukan.Core.UnitOfWork;
 using Dukan.Data;
 using System;
 
@@ -60,11 +61,9 @@ namespace Products.PL
                 txtProfit.Visible = true;
                 lblTotalBuy.Visible = true;
                 lblProfit.Visible = true;
-                var product = db.Sales.Find(Id);
-                txtName.Text = product.Customer.Name;
-                txtDate.Text = Convert.ToString(product.Date);
-                txtDiscount.Text = Convert.ToString(product.Discount);
-                txtNumber.Text = Convert.ToString(product.Number);
+
+                var sale = UnitOfWork.Instance.Sales.GetSaleById(Id);
+                saleSource.DataSource = sale;
                 //txtTotalBuy.Text = Convert.ToString(product.SaleBuyPrice);
                 //txtProfit.Text = Convert.ToString(product.SaleNetPrice - product.SaleBuyPrice);
 
@@ -102,5 +101,6 @@ namespace Products.PL
 
 
         #endregion
+
     }
 }

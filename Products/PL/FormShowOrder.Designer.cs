@@ -35,13 +35,9 @@ namespace Products.PL
         {
             this.components = new System.ComponentModel.Container();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
+            this.saleSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
-            this.txtDiscount = new DevExpress.XtraEditors.TextEdit();
-            this.txtPrice = new DevExpress.XtraEditors.TextEdit();
-            this.txtPaid = new DevExpress.XtraEditors.TextEdit();
-            this.txtNetPrice = new DevExpress.XtraEditors.TextEdit();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
-            this.txtCharge = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -51,25 +47,30 @@ namespace Products.PL
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtCharge = new DevExpress.XtraEditors.TextEdit();
+            this.txtPaid = new DevExpress.XtraEditors.TextEdit();
+            this.txtTotalAfterDiscount = new DevExpress.XtraEditors.TextEdit();
+            this.txtTotal = new DevExpress.XtraEditors.TextEdit();
+            this.txtDiscount = new DevExpress.XtraEditors.TextEdit();
             this.txtProfit = new DevExpress.XtraEditors.TextEdit();
             this.lblProfit = new DevExpress.XtraEditors.LabelControl();
             this.lblTotalBuy = new DevExpress.XtraEditors.LabelControl();
             this.txtTotalBuy = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.purchaseSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPaid.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNetPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCharge.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCharge.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPaid.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalAfterDiscount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProfit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalBuy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -82,6 +83,7 @@ namespace Products.PL
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "CustomerName", true));
             this.txtName.Location = new System.Drawing.Point(351, 46);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
@@ -91,9 +93,14 @@ namespace Products.PL
             this.txtName.Size = new System.Drawing.Size(426, 30);
             this.txtName.TabIndex = 0;
             // 
+            // saleSource
+            // 
+            this.saleSource.DataSource = typeof(Dukan.Core.Models.Sale.SaleGridModel);
+            // 
             // txtDate
             // 
             this.txtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Date", true));
             this.txtDate.Location = new System.Drawing.Point(17, 46);
             this.txtDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDate.Name = "txtDate";
@@ -103,57 +110,10 @@ namespace Products.PL
             this.txtDate.Size = new System.Drawing.Size(239, 30);
             this.txtDate.TabIndex = 1;
             // 
-            // txtDiscount
-            // 
-            this.txtDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDiscount.Location = new System.Drawing.Point(383, 89);
-            this.txtDiscount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtDiscount.Properties.Appearance.Options.UseFont = true;
-            this.txtDiscount.Properties.ReadOnly = true;
-            this.txtDiscount.Size = new System.Drawing.Size(117, 30);
-            this.txtDiscount.TabIndex = 3;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPrice.Location = new System.Drawing.Point(607, 89);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtPrice.Properties.Appearance.Options.UseFont = true;
-            this.txtPrice.Properties.ReadOnly = true;
-            this.txtPrice.Size = new System.Drawing.Size(170, 30);
-            this.txtPrice.TabIndex = 2;
-            // 
-            // txtPaid
-            // 
-            this.txtPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPaid.Location = new System.Drawing.Point(607, 130);
-            this.txtPaid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPaid.Name = "txtPaid";
-            this.txtPaid.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtPaid.Properties.Appearance.Options.UseFont = true;
-            this.txtPaid.Properties.ReadOnly = true;
-            this.txtPaid.Size = new System.Drawing.Size(170, 30);
-            this.txtPaid.TabIndex = 5;
-            // 
-            // txtNetPrice
-            // 
-            this.txtNetPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNetPrice.Location = new System.Drawing.Point(17, 89);
-            this.txtNetPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNetPrice.Name = "txtNetPrice";
-            this.txtNetPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtNetPrice.Properties.Appearance.Options.UseFont = true;
-            this.txtNetPrice.Properties.ReadOnly = true;
-            this.txtNetPrice.Size = new System.Drawing.Size(117, 30);
-            this.txtNetPrice.TabIndex = 4;
-            // 
             // txtNumber
             // 
             this.txtNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Number", true));
             this.txtNumber.Location = new System.Drawing.Point(17, 130);
             this.txtNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNumber.Name = "txtNumber";
@@ -162,18 +122,6 @@ namespace Products.PL
             this.txtNumber.Properties.ReadOnly = true;
             this.txtNumber.Size = new System.Drawing.Size(117, 30);
             this.txtNumber.TabIndex = 7;
-            // 
-            // txtCharge
-            // 
-            this.txtCharge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCharge.Location = new System.Drawing.Point(351, 130);
-            this.txtCharge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCharge.Name = "txtCharge";
-            this.txtCharge.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtCharge.Properties.Appearance.Options.UseFont = true;
-            this.txtCharge.Properties.ReadOnly = true;
-            this.txtCharge.Size = new System.Drawing.Size(148, 30);
-            this.txtCharge.TabIndex = 6;
             // 
             // labelControl1
             // 
@@ -270,15 +218,18 @@ namespace Products.PL
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.groupControl1.Controls.Add(this.txtCharge);
+            this.groupControl1.Controls.Add(this.txtPaid);
+            this.groupControl1.Controls.Add(this.txtTotalAfterDiscount);
+            this.groupControl1.Controls.Add(this.txtTotal);
+            this.groupControl1.Controls.Add(this.txtDiscount);
             this.groupControl1.Controls.Add(this.txtProfit);
             this.groupControl1.Controls.Add(this.lblProfit);
             this.groupControl1.Controls.Add(this.lblTotalBuy);
             this.groupControl1.Controls.Add(this.txtTotalBuy);
-            this.groupControl1.Controls.Add(this.labelControl9);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.txtNumber);
             this.groupControl1.Controls.Add(this.labelControl8);
-            this.groupControl1.Controls.Add(this.txtCharge);
             this.groupControl1.Controls.Add(this.txtName);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.labelControl3);
@@ -286,11 +237,7 @@ namespace Products.PL
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.txtDate);
-            this.groupControl1.Controls.Add(this.txtPaid);
             this.groupControl1.Controls.Add(this.labelControl4);
-            this.groupControl1.Controls.Add(this.txtNetPrice);
-            this.groupControl1.Controls.Add(this.txtPrice);
-            this.groupControl1.Controls.Add(this.txtDiscount);
             this.groupControl1.Location = new System.Drawing.Point(11, 14);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl1.Name = "groupControl1";
@@ -298,6 +245,101 @@ namespace Products.PL
             this.groupControl1.Size = new System.Drawing.Size(874, 210);
             this.groupControl1.TabIndex = 16;
             this.groupControl1.Text = "بيانات الفاتورة";
+            // 
+            // txtCharge
+            // 
+            this.txtCharge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCharge.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Charge", true));
+            this.txtCharge.EditValue = "0";
+            this.txtCharge.Location = new System.Drawing.Point(366, 130);
+            this.txtCharge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCharge.Name = "txtCharge";
+            this.txtCharge.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCharge.Properties.Appearance.Options.UseFont = true;
+            this.txtCharge.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtCharge.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtCharge.Properties.Mask.EditMask = "f";
+            this.txtCharge.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtCharge.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtCharge.Properties.ReadOnly = true;
+            this.txtCharge.Size = new System.Drawing.Size(133, 32);
+            this.txtCharge.TabIndex = 25;
+            // 
+            // txtPaid
+            // 
+            this.txtPaid.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPaid.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Paid", true));
+            this.txtPaid.EditValue = "0";
+            this.txtPaid.Location = new System.Drawing.Point(644, 130);
+            this.txtPaid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPaid.Name = "txtPaid";
+            this.txtPaid.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPaid.Properties.Appearance.Options.UseFont = true;
+            this.txtPaid.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtPaid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtPaid.Properties.Mask.EditMask = "f";
+            this.txtPaid.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPaid.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtPaid.Properties.ReadOnly = true;
+            this.txtPaid.Size = new System.Drawing.Size(133, 32);
+            this.txtPaid.TabIndex = 24;
+            // 
+            // txtTotalAfterDiscount
+            // 
+            this.txtTotalAfterDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTotalAfterDiscount.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "TotalAfterDiscount", true));
+            this.txtTotalAfterDiscount.EditValue = "0";
+            this.txtTotalAfterDiscount.Location = new System.Drawing.Point(17, 89);
+            this.txtTotalAfterDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTotalAfterDiscount.Name = "txtTotalAfterDiscount";
+            this.txtTotalAfterDiscount.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalAfterDiscount.Properties.Appearance.Options.UseFont = true;
+            this.txtTotalAfterDiscount.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtTotalAfterDiscount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtTotalAfterDiscount.Properties.Mask.EditMask = "f";
+            this.txtTotalAfterDiscount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtTotalAfterDiscount.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtTotalAfterDiscount.Properties.ReadOnly = true;
+            this.txtTotalAfterDiscount.Size = new System.Drawing.Size(133, 32);
+            this.txtTotalAfterDiscount.TabIndex = 23;
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Total", true));
+            this.txtTotal.EditValue = "0";
+            this.txtTotal.Location = new System.Drawing.Point(644, 86);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Properties.Appearance.Options.UseFont = true;
+            this.txtTotal.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtTotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtTotal.Properties.Mask.EditMask = "f";
+            this.txtTotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtTotal.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtTotal.Properties.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(133, 32);
+            this.txtTotal.TabIndex = 22;
+            // 
+            // txtDiscount
+            // 
+            this.txtDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDiscount.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Discount", true));
+            this.txtDiscount.EditValue = 0D;
+            this.txtDiscount.Location = new System.Drawing.Point(400, 89);
+            this.txtDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscount.Properties.Appearance.Options.UseFont = true;
+            this.txtDiscount.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtDiscount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtDiscount.Properties.Mask.EditMask = "p0";
+            this.txtDiscount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDiscount.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtDiscount.Properties.ReadOnly = true;
+            this.txtDiscount.Size = new System.Drawing.Size(99, 32);
+            this.txtDiscount.TabIndex = 21;
             // 
             // txtProfit
             // 
@@ -344,17 +386,6 @@ namespace Products.PL
             this.txtTotalBuy.Properties.ReadOnly = true;
             this.txtTotalBuy.Size = new System.Drawing.Size(170, 30);
             this.txtTotalBuy.TabIndex = 17;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.labelControl9.Location = new System.Drawing.Point(351, 86);
-            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(26, 33);
-            this.labelControl9.TabIndex = 16;
-            this.labelControl9.Text = "%";
             // 
             // gridControl1
             // 
@@ -413,16 +444,17 @@ namespace Products.PL
             this.Text = "عرض تفاصيل الفاتورة";
             this.Load += new System.EventHandler(this.FormShowOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPaid.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNetPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCharge.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCharge.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPaid.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalAfterDiscount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProfit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalBuy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -438,12 +470,7 @@ namespace Products.PL
 
         private TextEdit txtName;
         private TextEdit txtDate;
-        private TextEdit txtDiscount;
-        private TextEdit txtPrice;
-        private TextEdit txtPaid;
-        private TextEdit txtNetPrice;
         private TextEdit txtNumber;
-        private TextEdit txtCharge;
         private LabelControl labelControl1;
         private LabelControl labelControl2;
         private LabelControl labelControl3;
@@ -453,7 +480,6 @@ namespace Products.PL
         private LabelControl labelControl7;
         private LabelControl labelControl8;
         private GroupControl groupControl1;
-        private LabelControl labelControl9;
         private GridControl gridControl1;
         private GridView gridView1;
         private GroupControl groupControl2;
@@ -462,5 +488,11 @@ namespace Products.PL
         private LabelControl lblTotalBuy;
         private TextEdit txtTotalBuy;
         private System.Windows.Forms.BindingSource purchaseSource;
+        private System.Windows.Forms.BindingSource saleSource;
+        private TextEdit txtDiscount;
+        private TextEdit txtTotal;
+        private TextEdit txtTotalAfterDiscount;
+        private TextEdit txtPaid;
+        private TextEdit txtCharge;
     }
 }
