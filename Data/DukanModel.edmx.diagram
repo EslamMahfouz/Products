@@ -19,12 +19,12 @@
         <AssociationConnector Association="ProductsModel.FK_SalesPayments_Sales" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ProductsModel.Supplier" Width="1.5" PointX="7.75" PointY="5.875" />
         <EntityTypeShape EntityType="ProductsModel.PurchasePayment" Width="1.5" PointX="12.25" PointY="6.75" />
-        <EntityTypeShape EntityType="ProductsModel.Purchase" Width="1.5" PointX="10" PointY="5.5" />
-        <AssociationConnector Association="ProductsModel.FK_PurchasePayments_Purchases" />
-        <AssociationConnector Association="ProductsModel.FK_Purchases_Suppliers" />
         <EntityTypeShape EntityType="ProductsModel.PurchaseDetail" Width="1.5" PointX="12.25" PointY="2.125" />
         <AssociationConnector Association="ProductsModel.FK_PurchasesDetails_Products" />
+        <EntityTypeShape EntityType="ProductsModel.Purchase" Width="1.5" PointX="10" PointY="5.625" />
         <AssociationConnector Association="ProductsModel.FK_PurchasesDetails_Purchases" />
+        <AssociationConnector Association="ProductsModel.FK_PurchasePayments_Purchases" />
+        <AssociationConnector Association="ProductsModel.FK_Purchases_Suppliers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

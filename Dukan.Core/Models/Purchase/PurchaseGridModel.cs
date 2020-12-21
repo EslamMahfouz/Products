@@ -23,6 +23,9 @@ namespace Dukan.Core.Models.Purchase
         [DisplayName("التاريخ")]
         public DateTime? Date { get; set; }
 
+        [DisplayName("المورد")]
+        public string SupplierName { get; set; }
+
         [DisplayName("الإجمالي")]
         public double Total => PurchaseDetails.Sum(s => s.TotalAfterDiscount);
 

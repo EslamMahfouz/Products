@@ -6,6 +6,9 @@ namespace Dukan.Core.Models.Purchase
 
     public class PurchasePaymentModel
     {
+        [Browsable(false)]
+        public int Id { get; set; }
+
         [DisplayName("التاريخ")]
         public DateTime? Date { get; set; }
 

@@ -31,6 +31,11 @@ namespace Dukan.Core.Repository
             return lastOrder != null ? (lastOrder.Number + 1).ToString() : "1";
         }
 
+        public Purchase GetPurchaseByDateAndNumber(DateTime date, int number)
+        {
+            return Get(p => TruncateTime(p.Date) == TruncateTime(date) && p.Number == number);
+        }
+
         public IEnumerable<PurchaseGridModel> GetSupplierPurchases(int supplierId)
         {
             var purchases = GetAll(s => s.SupplierId == supplierId, null, "PurchasePayments, PurchaseDetails");

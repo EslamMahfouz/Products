@@ -69,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Custom.cs" />
-    <Compile Include="Models\Purchase\AddSaleDetailGridModel.cs" />
+    <Compile Include="Models\Purchase\AddPurchaseDetailGridModel.cs" />
     <Compile Include="Models\Purchase\PurchaseGridModel.cs" />
     <Compile Include="Models\Purchase\PurchaseDetailGridModel.cs" />
     <Compile Include="Models\Purchase\PurchasePaymentModel.cs" />

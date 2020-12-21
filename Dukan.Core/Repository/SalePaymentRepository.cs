@@ -3,6 +3,8 @@ using Dukan.Core.Models.Sale;
 using Dukan.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using static System.Data.Entity.DbFunctions;
 
 namespace Dukan.Core.Repository
 {
@@ -26,6 +28,7 @@ namespace Dukan.Core.Repository
             var payments = GetAll(p => p.SaleId == saleId);
             return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<SalePaymentModel>>(payments);
         }
+
 
         public void AddIncome(int saleId, double paid)
         {
@@ -51,6 +54,15 @@ namespace Dukan.Core.Repository
                     Type = "مرتجع"
                 });
             }
+        }
+
+        public IEnumerable<SalePaymentModel> GetSalePaymentsByDate(DateTime fromDate, DateTime toDate)
+        {
+            var payments = GetAll(p => TruncateTime(p.Date) >= fromDate && TruncateTime(p.Date) <= toDate,
+                    o => o.OrderBy(p => new { p.Date, p.Sale.Number }),
+                    "Sale")
+                .ToList();
+            return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<SalePaymentModel>>(payments);
         }
 
         #endregion

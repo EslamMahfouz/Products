@@ -34,7 +34,7 @@ namespace Dukan.Data
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<PurchasePayment> PurchasePayments { get; set; }
-        public virtual DbSet<Purchase> Purchases { get; set; }
         public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
+        public virtual DbSet<Purchase> Purchases { get; set; }
     }
 }
