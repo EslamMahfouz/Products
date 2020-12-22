@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Dukan.Core.Models.Sale;
 using Dukan.Data;
+using System;
 using System.Collections.Generic;
+using static System.Data.Entity.DbFunctions;
 
 namespace Dukan.Core.Repository
 {
@@ -25,6 +27,14 @@ namespace Dukan.Core.Repository
             var saleDetails = GetAll(sd => sd.SaleId == saleId, null, "Product");
             return Mapper.Map<IEnumerable<SaleDetail>, IEnumerable<SaleDetailGridModel>>(saleDetails);
         }
+
+        public IEnumerable<SaleDetailGridModel> GetSaleDetailsForProduct(int productId, DateTime fromDate, DateTime toDate)
+        {
+            var saleDetails = GetAll(x => TruncateTime(x.Sale.Date) >= TruncateTime(fromDate) &&
+                                TruncateTime(x.Sale.Date) <= TruncateTime(toDate) && x.ProductId == productId, null, "Product");
+            return Mapper.Map<IEnumerable<SaleDetail>, IEnumerable<SaleDetailGridModel>>(saleDetails);
+        }
+
 
         public IEnumerable<ProductReturnModel> GetSaleProducts(int saleId)
         {
