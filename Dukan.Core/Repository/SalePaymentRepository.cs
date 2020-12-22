@@ -29,7 +29,6 @@ namespace Dukan.Core.Repository
             return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<SalePaymentModel>>(payments);
         }
 
-
         public void AddIncome(int saleId, decimal paid)
         {
             Insert(new SalePayment
@@ -65,6 +64,11 @@ namespace Dukan.Core.Repository
             return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<SalePaymentModel>>(payments);
         }
 
+        public decimal GetTotalPaymentsForADay(DateTime date)
+        {
+            var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date));
+            return payments.Sum(p => p.Paid);
+        }
         #endregion
     }
 }

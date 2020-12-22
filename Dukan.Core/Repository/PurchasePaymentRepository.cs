@@ -26,6 +26,12 @@ namespace Dukan.Core.Repository
             return AutoMapper.Mapper.Map<IEnumerable<PurchasePayment>, IEnumerable<PurchasePaymentModel>>(payments);
         }
 
+        public decimal GetTotalPaymentsForADay(DateTime date)
+        {
+            var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date));
+            return payments.Sum(p => p.Paid);
+        }
+
         #endregion
     }
 }
