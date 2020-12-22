@@ -11,19 +11,19 @@ namespace Dukan.Core.Models.Sale
         public string ProductName { get; set; }
 
         [DisplayName("السعر")]
-        public double ProductSell { get; set; }
+        public decimal ProductSell { get; set; }
 
         [DisplayName("الكمية")]
         public int Qte { get; set; }
 
         [DisplayName("الإجمالي")]
-        public double Total { get; set; }
+        public decimal Total { get; set; }
 
         [DisplayName("الخصم")]
-        public double Discount { get; set; }
+        public decimal Discount { get; set; }
 
         [DisplayName("الإجمالي بعد الخصم")]
-        public double TotalAfterDiscount { get; set; }
+        public decimal TotalAfterDiscount { get; set; }
 
         [DisplayName("مرتجع")]
         public bool IsReturned { get; set; }

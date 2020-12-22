@@ -17,22 +17,20 @@ namespace Dukan.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Purchase()
         {
-            this.PurchasePayments = new HashSet<PurchasePayment>();
             this.PurchaseDetails = new HashSet<PurchaseDetail>();
+            this.PurchasePayments = new HashSet<PurchasePayment>();
         }
     
         public int Id { get; set; }
         public int SupplierId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public int Number { get; set; }
-        public Nullable<double> Total { get; set; }
-        public Nullable<double> Discount { get; set; }
-        public Nullable<double> TotalAfterDiscount { get; set; }
+        public Nullable<decimal> Discount { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchasePayment> PurchasePayments { get; set; }
         public virtual Supplier Supplier { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
     }
 }

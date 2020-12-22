@@ -11,10 +11,10 @@ namespace Dukan.Core.Models.Product
         public string Name { get; set; }
 
         [DisplayName("سعر الشراء")]
-        public double Buy { get; set; }
+        public decimal Buy { get; set; }
 
         [DisplayName("سعر البيع")]
-        public double Sell { get; set; }
+        public decimal Sell { get; set; }
 
         [DisplayName("الكمية المتوفرة")]
         public int Qte { get; set; }

@@ -235,7 +235,6 @@ namespace Products.PL
             this.navBarGroup4.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup4.Appearance.Options.UseFont = true;
             this.navBarGroup4.Caption = "الفواتير";
-            this.navBarGroup4.Expanded = true;
             this.navBarGroup4.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddPurchase),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddSale)});
@@ -262,6 +261,7 @@ namespace Products.PL
             this.navBarGroup5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup5.Appearance.Options.UseFont = true;
             this.navBarGroup5.Caption = "تقارير";
+            this.navBarGroup5.Expanded = true;
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnPurchasesReports),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnSalesReports),

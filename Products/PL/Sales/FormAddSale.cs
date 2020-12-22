@@ -39,8 +39,8 @@ namespace Products.PL.Sales
         {
             try
             {
-                var sellPrice = Math.Round(Convert.ToDecimal(TxtSell.Text), 2);
-                var discount = Math.Round(Convert.ToDecimal(TxtPrdDiscount.EditValue), 2);
+                var sellPrice = Convert.ToDecimal(TxtSell.Text);
+                var discount = Convert.ToDecimal(TxtPrdDiscount.EditValue);
                 var qte = Convert.ToInt32(TxtQte.Text);
 
                 var prdTotal = sellPrice * qte;
@@ -57,14 +57,14 @@ namespace Products.PL.Sales
 
         private void CalculateTotal()
         {
-            txtTotal.Text = _saleDetails.Sum(s => Math.Round(Convert.ToDouble(s.TotalAfterDiscount), 2))
+            txtTotal.Text = _saleDetails.Sum(s => Convert.ToDouble(s.TotalAfterDiscount))
                 .ToString(CultureInfo.CurrentCulture);
         }
 
         private void CalculateDiscount()
         {
-            var result = Math.Round(Convert.ToDouble(txtTotal.Text), 2);
-            var discount = Math.Round(Convert.ToDouble(txtDiscount.EditValue), 2);
+            var result = Convert.ToDouble(txtTotal.Text);
+            var discount = Convert.ToDouble(txtDiscount.EditValue);
             var total = result * (1 - discount);
             txtTotalAfterDiscount.Text = total.ToString(CultureInfo.CurrentCulture);
 
@@ -154,7 +154,7 @@ namespace Products.PL.Sales
             {
                 var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(CmbProducts.EditValue));
                 var productSell = product?.Sell;
-                var newPrice = Convert.ToDouble(TxtSell.Text);
+                var newPrice = Convert.ToDecimal(TxtSell.Text);
                 // ReSharper disable once CompareOfFloatsByEqualityOperator
                 if (productSell == newPrice)
                 {
@@ -183,20 +183,21 @@ namespace Products.PL.Sales
                     _sale.CustomerId = Convert.ToInt32(CmbCustomers.EditValue);
                     _sale.Date = Convert.ToDateTime(deDate.EditValue);
                     _sale.Number = Convert.ToInt32(lblOrderID.Text);
-                    _sale.Discount = Convert.ToDouble(txtDiscount.EditValue);
+                    _sale.Discount = Convert.ToDecimal(txtDiscount.EditValue);
 
                     if (Convert.ToDouble(txtPaid.Text) > 0)
                     {
                         _sale.SalePayments.Add(new SalePayment
                         {
                             Date = Convert.ToDateTime(deDate.EditValue),
-                            Paid = Convert.ToDouble(txtPaid.Text),
+                            Paid = Convert.ToDecimal(txtPaid.Text),
                             Type = "إيراد"
                         });
                     }
 
                     var saleDetails =
                         Mapper.Map<IEnumerable<AddSaleDetailGridModel>, IEnumerable<SaleDetail>>(_saleDetails);
+
                     saleDetails.ForEach(sd => _sale.SaleDetails.Add(sd));
                     foreach (var saleDetail in _saleDetails)
                     {
@@ -244,12 +245,12 @@ namespace Products.PL.Sales
                 {
                     ProductId = Convert.ToInt32(CmbProducts.EditValue),
                     Name = CmbProducts.Text,
-                    ProductSell = Convert.ToDouble(TxtSell.Text),
-                    ProductBuy = Convert.ToDouble(product.Buy),
+                    ProductSell = Convert.ToDecimal(TxtSell.Text),
+                    ProductBuy = Convert.ToDecimal(product.Buy),
                     Qte = Convert.ToInt32(TxtQte.Text),
-                    Total = Convert.ToDouble(txtPrdTotal.Text),
-                    Discount = Convert.ToDouble(TxtPrdDiscount.EditValue),
-                    TotalAfterDiscount = Convert.ToDouble(txtPrdTotalAfterDiscount.Text)
+                    Total = Convert.ToDecimal(txtPrdTotal.Text),
+                    Discount = Convert.ToDecimal(TxtPrdDiscount.EditValue),
+                    TotalAfterDiscount = Convert.ToDecimal(txtPrdTotalAfterDiscount.Text)
                 });
                 gridControlItems.RefreshDataSource();
                 CalculateTotal();

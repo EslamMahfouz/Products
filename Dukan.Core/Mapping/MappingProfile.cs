@@ -54,19 +54,27 @@ namespace Dukan.Core.Mapping
 
             #endregion
 
+            #region Purchase
+
+            CreateMap<Purchase, PurchaseGridModel>();
+            CreateMap<PurchaseDetail, AddPurchaseDetailGridModel>();
+            #endregion
+
             #region Purchase details
 
             CreateMap<AddPurchaseDetailGridModel, PurchaseDetail>()
                 .ForMember(d => d.ReturnedQte, o => o.MapFrom(s => 0));
 
             #endregion
+
+            #region Purchase payments
+
+            CreateMap<PurchasePayment, PurchasePaymentModel>()
+                .ForMember(d => d.Number, o => o.MapFrom(s => s.Purchase.Number));
+
+            #endregion
+
             #region Sale
-
-            //CreateMap<Sale, SaleModel>()
-
-            //    //.ForMember(d => d.Charge, o => o.MapFrom(s => s.SaleDetail.Sum - s.SalePayments.Sum(p => p.Paid)))
-            //    .ForMember(d => d.Paid, o => o.MapFrom(s => s.SalePayments.Sum(p => p.Paid)));
-
             CreateMap<Sale, SaleGridModel>();
 
             CreateMap<Sale, SaleReportModel>()
@@ -96,6 +104,14 @@ namespace Dukan.Core.Mapping
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Id))
                 .ForMember(d => d.Name, o => o.MapFrom(s => s.Product.Name))
                 .ForMember(d => d.Qte, o => o.MapFrom(s => s.Qte - s.ReturnedQte));
+
+
+            #endregion
+
+            #region Sale payments
+
+            CreateMap<SalePayment, SalePaymentModel>()
+                .ForMember(d => d.Number, o => o.MapFrom(s => s.Sale.Number));
 
 
             #endregion

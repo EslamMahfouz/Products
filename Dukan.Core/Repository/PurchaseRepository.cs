@@ -31,10 +31,21 @@ namespace Dukan.Core.Repository
             return lastOrder != null ? (lastOrder.Number + 1).ToString() : "1";
         }
 
+        public Purchase GetPurchaseByDateAndNumber(DateTime date, int number)
+        {
+            return Get(p => TruncateTime(p.Date) == TruncateTime(date) && p.Number == number);
+        }
+
         public IEnumerable<PurchaseGridModel> GetSupplierPurchases(int supplierId)
         {
             var purchases = GetAll(s => s.SupplierId == supplierId, null, "PurchasePayments, PurchaseDetails");
             return Mapper.Map<IEnumerable<Purchase>, IEnumerable<PurchaseGridModel>>(purchases);
+        }
+
+        public PurchaseGridModel GetPurchaseById(int id)
+        {
+            var purchase = Get(id);
+            return Mapper.Map<Purchase, PurchaseGridModel>(purchase);
         }
 
         //public SaleReport GetSaleReport(int saleId)

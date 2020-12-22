@@ -17,10 +17,10 @@ namespace Dukan.Data
         public int Id { get; set; }
         public int PurchaseId { get; set; }
         public int ProductId { get; set; }
-        public Nullable<double> ProductBuy { get; set; }
-        public Nullable<double> ProductSell { get; set; }
+        public Nullable<decimal> ProductBuy { get; set; }
+        public Nullable<decimal> ProductSell { get; set; }
         public Nullable<int> Qte { get; set; }
-        public Nullable<double> Discount { get; set; }
+        public Nullable<decimal> Discount { get; set; }
         public Nullable<int> ReturnedQte { get; set; }
     
         public virtual Product Product { get; set; }

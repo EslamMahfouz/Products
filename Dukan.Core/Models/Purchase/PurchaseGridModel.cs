@@ -23,20 +23,23 @@ namespace Dukan.Core.Models.Purchase
         [DisplayName("التاريخ")]
         public DateTime? Date { get; set; }
 
+        [DisplayName("المورد")]
+        public string SupplierName { get; set; }
+
         [DisplayName("الإجمالي")]
-        public double Total => PurchaseDetails.Sum(s => s.TotalAfterDiscount);
+        public decimal Total => PurchaseDetails.Sum(s => s.TotalAfterDiscount);
 
         [DisplayName("الخصم")]
-        public double Discount { get; set; }
+        public decimal Discount { get; set; }
 
         [DisplayName("الإجمالي بعد الخصم")]
-        public double TotalAfterDiscount => Total * (1 - Discount);
+        public decimal TotalAfterDiscount => Total * (1 - Discount);
 
         [DisplayName("المدفوع")]
-        public double? Paid => PurchasePayments.Where(p => p.Type == "إيراد").Sum(p => p.Paid)
+        public decimal? Paid => PurchasePayments.Where(p => p.Type == "مصروف").Sum(p => p.Paid)
                                - PurchasePayments.Where(p => p.Type == "مرتجع").Sum(p => p.Paid);
 
         [DisplayName("المتبقي")]
-        public double? Charge => TotalAfterDiscount - Paid;
+        public decimal? Charge => TotalAfterDiscount - Paid;
     }
 }

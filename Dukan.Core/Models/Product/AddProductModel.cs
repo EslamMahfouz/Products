@@ -4,8 +4,8 @@
     {
         public int? CategoryId { get; set; }
         public string Name { get; set; }
-        public double Buy { get; set; }
-        public double Sell { get; set; }
+        public decimal Buy { get; set; }
+        public decimal Sell { get; set; }
         public int Qte { get; set; }
         public int Minimum { get; set; }
     }

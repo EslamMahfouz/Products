@@ -8,6 +8,7 @@ using DevExpress.XtraTabbedMdi;
 using Dukan.Data;
 using Products.PL.Customers;
 using Products.PL.Products;
+using Products.PL.Purchases;
 using Products.PL.Sales;
 using Products.PL.Suppliers;
 using Products.Properties;

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace Dukan.Core.Models.Sale
 {
@@ -10,22 +11,31 @@ namespace Dukan.Core.Models.Sale
         [DisplayName("المنتج")]
         public string ProductName { get; set; }
 
-        [DisplayName("السعر")]
-        public double ProductSell { get; set; }
+        [DisplayName("سعر الشراء")]
+        public decimal ProductBuy { get; set; }
+
+        [DisplayName("سعر البيع")]
+        public decimal ProductSell { get; set; }
 
         [DisplayName("الكمية")]
         public int Qte { get; set; }
 
-        [DisplayName("الإجمالي")]
-        public double Total => ProductSell * Qte;
+        [DisplayName("إجمالي سعر البيع")]
+        public decimal Total => ProductSell * Qte;
 
         [DisplayName("الخصم")]
-        public double Discount { get; set; }
+        public decimal Discount { get; set; }
 
         [DisplayName("الكمية المرتجعة")]
         public int ReturnedQte { get; set; }
 
         [DisplayName(" الإجمالي بعد الخصم والمرتجع")]
-        public double TotalAfterDiscount => ProductSell * (Qte - ReturnedQte) * (1 - Discount);
+        public decimal TotalAfterDiscount => Math.Round(ProductSell * (Qte - ReturnedQte) * (1 - Discount), 2);
+
+        [DisplayName("إجمالي سعر الشراء")]
+        public decimal TotalBuy => Math.Round(ProductBuy * (Qte - ReturnedQte), 2);
+
+        [DisplayName("صافي الربح")]
+        public decimal Profit => Math.Round(TotalAfterDiscount - TotalBuy, 2);
     }
 }
