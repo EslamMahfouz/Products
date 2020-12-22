@@ -30,7 +30,7 @@ namespace Dukan.Core.Repository
         }
 
 
-        public void AddIncome(int saleId, double paid)
+        public void AddIncome(int saleId, decimal paid)
         {
             Insert(new SalePayment
             {
@@ -41,7 +41,7 @@ namespace Dukan.Core.Repository
             });
         }
 
-        public void AddExpense(int saleDetailId, double paid)
+        public void AddExpense(int saleDetailId, decimal paid)
         {
             var saleId = _context.SaleDetails.Find(saleDetailId)?.SaleId;
             if (saleId != null)

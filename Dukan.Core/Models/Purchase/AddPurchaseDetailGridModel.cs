@@ -11,21 +11,21 @@ namespace Dukan.Core.Models.Purchase
         public string Name { get; set; }
 
         [Browsable(false)]
-        public double ProductSell { get; set; }
+        public decimal ProductSell { get; set; }
 
         [DisplayName("السعر")]
-        public double ProductBuy { get; set; }
+        public decimal ProductBuy { get; set; }
 
         [DisplayName("الكمية")]
         public int? Qte { get; set; }
 
         [DisplayName("الإجمالي")]
-        public double Total { get; set; }
+        public decimal Total { get; set; }
 
         [DisplayName("الخصم")]
-        public double Discount { get; set; }
+        public decimal Discount { get; set; }
 
         [DisplayName("الإجمالي بعد الخصم")]
-        public double TotalAfterDiscount { get; set; }
+        public decimal TotalAfterDiscount { get; set; }
     }
 }

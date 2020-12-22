@@ -16,7 +16,7 @@ namespace Dukan.Core.Models.Sale
         public int Number { get; set; }
 
         [DisplayName("المدفوع")]
-        public double Paid { get; set; }
+        public decimal Paid { get; set; }
 
         [DisplayName("نوع السداد")]
         public string Type { get; set; }

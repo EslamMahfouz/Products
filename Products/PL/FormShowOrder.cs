@@ -1,6 +1,7 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using Dukan.Core;
 using Dukan.Core.UnitOfWork;
 using Dukan.Data;
 using System;
@@ -64,26 +65,12 @@ namespace Products.PL
 
                 var sale = UnitOfWork.Instance.Sales.GetSaleById(Id);
                 saleSource.DataSource = sale;
-                //txtTotalBuy.Text = Convert.ToString(product.SaleBuyPrice);
-                //txtProfit.Text = Convert.ToString(product.SaleNetPrice - product.SaleBuyPrice);
 
-                //var sales = from x in db.SaleDetails
-                //            where x.Id == ID
-                //            select new
-                //            {
-                //                المنتج = x.Product.ProductName
-                //                //سعر_الشراء = x.ProductBuy,
-                //                //سعر_البيع = x.ProductSell,
-                //                //العدد = x.ProductQte,
-                //                //إجمالي_الشراء = x.ProductBuyPrice,
-                //                //إجمالي_البيع = x.ProductPrice,
-                //                //الخصم = x.ProductDiscount,
-                //                //الإجمالي_بعد_الخصم = x.ProductNetPrice,
-                //                //الربح = x.ProductNetPrice - x.ProductBuyPrice
-                //            };
-                //gridControl1.DataSource = sales.ToList();
-                //gridView1.BestFitColumns();
-                //gridView1.Columns["الربح"].Width = 150;
+                gridControl1.DataSource = sale.SaleDetails;
+                gridView1.Initialize();
+                var textEdit = Custom.GetTextEditRepositoryItem();
+                gridView1.Columns["Discount"].ColumnEdit = textEdit;
+
                 //gridView1.Columns["الربح"].Summary.Add(SummaryItemType.Sum, "الربح", "الإجمالي ={0:n2}");
 
             }

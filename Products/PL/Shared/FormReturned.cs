@@ -77,7 +77,7 @@ namespace Products.PL.Shared
         {
             var id = Convert.ToInt32(cmbProducts.EditValue);
             var qte = Convert.ToInt32(txtQte.Text);
-            var total = Convert.ToDouble(txtTotal.Text);
+            var total = Convert.ToDecimal(txtTotal.Text);
 
             _unitOfWork.SaleDetails.ReturnProduct(id, qte);
             _unitOfWork.SalePayments.AddExpense(id, total);

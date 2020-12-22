@@ -17,7 +17,7 @@ namespace Dukan.Data
         public int Id { get; set; }
         public int SaleId { get; set; }
         public System.DateTime Date { get; set; }
-        public double Paid { get; set; }
+        public decimal Paid { get; set; }
         public string Type { get; set; }
     
         public virtual Sale Sale { get; set; }

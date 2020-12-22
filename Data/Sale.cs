@@ -25,7 +25,7 @@ namespace Dukan.Data
         public int CustomerId { get; set; }
         public System.DateTime Date { get; set; }
         public int Number { get; set; }
-        public double Discount { get; set; }
+        public decimal Discount { get; set; }
     
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -215,12 +215,12 @@ namespace Products.PL.Suppliers
 
                 var today = DateTime.Now;
                 var supplier = db.Suppliers.Find(Convert.ToInt32(cmbSuplierDetails.EditValue));
-                if (Convert.ToDouble(txtPaid.Text) != 0)
+                if (Convert.ToDecimal(txtPaid.Text) != 0)
                 {
                     var pp = new PurchasePayment
                     {
                         //purchasesPayments table
-                        Paid = Convert.ToDouble(txtPaid.Text),
+                        Paid = Convert.ToDecimal(txtPaid.Text),
                         Date = Convert.ToDateTime(today),
                         Type = "سداد باقى قديم",
                     };
@@ -263,7 +263,7 @@ namespace Products.PL.Suppliers
                     var pp = new PurchasePayment
                     {
                         //salesPayments table
-                        Paid = Convert.ToDouble(txtPaidOrder.Text),
+                        Paid = Convert.ToDecimal(txtPaidOrder.Text),
                         Date = Convert.ToDateTime(today),
                         Type = "سداد فاتورة شراء قديمة",
                     };

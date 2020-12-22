@@ -175,8 +175,8 @@ namespace Products.PL.Customers
             try
             {
                 var saleId = Convert.ToInt32(gridView2.GetFocusedRowCellValue("Id"));
-                var charge = Convert.ToDouble(gridView2.GetFocusedRowCellValue("Charge"));
-                var paid = Convert.ToDouble(txtPaid.Text);
+                var charge = Convert.ToDecimal(gridView2.GetFocusedRowCellValue("Charge"));
+                var paid = Convert.ToDecimal(txtPaid.Text);
                 if (Math.Abs(paid) <= 0 || paid > charge)
                 {
                     XtraMessageBox.Show("قيمة غير مناسبة", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -188,7 +188,7 @@ namespace Products.PL.Customers
                 CmbCustomers_EditValueChanged(sender, e);
                 PayOrderBox(false);
 
-                charge = Convert.ToDouble(gridView2.GetFocusedRowCellValue("Charge"));
+                charge = Convert.ToDecimal(gridView2.GetFocusedRowCellValue("Charge"));
                 btnPay.Visible = Math.Abs(charge) > 0;
             }
             catch (Exception ex)

@@ -34,8 +34,8 @@ namespace Products.PL
         {
             try
             {
-                var buyPrice = Math.Round(Convert.ToDecimal(txtBuy.Text), 2);
-                var discount = Math.Round(Convert.ToDecimal(txtPrdDiscount.EditValue), 2);
+                var buyPrice = Convert.ToDecimal(txtBuy.Text);
+                var discount = Convert.ToDecimal(txtPrdDiscount.EditValue);
                 var qte = Convert.ToInt32(txtQte.Text);
 
                 var prdTotal = buyPrice * qte;
@@ -52,14 +52,14 @@ namespace Products.PL
 
         private void CalculateTotal()
         {
-            txtTotal.Text = _purchaseDetails.Sum(s => Math.Round(Convert.ToDouble(s.TotalAfterDiscount), 2))
+            txtTotal.Text = _purchaseDetails.Sum(s => Convert.ToDouble(s.TotalAfterDiscount))
                 .ToString(CultureInfo.CurrentCulture);
         }
 
         private void CalculateDiscount()
         {
-            var result = Math.Round(Convert.ToDouble(txtTotal.Text), 2);
-            var discount = Math.Round(Convert.ToDouble(txtDiscount.EditValue), 2);
+            var result = Convert.ToDouble(txtTotal.Text);
+            var discount = Convert.ToDouble(txtDiscount.EditValue);
             var total = result * (1 - discount);
             txtTotalAfterDiscount.Text = total.ToString(CultureInfo.CurrentCulture);
 
@@ -132,7 +132,7 @@ namespace Products.PL
             {
                 var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(cmbProducts.EditValue));
                 var productBuy = product?.Buy;
-                var newPrice = Convert.ToDouble(txtBuy.Text);
+                var newPrice = Convert.ToDecimal(txtBuy.Text);
                 // ReSharper disable once CompareOfFloatsByEqualityOperator
                 if (productBuy == newPrice)
                 {
@@ -162,7 +162,7 @@ namespace Products.PL
             {
                 var product = UnitOfWork.Instance.Products.Get(Convert.ToInt32(cmbProducts.EditValue));
                 var productSell = product?.Sell;
-                var newPrice = Convert.ToDouble(txtSell.Text);
+                var newPrice = Convert.ToDecimal(txtSell.Text);
                 // ReSharper disable once CompareOfFloatsByEqualityOperator
                 if (productSell == newPrice)
                 {
@@ -218,12 +218,12 @@ namespace Products.PL
             {
                 ProductId = Convert.ToInt32(cmbProducts.EditValue),
                 Name = cmbProducts.Text,
-                ProductSell = Convert.ToDouble(txtSell.Text),
-                ProductBuy = Convert.ToDouble(product.Buy),
+                ProductSell = Convert.ToDecimal(txtSell.Text),
+                ProductBuy = Convert.ToDecimal(product.Buy),
                 Qte = Convert.ToInt32(txtQte.Text),
-                Total = Convert.ToDouble(txtPrdTotal.Text),
-                Discount = Convert.ToDouble(txtPrdDiscount.EditValue),
-                TotalAfterDiscount = Convert.ToDouble(txtPrdTotalAfterDiscount.Text)
+                Total = Convert.ToDecimal(txtPrdTotal.Text),
+                Discount = Convert.ToDecimal(txtPrdDiscount.EditValue),
+                TotalAfterDiscount = Convert.ToDecimal(txtPrdTotalAfterDiscount.Text)
             });
             gridControlItems.RefreshDataSource();
             CalculateTotal();
@@ -286,14 +286,14 @@ namespace Products.PL
                     _purchase.SupplierId = Convert.ToInt32(cmbSuppliers.EditValue);
                     _purchase.Date = Convert.ToDateTime(deDate.EditValue);
                     _purchase.Number = Convert.ToInt32(lblOrderID.Text);
-                    _purchase.Discount = Convert.ToDouble(txtDiscount.EditValue);
+                    _purchase.Discount = Convert.ToDecimal(txtDiscount.EditValue);
 
                     if (Convert.ToDouble(txtPaid.Text) > 0)
                     {
                         _purchase.PurchasePayments.Add(new PurchasePayment
                         {
                             Date = Convert.ToDateTime(deDate.EditValue),
-                            Paid = Convert.ToDouble(txtPaid.Text),
+                            Paid = Convert.ToDecimal(txtPaid.Text),
                             Type = "مصروف"
                         });
                     }

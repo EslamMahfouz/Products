@@ -27,19 +27,19 @@ namespace Dukan.Core.Models.Sale
         public string CustomerName { get; set; }
 
         [DisplayName("الإجمالي")]
-        public double Total => Math.Round(SaleDetails.Sum(s => s.TotalAfterDiscount), 2);
+        public decimal Total => SaleDetails.Sum(s => s.TotalAfterDiscount);
 
         [DisplayName("الخصم")]
-        public double Discount { get; set; }
+        public decimal Discount { get; set; }
 
         [DisplayName("الإجمالي بعد الخصم")]
-        public double TotalAfterDiscount => Math.Round(Total * (1 - Discount), 2);
+        public decimal TotalAfterDiscount => Total * (1 - Discount);
 
         [DisplayName("المدفوع")]
-        public double? Paid => Math.Round(SalePayments.Where(p => p.Type == "إيراد").Sum(p => p.Paid)
-                               - SalePayments.Where(p => p.Type == "مرتجع").Sum(p => p.Paid), 2);
+        public decimal? Paid => SalePayments.Where(p => p.Type == "إيراد").Sum(p => p.Paid)
+                               - SalePayments.Where(p => p.Type == "مرتجع").Sum(p => p.Paid);
 
         [DisplayName("المتبقي")]
-        public double? Charge => TotalAfterDiscount - Paid;
+        public decimal? Charge => TotalAfterDiscount - Paid;
     }
 }

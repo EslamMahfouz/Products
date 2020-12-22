@@ -84,13 +84,13 @@ namespace Products.PL
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "CustomerName", true));
-            this.txtName.Location = new System.Drawing.Point(351, 46);
+            this.txtName.Location = new System.Drawing.Point(521, 46);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtName.Properties.Appearance.Options.UseFont = true;
             this.txtName.Properties.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(426, 30);
+            this.txtName.Size = new System.Drawing.Size(256, 30);
             this.txtName.TabIndex = 0;
             // 
             // saleSource
@@ -101,7 +101,7 @@ namespace Products.PL
             // 
             this.txtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Date", true));
-            this.txtDate.Location = new System.Drawing.Point(17, 46);
+            this.txtDate.Location = new System.Drawing.Point(209, 46);
             this.txtDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDate.Name = "txtDate";
             this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -114,13 +114,13 @@ namespace Products.PL
             // 
             this.txtNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Number", true));
-            this.txtNumber.Location = new System.Drawing.Point(17, 130);
+            this.txtNumber.Location = new System.Drawing.Point(21, 46);
             this.txtNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtNumber.Properties.Appearance.Options.UseFont = true;
             this.txtNumber.Properties.ReadOnly = true;
-            this.txtNumber.Size = new System.Drawing.Size(117, 30);
+            this.txtNumber.Size = new System.Drawing.Size(63, 30);
             this.txtNumber.TabIndex = 7;
             // 
             // labelControl1
@@ -138,7 +138,7 @@ namespace Products.PL
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl2.Location = new System.Drawing.Point(274, 46);
+            this.labelControl2.Location = new System.Drawing.Point(454, 46);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(61, 29);
@@ -152,9 +152,9 @@ namespace Products.PL
             this.labelControl3.Location = new System.Drawing.Point(801, 86);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(60, 29);
+            this.labelControl3.Size = new System.Drawing.Size(90, 29);
             this.labelControl3.TabIndex = 10;
-            this.labelControl3.Text = "السعر";
+            this.labelControl3.Text = "الإجمالي";
             // 
             // labelControl4
             // 
@@ -174,9 +174,9 @@ namespace Products.PL
             this.labelControl5.Location = new System.Drawing.Point(174, 89);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(171, 29);
+            this.labelControl5.Size = new System.Drawing.Size(201, 29);
             this.labelControl5.TabIndex = 12;
-            this.labelControl5.Text = "السعر بعد الخصم";
+            this.labelControl5.Text = "الإجمالي بعد الخصم";
             // 
             // labelControl6
             // 
@@ -204,7 +204,7 @@ namespace Products.PL
             // 
             this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl8.Location = new System.Drawing.Point(226, 130);
+            this.labelControl8.Location = new System.Drawing.Point(90, 46);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(113, 29);
@@ -238,7 +238,7 @@ namespace Products.PL
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.txtDate);
             this.groupControl1.Controls.Add(this.labelControl4);
-            this.groupControl1.Location = new System.Drawing.Point(11, 14);
+            this.groupControl1.Location = new System.Drawing.Point(187, 14);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -344,7 +344,7 @@ namespace Products.PL
             // txtProfit
             // 
             this.txtProfit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProfit.Location = new System.Drawing.Point(17, 166);
+            this.txtProfit.Location = new System.Drawing.Point(209, 169);
             this.txtProfit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtProfit.Name = "txtProfit";
             this.txtProfit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -357,7 +357,7 @@ namespace Products.PL
             // 
             this.lblProfit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblProfit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblProfit.Location = new System.Drawing.Point(219, 166);
+            this.lblProfit.Location = new System.Drawing.Point(393, 168);
             this.lblProfit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblProfit.Name = "lblProfit";
             this.lblProfit.Size = new System.Drawing.Size(122, 29);
@@ -396,7 +396,7 @@ namespace Products.PL
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gridControl1.Size = new System.Drawing.Size(870, 320);
+            this.gridControl1.Size = new System.Drawing.Size(1223, 320);
             this.gridControl1.TabIndex = 17;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -414,17 +414,18 @@ namespace Products.PL
             // 
             // groupControl2
             // 
-            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl2.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.groupControl2.Controls.Add(this.gridControl1);
-            this.groupControl2.Location = new System.Drawing.Point(11, 230);
+            this.groupControl2.Location = new System.Drawing.Point(12, 230);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(874, 364);
+            this.groupControl2.Size = new System.Drawing.Size(1227, 364);
             this.groupControl2.TabIndex = 18;
             this.groupControl2.Text = "بيانات المنتجات";
             // 
@@ -432,12 +433,12 @@ namespace Products.PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 608);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1248, 608);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormShowOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
