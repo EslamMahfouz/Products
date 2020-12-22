@@ -3,9 +3,9 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using System.ComponentModel;
 
-namespace Products.PL.Sales
+namespace Products.PL.Purchases
 {
-    partial class FormShowSaleOrder
+    partial class FormShowPurchaseOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@ namespace Products.PL.Sales
         {
             this.components = new System.ComponentModel.Container();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
-            this.saleSource = new System.Windows.Forms.BindingSource(this.components);
+            this.purchaseSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -47,26 +47,20 @@ namespace Products.PL.Sales
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.txtTotalProfit = new DevExpress.XtraEditors.TextEdit();
-            this.txtTotalBuy = new DevExpress.XtraEditors.TextEdit();
             this.txtCharge = new DevExpress.XtraEditors.TextEdit();
             this.txtPaid = new DevExpress.XtraEditors.TextEdit();
             this.txtTotalAfterDiscount = new DevExpress.XtraEditors.TextEdit();
             this.txtTotal = new DevExpress.XtraEditors.TextEdit();
             this.txtDiscount = new DevExpress.XtraEditors.TextEdit();
-            this.lblProfit = new DevExpress.XtraEditors.LabelControl();
-            this.lblTotalBuy = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalProfit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalBuy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCharge.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPaid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalAfterDiscount.Properties)).BeginInit();
@@ -81,7 +75,7 @@ namespace Products.PL.Sales
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "CustomerName", true));
+            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.purchaseSource, "SupplierName", true));
             this.txtName.Location = new System.Drawing.Point(521, 46);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
@@ -91,14 +85,14 @@ namespace Products.PL.Sales
             this.txtName.Size = new System.Drawing.Size(256, 30);
             this.txtName.TabIndex = 0;
             // 
-            // saleSource
+            // purchaseSource
             // 
-            this.saleSource.DataSource = typeof(Dukan.Core.Models.Sale.SaleGridModel);
+            this.purchaseSource.DataSource = typeof(Dukan.Core.Models.Purchase.PurchaseGridModel);
             // 
             // txtDate
             // 
             this.txtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Date", true));
+            this.txtDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.purchaseSource, "Date", true));
             this.txtDate.Location = new System.Drawing.Point(209, 46);
             this.txtDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDate.Name = "txtDate";
@@ -111,7 +105,7 @@ namespace Products.PL.Sales
             // txtNumber
             // 
             this.txtNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Number", true));
+            this.txtNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.purchaseSource, "Number", true));
             this.txtNumber.Location = new System.Drawing.Point(21, 46);
             this.txtNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNumber.Name = "txtNumber";
@@ -211,20 +205,16 @@ namespace Products.PL.Sales
             // 
             // groupControl1
             // 
-            this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.groupControl1.Controls.Add(this.txtTotalProfit);
-            this.groupControl1.Controls.Add(this.txtTotalBuy);
             this.groupControl1.Controls.Add(this.txtCharge);
             this.groupControl1.Controls.Add(this.txtPaid);
             this.groupControl1.Controls.Add(this.txtTotalAfterDiscount);
             this.groupControl1.Controls.Add(this.txtTotal);
             this.groupControl1.Controls.Add(this.txtDiscount);
-            this.groupControl1.Controls.Add(this.lblProfit);
-            this.groupControl1.Controls.Add(this.lblTotalBuy);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.txtNumber);
             this.groupControl1.Controls.Add(this.labelControl8);
@@ -244,48 +234,10 @@ namespace Products.PL.Sales
             this.groupControl1.TabIndex = 16;
             this.groupControl1.Text = "بيانات الفاتورة";
             // 
-            // txtTotalProfit
-            // 
-            this.txtTotalProfit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTotalProfit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "TotalProfit", true));
-            this.txtTotalProfit.EditValue = "0";
-            this.txtTotalProfit.Location = new System.Drawing.Point(254, 169);
-            this.txtTotalProfit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTotalProfit.Name = "txtTotalProfit";
-            this.txtTotalProfit.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalProfit.Properties.Appearance.Options.UseFont = true;
-            this.txtTotalProfit.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtTotalProfit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtTotalProfit.Properties.Mask.EditMask = "f";
-            this.txtTotalProfit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtTotalProfit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtTotalProfit.Properties.ReadOnly = true;
-            this.txtTotalProfit.Size = new System.Drawing.Size(133, 32);
-            this.txtTotalProfit.TabIndex = 27;
-            // 
-            // txtTotalBuy
-            // 
-            this.txtTotalBuy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTotalBuy.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "TotalBuy", true));
-            this.txtTotalBuy.EditValue = "0";
-            this.txtTotalBuy.Location = new System.Drawing.Point(585, 169);
-            this.txtTotalBuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTotalBuy.Name = "txtTotalBuy";
-            this.txtTotalBuy.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalBuy.Properties.Appearance.Options.UseFont = true;
-            this.txtTotalBuy.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtTotalBuy.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtTotalBuy.Properties.Mask.EditMask = "f";
-            this.txtTotalBuy.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtTotalBuy.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtTotalBuy.Properties.ReadOnly = true;
-            this.txtTotalBuy.Size = new System.Drawing.Size(133, 32);
-            this.txtTotalBuy.TabIndex = 26;
-            // 
             // txtCharge
             // 
             this.txtCharge.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCharge.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Charge", true));
+            this.txtCharge.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.purchaseSource, "Charge", true));
             this.txtCharge.EditValue = "0";
             this.txtCharge.Location = new System.Drawing.Point(366, 130);
             this.txtCharge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -304,7 +256,7 @@ namespace Products.PL.Sales
             // txtPaid
             // 
             this.txtPaid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPaid.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Paid", true));
+            this.txtPaid.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.purchaseSource, "Paid", true));
             this.txtPaid.EditValue = "0";
             this.txtPaid.Location = new System.Drawing.Point(644, 130);
             this.txtPaid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -323,7 +275,7 @@ namespace Products.PL.Sales
             // txtTotalAfterDiscount
             // 
             this.txtTotalAfterDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTotalAfterDiscount.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "TotalAfterDiscount", true));
+            this.txtTotalAfterDiscount.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.purchaseSource, "TotalAfterDiscount", true));
             this.txtTotalAfterDiscount.EditValue = "0";
             this.txtTotalAfterDiscount.Location = new System.Drawing.Point(17, 89);
             this.txtTotalAfterDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -342,7 +294,7 @@ namespace Products.PL.Sales
             // txtTotal
             // 
             this.txtTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Total", true));
+            this.txtTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.purchaseSource, "Total", true));
             this.txtTotal.EditValue = "0";
             this.txtTotal.Location = new System.Drawing.Point(644, 86);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -361,7 +313,7 @@ namespace Products.PL.Sales
             // txtDiscount
             // 
             this.txtDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDiscount.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.saleSource, "Discount", true));
+            this.txtDiscount.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.purchaseSource, "Discount", true));
             this.txtDiscount.EditValue = 0D;
             this.txtDiscount.Location = new System.Drawing.Point(400, 89);
             this.txtDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -376,28 +328,6 @@ namespace Products.PL.Sales
             this.txtDiscount.Properties.ReadOnly = true;
             this.txtDiscount.Size = new System.Drawing.Size(99, 32);
             this.txtDiscount.TabIndex = 21;
-            // 
-            // lblProfit
-            // 
-            this.lblProfit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblProfit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblProfit.Location = new System.Drawing.Point(393, 168);
-            this.lblProfit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lblProfit.Name = "lblProfit";
-            this.lblProfit.Size = new System.Drawing.Size(122, 29);
-            this.lblProfit.TabIndex = 20;
-            this.lblProfit.Text = "صافى الربح ";
-            // 
-            // lblTotalBuy
-            // 
-            this.lblTotalBuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTotalBuy.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblTotalBuy.Location = new System.Drawing.Point(724, 169);
-            this.lblTotalBuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lblTotalBuy.Name = "lblTotalBuy";
-            this.lblTotalBuy.Size = new System.Drawing.Size(146, 29);
-            this.lblTotalBuy.TabIndex = 19;
-            this.lblTotalBuy.Text = "إجمالى الشراء";
             // 
             // gridControl1
             // 
@@ -426,8 +356,8 @@ namespace Products.PL.Sales
             // 
             // groupControl2
             // 
-            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
@@ -452,20 +382,17 @@ namespace Products.PL.Sales
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimizeBox = false;
-            this.Name = "FormShowSaleOrder";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Name = "FormShowPurchaseOrder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "عرض تفاصيل الفاتورة";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormShowOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalProfit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalBuy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCharge.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPaid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalAfterDiscount.Properties)).EndInit();
@@ -496,15 +423,11 @@ namespace Products.PL.Sales
         private GridControl gridControl1;
         private GridView gridView1;
         private GroupControl groupControl2;
-        private LabelControl lblProfit;
-        private LabelControl lblTotalBuy;
-        private System.Windows.Forms.BindingSource saleSource;
+        private System.Windows.Forms.BindingSource purchaseSource;
         private TextEdit txtDiscount;
         private TextEdit txtTotal;
         private TextEdit txtTotalAfterDiscount;
         private TextEdit txtPaid;
         private TextEdit txtCharge;
-        private TextEdit txtTotalBuy;
-        private TextEdit txtTotalProfit;
     }
 }

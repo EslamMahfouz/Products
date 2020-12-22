@@ -175,6 +175,12 @@
     <Compile Include="PL\Products\FormShowCategories.Designer.cs">
       <DependentUpon>FormShowCategories.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\Purchases\FormShowPurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Purchases\FormShowPurchaseOrder.designer.cs">
+      <DependentUpon>FormShowPurchaseOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\Sales\FormAddSale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,10 +241,10 @@
     <Compile Include="PL\FormProductProfit.Designer.cs">
       <DependentUpon>FormProductProfit.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormPurchasesReport.cs">
+    <Compile Include="PL\Purchases\FormPurchasesReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormPurchasesReport.Designer.cs">
+    <Compile Include="PL\Purchases\FormPurchasesReport.Designer.cs">
       <DependentUpon>FormPurchasesReport.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\Sales\FormSalesReport.cs">
@@ -303,6 +309,9 @@
     <EmbeddedResource Include="PL\Products\FormShowCategories.resx">
       <DependentUpon>FormShowCategories.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\Purchases\FormShowPurchaseOrder.resx">
+      <DependentUpon>FormShowPurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\Sales\FormAddSale.resx">
       <DependentUpon>FormAddSale.cs</DependentUpon>
     </EmbeddedResource>
@@ -333,7 +342,7 @@
     <EmbeddedResource Include="PL\FormProductProfit.resx">
       <DependentUpon>FormProductProfit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormPurchasesReport.resx">
+    <EmbeddedResource Include="PL\Purchases\FormPurchasesReport.resx">
       <DependentUpon>FormPurchasesReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Sales\FormSalesReport.resx">
@@ -378,6 +387,7 @@
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Dukan.Core.Models.Customer.AddCustomerModel.datasource" />
+    <None Include="Properties\DataSources\Dukan.Core.Models.Purchase.PurchaseGridModel.datasource" />
     <None Include="Properties\DataSources\Dukan.Core.Models.Sale.SaleGridModel.datasource" />
     <None Include="Properties\DataSources\Products.BL.Models.AddCategoryModel.datasource" />
     <None Include="Properties\DataSources\Products.BL.Models.AddCustomerModel.datasource" />

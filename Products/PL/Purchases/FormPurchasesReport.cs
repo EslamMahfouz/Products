@@ -4,17 +4,15 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using Dukan.Core;
 using Dukan.Core.UnitOfWork;
-using Dukan.Data;
+using Products.PL.Sales;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Products.PL
+namespace Products.PL.Purchases
 {
     public partial class FormPurchasesReport : XtraForm
     {
-        ProductsEntities db = new ProductsEntities();
-
         public FormPurchasesReport()
         {
             InitializeComponent();
@@ -52,7 +50,7 @@ namespace Products.PL
 
         private void btnShowOrder_Click(object sender, EventArgs e)
         {
-            var frm = new FormShowSaleOrder();
+            var frm = new FormShowPurchaseOrder();
             var number = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Number"));
             if (number == 0)
             {

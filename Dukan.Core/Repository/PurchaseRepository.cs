@@ -42,6 +42,12 @@ namespace Dukan.Core.Repository
             return Mapper.Map<IEnumerable<Purchase>, IEnumerable<PurchaseGridModel>>(purchases);
         }
 
+        public PurchaseGridModel GetPurchaseById(int id)
+        {
+            var purchase = Get(id);
+            return Mapper.Map<Purchase, PurchaseGridModel>(purchase);
+        }
+
         //public SaleReport GetSaleReport(int saleId)
         //{
         //    var sale = Mapper.Map<Sale, SaleReportModel>(Get(saleId));

@@ -36,7 +36,7 @@ namespace Dukan.Core.Models.Purchase
         public decimal TotalAfterDiscount => Total * (1 - Discount);
 
         [DisplayName("المدفوع")]
-        public decimal? Paid => PurchasePayments.Where(p => p.Type == "إيراد").Sum(p => p.Paid)
+        public decimal? Paid => PurchasePayments.Where(p => p.Type == "مصروف").Sum(p => p.Paid)
                                - PurchasePayments.Where(p => p.Type == "مرتجع").Sum(p => p.Paid);
 
         [DisplayName("المتبقي")]

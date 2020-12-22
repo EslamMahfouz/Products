@@ -3,21 +3,20 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using Dukan.Core;
 using Dukan.Core.UnitOfWork;
-using Dukan.Data;
 using System;
 
-namespace Products.PL.Sales
+namespace Products.PL.Purchases
 {
-    public partial class FormShowSaleOrder : XtraForm
+    public partial class FormShowPurchaseOrder : XtraForm
     {
         #region fields
-        ProductsEntities db = new ProductsEntities();
+
         public int Id { get; set; }
         public string Type { get; set; }
         #endregion
 
         #region ctor
-        public FormShowSaleOrder()
+        public FormShowPurchaseOrder()
         {
             InitializeComponent();
         }
@@ -26,10 +25,10 @@ namespace Products.PL.Sales
         #region events
         private void FormShowOrder_Load(object sender, EventArgs e)
         {
-            var sale = UnitOfWork.Instance.Sales.GetSaleById(Id);
-            saleSource.DataSource = sale;
+            var purchase = UnitOfWork.Instance.Purchase.GetPurchaseById(Id);
+            purchaseSource.DataSource = purchase;
 
-            gridControl1.DataSource = sale.SaleDetails;
+            gridControl1.DataSource = purchase.PurchaseDetails;
             gridView1.Initialize();
 
             var textEdit = Custom.GetTextEditRepositoryItem();

@@ -12,7 +12,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Products.PL
+namespace Products.PL.Purchases
 {
     public partial class FormAddPurchase : XtraForm
     {

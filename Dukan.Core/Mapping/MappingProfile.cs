@@ -75,12 +75,6 @@ namespace Dukan.Core.Mapping
             #endregion
 
             #region Sale
-
-            //CreateMap<Sale, SaleModel>()
-
-            //    //.ForMember(d => d.Charge, o => o.MapFrom(s => s.SaleDetail.Sum - s.SalePayments.Sum(p => p.Paid)))
-            //    .ForMember(d => d.Paid, o => o.MapFrom(s => s.SalePayments.Sum(p => p.Paid)));
-
             CreateMap<Sale, SaleGridModel>();
 
             CreateMap<Sale, SaleReportModel>()
