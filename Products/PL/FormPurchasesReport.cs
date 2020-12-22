@@ -52,7 +52,7 @@ namespace Products.PL
 
         private void btnShowOrder_Click(object sender, EventArgs e)
         {
-            var frm = new FormShowOrder();
+            var frm = new FormShowSaleOrder();
             var number = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Number"));
             if (number == 0)
             {

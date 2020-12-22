@@ -247,11 +247,11 @@
     <Compile Include="PL\Sales\FormSalesReport.Designer.cs">
       <DependentUpon>FormSalesReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FormShowOrder.cs">
+    <Compile Include="PL\Sales\FormShowSaleOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\FormShowOrder.Designer.cs">
-      <DependentUpon>FormShowOrder.cs</DependentUpon>
+    <Compile Include="PL\Sales\FormShowSaleOrder.Designer.cs">
+      <DependentUpon>FormShowSaleOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\Products\FormShowProducts.cs">
       <SubType>Form</SubType>
@@ -339,8 +339,8 @@
     <EmbeddedResource Include="PL\Sales\FormSalesReport.resx">
       <DependentUpon>FormSalesReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FormShowOrder.resx">
-      <DependentUpon>FormShowOrder.cs</DependentUpon>
+    <EmbeddedResource Include="PL\Sales\FormShowSaleOrder.resx">
+      <DependentUpon>FormShowSaleOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Products\FormShowProducts.resx">
       <DependentUpon>FormShowProducts.cs</DependentUpon>

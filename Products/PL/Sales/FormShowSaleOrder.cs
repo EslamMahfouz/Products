@@ -8,7 +8,7 @@ using System;
 
 namespace Products.PL
 {
-    public partial class FormShowOrder : XtraForm
+    public partial class FormShowSaleOrder : XtraForm
     {
         #region fields
         ProductsEntities db = new ProductsEntities();
@@ -17,7 +17,7 @@ namespace Products.PL
         #endregion
 
         #region ctor
-        public FormShowOrder()
+        public FormShowSaleOrder()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace Products.PL
             if (Type == "purchase")
             {
                 txtTotalBuy.Visible = false;
-                txtProfit.Visible = false;
+                txtTotalProfit.Visible = false;
                 lblTotalBuy.Visible = false;
                 lblProfit.Visible = false;
                 var product = db.Purchases.Find(Id);
@@ -59,7 +59,7 @@ namespace Products.PL
             else if (Type == "sale")
             {
                 txtTotalBuy.Visible = true;
-                txtProfit.Visible = true;
+                txtTotalProfit.Visible = true;
                 lblTotalBuy.Visible = true;
                 lblProfit.Visible = true;
 

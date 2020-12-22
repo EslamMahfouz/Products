@@ -11,13 +11,16 @@ namespace Dukan.Core.Models.Sale
         [DisplayName("المنتج")]
         public string ProductName { get; set; }
 
-        [DisplayName("السعر")]
+        [DisplayName("سعر الشراء")]
+        public decimal ProductBuy { get; set; }
+
+        [DisplayName("سعر البيع")]
         public decimal ProductSell { get; set; }
 
         [DisplayName("الكمية")]
         public int Qte { get; set; }
 
-        [DisplayName("الإجمالي")]
+        [DisplayName("إجمالي سعر البيع")]
         public decimal Total => ProductSell * Qte;
 
         [DisplayName("الخصم")]
@@ -28,5 +31,11 @@ namespace Dukan.Core.Models.Sale
 
         [DisplayName(" الإجمالي بعد الخصم والمرتجع")]
         public decimal TotalAfterDiscount => Math.Round(ProductSell * (Qte - ReturnedQte) * (1 - Discount), 2);
+
+        [DisplayName("إجمالي سعر الشراء")]
+        public decimal TotalBuy => Math.Round(ProductBuy * (Qte - ReturnedQte), 2);
+
+        [DisplayName("صافي الربح")]
+        public decimal Profit => Math.Round(TotalAfterDiscount - TotalBuy, 2);
     }
 }

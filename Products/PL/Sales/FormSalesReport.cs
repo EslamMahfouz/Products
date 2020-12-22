@@ -47,7 +47,7 @@ namespace Products.PL.Sales
         {
             try
             {
-                var frm = new FormShowOrder();
+                var frm = new FormShowSaleOrder();
                 var num = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Number"));
                 if (num == 0)
                 {

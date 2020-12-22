@@ -41,5 +41,9 @@ namespace Dukan.Core.Models.Sale
 
         [DisplayName("المتبقي")]
         public decimal? Charge => TotalAfterDiscount - Paid;
+
+        public decimal TotalBuy => SaleDetails.Sum(s => s.ProductBuy * (s.Qte - s.ReturnedQte));
+
+        public decimal TotalProfit => Math.Round(TotalAfterDiscount - TotalBuy, 2);
     }
 }
