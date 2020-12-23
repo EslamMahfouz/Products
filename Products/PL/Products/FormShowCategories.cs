@@ -3,6 +3,7 @@ using Dukan.Core;
 using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using System;
+using System.Linq;
 
 namespace Products.PL.Products
 {
@@ -65,8 +66,8 @@ namespace Products.PL.Products
             var value = e.Value.ToString().Trim();
             if (!string.IsNullOrEmpty(value))
             {
-                var exists = UnitOfWork.Instance.Categories.IsExisting(value);
-                if (exists)
+                var existNum = UnitOfWork.Instance.Categories.GetAll(c => c.Name == value).Count();
+                if (existNum > 1)
                 {
                     Custom.ShowExistingMessage(FormResource.ExistingCategory);
                     FormShowCategories_Load(sender, e);
@@ -76,6 +77,7 @@ namespace Products.PL.Products
                     var id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
                     UnitOfWork.Instance.Categories.Edit(id, value);
                     UnitOfWork.Instance.Complete();
+                    FormShowCategories_Load(sender, e);
                 }
             }
         }
