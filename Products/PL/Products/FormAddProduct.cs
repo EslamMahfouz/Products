@@ -95,6 +95,11 @@ namespace Products.PL.Products
         {
             try
             {
+                if (Convert.ToDecimal(txtBuy.Text) < 0m || Convert.ToDecimal(txtSell.Text) < 0m)
+                {
+                    Custom.ShowValueCannotBeNegativeMessage();
+                    return;
+                }
                 if (val.Validate())
                 {
                     var exists = UnitOfWork.Instance.Products.IsExisting(_product.Name.Trim());

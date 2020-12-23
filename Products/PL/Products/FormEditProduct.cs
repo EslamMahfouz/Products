@@ -47,6 +47,13 @@ namespace Products.PL.Products
         {
             try
             {
+                if (Convert.ToDecimal(txtBuy.Text) <= 0m || Convert.ToDecimal(txtSell.Text) <= 0m)
+                {
+                    Custom.ShowDataExceptionMessage();
+                    return;
+                }
+
+
                 if (val.Validate())
                 {
                     UnitOfWork.Instance.Products.Edit(_product);
