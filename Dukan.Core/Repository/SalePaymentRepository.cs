@@ -71,7 +71,7 @@ namespace Dukan.Core.Repository
             return payments.Sum(p => p.Paid);
         }
 
-        public IEnumerable<PaymentModel> GetSaleRefundPayments(DateTime fromDate, DateTime toDate)
+        public IEnumerable<PaymentModel> GetSaleRefundPaymentsByDate(DateTime fromDate, DateTime toDate)
         {
             var payments = GetAll(p =>
                         TruncateTime(p.Date) >= fromDate && TruncateTime(p.Date) <= toDate && p.Type == Constants.Refund,

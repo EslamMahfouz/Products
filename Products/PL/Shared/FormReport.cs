@@ -1,10 +1,10 @@
-﻿using DevExpress.Utils.Drawing;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraEditors;
 using Dukan.Core;
+using Dukan.Core.Models.Shared;
 using Dukan.Core.UnitOfWork;
 using Products.PL.Sales;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -26,15 +26,29 @@ namespace Products.PL.Shared
         }
         #endregion
 
+        #region methods
+
+        private List<PaymentModel> GetReportData(DateTime fromDate, DateTime toDate)
+        {
+            var payments = Text == Constants.IncomesReport
+                ? UnitOfWork.Instance.SalePayments.GetSalePaymentsByDate(fromDate, toDate).ToList()
+                : UnitOfWork.Instance.PurchasePayments.GetPurchasePaymentsByDate(fromDate, toDate);
+
+            var refundPayments = Text == Constants.IncomesReport
+                ? UnitOfWork.Instance.PurchasePayments.GetPurchaseRefundPaymentsByDate(fromDate, toDate).ToList()
+                : UnitOfWork.Instance.SalePayments.GetSaleRefundPaymentsByDate(fromDate, toDate).ToList();
+
+            return payments.Union(refundPayments).ToList();
+        }
+
+        #endregion
+
         private void FormSalesReport_Load(object sender, EventArgs e)
         {
             var fromDate = Convert.ToDateTime(deFrom.EditValue);
             var toDate = Convert.ToDateTime(deTo.EditValue);
 
-            var salePayments = UnitOfWork.Instance.SalePayments.GetSalePaymentsByDate(fromDate, toDate).ToList();
-            var purchaseRefundPayments = UnitOfWork.Instance.PurchasePayments.GetPurchaseRefundPayments(fromDate, toDate).ToList();
-
-            gridControl1.DataSource = salePayments.Union(purchaseRefundPayments).ToList();
+            gridControl1.DataSource = GetReportData(fromDate, toDate);
             gridView1.Initialize();
         }
 
@@ -43,10 +57,7 @@ namespace Products.PL.Shared
             var fromDate = Convert.ToDateTime(deFrom.EditValue);
             var toDate = Convert.ToDateTime(deTo.EditValue);
 
-            var salePayments = UnitOfWork.Instance.SalePayments.GetSalePaymentsByDate(fromDate, toDate).ToList();
-            var purchaseRefundPayments = UnitOfWork.Instance.PurchasePayments.GetPurchaseRefundPayments(fromDate, toDate).ToList();
-
-            gridControl1.DataSource = salePayments.Union(purchaseRefundPayments);
+            gridControl1.DataSource = GetReportData(fromDate, toDate);
         }
 
         private void btnShowOrder_Click(object sender, EventArgs e)
@@ -70,15 +81,6 @@ namespace Products.PL.Shared
             catch (Exception ex)
             {
                 Custom.ShowExceptionMessage(ex.Message);
-            }
-        }
-
-        private void gridView1_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
-            {
-                e.Info.DisplayText = (e.RowHandle + 1).ToString();
-                e.Info.Kind = IndicatorKind.Row;
             }
         }
 

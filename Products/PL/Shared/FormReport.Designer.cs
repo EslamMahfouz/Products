@@ -1,7 +1,7 @@
-﻿using System.ComponentModel;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
+using System.ComponentModel;
 
 namespace Products.PL.Shared
 {
@@ -80,7 +80,6 @@ namespace Products.PL.Shared
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.RowHeight = 40;
-            this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
             // deFrom
             // 

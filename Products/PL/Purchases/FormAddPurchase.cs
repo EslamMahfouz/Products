@@ -147,13 +147,11 @@ namespace Products.PL.Purchases
 
             txtBuy.Leave -= txtBuy_Leave;
             txtSell.Leave -= txtSell_Leave;
-            txtQte.Validated -= txtQte_Validated;
         }
         private void cmbProducts_EditValueChanged(object sender, EventArgs e)
         {
             txtBuy.Leave += txtBuy_Leave;
             txtSell.Leave += txtSell_Leave;
-            txtQte.Validated += txtQte_Validated;
             txtBuy.ReadOnly = false;
             txtSell.ReadOnly = false;
             txtQte.ReadOnly = false;
@@ -223,17 +221,6 @@ namespace Products.PL.Purchases
 
         }
 
-        private void txtQte_Validated(object sender, EventArgs e)
-        {
-            var product = UnitOfWork.Instance.Products.Get((int)cmbProducts.EditValue);
-            if (product.Qte > int.Parse(txtQte.Text))
-            {
-                return;
-            }
-
-            XtraMessageBox.Show("هذه الكمية غير متوفرة", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            txtQte.Text = product.Qte.ToString();
-        }
         private void txtQte_EditValueChanged(object sender, EventArgs e)
         {
             CalculateForItem();

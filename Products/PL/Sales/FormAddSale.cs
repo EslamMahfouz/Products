@@ -202,7 +202,7 @@ namespace Products.PL.Sales
         private void TxtQte_Validated(object sender, EventArgs e)
         {
             var product = UnitOfWork.Instance.Products.Get((int)CmbProducts.EditValue);
-            if (product.Qte > int.Parse(TxtQte.Text))
+            if (product.Qte >= int.Parse(TxtQte.Text))
             {
                 return;
             }
