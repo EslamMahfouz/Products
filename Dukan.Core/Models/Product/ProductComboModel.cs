@@ -18,5 +18,8 @@ namespace Dukan.Core.Models.Product
 
         [DisplayName("الكمية المتوفرة")]
         public int Qte { get; set; }
+
+        [DisplayName("الكود")]
+        public string Barcode { get; set; }
     }
 }
