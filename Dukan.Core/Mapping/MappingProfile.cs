@@ -80,7 +80,6 @@ namespace Dukan.Core.Mapping
             CreateMap<Sale, SaleReportModel>()
                 .ForMember(d => d.CustomerName, o => o.MapFrom(s => s.Customer.Name))
                 .ForMember(d => d.CustomerPhone, o => o.MapFrom(s => s.Customer.Phone))
-                .ForMember(d => d.Discount, o => o.MapFrom(s => s.Discount / 100))
                 .ForMember(d => d.SaleDetails, o => o.MapFrom(s => s.SaleDetails));
 
             #endregion
@@ -97,8 +96,7 @@ namespace Dukan.Core.Mapping
                 .ForMember(d => d.ProductName, o => o.MapFrom(s => s.Product.Name));
 
 
-            CreateMap<SaleDetail, SaleDetailReportModel>()
-                .ForMember(d => d.Discount, o => o.MapFrom(s => s.Discount / 100));
+            CreateMap<SaleDetail, SaleDetailReportModel>();
 
             CreateMap<SaleDetail, ProductReturnModel>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Id))
