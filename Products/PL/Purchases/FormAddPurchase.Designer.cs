@@ -35,14 +35,14 @@ namespace Products.PL.Purchases
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddPurchase));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddPurchase));
             this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.cmbSuppliers = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -52,6 +52,7 @@ namespace Products.PL.Purchases
             this.cmbProducts = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtDiscount = new DevExpress.XtraEditors.TextEdit();
+            this.txtQte = new DevExpress.XtraEditors.TextEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.lblOrderID = new DevExpress.XtraEditors.LabelControl();
@@ -68,12 +69,11 @@ namespace Products.PL.Purchases
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtPrdTotal = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.txtQte = new DevExpress.XtraEditors.TextEdit();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.BtnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.BtnSaveAndClose = new DevExpress.XtraEditors.SimpleButton();
             this.txtCharge = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtPaid = new DevExpress.XtraEditors.TextEdit();
@@ -97,6 +97,7 @@ namespace Products.PL.Purchases
             ((System.ComponentModel.ISupportInitialize)(this.cmbProducts.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQte.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -107,7 +108,6 @@ namespace Products.PL.Purchases
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdTotalAfterDiscount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdTotal.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtQte.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCharge.Properties)).BeginInit();
@@ -136,9 +136,9 @@ namespace Products.PL.Purchases
             this.cmbSuppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbSuppliers.Size = new System.Drawing.Size(406, 32);
             this.cmbSuppliers.TabIndex = 0;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule7.ErrorText = "This value is not valid";
-            this.val.SetValidationRule(this.cmbSuppliers, conditionValidationRule7);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.val.SetValidationRule(this.cmbSuppliers, conditionValidationRule1);
             // 
             // gridView4
             // 
@@ -154,7 +154,7 @@ namespace Products.PL.Purchases
             this.txtSell.Location = new System.Drawing.Point(822, 48);
             this.txtSell.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSell.Name = "txtSell";
-            this.txtSell.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSell.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSell.Properties.Appearance.Options.UseFont = true;
             this.txtSell.Properties.Appearance.Options.UseTextOptions = true;
             this.txtSell.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -162,16 +162,16 @@ namespace Products.PL.Purchases
             this.txtSell.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSell.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSell.Properties.ReadOnly = true;
-            this.txtSell.Size = new System.Drawing.Size(83, 32);
+            this.txtSell.Size = new System.Drawing.Size(92, 32);
             this.txtSell.TabIndex = 19;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule8.ErrorText = "This value is not valid";
-            conditionValidationRule8.Value1 = new decimal(new int[] {
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.Value1 = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.val.SetValidationRule(this.txtSell, conditionValidationRule8);
+            this.val.SetValidationRule(this.txtSell, conditionValidationRule2);
             this.txtSell.Leave += new System.EventHandler(this.txtSell_Leave);
             // 
             // txtPrdDiscount
@@ -191,10 +191,10 @@ namespace Products.PL.Purchases
             this.txtPrdDiscount.Properties.ReadOnly = true;
             this.txtPrdDiscount.Size = new System.Drawing.Size(74, 32);
             this.txtPrdDiscount.TabIndex = 13;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            conditionValidationRule1.Value1 = 0;
-            this.val.SetValidationRule(this.txtPrdDiscount, conditionValidationRule1);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
+            conditionValidationRule3.ErrorText = "This value is not valid";
+            conditionValidationRule3.Value1 = 0;
+            this.val.SetValidationRule(this.txtPrdDiscount, conditionValidationRule3);
             this.txtPrdDiscount.EditValueChanged += new System.EventHandler(this.txtPrdDiscount_EditValueChanged);
             // 
             // txtBuy
@@ -204,7 +204,7 @@ namespace Products.PL.Purchases
             this.txtBuy.Location = new System.Drawing.Point(1002, 48);
             this.txtBuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuy.Name = "txtBuy";
-            this.txtBuy.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuy.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuy.Properties.Appearance.Options.UseFont = true;
             this.txtBuy.Properties.Appearance.Options.UseTextOptions = true;
             this.txtBuy.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -212,16 +212,16 @@ namespace Products.PL.Purchases
             this.txtBuy.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtBuy.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtBuy.Properties.ReadOnly = true;
-            this.txtBuy.Size = new System.Drawing.Size(83, 32);
+            this.txtBuy.Size = new System.Drawing.Size(92, 32);
             this.txtBuy.TabIndex = 7;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            conditionValidationRule2.Value1 = new decimal(new int[] {
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule4.ErrorText = "This value is not valid";
+            conditionValidationRule4.Value1 = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.val.SetValidationRule(this.txtBuy, conditionValidationRule2);
+            this.val.SetValidationRule(this.txtBuy, conditionValidationRule4);
             this.txtBuy.EditValueChanged += new System.EventHandler(this.txtBuy_EditValueChanged);
             this.txtBuy.Leave += new System.EventHandler(this.txtBuy_Leave);
             // 
@@ -229,7 +229,7 @@ namespace Products.PL.Purchases
             // 
             this.cmbProducts.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbProducts.EditValue = "";
-            this.cmbProducts.Location = new System.Drawing.Point(1189, 48);
+            this.cmbProducts.Location = new System.Drawing.Point(1197, 48);
             this.cmbProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbProducts.Name = "cmbProducts";
             this.cmbProducts.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -241,9 +241,9 @@ namespace Products.PL.Purchases
             this.cmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbProducts.Size = new System.Drawing.Size(209, 32);
             this.cmbProducts.TabIndex = 2;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "This value is not valid";
-            this.val.SetValidationRule(this.cmbProducts, conditionValidationRule3);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "This value is not valid";
+            this.val.SetValidationRule(this.cmbProducts, conditionValidationRule5);
             this.cmbProducts.EditValueChanged += new System.EventHandler(this.cmbProducts_EditValueChanged);
             // 
             // gridView5
@@ -267,11 +267,35 @@ namespace Products.PL.Purchases
             this.txtDiscount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtDiscount.Size = new System.Drawing.Size(112, 32);
             this.txtDiscount.TabIndex = 21;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
-            conditionValidationRule4.ErrorText = "This value is not valid";
-            conditionValidationRule4.Value1 = 0;
-            this.val.SetValidationRule(this.txtDiscount, conditionValidationRule4);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
+            conditionValidationRule6.ErrorText = "This value is not valid";
+            conditionValidationRule6.Value1 = 0;
+            this.val.SetValidationRule(this.txtDiscount, conditionValidationRule6);
             this.txtDiscount.EditValueChanged += new System.EventHandler(this.txtDiscount_EditValueChanged);
+            // 
+            // txtQte
+            // 
+            this.txtQte.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtQte.EditValue = 1;
+            this.txtQte.Location = new System.Drawing.Point(721, 48);
+            this.txtQte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtQte.Name = "txtQte";
+            this.txtQte.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQte.Properties.Appearance.Options.UseFont = true;
+            this.txtQte.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtQte.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtQte.Properties.Mask.EditMask = "d";
+            this.txtQte.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtQte.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtQte.Properties.ReadOnly = true;
+            this.txtQte.Size = new System.Drawing.Size(53, 32);
+            this.txtQte.TabIndex = 9;
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule7.ErrorText = "This value is not valid";
+            conditionValidationRule7.Value1 = 0;
+            this.val.SetValidationRule(this.txtQte, conditionValidationRule7);
+            this.txtQte.EditValueChanged += new System.EventHandler(this.txtQte_EditValueChanged);
+            this.txtQte.Validated += new System.EventHandler(this.txtQte_Validated);
             // 
             // panelControl3
             // 
@@ -404,7 +428,7 @@ namespace Products.PL.Purchases
             // 
             this.labelControl9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Location = new System.Drawing.Point(911, 51);
+            this.labelControl9.Location = new System.Drawing.Point(920, 51);
             this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(76, 26);
@@ -494,30 +518,6 @@ namespace Products.PL.Purchases
             this.labelControl3.TabIndex = 10;
             this.labelControl3.Text = "الإجمالي";
             // 
-            // txtQte
-            // 
-            this.txtQte.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtQte.EditValue = 1;
-            this.txtQte.Location = new System.Drawing.Point(721, 48);
-            this.txtQte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtQte.Name = "txtQte";
-            this.txtQte.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQte.Properties.Appearance.Options.UseFont = true;
-            this.txtQte.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtQte.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtQte.Properties.Mask.EditMask = "d";
-            this.txtQte.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtQte.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtQte.Properties.ReadOnly = true;
-            this.txtQte.Size = new System.Drawing.Size(53, 32);
-            this.txtQte.TabIndex = 9;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule5.ErrorText = "This value is not valid";
-            conditionValidationRule5.Value1 = 0;
-            this.val.SetValidationRule(this.txtQte, conditionValidationRule5);
-            this.txtQte.EditValueChanged += new System.EventHandler(this.txtQte_EditValueChanged);
-            this.txtQte.Validated += new System.EventHandler(this.txtQte_Validated);
-            // 
             // labelControl19
             // 
             this.labelControl19.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -533,7 +533,7 @@ namespace Products.PL.Purchases
             // 
             this.labelControl22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl22.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl22.Location = new System.Drawing.Point(1091, 51);
+            this.labelControl22.Location = new System.Drawing.Point(1099, 51);
             this.labelControl22.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(92, 26);
@@ -558,7 +558,7 @@ namespace Products.PL.Purchases
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl2.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.groupControl2.Controls.Add(this.BtnSave);
+            this.groupControl2.Controls.Add(this.BtnSaveAndClose);
             this.groupControl2.Controls.Add(this.txtCharge);
             this.groupControl2.Controls.Add(this.labelControl4);
             this.groupControl2.Controls.Add(this.txtPaid);
@@ -576,21 +576,21 @@ namespace Products.PL.Purchases
             this.groupControl2.TabIndex = 35;
             this.groupControl2.Text = "بيانات الحساب";
             // 
-            // BtnSave
+            // BtnSaveAndClose
             // 
-            this.BtnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BtnSave.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSave.Appearance.Options.UseFont = true;
-            this.BtnSave.Enabled = false;
-            this.BtnSave.Image = ((System.Drawing.Image)(resources.GetObject("BtnSave.Image")));
-            this.BtnSave.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.BtnSave.Location = new System.Drawing.Point(525, 110);
-            this.BtnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(303, 53);
-            this.BtnSave.TabIndex = 28;
-            this.BtnSave.Text = "حفظ";
-            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            this.BtnSaveAndClose.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnSaveAndClose.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveAndClose.Appearance.Options.UseFont = true;
+            this.BtnSaveAndClose.Enabled = false;
+            this.BtnSaveAndClose.Image = ((System.Drawing.Image)(resources.GetObject("BtnSaveAndClose.Image")));
+            this.BtnSaveAndClose.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.BtnSaveAndClose.Location = new System.Drawing.Point(518, 112);
+            this.BtnSaveAndClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnSaveAndClose.Name = "BtnSaveAndClose";
+            this.BtnSaveAndClose.Size = new System.Drawing.Size(303, 53);
+            this.BtnSaveAndClose.TabIndex = 28;
+            this.BtnSaveAndClose.Text = "حفظ وإغلاق";
+            this.BtnSaveAndClose.Click += new System.EventHandler(this.btnSaveAndClose_Click);
             // 
             // txtCharge
             // 
@@ -713,8 +713,8 @@ namespace Products.PL.Purchases
             // 
             // groupControl3
             // 
-            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl3.AppearanceCaption.Options.UseFont = true;
@@ -760,8 +760,8 @@ namespace Products.PL.Purchases
             // 
             // gridControlItems
             // 
-            this.gridControlItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.gridControlItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlItems.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControlItems.Location = new System.Drawing.Point(2, 39);
@@ -806,6 +806,7 @@ namespace Products.PL.Purchases
             ((System.ComponentModel.ISupportInitialize)(this.cmbProducts.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQte.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
@@ -819,7 +820,6 @@ namespace Products.PL.Purchases
             this.groupControl4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdTotalAfterDiscount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdTotal.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtQte.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
@@ -863,7 +863,7 @@ namespace Products.PL.Purchases
         private GridView gridView5;
         private LabelControl labelControl23;
         private GroupControl groupControl2;
-        private SimpleButton BtnSave;
+        private SimpleButton BtnSaveAndClose;
         private TextEdit txtCharge;
         private LabelControl labelControl4;
         private TextEdit txtPaid;

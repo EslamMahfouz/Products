@@ -76,9 +76,49 @@ namespace Products.PL.Purchases
             txtPrdDiscount.EditValue = 0.0f;
             txtPrdTotalAfterDiscount.Text = @"0";
         }
-        #endregion
 
-        #region Events
+        private void SavePurchase()
+        {
+            try
+            {
+                _purchase.SupplierId = Convert.ToInt32(cmbSuppliers.EditValue);
+                _purchase.Date = Convert.ToDateTime(deDate.EditValue);
+                _purchase.Number = Convert.ToInt32(lblOrderID.Text);
+                _purchase.Discount = Convert.ToDecimal(txtDiscount.EditValue);
+
+                if (Convert.ToDouble(txtPaid.Text) > 0)
+                {
+                    _purchase.PurchasePayments.Add(new PurchasePayment
+                    {
+                        Date = Convert.ToDateTime(deDate.EditValue),
+                        Paid = Convert.ToDecimal(txtPaid.Text),
+                        Type = "مصروف"
+                    });
+                }
+
+                var purchaseDetails = Mapper.Map<IEnumerable<AddPurchaseDetailGridModel>, IEnumerable<PurchaseDetail>>(_purchaseDetails);
+                purchaseDetails.ForEach(sd => _purchase.PurchaseDetails.Add(sd));
+                foreach (var purchaseDetail in _purchaseDetails)
+                {
+                    var product = UnitOfWork.Instance.Products.Get(purchaseDetail.ProductId);
+                    product.Qte += Convert.ToInt32(purchaseDetail.Qte);
+                }
+
+                UnitOfWork.Instance.Purchase.Add(_purchase);
+                UnitOfWork.Instance.Complete();
+
+                btnDeleteItem.Enabled = false;
+                btnEditItem.Enabled = false;
+                XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        }
+
+        #endregion
 
         #region Form Events
         private void FormAddPurchase_Load(object sender, EventArgs e)
@@ -231,7 +271,7 @@ namespace Products.PL.Purchases
             ClearItemFields();
             btnEditItem.Enabled = true;
             btnDeleteItem.Enabled = true;
-            BtnSave.Enabled = true;
+            BtnSaveAndClose.Enabled = true;
         }
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
@@ -242,7 +282,7 @@ namespace Products.PL.Purchases
             CalculateDiscount();
             if (!_purchaseDetails.Any())
             {
-                BtnSave.Enabled = false;
+                BtnSaveAndClose.Enabled = false;
                 btnEditItem.Enabled = false;
                 btnDeleteItem.Enabled = false;
             }
@@ -277,61 +317,13 @@ namespace Products.PL.Purchases
             CalculateDiscount();
         }
 
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void btnSaveAndClose_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (BtnSave.Text == @"حفظ")
-                {
-                    _purchase.SupplierId = Convert.ToInt32(cmbSuppliers.EditValue);
-                    _purchase.Date = Convert.ToDateTime(deDate.EditValue);
-                    _purchase.Number = Convert.ToInt32(lblOrderID.Text);
-                    _purchase.Discount = Convert.ToDecimal(txtDiscount.EditValue);
-
-                    if (Convert.ToDouble(txtPaid.Text) > 0)
-                    {
-                        _purchase.PurchasePayments.Add(new PurchasePayment
-                        {
-                            Date = Convert.ToDateTime(deDate.EditValue),
-                            Paid = Convert.ToDecimal(txtPaid.Text),
-                            Type = "مصروف"
-                        });
-                    }
-
-                    var purchaseDetails = Mapper.Map<IEnumerable<AddPurchaseDetailGridModel>, IEnumerable<PurchaseDetail>>(_purchaseDetails);
-                    purchaseDetails.ForEach(sd => _purchase.PurchaseDetails.Add(sd));
-                    foreach (var purchaseDetail in _purchaseDetails)
-                    {
-                        var product = UnitOfWork.Instance.Products.Get(purchaseDetail.ProductId);
-                        product.Qte += Convert.ToInt32(purchaseDetail.Qte);
-                    }
-
-                    UnitOfWork.Instance.Purchase.Add(_purchase);
-                    UnitOfWork.Instance.Complete();
-
-                    btnDeleteItem.Enabled = false;
-                    btnEditItem.Enabled = false;
-                    XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    BtnSave.Text = @"طباعة";
-                }
-                else
-                {
-                    //todo refactor
-                    //var rep = UnitOfWork.Instance.Sales.GetSaleReport(_sale.Id);
-                    //rep.ShowPreview();
-                }
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
+            SavePurchase();
+            Close();
         }
 
         #endregion
-
-        #endregion
-
 
     }
 }
