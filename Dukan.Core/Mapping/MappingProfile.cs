@@ -4,6 +4,7 @@ using Dukan.Core.Models.Customer;
 using Dukan.Core.Models.Product;
 using Dukan.Core.Models.Purchase;
 using Dukan.Core.Models.Sale;
+using Dukan.Core.Models.Shared;
 using Dukan.Core.Models.Supplier;
 using Dukan.Data;
 using System.Linq;
@@ -69,7 +70,7 @@ namespace Dukan.Core.Mapping
 
             #region Purchase payments
 
-            CreateMap<PurchasePayment, PurchasePaymentModel>()
+            CreateMap<PurchasePayment, PaymentModel>()
                 .ForMember(d => d.Number, o => o.MapFrom(s => s.Purchase.Number));
 
             #endregion
@@ -108,7 +109,7 @@ namespace Dukan.Core.Mapping
 
             #region Sale payments
 
-            CreateMap<SalePayment, SalePaymentModel>()
+            CreateMap<SalePayment, PaymentModel>()
                 .ForMember(d => d.Number, o => o.MapFrom(s => s.Sale.Number));
 
 

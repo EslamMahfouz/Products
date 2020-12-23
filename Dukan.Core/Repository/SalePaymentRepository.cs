@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Dukan.Core.Models.Sale;
+using Dukan.Core.Models.Shared;
 using Dukan.Data;
 using System;
 using System.Collections.Generic;
@@ -23,10 +23,10 @@ namespace Dukan.Core.Repository
 
         #region Methods
 
-        public IEnumerable<SalePaymentModel> GetSalePayments(int saleId)
+        public IEnumerable<PaymentModel> GetSalePayments(int saleId)
         {
             var payments = GetAll(p => p.SaleId == saleId);
-            return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<SalePaymentModel>>(payments);
+            return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<PaymentModel>>(payments);
         }
 
         public void AddIncome(int saleId, decimal paid)
@@ -55,13 +55,14 @@ namespace Dukan.Core.Repository
             }
         }
 
-        public IEnumerable<SalePaymentModel> GetSalePaymentsByDate(DateTime fromDate, DateTime toDate)
+        public IEnumerable<PaymentModel> GetSalePaymentsByDate(DateTime fromDate, DateTime toDate)
         {
-            var payments = GetAll(p => TruncateTime(p.Date) >= fromDate && TruncateTime(p.Date) <= toDate,
+            var payments = GetAll(p =>
+                        TruncateTime(p.Date) >= fromDate && TruncateTime(p.Date) <= toDate && p.Type != Constants.Refund,
                     o => o.OrderBy(p => new { p.Date, p.Sale.Number }),
                     "Sale")
                 .ToList();
-            return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<SalePaymentModel>>(payments);
+            return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<PaymentModel>>(payments);
         }
 
         public decimal GetTotalPaymentsForADay(DateTime date)
@@ -69,6 +70,18 @@ namespace Dukan.Core.Repository
             var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date));
             return payments.Sum(p => p.Paid);
         }
+
+        public IEnumerable<PaymentModel> GetSaleRefundPayments(DateTime fromDate, DateTime toDate)
+        {
+            var payments = GetAll(p =>
+                        TruncateTime(p.Date) >= fromDate && TruncateTime(p.Date) <= toDate && p.Type == Constants.Refund,
+                    o => o.OrderBy(p => new { p.Date, p.Sale.Number }),
+                    "Sale")
+                .ToList();
+            return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<PaymentModel>>(payments);
+
+        }
+
         #endregion
     }
 }

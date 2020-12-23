@@ -1,4 +1,5 @@
-﻿using DevExpress.Utils;
+﻿using DevExpress.Data;
+using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Drawing;
@@ -35,6 +36,9 @@ namespace Dukan.Core
                 grid.Columns[i].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
                 grid.Columns[i].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
             }
+
+            grid.Columns["Paid"]?.Summary.Add(SummaryItemType.Sum, "Paid", "الإجمالي = {0:n2}");
+
         }
 
         #endregion

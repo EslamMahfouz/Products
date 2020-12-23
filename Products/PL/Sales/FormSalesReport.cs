@@ -1,20 +1,23 @@
-﻿using DevExpress.Data;
-using DevExpress.Utils.Drawing;
+﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using Dukan.Core;
 using Dukan.Core.UnitOfWork;
-using Dukan.Data;
+using Products.PL.Shared;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Products.PL.Sales
 {
-    public partial class FormSalesReport : XtraForm
+    public partial class FormReport : XtraForm
     {
-        ProductsEntities db = new ProductsEntities();
+        #region properties
 
-        public FormSalesReport()
+        public string Type { get; set; }
+
+        #endregion
+        public FormReport()
         {
             InitializeComponent();
             var today = DateTime.Now.Date;
@@ -27,10 +30,11 @@ namespace Products.PL.Sales
             var fromDate = Convert.ToDateTime(deFrom.EditValue);
             var toDate = Convert.ToDateTime(deTo.EditValue);
 
-            var payments = UnitOfWork.Instance.SalePayments.GetSalePaymentsByDate(fromDate, toDate);
-            gridControl1.DataSource = payments;
+            var salePayments = UnitOfWork.Instance.SalePayments.GetSalePaymentsByDate(fromDate, toDate).ToList();
+            var purchaseRefundPayments = UnitOfWork.Instance.PurchasePayments.GetPurchaseRefundPayments(fromDate, toDate).ToList();
+
+            gridControl1.DataSource = salePayments.Union(purchaseRefundPayments).ToList();
             gridView1.Initialize();
-            gridView1.Columns["Paid"].Summary.Add(SummaryItemType.Sum, "Paid", "الإجمالي = {0:n2}");
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -38,9 +42,10 @@ namespace Products.PL.Sales
             var fromDate = Convert.ToDateTime(deFrom.EditValue);
             var toDate = Convert.ToDateTime(deTo.EditValue);
 
-            var payments = UnitOfWork.Instance.SalePayments.GetSalePaymentsByDate(fromDate, toDate);
+            var salePayments = UnitOfWork.Instance.SalePayments.GetSalePaymentsByDate(fromDate, toDate).ToList();
+            var purchaseRefundPayments = UnitOfWork.Instance.PurchasePayments.GetPurchaseRefundPayments(fromDate, toDate).ToList();
 
-            gridControl1.DataSource = payments;
+            gridControl1.DataSource = salePayments.Union(purchaseRefundPayments);
         }
 
         private void btnShowOrder_Click(object sender, EventArgs e)
@@ -74,6 +79,24 @@ namespace Products.PL.Sales
                 e.Info.DisplayText = (e.RowHandle + 1).ToString();
                 e.Info.Kind = IndicatorKind.Row;
             }
+        }
+
+        private void btnShowPayments_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var frm = new FormOrderDetails
+                {
+                    Type = "salePayments",
+                    Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"))
+                };
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
     }
 }

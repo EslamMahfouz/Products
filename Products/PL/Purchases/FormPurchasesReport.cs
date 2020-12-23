@@ -1,5 +1,4 @@
-﻿using DevExpress.Data;
-using DevExpress.Utils.Drawing;
+﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using Dukan.Core;
@@ -24,11 +23,10 @@ namespace Products.PL.Purchases
         {
             var fromDate = Convert.ToDateTime(deFrom.EditValue);
             var toDate = Convert.ToDateTime(deTo.EditValue);
-            var payments = UnitOfWork.Instance.PurchasePayments.GetPurchasePaymentsByDate(fromDate, toDate);
-
-            gridControl1.DataSource = payments.ToList();
+            var purchasePayments = UnitOfWork.Instance.PurchasePayments.GetPurchasePaymentsByDate(fromDate, toDate);
+            var saleRefundPayments = UnitOfWork.Instance.SalePayments.GetSaleRefundPayments(fromDate, toDate);
+            gridControl1.DataSource = purchasePayments.Union(saleRefundPayments).ToList();
             gridView1.Initialize();
-            gridView1.Columns["Paid"].Summary.Add(SummaryItemType.Sum, "Paid", "الإجمالي = {0:n2}");
         }
         private void gridView1_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
         {
@@ -50,7 +48,6 @@ namespace Products.PL.Purchases
 
         private void btnShowOrder_Click(object sender, EventArgs e)
         {
-            var frm = new FormShowPurchaseOrder();
             var number = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Number"));
             if (number == 0)
             {
@@ -58,10 +55,26 @@ namespace Products.PL.Purchases
                 return;
             }
             var date = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("Date"));
-            var purchase = UnitOfWork.Instance.Purchase.GetPurchaseByDateAndNumber(date, number);
-            frm.Id = purchase.Id;
-            frm.Type = "purchase";
-            frm.ShowDialog();
+            var type = gridView1.GetFocusedRowCellValue("Type").ToString();
+
+            if (type == Constants.Expense)
+            {
+                var frm = new FormShowPurchaseOrder();
+                var purchase = UnitOfWork.Instance.Purchase.GetPurchaseByDateAndNumber(date, number);
+                frm.Id = purchase.Id;
+                frm.Type = "purchase";
+                frm.ShowDialog();
+            }
+            else if (type == Constants.Refund)
+            {
+                var frm = new FormShowSaleOrder();
+
+                var purchase = UnitOfWork.Instance.Sales.GetSaleByDateAndNumber(date, number);
+                frm.Id = purchase.Id;
+                frm.Type = "sale";
+                frm.ShowDialog();
+            }
+
         }
 
     }

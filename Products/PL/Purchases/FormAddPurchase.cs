@@ -127,7 +127,7 @@ namespace Products.PL.Purchases
             cmbSuppliers.Properties.DataSource = suppliers;
             cmbSuppliers.Initialize();
 
-            var supplierModule = UnitOfWork.Instance.Modules.GetModuleStatus(Modules.Supplier);
+            var supplierModule = UnitOfWork.Instance.Modules.GetModuleStatus(Constants.Supplier);
             if (!supplierModule)
             {
                 cmbSuppliers.Properties.Buttons.RemoveAt(0);

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Dukan.Core.Models.Sale
+namespace Dukan.Core.Models.Shared
 {
 
-    public class SalePaymentModel
+    public class PaymentModel
     {
         [Browsable(false)]
         public int Id { get; set; }

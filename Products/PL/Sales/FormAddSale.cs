@@ -155,7 +155,7 @@ namespace Products.PL.Sales
             CmbCustomers.Properties.DataSource = customers;
             CmbCustomers.Initialize();
 
-            var customerModule = UnitOfWork.Instance.Modules.GetModuleStatus(Modules.Customer);
+            var customerModule = UnitOfWork.Instance.Modules.GetModuleStatus(Constants.Customer);
             if (!customerModule)
             {
                 CmbCustomers.Properties.Buttons.RemoveAt(0);

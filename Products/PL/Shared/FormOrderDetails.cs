@@ -9,6 +9,7 @@ using Dukan.Core.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using Dukan.Core.Models.Shared;
 
 namespace Products.PL.Shared
 {
@@ -18,7 +19,7 @@ namespace Products.PL.Shared
 
         private readonly UnitOfWork _unitOfWork = new UnitOfWork();
         private readonly List<SaleDetailGridModel> _saleDetails = new List<SaleDetailGridModel>();
-        private readonly List<SalePaymentModel> _salePayments = new List<SalePaymentModel>();
+        private readonly List<PaymentModel> _salePayments = new List<PaymentModel>();
 
         #endregion
 
