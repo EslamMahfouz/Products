@@ -49,11 +49,11 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PurchaseId" Type="int" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="ProductBuy" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="ProductSell" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="Qte" Type="int" />
-          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="ReturnedQte" Type="int" />
+          <Property Name="ProductBuy" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ProductSell" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Qte" Type="int" Nullable="false" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ReturnedQte" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PurchasePayments">
           <Key>
@@ -133,7 +133,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PurchasePayments_Purchases">
-          <End Role="Purchases" Type="Self.Purchases" Multiplicity="0..1" />
+          <End Role="Purchases" Type="Self.Purchases" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PurchasePayments" Type="Self.PurchasePayments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Purchases">
@@ -157,7 +159,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PurchasesDetails_Products">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PurchaseDetails" Type="Self.PurchaseDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Products">
@@ -324,7 +328,6 @@
           <EntitySet Name="Modules" EntityType="Self.Module" />
           <EntitySet Name="Suppliers" EntityType="ProductsModel.Supplier" />
           <EntitySet Name="Products" EntityType="ProductsModel.Product" />
-          <EntitySet Name="PurchaseDetails" EntityType="ProductsModel.PurchaseDetail" />
           <EntitySet Name="PurchasePayments" EntityType="ProductsModel.PurchasePayment" />
           <EntitySet Name="Purchases" EntityType="ProductsModel.Purchase" />
           <EntitySet Name="SaleDetails" EntityType="ProductsModel.SaleDetail" />
@@ -338,17 +341,9 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Sale" EntitySet="Sales" />
           </AssociationSet>
-          <AssociationSet Name="FK_PurchasesDetails_Products" Association="ProductsModel.FK_PurchasesDetails_Products">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK_SalesDetails_Products" Association="ProductsModel.FK_SalesDetails_Products">
             <End Role="Product" EntitySet="Products" />
             <End Role="SaleDetail" EntitySet="SaleDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PurchasesDetails_Purchases" Association="ProductsModel.FK_PurchasesDetails_Purchases">
-            <End Role="Purchase" EntitySet="Purchases" />
-            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_PurchasePayments_Purchases" Association="ProductsModel.FK_PurchasePayments_Purchases">
             <End Role="Purchase" EntitySet="Purchases" />
@@ -365,6 +360,15 @@
           <AssociationSet Name="FK_SalesPayments_Sales" Association="ProductsModel.FK_SalesPayments_Sales">
             <End Role="Sale" EntitySet="Sales" />
             <End Role="SalePayment" EntitySet="SalePayments" />
+          </AssociationSet>
+          <EntitySet Name="PurchaseDetails" EntityType="ProductsModel.PurchaseDetail" />
+          <AssociationSet Name="FK_PurchasesDetails_Products" Association="ProductsModel.FK_PurchasesDetails_Products">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchasesDetails_Purchases" Association="ProductsModel.FK_PurchasesDetails_Purchases">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Supplier">
@@ -390,23 +394,8 @@
           <Property Name="Qte" Type="Int32" Nullable="false" />
           <Property Name="Minimum" Type="Int32" />
           <NavigationProperty Name="Category" Relationship="ProductsModel.FK_Products_Categories" FromRole="Product" ToRole="Category" />
-          <NavigationProperty Name="PurchaseDetails" Relationship="ProductsModel.FK_PurchasesDetails_Products" FromRole="Product" ToRole="PurchaseDetail" />
           <NavigationProperty Name="SaleDetails" Relationship="ProductsModel.FK_SalesDetails_Products" FromRole="Product" ToRole="SaleDetail" />
-        </EntityType>
-        <EntityType Name="PurchaseDetail">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PurchaseId" Type="Int32" Nullable="false" />
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="ProductBuy" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="ProductSell" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Qte" Type="Int32" />
-          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="ReturnedQte" Type="Int32" />
-          <NavigationProperty Name="Product" Relationship="ProductsModel.FK_PurchasesDetails_Products" FromRole="PurchaseDetail" ToRole="Product" />
-          <NavigationProperty Name="Purchase" Relationship="ProductsModel.FK_PurchasesDetails_Purchases" FromRole="PurchaseDetail" ToRole="Purchase" />
+          <NavigationProperty Name="PurchaseDetails" Relationship="ProductsModel.FK_PurchasesDetails_Products" FromRole="Product" ToRole="PurchaseDetail" />
         </EntityType>
         <EntityType Name="PurchasePayment">
           <Key>
@@ -428,9 +417,9 @@
           <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="Number" Type="Int32" Nullable="false" />
           <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="PurchaseDetails" Relationship="ProductsModel.FK_PurchasesDetails_Purchases" FromRole="Purchase" ToRole="PurchaseDetail" />
           <NavigationProperty Name="PurchasePayments" Relationship="ProductsModel.FK_PurchasePayments_Purchases" FromRole="Purchase" ToRole="PurchasePayment" />
           <NavigationProperty Name="Supplier" Relationship="ProductsModel.FK_Purchases_Suppliers" FromRole="Purchase" ToRole="Supplier" />
+          <NavigationProperty Name="PurchaseDetails" Relationship="ProductsModel.FK_PurchasesDetails_Purchases" FromRole="Purchase" ToRole="PurchaseDetail" />
         </EntityType>
         <EntityType Name="SaleDetail">
           <Key>
@@ -499,18 +488,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PurchasesDetails_Products">
-          <End Type="ProductsModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="ProductsModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PurchaseDetail">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SalesDetails_Products">
           <End Type="ProductsModel.Product" Role="Product" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -522,20 +499,6 @@
             </Principal>
             <Dependent Role="SaleDetail">
               <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PurchasesDetails_Purchases">
-          <End Type="ProductsModel.Purchase" Role="Purchase" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ProductsModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Purchase">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PurchaseDetail">
-              <PropertyRef Name="PurchaseId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -588,6 +551,49 @@
             </Principal>
             <Dependent Role="SalePayment">
               <PropertyRef Name="SaleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PurchaseDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="ProductBuy" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="ProductSell" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Qte" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="ReturnedQte" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="ProductsModel.FK_PurchasesDetails_Products" FromRole="PurchaseDetail" ToRole="Product" />
+          <NavigationProperty Name="Purchase" Relationship="ProductsModel.FK_PurchasesDetails_Purchases" FromRole="PurchaseDetail" ToRole="Purchase" />
+        </EntityType>
+        <Association Name="FK_PurchasesDetails_Products">
+          <End Type="ProductsModel.Product" Role="Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ProductsModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchasesDetails_Purchases">
+          <End Type="ProductsModel.Purchase" Role="Purchase" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ProductsModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="PurchaseId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -649,20 +655,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PurchaseDetails">
-            <EntityTypeMapping TypeName="ProductsModel.PurchaseDetail">
-              <MappingFragment StoreEntitySet="PurchaseDetails">
-                <ScalarProperty Name="ReturnedQte" ColumnName="ReturnedQte" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="Qte" ColumnName="Qte" />
-                <ScalarProperty Name="ProductSell" ColumnName="ProductSell" />
-                <ScalarProperty Name="ProductBuy" ColumnName="ProductBuy" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PurchasePayments">
             <EntityTypeMapping TypeName="ProductsModel.PurchasePayment">
               <MappingFragment StoreEntitySet="PurchasePayments">
@@ -717,6 +709,20 @@
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseDetails">
+            <EntityTypeMapping TypeName="ProductsModel.PurchaseDetail">
+              <MappingFragment StoreEntitySet="PurchaseDetails">
+                <ScalarProperty Name="ReturnedQte" ColumnName="ReturnedQte" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Qte" ColumnName="Qte" />
+                <ScalarProperty Name="ProductSell" ColumnName="ProductSell" />
+                <ScalarProperty Name="ProductBuy" ColumnName="ProductBuy" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

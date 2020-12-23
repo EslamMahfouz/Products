@@ -35,16 +35,12 @@ namespace Products.PL.Products
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtProductName = new DevExpress.XtraEditors.TextEdit();
-            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtBuy = new DevExpress.XtraEditors.TextEdit();
             this.txtSell = new DevExpress.XtraEditors.TextEdit();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
@@ -54,8 +50,8 @@ namespace Products.PL.Products
             this.txtMinimum = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
@@ -63,6 +59,7 @@ namespace Products.PL.Products
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.val)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl2
@@ -133,18 +130,12 @@ namespace Products.PL.Products
             this.txtProductName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtProductName.Size = new System.Drawing.Size(210, 30);
             this.txtProductName.TabIndex = 21;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            this.val.SetValidationRule(this.txtProductName, conditionValidationRule1);
-            // 
-            // addProductModelBindingSource
-            // 
-            this.addProductModelBindingSource.DataSource = typeof(Dukan.Core.Models.Product.AddProductModel);
             // 
             // txtBuy
             // 
             this.txtBuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBuy.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Buy", true));
+            this.txtBuy.EditValue = "0";
             this.txtBuy.Location = new System.Drawing.Point(9, 137);
             this.txtBuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBuy.Name = "txtBuy";
@@ -156,16 +147,16 @@ namespace Products.PL.Products
             this.txtBuy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtBuy.Size = new System.Drawing.Size(210, 30);
             this.txtBuy.TabIndex = 22;
-            conditionValidationRule2.CaseSensitive = true;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            conditionValidationRule2.Value1 = "0";
-            this.val.SetValidationRule(this.txtBuy, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            conditionValidationRule1.Value1 = 0D;
+            this.val.SetValidationRule(this.txtBuy, conditionValidationRule1);
             // 
             // txtSell
             // 
             this.txtSell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSell.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Sell", true));
+            this.txtSell.EditValue = "0";
             this.txtSell.Location = new System.Drawing.Point(9, 201);
             this.txtSell.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSell.Name = "txtSell";
@@ -177,27 +168,27 @@ namespace Products.PL.Products
             this.txtSell.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtSell.Size = new System.Drawing.Size(211, 30);
             this.txtSell.TabIndex = 23;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "This value is not valid";
-            this.val.SetValidationRule(this.txtSell, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.Value1 = 0D;
+            this.val.SetValidationRule(this.txtSell, conditionValidationRule2);
             // 
             // txtNumber
             // 
             this.txtNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Qte", true));
+            this.txtNumber.EditValue = "0";
             this.txtNumber.Location = new System.Drawing.Point(9, 265);
             this.txtNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Properties.Appearance.Options.UseFont = true;
-            this.txtNumber.Properties.Mask.EditMask = "d";
-            this.txtNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtNumber.Properties.Mask.EditMask = "\\d+";
+            this.txtNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtNumber.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtNumber.Size = new System.Drawing.Size(211, 30);
             this.txtNumber.TabIndex = 24;
-            conditionValidationRule4.ErrorText = "This value is not valid";
-            this.val.SetValidationRule(this.txtNumber, conditionValidationRule4);
             // 
             // btnSave
             // 
@@ -230,9 +221,6 @@ namespace Products.PL.Products
             this.cmbCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCategory.Size = new System.Drawing.Size(211, 30);
             this.cmbCategory.TabIndex = 28;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "This value is not valid";
-            this.val.SetValidationRule(this.cmbCategory, conditionValidationRule5);
             // 
             // searchLookUpEdit1View
             // 
@@ -245,13 +233,14 @@ namespace Products.PL.Products
             // 
             this.txtMinimum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMinimum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Minimum", true));
+            this.txtMinimum.EditValue = "0";
             this.txtMinimum.Location = new System.Drawing.Point(8, 313);
             this.txtMinimum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMinimum.Name = "txtMinimum";
             this.txtMinimum.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMinimum.Properties.Appearance.Options.UseFont = true;
-            this.txtMinimum.Properties.Mask.EditMask = "d";
-            this.txtMinimum.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtMinimum.Properties.Mask.EditMask = "\\d+";
+            this.txtMinimum.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtMinimum.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMinimum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtMinimum.Size = new System.Drawing.Size(211, 30);
@@ -267,6 +256,10 @@ namespace Products.PL.Products
             this.labelControl1.Size = new System.Drawing.Size(113, 29);
             this.labelControl1.TabIndex = 29;
             this.labelControl1.Text = "الحد الأدني";
+            // 
+            // addProductModelBindingSource
+            // 
+            this.addProductModelBindingSource.DataSource = typeof(Dukan.Core.Models.Product.AddProductModel);
             // 
             // FormEditProduct
             // 
@@ -293,7 +286,6 @@ namespace Products.PL.Products
             this.Text = "بيانات منتج";
             this.Load += new System.EventHandler(this.FormProductEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
@@ -301,6 +293,7 @@ namespace Products.PL.Products
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.val)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

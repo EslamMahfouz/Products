@@ -72,7 +72,6 @@
     <Compile Include="Models\Purchase\AddPurchaseDetailGridModel.cs" />
     <Compile Include="Models\Purchase\PurchaseGridModel.cs" />
     <Compile Include="Models\Purchase\PurchaseDetailGridModel.cs" />
-    <Compile Include="Models\Purchase\PurchasePaymentModel.cs" />
     <Compile Include="Models\Sale\SaleGridModel.cs" />
     <Compile Include="Models\Sale\AddSaleDetailGridModel.cs" />
     <Compile Include="Models\Sale\ProductReturnModel.cs" />
@@ -80,7 +79,7 @@
     <Compile Include="Models\Sale\SaleDetailModel.cs" />
     <Compile Include="Models\Supplier\AddSupplierModel.cs" />
     <Compile Include="Models\Supplier\SupplierComoModel.cs" />
-    <Compile Include="Modules.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Mapping\MappingProfile.cs" />
     <Compile Include="Models\Category\CategoryModel.cs" />
@@ -93,7 +92,7 @@
     <Compile Include="Models\Product\ProductGridModel.cs" />
     <Compile Include="Models\Sale\SaleDetailReportModel.cs" />
     <Compile Include="Models\Sale\SaleReportModel.cs" />
-    <Compile Include="Models\Sale\SalePaymentModel.cs" />
+    <Compile Include="Models\Shared\PaymentModel.cs" />
     <Compile Include="Models\Supplier\SupplierGridModel.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
@@ -103,6 +102,7 @@
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PurchasePaymentRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\PurchaseDetailsRepository.cs" />
     <Compile Include="Repository\SaleDetailsRepository.cs" />
     <Compile Include="Repository\SalePaymentRepository.cs" />
     <Compile Include="Repository\PurchaseRepository.cs" />

@@ -39,6 +39,7 @@ namespace Products.PL.Products
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -57,6 +58,7 @@ namespace Products.PL.Products
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtMinimum = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.valCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
@@ -68,6 +70,7 @@ namespace Products.PL.Products
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl2
@@ -172,7 +175,7 @@ namespace Products.PL.Products
             // txtBuy
             // 
             this.txtBuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuy.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Buy", true));
+            this.txtBuy.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addProductModelBindingSource, "Buy", true));
             this.txtBuy.EditValue = 0D;
             this.txtBuy.EnterMoveNextControl = true;
             this.txtBuy.Location = new System.Drawing.Point(435, 138);
@@ -189,16 +192,16 @@ namespace Products.PL.Products
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule3.ErrorText = "سعر الشراء يجب أن يكون أكبر من 0";
             conditionValidationRule3.Value1 = new decimal(new int[] {
-            1,
             0,
             0,
-            -2147483648});
+            0,
+            0});
             this.val.SetValidationRule(this.txtBuy, conditionValidationRule3);
             // 
             // txtSell
             // 
             this.txtSell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSell.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Sell", true));
+            this.txtSell.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addProductModelBindingSource, "Sell", true));
             this.txtSell.EditValue = 0D;
             this.txtSell.EnterMoveNextControl = true;
             this.txtSell.Location = new System.Drawing.Point(195, 138);
@@ -232,8 +235,8 @@ namespace Products.PL.Products
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Properties.Appearance.Options.UseFont = true;
-            this.txtNumber.Properties.Mask.EditMask = "d";
-            this.txtNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtNumber.Properties.Mask.EditMask = "\\d+";
+            this.txtNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtNumber.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtNumber.Size = new System.Drawing.Size(119, 30);
@@ -251,6 +254,9 @@ namespace Products.PL.Products
             this.txtCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtCategory.Size = new System.Drawing.Size(192, 30);
             this.txtCategory.TabIndex = 1;
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "برجاء إدخال اسم الصنف";
+            this.valCategory.SetValidationRule(this.txtCategory, conditionValidationRule5);
             this.txtCategory.Visible = false;
             // 
             // btnAddCategory
@@ -325,8 +331,8 @@ namespace Products.PL.Products
             this.txtMinimum.Name = "txtMinimum";
             this.txtMinimum.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMinimum.Properties.Appearance.Options.UseFont = true;
-            this.txtMinimum.Properties.Mask.EditMask = "d";
-            this.txtMinimum.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtMinimum.Properties.Mask.EditMask = "\\d+";
+            this.txtMinimum.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtMinimum.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMinimum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtMinimum.Size = new System.Drawing.Size(119, 30);
@@ -366,6 +372,7 @@ namespace Products.PL.Products
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valCategory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,5 +396,6 @@ namespace Products.PL.Products
         private TextEdit txtMinimum;
         private LabelControl labelControl1;
         private BindingSource addProductModelBindingSource;
+        private DXValidationProvider valCategory;
     }
 }

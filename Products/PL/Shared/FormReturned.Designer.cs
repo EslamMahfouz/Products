@@ -128,6 +128,8 @@
             this.txtSell.Name = "txtSell";
             this.txtSell.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtSell.Properties.Appearance.Options.UseFont = true;
+            this.txtSell.Properties.Mask.EditMask = "f";
+            this.txtSell.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSell.Properties.ReadOnly = true;
             this.txtSell.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtSell.Size = new System.Drawing.Size(240, 34);
@@ -152,8 +154,8 @@
             this.txtQte.Name = "txtQte";
             this.txtQte.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtQte.Properties.Appearance.Options.UseFont = true;
-            this.txtQte.Properties.Mask.EditMask = "d";
-            this.txtQte.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtQte.Properties.Mask.EditMask = "\\d+";
+            this.txtQte.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtQte.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtQte.Size = new System.Drawing.Size(240, 34);
             this.txtQte.TabIndex = 46;
@@ -179,6 +181,8 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtTotal.Properties.Appearance.Options.UseFont = true;
+            this.txtTotal.Properties.Mask.EditMask = "f";
+            this.txtTotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtTotal.Properties.ReadOnly = true;
             this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTotal.Size = new System.Drawing.Size(240, 34);
@@ -235,7 +239,7 @@
             this.Controls.Add(this.btnSave);
             this.Name = "FormReturned";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormReturned";
+            this.Text = "مرتجعات";
             this.Load += new System.EventHandler(this.FormReturned_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);

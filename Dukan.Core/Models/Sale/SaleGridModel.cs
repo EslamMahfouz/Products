@@ -27,7 +27,7 @@ namespace Dukan.Core.Models.Sale
         public string CustomerName { get; set; }
 
         [DisplayName("الإجمالي")]
-        public decimal Total => SaleDetails.Sum(s => s.TotalAfterDiscount);
+        public decimal Total => Math.Round(SaleDetails.Sum(s => s.TotalAfterDiscount), 2);
 
         [DisplayName("الخصم")]
         public decimal Discount { get; set; }

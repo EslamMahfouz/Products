@@ -100,8 +100,8 @@ namespace Products.Reports
             // xrTable2
             // 
             resources.ApplyResources(this.xrTable2, "xrTable2");
-            this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top)
-            | DevExpress.XtraPrinting.BorderSide.Right)
+            this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -131,6 +131,7 @@ namespace Products.Reports
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "TotalAfterDiscount")});
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.StylePriority.UseBackColor = false;
+            this.xrTableCell8.StylePriority.UseFont = false;
             // 
             // xrTableCell9
             // 
@@ -139,6 +140,7 @@ namespace Products.Reports
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Discount", "{0:0%}")});
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.StylePriority.UseBackColor = false;
+            this.xrTableCell9.StylePriority.UseFont = false;
             // 
             // xrTableCell10
             // 
@@ -147,6 +149,7 @@ namespace Products.Reports
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Total")});
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.StylePriority.UseBackColor = false;
+            this.xrTableCell10.StylePriority.UseFont = false;
             // 
             // xrTableCell11
             // 
@@ -155,6 +158,7 @@ namespace Products.Reports
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Qte")});
             this.xrTableCell11.Name = "xrTableCell11";
             this.xrTableCell11.StylePriority.UseBackColor = false;
+            this.xrTableCell11.StylePriority.UseFont = false;
             // 
             // xrTableCell12
             // 
@@ -163,6 +167,7 @@ namespace Products.Reports
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "ProductSell")});
             this.xrTableCell12.Name = "xrTableCell12";
             this.xrTableCell12.StylePriority.UseBackColor = false;
+            this.xrTableCell12.StylePriority.UseFont = false;
             // 
             // xrTableCell13
             // 
@@ -171,6 +176,7 @@ namespace Products.Reports
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "ProductName")});
             this.xrTableCell13.Name = "xrTableCell13";
             this.xrTableCell13.StylePriority.UseBackColor = false;
+            this.xrTableCell13.StylePriority.UseFont = false;
             this.xrTableCell13.StylePriority.UseTextAlignment = false;
             // 
             // xrTableCell14
@@ -180,6 +186,7 @@ namespace Products.Reports
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Id")});
             this.xrTableCell14.Name = "xrTableCell14";
             this.xrTableCell14.StylePriority.UseBackColor = false;
+            this.xrTableCell14.StylePriority.UseFont = false;
             // 
             // xrLabel7
             // 
@@ -382,8 +389,8 @@ namespace Products.Reports
             // 
             // xrTable1
             // 
-            this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top)
-            | DevExpress.XtraPrinting.BorderSide.Right)
+            this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             resources.ApplyResources(this.xrTable1, "xrTable1");
             this.xrTable1.Name = "xrTable1";
@@ -558,7 +565,7 @@ namespace Products.Reports
             // objectDataSource1
             // 
             this.objectDataSource1.DataMember = "SaleDetails";
-            this.objectDataSource1.DataSource = typeof(SaleReportModel);
+            this.objectDataSource1.DataSource = typeof(Dukan.Core.Models.Sale.SaleReportModel);
             this.objectDataSource1.Name = "objectDataSource1";
             // 
             // xrCrossBandBox1

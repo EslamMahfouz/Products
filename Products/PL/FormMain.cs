@@ -5,6 +5,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraNavBar;
 using DevExpress.XtraTabbedMdi;
+using Dukan.Core;
 using Dukan.Data;
 using Products.PL.Customers;
 using Products.PL.Products;
@@ -18,6 +19,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Products.PL.Shared;
 
 namespace Products.PL
 {
@@ -142,12 +144,12 @@ namespace Products.PL
 
         private void btnPurchasesReports_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
-            var frm = new FormPurchasesReport();
+            var frm = new FormReport { Text = Constants.ExpensesReport };
             AddForm(frm);
         }
         private void btnSalesReports_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
-            var frm = new FormSalesReport();
+            var frm = new FormReport { Text = Constants.IncomesReport };
             AddForm(frm);
         }
 

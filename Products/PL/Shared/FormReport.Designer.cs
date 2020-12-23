@@ -3,9 +3,9 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using System.ComponentModel;
 
-namespace Products.PL.Sales
+namespace Products.PL.Shared
 {
-    partial class FormSalesReport
+    partial class FormReport
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,8 @@ namespace Products.PL.Sales
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnShow = new DevExpress.XtraEditors.SimpleButton();
             this.btnShowOrder = new DevExpress.XtraEditors.SimpleButton();
+            this.btnShowPayments = new DevExpress.XtraEditors.SimpleButton();
+            this.btnReturned = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFrom.Properties.CalendarTimeProperties)).BeginInit();
@@ -51,18 +53,19 @@ namespace Products.PL.Sales
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(10, 43);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl1.Location = new System.Drawing.Point(12, 53);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gridControl1.Size = new System.Drawing.Size(677, 323);
+            this.gridControl1.Size = new System.Drawing.Size(790, 406);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-
             // 
             // gridView1
             // 
@@ -77,13 +80,13 @@ namespace Products.PL.Sales
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.RowHeight = 40;
-            this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
             // deFrom
             // 
             this.deFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deFrom.EditValue = null;
-            this.deFrom.Location = new System.Drawing.Point(425, 9);
+            this.deFrom.Location = new System.Drawing.Point(496, 11);
+            this.deFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.deFrom.Name = "deFrom";
             this.deFrom.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.deFrom.Properties.Appearance.Options.UseFont = true;
@@ -93,14 +96,15 @@ namespace Products.PL.Sales
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deFrom.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.deFrom.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.deFrom.Size = new System.Drawing.Size(208, 30);
+            this.deFrom.Size = new System.Drawing.Size(243, 34);
             this.deFrom.TabIndex = 1;
             // 
             // deTo
             // 
             this.deTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deTo.EditValue = null;
-            this.deTo.Location = new System.Drawing.Point(139, 9);
+            this.deTo.Location = new System.Drawing.Point(162, 11);
+            this.deTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.deTo.Name = "deTo";
             this.deTo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.deTo.Properties.Appearance.Options.UseFont = true;
@@ -110,16 +114,17 @@ namespace Products.PL.Sales
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deTo.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.deTo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.deTo.Size = new System.Drawing.Size(208, 30);
+            this.deTo.Size = new System.Drawing.Size(243, 34);
             this.deTo.TabIndex = 2;
             // 
             // labelControl1
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.labelControl1.Location = new System.Drawing.Point(651, 10);
+            this.labelControl1.Location = new System.Drawing.Point(759, 12);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(35, 27);
+            this.labelControl1.Size = new System.Drawing.Size(42, 33);
             this.labelControl1.TabIndex = 3;
             this.labelControl1.Text = "من ";
             // 
@@ -127,9 +132,10 @@ namespace Products.PL.Sales
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.labelControl2.Location = new System.Drawing.Point(366, 10);
+            this.labelControl2.Location = new System.Drawing.Point(427, 12);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(33, 27);
+            this.labelControl2.Size = new System.Drawing.Size(42, 33);
             this.labelControl2.TabIndex = 4;
             this.labelControl2.Text = "إلى";
             // 
@@ -138,9 +144,10 @@ namespace Products.PL.Sales
             this.btnShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShow.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btnShow.Appearance.Options.UseFont = true;
-            this.btnShow.Location = new System.Drawing.Point(12, 2);
+            this.btnShow.Location = new System.Drawing.Point(14, 2);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(110, 39);
+            this.btnShow.Size = new System.Drawing.Size(128, 48);
             this.btnShow.TabIndex = 5;
             this.btnShow.Text = "عرض ";
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
@@ -150,18 +157,47 @@ namespace Products.PL.Sales
             this.btnShowOrder.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnShowOrder.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btnShowOrder.Appearance.Options.UseFont = true;
-            this.btnShowOrder.Location = new System.Drawing.Point(222, 372);
+            this.btnShowOrder.Location = new System.Drawing.Point(503, 470);
+            this.btnShowOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnShowOrder.Name = "btnShowOrder";
-            this.btnShowOrder.Size = new System.Drawing.Size(245, 47);
+            this.btnShowOrder.Size = new System.Drawing.Size(180, 47);
             this.btnShowOrder.TabIndex = 13;
             this.btnShowOrder.Text = "تفاصيل الفاتورة";
             this.btnShowOrder.Click += new System.EventHandler(this.btnShowOrder_Click);
             // 
-            // FormSalesReport
+            // btnShowPayments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.btnShowPayments.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnShowPayments.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnShowPayments.Appearance.Options.UseFont = true;
+            this.btnShowPayments.Location = new System.Drawing.Point(131, 470);
+            this.btnShowPayments.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnShowPayments.Name = "btnShowPayments";
+            this.btnShowPayments.Size = new System.Drawing.Size(180, 47);
+            this.btnShowPayments.TabIndex = 14;
+            this.btnShowPayments.Text = "تفاصيل السداد";
+            this.btnShowPayments.Click += new System.EventHandler(this.btnShowPayments_Click);
+            // 
+            // btnReturned
+            // 
+            this.btnReturned.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnReturned.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnReturned.Appearance.Options.UseFont = true;
+            this.btnReturned.Location = new System.Drawing.Point(317, 470);
+            this.btnReturned.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReturned.Name = "btnReturned";
+            this.btnReturned.Size = new System.Drawing.Size(180, 47);
+            this.btnReturned.TabIndex = 15;
+            this.btnReturned.Text = "مرتجع";
+            this.btnReturned.Click += new System.EventHandler(this.btnReturned_Click);
+            // 
+            // FormReport
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 421);
+            this.ClientSize = new System.Drawing.Size(814, 526);
+            this.Controls.Add(this.btnReturned);
+            this.Controls.Add(this.btnShowPayments);
             this.Controls.Add(this.btnShowOrder);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.labelControl2);
@@ -169,7 +205,8 @@ namespace Products.PL.Sales
             this.Controls.Add(this.deTo);
             this.Controls.Add(this.deFrom);
             this.Controls.Add(this.gridControl1);
-            this.Name = "FormSalesReport";
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "FormReport";
             this.Text = "تقرير إيرادات";
             this.Load += new System.EventHandler(this.FormSalesReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -193,5 +230,7 @@ namespace Products.PL.Sales
         private LabelControl labelControl2;
         private SimpleButton btnShow;
         private SimpleButton btnShowOrder;
+        private SimpleButton btnShowPayments;
+        private SimpleButton btnReturned;
     }
 }

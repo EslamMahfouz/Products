@@ -1,6 +1,4 @@
-﻿using DevExpress.Utils.Drawing;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraEditors;
 using Dukan.Core;
 using Dukan.Core.UnitOfWork;
 using System;
@@ -32,15 +30,6 @@ namespace Products.PL.Products
             var frm = new FormEditProduct { Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id")) };
             frm.ShowDialog();
             FormShowProducts_Load(sender, e);
-        }
-
-        private void gridView1_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
-            {
-                e.Info.DisplayText = (e.RowHandle + 1).ToString();
-                e.Info.Kind = IndicatorKind.Row;
-            }
         }
 
         private void FormShowProducts_Enter(object sender, EventArgs e)

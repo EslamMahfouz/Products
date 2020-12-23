@@ -57,6 +57,10 @@ namespace Dukan.Core
             XtraMessageBox.Show("يوجد مشكلة بالبيانات المدخله", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        public static void ShowValueCannotBeNegativeMessage()
+        {
+            XtraMessageBox.Show("بعض القيم لا يجب أن تكون أقل من صفر", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
         #endregion
     }
 }

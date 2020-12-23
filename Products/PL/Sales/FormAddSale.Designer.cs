@@ -45,7 +45,8 @@ namespace Products.PL.Sales
             this.txtTotal = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.BtnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSaveAndPrint = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSaveAndClose = new DevExpress.XtraEditors.SimpleButton();
             this.txtCharge = new DevExpress.XtraEditors.TextEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.txtPaid = new DevExpress.XtraEditors.TextEdit();
@@ -150,7 +151,8 @@ namespace Products.PL.Sales
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.groupControl1.Controls.Add(this.BtnSave);
+            this.groupControl1.Controls.Add(this.btnSaveAndPrint);
+            this.groupControl1.Controls.Add(this.btnSaveAndClose);
             this.groupControl1.Controls.Add(this.txtCharge);
             this.groupControl1.Controls.Add(this.labelControl16);
             this.groupControl1.Controls.Add(this.txtPaid);
@@ -168,21 +170,37 @@ namespace Products.PL.Sales
             this.groupControl1.TabIndex = 32;
             this.groupControl1.Text = "بيانات الحساب";
             // 
-            // BtnSave
+            // btnSaveAndPrint
             // 
-            this.BtnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BtnSave.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSave.Appearance.Options.UseFont = true;
-            this.BtnSave.Enabled = false;
-            this.BtnSave.Image = ((System.Drawing.Image)(resources.GetObject("BtnSave.Image")));
-            this.BtnSave.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.BtnSave.Location = new System.Drawing.Point(513, 117);
-            this.BtnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(303, 53);
-            this.BtnSave.TabIndex = 28;
-            this.BtnSave.Text = "حفظ";
-            this.BtnSave.Click += new System.EventHandler(this.TxtSave_Click);
+            this.btnSaveAndPrint.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSaveAndPrint.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveAndPrint.Appearance.Options.UseFont = true;
+            this.btnSaveAndPrint.Enabled = false;
+            this.btnSaveAndPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAndPrint.Image")));
+            this.btnSaveAndPrint.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnSaveAndPrint.Location = new System.Drawing.Point(347, 117);
+            this.btnSaveAndPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSaveAndPrint.Name = "btnSaveAndPrint";
+            this.btnSaveAndPrint.Size = new System.Drawing.Size(303, 53);
+            this.btnSaveAndPrint.TabIndex = 29;
+            this.btnSaveAndPrint.Text = "حفظ وطباعة";
+            this.btnSaveAndPrint.Click += new System.EventHandler(this.btnSaveAndPrint_Click);
+            // 
+            // btnSaveAndClose
+            // 
+            this.btnSaveAndClose.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSaveAndClose.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveAndClose.Appearance.Options.UseFont = true;
+            this.btnSaveAndClose.Enabled = false;
+            this.btnSaveAndClose.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAndClose.Image")));
+            this.btnSaveAndClose.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnSaveAndClose.Location = new System.Drawing.Point(659, 117);
+            this.btnSaveAndClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSaveAndClose.Name = "btnSaveAndClose";
+            this.btnSaveAndClose.Size = new System.Drawing.Size(303, 53);
+            this.btnSaveAndClose.TabIndex = 28;
+            this.btnSaveAndClose.Text = "حفظ وإغلاق";
+            this.btnSaveAndClose.Click += new System.EventHandler(this.btnSaveAndClose_Click);
             // 
             // txtCharge
             // 
@@ -805,7 +823,7 @@ namespace Products.PL.Sales
         private TextEdit txtTotal;
         private LabelControl labelControl13;
         private GroupControl groupControl1;
-        private SimpleButton BtnSave;
+        private SimpleButton btnSaveAndClose;
         private TextEdit txtCharge;
         private LabelControl labelControl16;
         private TextEdit txtPaid;
@@ -845,5 +863,6 @@ namespace Products.PL.Sales
         private LabelControl labelControl18;
         private SimpleButton BtnEditItem;
         private SimpleButton BtnDeleteItem;
+        private SimpleButton btnSaveAndPrint;
     }
 }

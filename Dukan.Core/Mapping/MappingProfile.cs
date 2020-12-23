@@ -4,6 +4,7 @@ using Dukan.Core.Models.Customer;
 using Dukan.Core.Models.Product;
 using Dukan.Core.Models.Purchase;
 using Dukan.Core.Models.Sale;
+using Dukan.Core.Models.Shared;
 using Dukan.Core.Models.Supplier;
 using Dukan.Data;
 using System.Linq;
@@ -65,13 +66,16 @@ namespace Dukan.Core.Mapping
             CreateMap<AddPurchaseDetailGridModel, PurchaseDetail>()
                 .ForMember(d => d.ReturnedQte, o => o.MapFrom(s => 0));
 
+            CreateMap<PurchaseDetail, ProductReturnModel>()
+                .ForMember(d => d.Id, o => o.MapFrom(s => s.Id))
+                .ForMember(d => d.Name, o => o.MapFrom(s => s.Product.Name))
+                .ForMember(d => d.Qte, o => o.MapFrom(s => s.Qte - s.ReturnedQte));
             #endregion
 
             #region Purchase payments
 
-            CreateMap<PurchasePayment, PurchasePaymentModel>()
-                .ForMember(d => d.Number, o => o.MapFrom(s => s.Purchase.Number));
-
+            CreateMap<PurchasePayment, PaymentModel>()
+                .ForMember(d => d.RelationId, o => o.MapFrom(s => s.Purchase.Id));
             #endregion
 
             #region Sale
@@ -80,7 +84,6 @@ namespace Dukan.Core.Mapping
             CreateMap<Sale, SaleReportModel>()
                 .ForMember(d => d.CustomerName, o => o.MapFrom(s => s.Customer.Name))
                 .ForMember(d => d.CustomerPhone, o => o.MapFrom(s => s.Customer.Phone))
-                .ForMember(d => d.Discount, o => o.MapFrom(s => s.Discount / 100))
                 .ForMember(d => d.SaleDetails, o => o.MapFrom(s => s.SaleDetails));
 
             #endregion
@@ -97,8 +100,7 @@ namespace Dukan.Core.Mapping
                 .ForMember(d => d.ProductName, o => o.MapFrom(s => s.Product.Name));
 
 
-            CreateMap<SaleDetail, SaleDetailReportModel>()
-                .ForMember(d => d.Discount, o => o.MapFrom(s => s.Discount / 100));
+            CreateMap<SaleDetail, SaleDetailReportModel>();
 
             CreateMap<SaleDetail, ProductReturnModel>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Id))
@@ -110,9 +112,8 @@ namespace Dukan.Core.Mapping
 
             #region Sale payments
 
-            CreateMap<SalePayment, SalePaymentModel>()
-                .ForMember(d => d.Number, o => o.MapFrom(s => s.Sale.Number));
-
+            CreateMap<SalePayment, PaymentModel>()
+                .ForMember(d => d.RelationId, o => o.MapFrom(s => s.Sale.Id));
 
             #endregion
         }

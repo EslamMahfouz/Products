@@ -2,12 +2,14 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraPrinting.Native;
+using DevExpress.XtraReports.UI;
 using Dukan.Core;
 using Dukan.Core.Models.Sale;
 using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using Dukan.Data;
 using Products.PL.Customers;
+using Products.Reports;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -81,6 +83,67 @@ namespace Products.PL.Sales
             txtPrdTotalAfterDiscount.Text = @"0";
         }
 
+        private int SaveSale()
+        {
+            try
+            {
+                _sale.CustomerId = Convert.ToInt32(CmbCustomers.EditValue);
+                _sale.Date = Convert.ToDateTime(deDate.EditValue);
+                _sale.Number = Convert.ToInt32(lblOrderID.Text);
+                _sale.Discount = Convert.ToDecimal(txtDiscount.EditValue);
+
+                if (Convert.ToDouble(txtPaid.Text) > 0)
+                {
+                    _sale.SalePayments.Add(new SalePayment
+                    {
+                        Date = Convert.ToDateTime(deDate.EditValue),
+                        Paid = Convert.ToDecimal(txtPaid.Text),
+                        Type = "إيراد"
+                    });
+                }
+
+                var saleDetails = Mapper.Map<IEnumerable<AddSaleDetailGridModel>, IEnumerable<SaleDetail>>(_saleDetails);
+
+                saleDetails.ForEach(sd => _sale.SaleDetails.Add(sd));
+                foreach (var saleDetail in _saleDetails)
+                {
+                    var product = UnitOfWork.Instance.Products.Get(saleDetail.ProductId);
+                    product.Qte -= Convert.ToInt32(saleDetail.Qte);
+                }
+
+                var sale = UnitOfWork.Instance.Sales.Add(_sale);
+                UnitOfWork.Instance.Complete();
+
+                BtnDeleteItem.Enabled = false;
+                BtnEditItem.Enabled = false;
+                XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return sale.Id;
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return 0;
+            }
+
+        }
+
+        private static void PrintSale(int id)
+        {
+            var reportModel = UnitOfWork.Instance.Sales.GetSaleReport(id);
+            var report = new SaleReport
+            {
+                DataSource = reportModel.SaleDetails,
+                CustomerName = { Value = reportModel.CustomerName },
+                CustomerPhone = { Value = reportModel.CustomerPhone },
+                Date = { Value = reportModel.Date },
+                Number = { Value = reportModel.Number },
+                SaleTotal = { Value = reportModel.Total },
+                SaleDiscount = { Value = reportModel.Discount },
+                SaleTotalAfterDiscount = { Value = reportModel.TotalAfterDiscount }
+            };
+
+            report.ShowPreview();
+        }
         #endregion
 
         #region events
@@ -92,7 +155,7 @@ namespace Products.PL.Sales
             CmbCustomers.Properties.DataSource = customers;
             CmbCustomers.Initialize();
 
-            var customerModule = UnitOfWork.Instance.Modules.GetModuleStatus(Modules.Customer);
+            var customerModule = UnitOfWork.Instance.Modules.GetModuleStatus(Constants.Customer);
             if (!customerModule)
             {
                 CmbCustomers.Properties.Buttons.RemoveAt(0);
@@ -139,7 +202,7 @@ namespace Products.PL.Sales
         private void TxtQte_Validated(object sender, EventArgs e)
         {
             var product = UnitOfWork.Instance.Products.Get((int)CmbProducts.EditValue);
-            if (product.Qte > int.Parse(TxtQte.Text))
+            if (product.Qte >= int.Parse(TxtQte.Text))
             {
                 return;
             }
@@ -174,55 +237,20 @@ namespace Products.PL.Sales
             }
         }
 
-        private void TxtSave_Click(object sender, EventArgs e)
+        private void btnSaveAndClose_Click(object sender, EventArgs e)
         {
-            try
+            int id = SaveSale();
+            if (id != 0)
+                Close();
+        }
+        private void btnSaveAndPrint_Click(object sender, EventArgs e)
+        {
+            var id = SaveSale();
+            var exists = UnitOfWork.Instance.Sales.IsExists(id);
+            if (exists)
             {
-                if (BtnSave.Text == @"حفظ")
-                {
-                    _sale.CustomerId = Convert.ToInt32(CmbCustomers.EditValue);
-                    _sale.Date = Convert.ToDateTime(deDate.EditValue);
-                    _sale.Number = Convert.ToInt32(lblOrderID.Text);
-                    _sale.Discount = Convert.ToDecimal(txtDiscount.EditValue);
-
-                    if (Convert.ToDouble(txtPaid.Text) > 0)
-                    {
-                        _sale.SalePayments.Add(new SalePayment
-                        {
-                            Date = Convert.ToDateTime(deDate.EditValue),
-                            Paid = Convert.ToDecimal(txtPaid.Text),
-                            Type = "إيراد"
-                        });
-                    }
-
-                    var saleDetails =
-                        Mapper.Map<IEnumerable<AddSaleDetailGridModel>, IEnumerable<SaleDetail>>(_saleDetails);
-
-                    saleDetails.ForEach(sd => _sale.SaleDetails.Add(sd));
-                    foreach (var saleDetail in _saleDetails)
-                    {
-                        var product = UnitOfWork.Instance.Products.Get(saleDetail.ProductId);
-                        product.Qte -= Convert.ToInt32(saleDetail.Qte);
-                    }
-
-                    UnitOfWork.Instance.Sales.Add(_sale);
-                    UnitOfWork.Instance.Complete();
-
-                    BtnDeleteItem.Enabled = false;
-                    BtnEditItem.Enabled = false;
-                    XtraMessageBox.Show("تم الحفظ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    BtnSave.Text = @"طباعة";
-                }
-                else
-                {
-                    //todo refactor
-                    //var rep = UnitOfWork.Instance.Sales.GetSaleReport(_sale.Id);
-                    //rep.ShowPreview();
-                }
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                PrintSale(id);
+                Close();
             }
         }
 
@@ -258,7 +286,8 @@ namespace Products.PL.Sales
                 ClearItemFields();
                 BtnEditItem.Enabled = true;
                 BtnDeleteItem.Enabled = true;
-                BtnSave.Enabled = true;
+                btnSaveAndClose.Enabled = true;
+                btnSaveAndPrint.Enabled = true;
             }
         }
 
@@ -271,7 +300,8 @@ namespace Products.PL.Sales
             CalculateDiscount();
             if (!_saleDetails.Any())
             {
-                BtnSave.Enabled = false;
+                btnSaveAndClose.Enabled = false;
+                btnSaveAndPrint.Enabled = false;
                 BtnEditItem.Enabled = false;
                 BtnDeleteItem.Enabled = false;
             }
@@ -301,6 +331,7 @@ namespace Products.PL.Sales
 
         #endregion
 
+        #endregion
         #region Invoice calculations
 
         private void TxtNum_EditValueChanged(object sender, EventArgs e)
@@ -329,6 +360,7 @@ namespace Products.PL.Sales
         }
 
         #endregion
-        #endregion
+
+
     }
 }

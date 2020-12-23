@@ -62,6 +62,7 @@ namespace Products.PL.Products
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
+
             var value = e.Value.ToString().Trim();
             if (!string.IsNullOrEmpty(value))
             {
@@ -69,7 +70,6 @@ namespace Products.PL.Products
                 if (exists)
                 {
                     Custom.ShowExistingMessage(FormResource.ExistingCategory);
-                    FormShowCategories_Load(sender, e);
                 }
                 else
                 {
@@ -77,6 +77,7 @@ namespace Products.PL.Products
                     UnitOfWork.Instance.Categories.Edit(id, value);
                     UnitOfWork.Instance.Complete();
                 }
+                FormShowCategories_Load(sender, e);
             }
         }
 

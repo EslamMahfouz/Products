@@ -131,6 +131,9 @@
   <data name="xrTableCell8.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>WhiteSmoke</value>
   </data>
+  <data name="xrTableCell8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Narrow, 10.2pt</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="xrTableCell8.Weight" type="System.Double, mscorlib">
     <value>1.1802849533985842</value>
@@ -138,11 +141,17 @@
   <data name="xrTableCell9.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>WhiteSmoke</value>
   </data>
+  <data name="xrTableCell9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Narrow, 10.2pt</value>
+  </data>
   <data name="xrTableCell9.Weight" type="System.Double, mscorlib">
     <value>0.44963324516228442</value>
   </data>
   <data name="xrTableCell10.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>WhiteSmoke</value>
+  </data>
+  <data name="xrTableCell10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Narrow, 10.2pt</value>
   </data>
   <data name="xrTableCell10.Weight" type="System.Double, mscorlib">
     <value>0.84305968745180426</value>
@@ -150,17 +159,26 @@
   <data name="xrTableCell11.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>WhiteSmoke</value>
   </data>
+  <data name="xrTableCell11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Narrow, 10.2pt</value>
+  </data>
   <data name="xrTableCell11.Weight" type="System.Double, mscorlib">
     <value>0.47257394971232114</value>
   </data>
   <data name="xrTableCell12.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>WhiteSmoke</value>
   </data>
+  <data name="xrTableCell12.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Narrow, 10.2pt</value>
+  </data>
   <data name="xrTableCell12.Weight" type="System.Double, mscorlib">
     <value>0.560205282001792</value>
   </data>
   <data name="xrTableCell13.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>WhiteSmoke</value>
+  </data>
+  <data name="xrTableCell13.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Narrow, 10.2pt</value>
   </data>
   <data name="xrTableCell13.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v15.2">
     <value>MiddleCenter</value>
@@ -170,6 +188,9 @@
   </data>
   <data name="xrTableCell14.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>WhiteSmoke</value>
+  </data>
+  <data name="xrTableCell14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Narrow, 10.2pt</value>
   </data>
   <data name="xrTableCell14.Weight" type="System.Double, mscorlib">
     <value>0.26473252829220462</value>
@@ -199,10 +220,10 @@
     <value>Black</value>
   </data>
   <data name="xrLabel7.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v15.2">
-    <value>170.000031, 73.83331</value>
+    <value>192.500259, 73.83331</value>
   </data>
   <data name="xrLabel7.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>99.16672, 25.49998</value>
+    <value>76.66649, 25.4999847</value>
   </data>
   <data name="xrLabel7.Text" xml:space="preserve">
     <value>التاريخ</value>
@@ -220,10 +241,10 @@
     <value>Black</value>
   </data>
   <data name="xrLabel28.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v15.2">
-    <value>469.6665, 73.8333359</value>
+    <value>489.666748, 73.8333359</value>
   </data>
   <data name="xrLabel28.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>73.3335, 25.49997</value>
+    <value>53.333252, 25.49997</value>
   </data>
   <data name="xrLabel28.Text" xml:space="preserve">
     <value>العميل</value>
@@ -262,10 +283,10 @@
     <value>Black</value>
   </data>
   <data name="xrLabel22.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v15.2">
-    <value>170.000031, 110.1667</value>
+    <value>192.500259, 110.1667</value>
   </data>
   <data name="xrLabel22.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>99.16672, 25.50001</value>
+    <value>76.66649, 25.5000153</value>
   </data>
   <data name="xrLabel22.Text" xml:space="preserve">
     <value>رقم الفاتورة</value>
@@ -280,10 +301,10 @@
     <value>Calibri, 12pt</value>
   </data>
   <data name="xrLabel6.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v15.2">
-    <value>10, 110.1667</value>
+    <value>12.904727, 110.1667</value>
   </data>
   <data name="xrLabel6.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>160.000031, 25.5000153</value>
+    <value>179.595535, 25.5000153</value>
   </data>
   <data name="xrLabel6.Text" xml:space="preserve">
     <value>xrLabel6</value>
@@ -298,10 +319,10 @@
     <value>Calibri, 12pt</value>
   </data>
   <data name="xrLabel5.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v15.2">
-    <value>9.999993, 73.83344</value>
+    <value>12.904727, 73.83339</value>
   </data>
   <data name="xrLabel5.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>160.000031, 25.49997</value>
+    <value>179.595535, 25.49997</value>
   </data>
   <data name="xrLabel5.Text" xml:space="preserve">
     <value>xrLabel5</value>
@@ -319,7 +340,7 @@
     <value>278.761963, 110.1667</value>
   </data>
   <data name="xrLabel4.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>190.904755, 25.5000229</value>
+    <value>210.904785, 25.5000153</value>
   </data>
   <data name="xrLabel4.Text" xml:space="preserve">
     <value>xrLabel4</value>
@@ -337,7 +358,7 @@
     <value>278.761749, 73.83337</value>
   </data>
   <data name="xrLabel2.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>190.904663, 25.4999847</value>
+    <value>210.905, 25.4999847</value>
   </data>
   <data name="xrLabel2.Text" xml:space="preserve">
     <value>xrLabel2</value>
@@ -355,10 +376,10 @@
     <value>Black</value>
   </data>
   <data name="xrLabel1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v15.2">
-    <value>469.6665, 110.1666</value>
+    <value>489.666748, 110.1667</value>
   </data>
   <data name="xrLabel1.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>73.33344, 25.50001</value>
+    <value>53.333252, 25.5000153</value>
   </data>
   <data name="xrLabel1.Text" xml:space="preserve">
     <value>الموبايل</value>

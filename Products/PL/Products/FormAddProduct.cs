@@ -30,6 +30,8 @@ namespace Products.PL.Products
             txtCategory.Visible = status;
             btnAddCategory.Visible = status;
             txtCategory.Text = "";
+            if (!status)
+                cmbCategories.Properties.Buttons[0].Kind = ButtonPredefines.Plus;
         }
 
         private void ClearArea()
@@ -69,6 +71,9 @@ namespace Products.PL.Products
         {
             try
             {
+                if (!valCategory.Validate())
+                    return;
+
                 if (!string.IsNullOrEmpty(txtCategory.Text))
                 {
                     var exists = UnitOfWork.Instance.Categories.IsExisting(txtCategory.Text.Trim());
@@ -95,6 +100,11 @@ namespace Products.PL.Products
         {
             try
             {
+                if (Convert.ToDecimal(txtBuy.Text) < 0m || Convert.ToDecimal(txtSell.Text) < 0m)
+                {
+                    Custom.ShowValueCannotBeNegativeMessage();
+                    return;
+                }
                 if (val.Validate())
                 {
                     var exists = UnitOfWork.Instance.Products.IsExisting(_product.Name.Trim());
