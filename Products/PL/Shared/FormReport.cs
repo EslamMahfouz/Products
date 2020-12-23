@@ -3,20 +3,20 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using Dukan.Core;
 using Dukan.Core.UnitOfWork;
-using Products.PL.Shared;
+using Products.PL.Sales;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Products.PL.Sales
+namespace Products.PL.Shared
 {
     public partial class FormReport : XtraForm
     {
         #region properties
-
         public string Type { get; set; }
-
         #endregion
+
+        #region ctor
         public FormReport()
         {
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace Products.PL.Sales
             deFrom.EditValue = today;
             deTo.EditValue = today;
         }
+        #endregion
 
         private void FormSalesReport_Load(object sender, EventArgs e)
         {

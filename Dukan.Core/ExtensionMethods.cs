@@ -1,5 +1,6 @@
 ﻿using DevExpress.Data;
 using DevExpress.Utils;
+using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Drawing;
@@ -37,8 +38,16 @@ namespace Dukan.Core
                 grid.Columns[i].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
             }
 
-            grid.Columns["Paid"]?.Summary.Add(SummaryItemType.Sum, "Paid", "الإجمالي = {0:n2}");
+            grid.CustomDrawRowIndicator += delegate (object sender, RowIndicatorCustomDrawEventArgs e)
+            {
+                if (e.Info.IsRowIndicator && e.RowHandle >= 0)
+                {
+                    e.Info.DisplayText = (e.RowHandle + 1).ToString();
+                    e.Info.Kind = IndicatorKind.Row;
+                }
+            };
 
+            grid.Columns["Paid"]?.Summary.Add(SummaryItemType.Sum, "Paid", "الإجمالي = {0:n2}");
         }
 
         #endregion

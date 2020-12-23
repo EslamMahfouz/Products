@@ -1,9 +1,9 @@
-﻿using DevExpress.XtraEditors;
+﻿using System.ComponentModel;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
-using System.ComponentModel;
 
-namespace Products.PL.Sales
+namespace Products.PL.Shared
 {
     partial class FormReport
     {
