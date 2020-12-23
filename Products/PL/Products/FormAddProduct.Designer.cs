@@ -35,10 +35,10 @@ namespace Products.PL.Products
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -122,9 +122,9 @@ namespace Products.PL.Products
             this.cmbCategories.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCategories.Size = new System.Drawing.Size(218, 30);
             this.cmbCategories.TabIndex = 0;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "برجاء إختيار الصنف";
-            this.val.SetValidationRule(this.cmbCategories, conditionValidationRule1);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "برجاء إختيار الصنف";
+            this.val.SetValidationRule(this.cmbCategories, conditionValidationRule5);
             // 
             // addProductModelBindingSource
             // 
@@ -165,9 +165,9 @@ namespace Products.PL.Products
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtName.Size = new System.Drawing.Size(359, 30);
             this.txtName.TabIndex = 3;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "برجاء إدخال إسم المنتج";
-            this.val.SetValidationRule(this.txtName, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "برجاء إدخال إسم المنتج";
+            this.val.SetValidationRule(this.txtName, conditionValidationRule1);
             // 
             // txtBuy
             // 
@@ -180,20 +180,20 @@ namespace Products.PL.Products
             this.txtBuy.Name = "txtBuy";
             this.txtBuy.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuy.Properties.Appearance.Options.UseFont = true;
-            this.txtBuy.Properties.Mask.EditMask = "f";
+            this.txtBuy.Properties.Mask.EditMask = "c";
             this.txtBuy.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtBuy.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtBuy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtBuy.Size = new System.Drawing.Size(119, 30);
             this.txtBuy.TabIndex = 4;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule3.ErrorText = "سعر الشراء يجب أن يكون أكبر من 0";
-            conditionValidationRule3.Value1 = new decimal(new int[] {
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule2.ErrorText = "سعر الشراء يجب أن يكون أكبر من 0";
+            conditionValidationRule2.Value1 = new decimal(new int[] {
             1,
             0,
             0,
             -2147483648});
-            this.val.SetValidationRule(this.txtBuy, conditionValidationRule3);
+            this.val.SetValidationRule(this.txtBuy, conditionValidationRule2);
             // 
             // txtSell
             // 
@@ -206,20 +206,20 @@ namespace Products.PL.Products
             this.txtSell.Name = "txtSell";
             this.txtSell.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSell.Properties.Appearance.Options.UseFont = true;
-            this.txtSell.Properties.Mask.EditMask = "f";
+            this.txtSell.Properties.Mask.EditMask = "c";
             this.txtSell.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSell.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSell.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtSell.Size = new System.Drawing.Size(117, 30);
             this.txtSell.TabIndex = 6;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule4.ErrorText = "سعر البيع يجب أن يكون أكبر من 0";
-            conditionValidationRule4.Value1 = new decimal(new int[] {
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = "سعر البيع يجب أن يكون أكبر من 0";
+            conditionValidationRule3.Value1 = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.val.SetValidationRule(this.txtSell, conditionValidationRule4);
+            this.val.SetValidationRule(this.txtSell, conditionValidationRule3);
             // 
             // txtNumber
             // 
@@ -232,8 +232,8 @@ namespace Products.PL.Products
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Properties.Appearance.Options.UseFont = true;
-            this.txtNumber.Properties.Mask.EditMask = "d";
-            this.txtNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtNumber.Properties.Mask.EditMask = "\\d+";
+            this.txtNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtNumber.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtNumber.Size = new System.Drawing.Size(119, 30);
@@ -325,8 +325,8 @@ namespace Products.PL.Products
             this.txtMinimum.Name = "txtMinimum";
             this.txtMinimum.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMinimum.Properties.Appearance.Options.UseFont = true;
-            this.txtMinimum.Properties.Mask.EditMask = "d";
-            this.txtMinimum.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtMinimum.Properties.Mask.EditMask = "\\d+";
+            this.txtMinimum.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtMinimum.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMinimum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtMinimum.Size = new System.Drawing.Size(119, 30);
