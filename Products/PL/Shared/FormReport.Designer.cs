@@ -53,8 +53,8 @@ namespace Products.PL.Shared
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Location = new System.Drawing.Point(12, 53);
@@ -189,8 +189,9 @@ namespace Products.PL.Shared
             this.btnReturned.Size = new System.Drawing.Size(180, 47);
             this.btnReturned.TabIndex = 15;
             this.btnReturned.Text = "مرتجع";
+            this.btnReturned.Click += new System.EventHandler(this.btnReturned_Click);
             // 
-            // FormSalesReport
+            // FormReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

@@ -235,7 +235,7 @@
             this.Controls.Add(this.btnSave);
             this.Name = "FormReturned";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormReturned";
+            this.Text = "مرتجعات";
             this.Load += new System.EventHandler(this.FormReturned_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);

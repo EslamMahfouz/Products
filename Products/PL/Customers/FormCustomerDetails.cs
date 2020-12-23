@@ -224,7 +224,7 @@ namespace Products.PL.Customers
         {
             var frm = new FormReturned
             {
-                SaleId = Convert.ToInt32(gridView2.GetFocusedRowCellValue("Id"))
+                RelationId = Convert.ToInt32(gridView2.GetFocusedRowCellValue("Id"))
             };
             _isFirst = false;
             FormMain.GetInstance.AddForm(frm);

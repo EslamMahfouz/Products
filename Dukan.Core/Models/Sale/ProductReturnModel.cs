@@ -4,13 +4,13 @@ namespace Dukan.Core.Models.Sale
 {
     public class ProductReturnModel
     {
-        [DisplayName("م")]
+        [Browsable(false)]
         public int Id { get; set; }
 
         [DisplayName("المنتج")]
         public string Name { get; set; }
 
-        [DisplayName("الكمية المباعة")]
+        [DisplayName("الكمية")]
         public int? Qte { get; set; }
     }
 }

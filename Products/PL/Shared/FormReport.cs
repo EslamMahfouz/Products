@@ -101,5 +101,17 @@ namespace Products.PL.Shared
             }
 
         }
+
+        private void btnReturned_Click(object sender, EventArgs e)
+        {
+            var frm = new FormReturned
+            {
+                RelationId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("RelationId")),
+                Type = Text
+            };
+            //_isFirst = false;
+            frm.ShowDialog();
+
+        }
     }
 }

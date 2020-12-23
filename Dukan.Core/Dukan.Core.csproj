@@ -92,7 +92,7 @@
     <Compile Include="Models\Product\ProductGridModel.cs" />
     <Compile Include="Models\Sale\SaleDetailReportModel.cs" />
     <Compile Include="Models\Sale\SaleReportModel.cs" />
-    <Compile Include="Models\Shared\SalePaymentModel.cs" />
+    <Compile Include="Models\Shared\PaymentModel.cs" />
     <Compile Include="Models\Supplier\SupplierGridModel.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
@@ -102,6 +102,7 @@
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PurchasePaymentRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\PurchaseDetailsRepository.cs" />
     <Compile Include="Repository\SaleDetailsRepository.cs" />
     <Compile Include="Repository\SalePaymentRepository.cs" />
     <Compile Include="Repository\PurchaseRepository.cs" />
