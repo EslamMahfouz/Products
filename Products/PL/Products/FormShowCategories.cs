@@ -70,15 +70,14 @@ namespace Products.PL.Products
                 if (existNum > 1)
                 {
                     Custom.ShowExistingMessage(FormResource.ExistingCategory);
-                    FormShowCategories_Load(sender, e);
                 }
                 else
                 {
                     var id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
                     UnitOfWork.Instance.Categories.Edit(id, value);
                     UnitOfWork.Instance.Complete();
-                    FormShowCategories_Load(sender, e);
                 }
+                FormShowCategories_Load(sender, e);
             }
         }
 
