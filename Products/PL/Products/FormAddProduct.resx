@@ -126,6 +126,27 @@
   <metadata name="valCategory.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>370, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="generateBarcode.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAMrSURBVFhHtdfLrhVFFMbxg0riQDEyME4NxJgQJxBmeBtI
+        YgAlCoJCFI33C4mXkcx9CR06NL6BQMITIBMegaAJceKIRL/fPrWOtffu0/ui+0v+OV1rraq1urp69T5b
+        M3qgMaY97e+Qxnw0uv6ixP+n5nKV4ZnwY7jaca3xa7gRfgr7A7njums2PjFia16/lrXloJ0i+uR/hL+X
+        4Gggc2s+21DsLHJMFVELqE7AzfBF+DR82cH2VTgdHmyUaswnRmw/11ps1pZDLqrcE9kiToGbkrXlkGtO
+        VYBqyTN9Nxh/FD5ufBg+CHyPNFyz8VWcOeby1ZkxXlhA7cCZYDzGa40hX4+1aKkdqALeDsbfh+fC8fBy
+        eCF8F/jONlyz8YkRa465fNailQo4H4xfnYy2t7G28ljge6Phmo36OHP5rEWjBXh3OT+fjP4twPY9Fv4K
+        98NT4aXA1xfAxidGrDn1GKsAaxvLNScNhNNrRFWABBazsLEkL7brvgA2PtdizSlfFWBtY7l2VJ1MF+P0
+        LtO50I8PhIPbl1vPB76+ADYSI5bM5bMW1Vgumvp2eG66WTWHN4PgK+FQOBIOh2fD5cBni2ub2fjEiDXH
+        XD5rkbXlqDMyqOpwdWdjiHl9xjaEGOq755xsR98aNZi3wntBM7nUcM12MTwaHg/a7deNbxuuvwmaz75Q
+        kmNq60urFnAhSL6qdi2gtMojeD/Q9XA3nJiMtuXk/xl+CaMJS+scQv2f7gRjXbHkW8D2W+gLmDuE5Vzn
+        NawCXgneBn3At/7pINYa2nPt6qlg3uBruE4j8vXrJXl1wicZmh5qfx1W86YaUWmdVjxbgDsX59k/wdBU
+        BXwSzBtsxet8jOoR2GrP3La7c8nthlfwZKgCVvo9sMznuAq4F4yr51Mlux32MkSfBbalCqgWO8Y7gX4O
+        t4KzUXLnkv8QVipA5WS7NR3joZ9kkjsb5DTDabfdhcR4OFCdgaV2YBMa/EFSjee//Cwvec/FulPzbTlc
+        mz/4s7wKcGp/DwIWoZuRuTWfbSh2lrl/TKgvQnW2qNj4v2alOcMGtWsujkWFTPXvGY35aGb9ra1/AFwj
+        UKVPF9LEAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>100</value>
   </metadata>

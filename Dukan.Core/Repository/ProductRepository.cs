@@ -45,5 +45,10 @@ namespace Dukan.Core.Repository
         }
 
         #endregion
+
+        public bool IsBarcodeExisting(string barcode)
+        {
+            return GetAll(p => p.Barcode == barcode).Any();
+        }
     }
 }

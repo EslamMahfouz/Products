@@ -100,6 +100,13 @@ namespace Products.PL.Products
         {
             try
             {
+                var barcodeExists = UnitOfWork.Instance.Products.IsBarcodeExisting(txtBarcode.Text);
+                if (barcodeExists)
+                {
+                    Custom.ShowExistingMessage("هذا الباركود مسجل من قبل");
+                    return;
+                }
+
                 if (Convert.ToDecimal(txtBuy.Text) < 0m || Convert.ToDecimal(txtSell.Text) < 0m)
                 {
                     Custom.ShowValueCannotBeNegativeMessage();
@@ -134,5 +141,14 @@ namespace Products.PL.Products
             }
         }
         #endregion
+
+        private void txtBarcode_EditValueChanged(object sender, EventArgs e)
+        {
+            var exists = UnitOfWork.Instance.Products.IsBarcodeExisting(txtBarcode.Text);
+            if (exists)
+            {
+                Custom.ShowExistingMessage("هذا الباركود مسجل من قبل");
+            }
+        }
     }
 }
