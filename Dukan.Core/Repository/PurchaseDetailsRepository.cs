@@ -46,11 +46,11 @@ namespace Dukan.Core.Repository
         public void ReturnProduct(int purchaseDetailId, int qte)
         {
             var purchaseDetail = Get(purchaseDetailId);
-            purchaseDetail.ReturnedQte -= qte;
+            purchaseDetail.ReturnedQte += qte;
             var product = _context.Products.Find(purchaseDetail.ProductId);
             if (product != null)
             {
-                product.Qte += qte;
+                product.Qte -= qte;
             }
         }
         #endregion

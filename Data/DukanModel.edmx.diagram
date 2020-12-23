@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="ProductsModel.Module" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ProductsModel.Supplier" Width="1.5" PointX="7.75" PointY="5.875" />
         <EntityTypeShape EntityType="ProductsModel.Product" Width="1.5" PointX="3" PointY="0.75" />
-        <EntityTypeShape EntityType="ProductsModel.PurchaseDetail" Width="1.5" PointX="12.25" PointY="3" />
         <EntityTypeShape EntityType="ProductsModel.PurchasePayment" Width="1.5" PointX="12.25" PointY="9.625" />
         <EntityTypeShape EntityType="ProductsModel.Purchase" Width="1.5" PointX="10" PointY="5.75" />
         <EntityTypeShape EntityType="ProductsModel.SaleDetail" Width="1.5" PointX="5.25" PointY="4.75" />
@@ -18,13 +17,14 @@
         <EntityTypeShape EntityType="ProductsModel.Sale" Width="1.5" PointX="3" PointY="5" />
         <AssociationConnector Association="ProductsModel.FK_Products_Categories" />
         <AssociationConnector Association="ProductsModel.FK_Sales_Customers" />
-        <AssociationConnector Association="ProductsModel.FK_PurchasesDetails_Products" />
         <AssociationConnector Association="ProductsModel.FK_SalesDetails_Products" />
-        <AssociationConnector Association="ProductsModel.FK_PurchasesDetails_Purchases" />
         <AssociationConnector Association="ProductsModel.FK_PurchasePayments_Purchases" />
         <AssociationConnector Association="ProductsModel.FK_Purchases_Suppliers" />
         <AssociationConnector Association="ProductsModel.FK_SalesDetails_Sales" />
         <AssociationConnector Association="ProductsModel.FK_SalesPayments_Sales" />
+        <EntityTypeShape EntityType="ProductsModel.PurchaseDetail" Width="1.5" PointX="12.25" PointY="3" />
+        <AssociationConnector Association="ProductsModel.FK_PurchasesDetails_Products" />
+        <AssociationConnector Association="ProductsModel.FK_PurchasesDetails_Purchases" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

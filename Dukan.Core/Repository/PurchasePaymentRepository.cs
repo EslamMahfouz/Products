@@ -10,9 +10,12 @@ namespace Dukan.Core.Repository
 {
     public class PurchasePaymentRepository : Repository<PurchasePayment>
     {
+        private readonly ProductsEntities _context;
+
         #region ctor
         public PurchasePaymentRepository(ProductsEntities context) : base(context)
         {
+            _context = context;
         }
         #endregion
 
@@ -45,5 +48,21 @@ namespace Dukan.Core.Repository
         }
 
         #endregion
+
+        public void AddIncome(int productId, decimal total)
+        {
+            var purchaseId = _context.PurchaseDetails.Find(productId)?.PurchaseId;
+            if (purchaseId != null)
+            {
+                Insert(new PurchasePayment
+                {
+                    PurchaseId = purchaseId.Value,
+                    Date = DateTime.Now,
+                    Paid = total,
+                    Type = "مرتجع"
+                });
+            }
+
+        }
     }
 }
