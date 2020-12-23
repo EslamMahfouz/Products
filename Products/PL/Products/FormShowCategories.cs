@@ -3,7 +3,6 @@ using Dukan.Core;
 using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using System;
-using System.Linq;
 
 namespace Products.PL.Products
 {
@@ -63,11 +62,12 @@ namespace Products.PL.Products
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
+
             var value = e.Value.ToString().Trim();
             if (!string.IsNullOrEmpty(value))
             {
-                var existNum = UnitOfWork.Instance.Categories.GetAll(c => c.Name == value).Count();
-                if (existNum > 1)
+                var exists = UnitOfWork.Instance.Categories.IsExisting(value);
+                if (exists)
                 {
                     Custom.ShowExistingMessage(FormResource.ExistingCategory);
                 }
