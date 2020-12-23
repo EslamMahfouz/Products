@@ -28,7 +28,7 @@ namespace Products.PL.Customers
             }
             catch (Exception ex)
             {
-                Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex.Message);
             }
         }
         private void FormCustomers_Enter(object sender, EventArgs e)

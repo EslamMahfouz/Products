@@ -21,9 +21,6 @@ namespace Products.PL
 
         private void FormProductProfit_Load(object sender, EventArgs e)
         {
-            var dateFrom = Convert.ToDateTime(deFrom.EditValue);
-            var dateTo = Convert.ToDateTime(deTo.EditValue);
-
             var products = from x in db.Products
                            select new { م = x.Id, المنتج = x.Name, الصنف = x.Category.Name };
 

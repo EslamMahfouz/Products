@@ -23,7 +23,7 @@ namespace Products.PL.Products
             }
             catch (Exception ex)
             {
-                Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex.Message);
             }
         }
 
@@ -52,7 +52,7 @@ namespace Products.PL.Products
             }
             catch (Exception ex)
             {
-                Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex.Message);
             }
         }
     }

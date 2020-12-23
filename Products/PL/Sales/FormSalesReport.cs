@@ -63,7 +63,7 @@ namespace Products.PL.Sales
             }
             catch (Exception ex)
             {
-                Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex.Message);
             }
         }
 

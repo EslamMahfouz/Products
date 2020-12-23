@@ -3,6 +3,7 @@ using Dukan.Core;
 using Dukan.Core.UnitOfWork;
 using Dukan.Data;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Products.PL.Products
@@ -44,14 +45,26 @@ namespace Products.PL.Products
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (val.Validate())
+            try
             {
-                UnitOfWork.Instance.Products.Edit(_product);
-                UnitOfWork.Instance.Complete();
-                DialogResult = DialogResult.OK;
+                if (val.Validate())
+                {
+                    UnitOfWork.Instance.Products.Edit(_product);
+                    UnitOfWork.Instance.Complete();
+                    DialogResult = DialogResult.OK;
+                }
+            }
+            catch (DataException)
+            {
+                Custom.ShowDataExceptionMessage();
+            }
+            catch (Exception ex)
+            {
+                Custom.ShowExceptionMessage(ex.Message);
             }
         }
 
         #endregion
+
     }
 }

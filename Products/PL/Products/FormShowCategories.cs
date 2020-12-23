@@ -41,14 +41,14 @@ namespace Products.PL.Products
             {
                 if (val.Validate())
                 {
-                    var exists = UnitOfWork.Instance.Categories.IsExisting(txtName.Text);
+                    var exists = UnitOfWork.Instance.Categories.IsExisting(txtName.Text.Trim());
                     if (exists)
                     {
                         Custom.ShowExistingMessage(FormResource.ExistingCategory);
                     }
                     else
                     {
-                        UnitOfWork.Instance.Categories.Add(txtName.Text);
+                        UnitOfWork.Instance.Categories.Add(txtName.Text.Trim());
                         ClearArea();
                         gridControl1.DataSource = UnitOfWork.Instance.Categories.GetCategoriesForGrid();
                     }
@@ -56,13 +56,13 @@ namespace Products.PL.Products
             }
             catch (Exception ex)
             {
-                Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex.Message);
             }
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            var value = e.Value.ToString();
+            var value = e.Value.ToString().Trim();
             if (!string.IsNullOrEmpty(value))
             {
                 var exists = UnitOfWork.Instance.Categories.IsExisting(value);

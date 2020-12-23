@@ -1,7 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using Dukan.Core.Resources;
-using System;
 using System.Windows.Forms;
 
 namespace Dukan.Core
@@ -48,9 +47,14 @@ namespace Dukan.Core
         {
             XtraMessageBox.Show(msg, "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
-        public static void ShowExceptionMessage(Exception ex)
+        public static void ShowExceptionMessage(string msg)
         {
-            XtraMessageBox.Show(ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            XtraMessageBox.Show(msg, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void ShowDataExceptionMessage()
+        {
+            XtraMessageBox.Show("يوجد مشكلة بالبيانات المدخله", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         #endregion

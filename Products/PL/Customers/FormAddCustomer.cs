@@ -60,7 +60,7 @@ namespace Products.PL.Customers
 
             catch (Exception ex)
             {
-                Custom.ShowExceptionMessage(ex);
+                Custom.ShowExceptionMessage(ex.Message);
             }
         }
         #endregion

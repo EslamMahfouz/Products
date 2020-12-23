@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Dukan.Core.Models.Product;
 using System.ComponentModel;
 
 namespace Products.PL.Products
@@ -157,8 +156,10 @@ namespace Products.PL.Products
             this.txtBuy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtBuy.Size = new System.Drawing.Size(210, 30);
             this.txtBuy.TabIndex = 22;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.CaseSensitive = true;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.Value1 = "0";
             this.val.SetValidationRule(this.txtBuy, conditionValidationRule2);
             // 
             // txtSell

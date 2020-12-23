@@ -189,10 +189,10 @@ namespace Products.PL.Products
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule3.ErrorText = "سعر الشراء يجب أن يكون أكبر من 0";
             conditionValidationRule3.Value1 = new decimal(new int[] {
+            1,
             0,
             0,
-            0,
-            0});
+            -2147483648});
             this.val.SetValidationRule(this.txtBuy, conditionValidationRule3);
             // 
             // txtSell
