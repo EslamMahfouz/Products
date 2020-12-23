@@ -39,10 +39,12 @@ namespace Products.PL.Products
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.cmbCategories = new DevExpress.XtraEditors.LookUpEdit();
+            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
@@ -56,8 +58,9 @@ namespace Products.PL.Products
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtMinimum = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.valCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).BeginInit();
@@ -67,7 +70,7 @@ namespace Products.PL.Products
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl2
@@ -126,6 +129,10 @@ namespace Products.PL.Products
             conditionValidationRule1.ErrorText = "برجاء إختيار الصنف";
             this.val.SetValidationRule(this.cmbCategories, conditionValidationRule1);
             // 
+            // addProductModelBindingSource
+            // 
+            this.addProductModelBindingSource.DataSource = typeof(Dukan.Core.Models.Product.AddProductModel);
+            // 
             // labelControl5
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -168,7 +175,7 @@ namespace Products.PL.Products
             // txtBuy
             // 
             this.txtBuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuy.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Buy", true));
+            this.txtBuy.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addProductModelBindingSource, "Buy", true));
             this.txtBuy.EditValue = 0D;
             this.txtBuy.EnterMoveNextControl = true;
             this.txtBuy.Location = new System.Drawing.Point(435, 138);
@@ -176,7 +183,7 @@ namespace Products.PL.Products
             this.txtBuy.Name = "txtBuy";
             this.txtBuy.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuy.Properties.Appearance.Options.UseFont = true;
-            this.txtBuy.Properties.Mask.EditMask = "f2";
+            this.txtBuy.Properties.Mask.EditMask = "f";
             this.txtBuy.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtBuy.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtBuy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -194,7 +201,7 @@ namespace Products.PL.Products
             // txtSell
             // 
             this.txtSell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSell.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Sell", true));
+            this.txtSell.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addProductModelBindingSource, "Sell", true));
             this.txtSell.EditValue = 0D;
             this.txtSell.EnterMoveNextControl = true;
             this.txtSell.Location = new System.Drawing.Point(195, 138);
@@ -247,6 +254,9 @@ namespace Products.PL.Products
             this.txtCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtCategory.Size = new System.Drawing.Size(192, 30);
             this.txtCategory.TabIndex = 1;
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "برجاء إدخال اسم الصنف";
+            this.valCategory.SetValidationRule(this.txtCategory, conditionValidationRule5);
             this.txtCategory.Visible = false;
             // 
             // btnAddCategory
@@ -339,10 +349,6 @@ namespace Products.PL.Products
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "الحد الأدني للطلب";
             // 
-            // addProductModelBindingSource
-            // 
-            this.addProductModelBindingSource.DataSource = typeof(Dukan.Core.Models.Product.AddProductModel);
-            // 
             // FormAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -355,6 +361,7 @@ namespace Products.PL.Products
             this.Text = "إضافة منتج";
             this.Load += new System.EventHandler(this.FormAddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).EndInit();
@@ -365,7 +372,7 @@ namespace Products.PL.Products
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valCategory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,5 +396,6 @@ namespace Products.PL.Products
         private TextEdit txtMinimum;
         private LabelControl labelControl1;
         private BindingSource addProductModelBindingSource;
+        private DXValidationProvider valCategory;
     }
 }

@@ -30,6 +30,8 @@ namespace Products.PL.Products
             txtCategory.Visible = status;
             btnAddCategory.Visible = status;
             txtCategory.Text = "";
+            if (!status)
+                cmbCategories.Properties.Buttons[0].Kind = ButtonPredefines.Plus;
         }
 
         private void ClearArea()
@@ -69,6 +71,9 @@ namespace Products.PL.Products
         {
             try
             {
+                if (!valCategory.Validate())
+                    return;
+
                 if (!string.IsNullOrEmpty(txtCategory.Text))
                 {
                     var exists = UnitOfWork.Instance.Categories.IsExisting(txtCategory.Text.Trim());
