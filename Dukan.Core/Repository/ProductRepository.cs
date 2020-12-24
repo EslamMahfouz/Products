@@ -34,9 +34,11 @@ namespace Dukan.Core.Repository
             Context.Products.AddOrUpdate(product);
         }
 
-        public IEnumerable<ProductComboModel> GetProductsForCombo()
+        public IEnumerable<ProductComboModel> GetProductsForCombo(string type = Constants.SaleReceipt)
         {
-            return Mapper.Map<IEnumerable<Product>, IEnumerable<ProductComboModel>>(GetAll(p => p.Qte > 0));
+            return type == Constants.SaleReceipt
+                ? Mapper.Map<IEnumerable<Product>, IEnumerable<ProductComboModel>>(GetAll(p => p.Qte > 0))
+                : Mapper.Map<IEnumerable<Product>, IEnumerable<ProductComboModel>>(GetAll());
         }
 
         public IEnumerable<ProductGridModel> GetProductsForGrid()

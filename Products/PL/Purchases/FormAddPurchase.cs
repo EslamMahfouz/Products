@@ -135,7 +135,7 @@ namespace Products.PL.Purchases
             }
             cmbSuppliers.EditValue = suppliers.FirstOrDefault().Id;
 
-            var products = UnitOfWork.Instance.Products.GetProductsForCombo();
+            var products = UnitOfWork.Instance.Products.GetProductsForCombo(Constants.PurchaseReceipt);
             cmbProducts.Properties.DataSource = products;
             cmbProducts.Initialize();
 
