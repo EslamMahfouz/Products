@@ -36,6 +36,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="Barcode" Type="varchar" MaxLength="100" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Buy" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Sell" Type="decimal" Precision="18" Scale="2" Nullable="false" />
@@ -396,6 +397,7 @@
           <NavigationProperty Name="Category" Relationship="ProductsModel.FK_Products_Categories" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="SaleDetails" Relationship="ProductsModel.FK_SalesDetails_Products" FromRole="Product" ToRole="SaleDetail" />
           <NavigationProperty Name="PurchaseDetails" Relationship="ProductsModel.FK_PurchasesDetails_Products" FromRole="Product" ToRole="PurchaseDetail" />
+          <Property Name="Barcode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PurchasePayment">
           <Key>
@@ -645,6 +647,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="ProductsModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
                 <ScalarProperty Name="Minimum" ColumnName="Minimum" />
                 <ScalarProperty Name="Qte" ColumnName="Qte" />
                 <ScalarProperty Name="Sell" ColumnName="Sell" />

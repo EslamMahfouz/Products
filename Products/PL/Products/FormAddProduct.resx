@@ -126,6 +126,27 @@
   <metadata name="valCategory.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>370, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnGenerate.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAytJREFUWEe118uuFUUUxvGDSuJAMTIwTg3EmBAnEGZ4G0hiACUKgkIUjfcLiZeR
+        zH0JHTo0voFAwhMgEx6BoAlx4ohEv98+tY619+7T+6L7S/45XWutqrW6unr1PlszeqAxpj3t75DGfDS6
+        /qLE/6fmcpXhmfBjuNpxrfFruBF+CvsDueO6azY+MWJrXr+WteWgnSL65H+Ev5fgaCBzaz7bUOwsckwV
+        UQuoTsDN8EX4NHzZwfZVOB0ebJRqzCdGbD/XWmzWlkMuqtwT2SJOgZuSteWQa05VgGrJM303GH8UPm58
+        GD4IfI80XLPxVZw55vLVmTFeWEDtwJlgPMZrjSFfj7VoqR2oAt4Oxt+H58Lx8HJ4IXwX+M42XLPxiRFr
+        jrl81qKVCjgfjF+djLa3sbbyWOB7o+Gajfo4c/msRaMFeHc5P5+M/i3A9j0W/gr3w1PhpcDXF8DGJ0as
+        OfUYqwBrG8s1Jw2E02tEVYAEFrOwsSQvtuu+ADY+12LNKV8VYG1juXZUnUwX4/Qu07nQjw+Eg9uXW88H
+        vr4ANhIjlszlsxbVWC6a+nZ4brpZNYc3g+Ar4VA4Eg6HZ8PlwGeLa5vZ+MSINcdcPmuRteWoMzKo6nB1
+        Z2OIeX3GNoQY6rvnnGxH3xo1mLfCe0EzudRwzXYxPBoeD9rt141vG66/CZrPvlCSY2rrS6sWcCFIvqp2
+        LaC0yiN4P9D1cDecmIy25eT/GX4JowlL6xxC/Z/uBGNdseRbwPZb6AuYO4TlXOc1rAJeCd4GfcC3/ukg
+        1hrac+3qqWDe4Gu4TiPy9esleXXCJxmaHmp/HVbzphpRaZ1WPFuAOxfn2T/B0FQFfBLMG2zF63yM6hHY
+        as/ctrtzye2GV/BkqAJW+j2wzOe4CrgXjKvnUyW7HfYyRJ8FtqUKqBY7xjuBfg63grNRcueS/xBWKkDl
+        ZLs1HeOhn2SSOxvkNMNpt92FxHg4UJ2BpXZgExr8QVKN57/8LC95z8W6U/NtOVybP/izvApwan8PAhah
+        m5G5NZ9tKHaWuX9MqC9Cdbao2Pi/ZqU5wwa1ay6ORYVM9e8ZjfloZv2trX8AXCNQpU8X0sQAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>100</value>
   </metadata>

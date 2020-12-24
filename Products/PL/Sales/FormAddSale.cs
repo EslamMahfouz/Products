@@ -359,8 +359,8 @@ namespace Products.PL.Sales
             CalculateDiscount();
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

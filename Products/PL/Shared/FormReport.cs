@@ -2,6 +2,7 @@
 using Dukan.Core;
 using Dukan.Core.Models.Shared;
 using Dukan.Core.UnitOfWork;
+using Products.PL.Purchases;
 using Products.PL.Sales;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,6 @@ namespace Products.PL.Shared
 {
     public partial class FormReport : XtraForm
     {
-        #region properties
-        public string Type { get; set; }
-        #endregion
-
         #region ctor
         public FormReport()
         {
@@ -43,6 +40,8 @@ namespace Products.PL.Shared
 
         #endregion
 
+        #region events
+
         private void FormSalesReport_Load(object sender, EventArgs e)
         {
             var fromDate = Convert.ToDateTime(deFrom.EditValue);
@@ -60,23 +59,40 @@ namespace Products.PL.Shared
             gridControl1.DataSource = GetReportData(fromDate, toDate);
         }
 
+
+        #endregion
+
+
         private void btnShowOrder_Click(object sender, EventArgs e)
         {
             try
             {
-                var frm = new FormShowSaleOrder();
-                var num = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Number"));
-                if (num == 0)
+                if (Text == Constants.IncomesReport)
                 {
-                    XtraMessageBox.Show("لا توجد فاتورة", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
+                    var frm = new FormShowSaleOrder();
+                    var id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("RelationId"));
+                    if (id == 0)
+                    {
+                        XtraMessageBox.Show("لا توجد فاتورة", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    frm.Id = id;
+                    frm.ShowDialog();
 
-                var date = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("Date"));
-                var sale = UnitOfWork.Instance.Sales.GetSaleByDateAndNumber(date, num);
-                frm.Type = "sale";
-                frm.Id = sale.Id;
-                frm.ShowDialog();
+                }
+                else if (Text == Constants.ExpensesReport)
+                {
+                    var frm = new FormShowPurchaseOrder();
+                    var id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("RelationId"));
+                    if (id == 0)
+                    {
+                        XtraMessageBox.Show("لا توجد فاتورة", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    frm.Id = id;
+                    frm.ShowDialog();
+
+                }
             }
             catch (Exception ex)
             {

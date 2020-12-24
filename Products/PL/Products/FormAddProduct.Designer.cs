@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
-using Dukan.Core.Models.Product;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -40,6 +39,8 @@ namespace Products.PL.Products
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddProduct));
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -55,7 +56,10 @@ namespace Products.PL.Products
             this.btnAddCategory = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddProduct = new DevExpress.XtraEditors.SimpleButton();
             this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.txtBarcode = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnGenerate = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtMinimum = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.valCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
@@ -67,6 +71,7 @@ namespace Products.PL.Products
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.val)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).BeginInit();
@@ -77,7 +82,7 @@ namespace Products.PL.Products
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(616, 62);
+            this.labelControl2.Location = new System.Drawing.Point(673, 62);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(61, 29);
@@ -88,7 +93,7 @@ namespace Products.PL.Products
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(589, 100);
+            this.labelControl3.Location = new System.Drawing.Point(646, 100);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(115, 29);
@@ -99,7 +104,7 @@ namespace Products.PL.Products
             // 
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(588, 138);
+            this.labelControl4.Location = new System.Drawing.Point(645, 138);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(117, 29);
@@ -111,7 +116,7 @@ namespace Products.PL.Products
             this.cmbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbCategories.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addProductModelBindingSource, "CategoryId", true));
             this.cmbCategories.EnterMoveNextControl = true;
-            this.cmbCategories.Location = new System.Drawing.Point(336, 62);
+            this.cmbCategories.Location = new System.Drawing.Point(393, 62);
             this.cmbCategories.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbCategories.Name = "cmbCategories";
             this.cmbCategories.Properties.ActionButtonIndex = 1;
@@ -137,7 +142,7 @@ namespace Products.PL.Products
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(318, 137);
+            this.labelControl5.Location = new System.Drawing.Point(375, 137);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(97, 29);
@@ -148,7 +153,7 @@ namespace Products.PL.Products
             // 
             this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(563, 175);
+            this.labelControl6.Location = new System.Drawing.Point(620, 175);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(167, 29);
@@ -160,13 +165,13 @@ namespace Products.PL.Products
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Name", true));
             this.txtName.EnterMoveNextControl = true;
-            this.txtName.Location = new System.Drawing.Point(195, 100);
+            this.txtName.Location = new System.Drawing.Point(393, 100);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtName.Size = new System.Drawing.Size(359, 30);
+            this.txtName.Size = new System.Drawing.Size(218, 30);
             this.txtName.TabIndex = 3;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "برجاء إدخال إسم المنتج";
@@ -178,7 +183,7 @@ namespace Products.PL.Products
             this.txtBuy.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addProductModelBindingSource, "Buy", true));
             this.txtBuy.EditValue = 0D;
             this.txtBuy.EnterMoveNextControl = true;
-            this.txtBuy.Location = new System.Drawing.Point(435, 138);
+            this.txtBuy.Location = new System.Drawing.Point(492, 138);
             this.txtBuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBuy.Name = "txtBuy";
             this.txtBuy.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -204,7 +209,7 @@ namespace Products.PL.Products
             this.txtSell.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addProductModelBindingSource, "Sell", true));
             this.txtSell.EditValue = 0D;
             this.txtSell.EnterMoveNextControl = true;
-            this.txtSell.Location = new System.Drawing.Point(195, 138);
+            this.txtSell.Location = new System.Drawing.Point(252, 138);
             this.txtSell.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSell.Name = "txtSell";
             this.txtSell.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -230,7 +235,7 @@ namespace Products.PL.Products
             this.txtNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Qte", true));
             this.txtNumber.EditValue = 0D;
             this.txtNumber.EnterMoveNextControl = true;
-            this.txtNumber.Location = new System.Drawing.Point(435, 176);
+            this.txtNumber.Location = new System.Drawing.Point(492, 176);
             this.txtNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,7 +251,7 @@ namespace Products.PL.Products
             // 
             this.txtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCategory.EnterMoveNextControl = true;
-            this.txtCategory.Location = new System.Drawing.Point(138, 62);
+            this.txtCategory.Location = new System.Drawing.Point(195, 62);
             this.txtCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -267,7 +272,7 @@ namespace Products.PL.Products
             this.btnAddCategory.Appearance.Options.UseFont = true;
             this.btnAddCategory.Image = global::Products.Properties.Resources.add_32x32;
             this.btnAddCategory.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAddCategory.Location = new System.Drawing.Point(5, 50);
+            this.btnAddCategory.Location = new System.Drawing.Point(62, 50);
             this.btnAddCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(127, 47);
@@ -284,13 +289,31 @@ namespace Products.PL.Products
             this.btnAddProduct.Appearance.Options.UseFont = true;
             this.btnAddProduct.Image = global::Products.Properties.Resources.add_32x32;
             this.btnAddProduct.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAddProduct.Location = new System.Drawing.Point(202, 257);
+            this.btnAddProduct.Location = new System.Drawing.Point(234, 233);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(359, 63);
             this.btnAddProduct.TabIndex = 1;
             this.btnAddProduct.Text = "إضافة";
             this.btnAddProduct.Click += new System.EventHandler(this.BtnAddProduct_Click);
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBarcode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Barcode", true));
+            this.txtBarcode.EnterMoveNextControl = true;
+            this.txtBarcode.Location = new System.Drawing.Point(62, 100);
+            this.txtBarcode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBarcode.Properties.Appearance.Options.UseFont = true;
+            this.txtBarcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtBarcode.Size = new System.Drawing.Size(271, 30);
+            this.txtBarcode.TabIndex = 11;
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "برجاء إدخال الباركود";
+            this.val.SetValidationRule(this.txtBarcode, conditionValidationRule6);
+            this.txtBarcode.EditValueChanged += new System.EventHandler(this.txtBarcode_EditValueChanged);
             // 
             // groupControl1
             // 
@@ -299,6 +322,9 @@ namespace Products.PL.Products
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.groupControl1.Controls.Add(this.btnGenerate);
+            this.groupControl1.Controls.Add(this.txtBarcode);
+            this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.txtMinimum);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.cmbCategories);
@@ -313,12 +339,38 @@ namespace Products.PL.Products
             this.groupControl1.Controls.Add(this.txtName);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl4);
-            this.groupControl1.Location = new System.Drawing.Point(7, 22);
+            this.groupControl1.Location = new System.Drawing.Point(10, 11);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(738, 228);
+            this.groupControl1.Size = new System.Drawing.Size(795, 216);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "بيانات المنتج";
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.btnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerate.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.Appearance.Options.UseFont = true;
+            this.btnGenerate.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerate.Image")));
+            this.btnGenerate.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnGenerate.Location = new System.Drawing.Point(5, 87);
+            this.btnGenerate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(51, 47);
+            this.btnGenerate.TabIndex = 12;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl7.Location = new System.Drawing.Point(339, 100);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(48, 29);
+            this.labelControl7.TabIndex = 10;
+            this.labelControl7.Text = "الكود";
             // 
             // txtMinimum
             // 
@@ -326,7 +378,7 @@ namespace Products.PL.Products
             this.txtMinimum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Minimum", true));
             this.txtMinimum.EditValue = 0D;
             this.txtMinimum.EnterMoveNextControl = true;
-            this.txtMinimum.Location = new System.Drawing.Point(98, 176);
+            this.txtMinimum.Location = new System.Drawing.Point(164, 176);
             this.txtMinimum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMinimum.Name = "txtMinimum";
             this.txtMinimum.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -342,7 +394,7 @@ namespace Products.PL.Products
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(232, 175);
+            this.labelControl1.Location = new System.Drawing.Point(289, 175);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(183, 29);
@@ -353,7 +405,7 @@ namespace Products.PL.Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 334);
+            this.ClientSize = new System.Drawing.Size(817, 301);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.btnAddProduct);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -368,6 +420,7 @@ namespace Products.PL.Products
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.val)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -397,5 +450,8 @@ namespace Products.PL.Products
         private LabelControl labelControl1;
         private BindingSource addProductModelBindingSource;
         private DXValidationProvider valCategory;
+        private TextEdit txtBarcode;
+        private LabelControl labelControl7;
+        private SimpleButton btnGenerate;
     }
 }

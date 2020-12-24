@@ -21,7 +21,7 @@ namespace Dukan.Core.Models.Sale
         public int Qte { get; set; }
 
         [DisplayName("إجمالي سعر البيع")]
-        public decimal Total => ProductSell * Qte;
+        public decimal Total => ProductSell * (Qte - ReturnedQte);
 
         [DisplayName("الخصم")]
         public decimal Discount { get; set; }

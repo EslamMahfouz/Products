@@ -100,6 +100,13 @@ namespace Products.PL.Products
         {
             try
             {
+                var barcodeExists = UnitOfWork.Instance.Products.IsBarcodeExisting(txtBarcode.Text);
+                if (barcodeExists)
+                {
+                    Custom.ShowExistingMessage("هذا الباركود مسجل من قبل");
+                    return;
+                }
+
                 if (Convert.ToDecimal(txtBuy.Text) < 0m || Convert.ToDecimal(txtSell.Text) < 0m)
                 {
                     Custom.ShowValueCannotBeNegativeMessage();
@@ -134,5 +141,25 @@ namespace Products.PL.Products
             }
         }
         #endregion
+
+        private void txtBarcode_EditValueChanged(object sender, EventArgs e)
+        {
+            var exists = UnitOfWork.Instance.Products.IsBarcodeExisting(txtBarcode.Text);
+            if (exists)
+            {
+                Custom.ShowExistingMessage("هذا الباركود مسجل من قبل");
+            }
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            var barcode = r.Next(111111111, 999999999).ToString("D13");
+            while (UnitOfWork.Instance.Products.IsBarcodeExisting(barcode))
+            {
+                barcode = r.Next(111111111, 999999999).ToString("D13");
+            }
+            txtBarcode.Text = barcode;
+        }
     }
 }
