@@ -129,5 +129,13 @@ namespace Products.PL.Shared
             frm.ShowDialog();
 
         }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            var type = gridView1.GetFocusedRowCellValue("Type").ToString();
+            btnShowOrder.Visible = type != Constants.Refund;
+            btnReturned.Visible = type != Constants.Refund;
+            btnShowPayments.Visible = type != Constants.Refund;
+        }
     }
 }

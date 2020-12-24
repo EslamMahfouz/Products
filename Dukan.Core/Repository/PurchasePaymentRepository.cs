@@ -23,7 +23,7 @@ namespace Dukan.Core.Repository
 
         public IEnumerable<PaymentModel> GetPurchasePaymentsByDate(DateTime fromDate, DateTime toDate)
         {
-            var payments = GetAll(p => TruncateTime(p.Date) >= fromDate && TruncateTime(p.Date) <= toDate,
+            var payments = GetAll(p => TruncateTime(p.Date) >= fromDate && TruncateTime(p.Date) <= toDate && p.Type != Constants.Refund,
                     o => o.OrderBy(p => new { p.Date, p.Purchase.Number }),
                     "Purchase")
                 .ToList();
