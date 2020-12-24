@@ -79,7 +79,6 @@ namespace Products.PL.Shared
         }
         #endregion
 
-
         #region event
         private void FormReturned_Load(object sender, EventArgs e)
         {
@@ -120,17 +119,12 @@ namespace Products.PL.Shared
         }
         #endregion
 
-
-
         private void BtnSave_Click(object sender, EventArgs e)
         {
             var id = Convert.ToInt32(cmbProducts.EditValue);
             var qte = Convert.ToInt32(txtQte.Text);
             var total = Convert.ToDecimal(txtTotal.Text);
-
-            UnitOfWork.Instance.SaleDetails.ReturnProduct(id, qte);
-            UnitOfWork.Instance.SalePayments.AddExpense(id, total);
-            UnitOfWork.Instance.Complete();
+            ReturnProduct(id, qte, total);
             Close();
         }
     }

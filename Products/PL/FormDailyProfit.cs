@@ -16,15 +16,16 @@ namespace Products.PL
 
         private void FormDailyProfit_Load(object sender, EventArgs e)
         {
-            decimal income = 0, outcome = 0, total = 0;
             var date = Convert.ToDateTime(deDate.EditValue);
+            var salePayments = UnitOfWork.Instance.SalePayments.GetTotalPaymentsForADay(date);
+            var saleRefundPayments = UnitOfWork.Instance.SalePayments.GetTotalRefundPaymentsForADay(date);
 
-            income = UnitOfWork.Instance.SalePayments.GetTotalPaymentsForADay(date);
-            outcome = UnitOfWork.Instance.PurchasePayments.GetTotalPaymentsForADay(date);
+            var purchasePayments = UnitOfWork.Instance.PurchasePayments.GetTotalPaymentsForADay(date);
+            var purchaseRefundPayments = UnitOfWork.Instance.PurchasePayments.GetTotalRefundPaymentsForADay(date);
 
-            total = income - outcome;
-            txtIncome.Text = income.ToString(CultureInfo.InvariantCulture);
-            txtOutcome.Text = outcome.ToString(CultureInfo.InvariantCulture);
+            var total = (salePayments + purchaseRefundPayments) - (purchasePayments + saleRefundPayments);
+            txtIncome.Text = (salePayments + purchaseRefundPayments).ToString(CultureInfo.InvariantCulture);
+            txtOutcome.Text = (purchasePayments + saleRefundPayments).ToString(CultureInfo.InvariantCulture);
             txtProfit.Text = total.ToString(CultureInfo.InvariantCulture);
             txtProfit.BackColor = total < 0 ? Color.Red : Color.Green;
         }

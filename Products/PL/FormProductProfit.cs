@@ -46,7 +46,6 @@ namespace Products.PL
             gridView2.Initialize();
             var textEdit = Custom.GetTextEditRepositoryItem();
             gridView2.Columns["Discount"].ColumnEdit = textEdit;
-
         }
     }
 }

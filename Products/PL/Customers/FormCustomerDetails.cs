@@ -133,7 +133,7 @@ namespace Products.PL.Customers
         {
             try
             {
-                var frm = new FormOrderDetails
+                var frm = new FormPaymentsHistory
                 {
                     Id = Convert.ToInt32(gridView2.GetFocusedRowCellValue("Id")),
                     Type = "sale"
@@ -151,7 +151,7 @@ namespace Products.PL.Customers
         {
             try
             {
-                var frm = new FormOrderDetails
+                var frm = new FormPaymentsHistory
                 {
                     Type = "salePayments",
                     Id = Convert.ToInt32(gridView2.GetFocusedRowCellValue("Id"))

@@ -189,7 +189,7 @@ namespace Products.PL.Suppliers
         {
             try
             {
-                var frm = new FormOrderDetails();
+                var frm = new FormPaymentsHistory();
                 frm.Type = "purchase";
                 frm.Id = Convert.ToInt32(gridView2.GetFocusedRowCellValue("م"));
                 frm.ShowDialog();

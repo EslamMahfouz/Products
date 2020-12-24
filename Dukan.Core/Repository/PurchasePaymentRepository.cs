@@ -21,21 +21,20 @@ namespace Dukan.Core.Repository
 
         #region methods
 
+        public IEnumerable<PaymentModel> GetPurchasePaymentsByPurchaseId(int purchaseId)
+        {
+            var payments = GetAll(p => p.PurchaseId == purchaseId);
+            return Mapper.Map<IEnumerable<PurchasePayment>, IEnumerable<PaymentModel>>(payments);
+        }
+
         public IEnumerable<PaymentModel> GetPurchasePaymentsByDate(DateTime fromDate, DateTime toDate)
         {
-            var payments = GetAll(p => TruncateTime(p.Date) >= fromDate && TruncateTime(p.Date) <= toDate,
+            var payments = GetAll(p => TruncateTime(p.Date) >= fromDate && TruncateTime(p.Date) <= toDate && p.Type != Constants.Refund,
                     o => o.OrderBy(p => new { p.Date, p.Purchase.Number }),
                     "Purchase")
                 .ToList();
             return AutoMapper.Mapper.Map<IEnumerable<PurchasePayment>, IEnumerable<PaymentModel>>(payments);
         }
-
-        public decimal GetTotalPaymentsForADay(DateTime date)
-        {
-            var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date));
-            return payments.Sum(p => p.Paid);
-        }
-
         public IEnumerable<PaymentModel> GetPurchaseRefundPaymentsByDate(DateTime fromDate, DateTime toDate)
         {
             var payments = GetAll(p =>
@@ -45,6 +44,18 @@ namespace Dukan.Core.Repository
                 .ToList();
             return Mapper.Map<IEnumerable<PurchasePayment>, IEnumerable<PaymentModel>>(payments);
 
+        }
+
+        public decimal GetTotalPaymentsForADay(DateTime date)
+        {
+            var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date) && p.Type != Constants.Refund);
+            return payments.Sum(p => p.Paid);
+        }
+
+        public decimal GetTotalRefundPaymentsForADay(DateTime date)
+        {
+            var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date) && p.Type == Constants.Refund);
+            return payments.Sum(p => p.Paid);
         }
 
         #endregion

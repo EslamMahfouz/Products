@@ -80,6 +80,7 @@ namespace Products.PL.Shared
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.RowHeight = 40;
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // deFrom
             // 

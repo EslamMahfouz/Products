@@ -23,7 +23,7 @@ namespace Dukan.Core.Repository
 
         #region Methods
 
-        public IEnumerable<PaymentModel> GetSalePayments(int saleId)
+        public IEnumerable<PaymentModel> GetSalePaymentsBySaleId(int saleId)
         {
             var payments = GetAll(p => p.SaleId == saleId);
             return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<PaymentModel>>(payments);
@@ -65,12 +65,6 @@ namespace Dukan.Core.Repository
             return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<PaymentModel>>(payments);
         }
 
-        public decimal GetTotalPaymentsForADay(DateTime date)
-        {
-            var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date));
-            return payments.Sum(p => p.Paid);
-        }
-
         public IEnumerable<PaymentModel> GetSaleRefundPaymentsByDate(DateTime fromDate, DateTime toDate)
         {
             var payments = GetAll(p =>
@@ -81,6 +75,19 @@ namespace Dukan.Core.Repository
             return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<PaymentModel>>(payments);
 
         }
+
+        public decimal GetTotalPaymentsForADay(DateTime date)
+        {
+            var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date) && p.Type != Constants.Refund);
+            return payments.Sum(p => p.Paid);
+        }
+
+        public decimal GetTotalRefundPaymentsForADay(DateTime date)
+        {
+            var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date) && p.Type == Constants.Refund);
+            return payments.Sum(p => p.Paid);
+        }
+
 
         #endregion
     }
