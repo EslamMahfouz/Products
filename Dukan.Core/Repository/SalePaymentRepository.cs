@@ -23,7 +23,7 @@ namespace Dukan.Core.Repository
 
         #region Methods
 
-        public IEnumerable<PaymentModel> GetSalePayments(int saleId)
+        public IEnumerable<PaymentModel> GetSalePaymentsBySaleId(int saleId)
         {
             var payments = GetAll(p => p.SaleId == saleId);
             return Mapper.Map<IEnumerable<SalePayment>, IEnumerable<PaymentModel>>(payments);

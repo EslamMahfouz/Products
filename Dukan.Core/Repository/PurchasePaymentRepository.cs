@@ -21,6 +21,13 @@ namespace Dukan.Core.Repository
 
         #region methods
 
+        public IEnumerable<PaymentModel> GetPurchasePaymentsByPurchaseId(int purchaseId)
+        {
+            var payments = GetAll(p => p.PurchaseId == purchaseId);
+            return Mapper.Map<IEnumerable<PurchasePayment>, IEnumerable<PaymentModel>>(payments);
+        }
+
+
         public IEnumerable<PaymentModel> GetPurchasePaymentsByDate(DateTime fromDate, DateTime toDate)
         {
             var payments = GetAll(p => TruncateTime(p.Date) >= fromDate && TruncateTime(p.Date) <= toDate && p.Type != Constants.Refund,

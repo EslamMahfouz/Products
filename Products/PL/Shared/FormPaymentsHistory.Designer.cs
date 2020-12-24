@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Products.PL.Shared
 {
-    partial class FormOrderDetails
+    partial class FormPaymentsHistory
     {
         /// <summary>
         /// Required designer variable.
@@ -60,9 +60,8 @@ namespace Products.PL.Shared
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.RowHeight = 40;
-            this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
-            // FormOrderDetails
+            // FormPaymentsHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -70,8 +69,9 @@ namespace Products.PL.Shared
             this.ClientSize = new System.Drawing.Size(849, 438);
             this.Controls.Add(this.gridControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FormOrderDetails";
+            this.Name = "FormPaymentsHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "تفاصيل السداد";
             this.Load += new System.EventHandler(this.FormOrderDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
