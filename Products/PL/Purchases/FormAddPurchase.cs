@@ -147,6 +147,7 @@ namespace Products.PL.Purchases
 
             txtBuy.Leave -= txtBuy_Leave;
             txtSell.Leave -= txtSell_Leave;
+            ActiveControl = cmbProducts;
         }
         private void cmbProducts_EditValueChanged(object sender, EventArgs e)
         {
@@ -259,6 +260,7 @@ namespace Products.PL.Purchases
             btnEditItem.Enabled = true;
             btnDeleteItem.Enabled = true;
             BtnSaveAndClose.Enabled = true;
+            ActiveControl = cmbProducts;
         }
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {

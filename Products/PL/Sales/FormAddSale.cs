@@ -175,6 +175,7 @@ namespace Products.PL.Sales
 
             TxtSell.Leave -= TxtSell_Leave;
             TxtQte.Validated -= TxtQte_Validated;
+            ActiveControl = CmbProducts;
         }
         private void CmbProducts_EditValueChanged(object sender, EventArgs e)
         {
@@ -288,6 +289,7 @@ namespace Products.PL.Sales
                 BtnDeleteItem.Enabled = true;
                 btnSaveAndClose.Enabled = true;
                 btnSaveAndPrint.Enabled = true;
+                ActiveControl = CmbProducts;
             }
         }
 
