@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
-using Dukan.Core.Models.Product;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -34,6 +33,7 @@ namespace Products.PL.Products
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -45,6 +45,7 @@ namespace Products.PL.Products
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.cmbCategories = new DevExpress.XtraEditors.LookUpEdit();
+            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
@@ -54,28 +55,27 @@ namespace Products.PL.Products
             this.txtCategory = new DevExpress.XtraEditors.TextEdit();
             this.btnAddCategory = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddProduct = new DevExpress.XtraEditors.SimpleButton();
-            this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.txtBarcode = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnGenerate = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtMinimum = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.valCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.txtBarcode = new DevExpress.XtraEditors.TextEdit();
-            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource();
-            this.generateBarcode = new DevExpress.XtraEditors.SimpleButton();
+            this.valCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.val)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valCategory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl2
@@ -133,6 +133,10 @@ namespace Products.PL.Products
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "برجاء إختيار الصنف";
             this.val.SetValidationRule(this.cmbCategories, conditionValidationRule1);
+            // 
+            // addProductModelBindingSource
+            // 
+            this.addProductModelBindingSource.DataSource = typeof(Dukan.Core.Models.Product.AddProductModel);
             // 
             // labelControl5
             // 
@@ -285,13 +289,31 @@ namespace Products.PL.Products
             this.btnAddProduct.Appearance.Options.UseFont = true;
             this.btnAddProduct.Image = global::Products.Properties.Resources.add_32x32;
             this.btnAddProduct.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAddProduct.Location = new System.Drawing.Point(315, 257);
+            this.btnAddProduct.Location = new System.Drawing.Point(234, 233);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(359, 63);
             this.btnAddProduct.TabIndex = 1;
             this.btnAddProduct.Text = "إضافة";
             this.btnAddProduct.Click += new System.EventHandler(this.BtnAddProduct_Click);
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBarcode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Barcode", true));
+            this.txtBarcode.EnterMoveNextControl = true;
+            this.txtBarcode.Location = new System.Drawing.Point(62, 100);
+            this.txtBarcode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBarcode.Properties.Appearance.Options.UseFont = true;
+            this.txtBarcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtBarcode.Size = new System.Drawing.Size(271, 30);
+            this.txtBarcode.TabIndex = 11;
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "برجاء إدخال الباركود";
+            this.val.SetValidationRule(this.txtBarcode, conditionValidationRule6);
+            this.txtBarcode.EditValueChanged += new System.EventHandler(this.txtBarcode_EditValueChanged);
             // 
             // groupControl1
             // 
@@ -300,7 +322,7 @@ namespace Products.PL.Products
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.groupControl1.Controls.Add(this.generateBarcode);
+            this.groupControl1.Controls.Add(this.btnGenerate);
             this.groupControl1.Controls.Add(this.txtBarcode);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.txtMinimum);
@@ -317,12 +339,38 @@ namespace Products.PL.Products
             this.groupControl1.Controls.Add(this.txtName);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl4);
-            this.groupControl1.Location = new System.Drawing.Point(63, 22);
+            this.groupControl1.Location = new System.Drawing.Point(10, 11);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(795, 228);
+            this.groupControl1.Size = new System.Drawing.Size(795, 216);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "بيانات المنتج";
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.btnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerate.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.Appearance.Options.UseFont = true;
+            this.btnGenerate.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerate.Image")));
+            this.btnGenerate.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnGenerate.Location = new System.Drawing.Point(5, 87);
+            this.btnGenerate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(51, 47);
+            this.btnGenerate.TabIndex = 12;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl7.Location = new System.Drawing.Point(339, 100);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(48, 29);
+            this.labelControl7.TabIndex = 10;
+            this.labelControl7.Text = "الكود";
             // 
             // txtMinimum
             // 
@@ -330,7 +378,7 @@ namespace Products.PL.Products
             this.txtMinimum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Minimum", true));
             this.txtMinimum.EditValue = 0D;
             this.txtMinimum.EnterMoveNextControl = true;
-            this.txtMinimum.Location = new System.Drawing.Point(155, 176);
+            this.txtMinimum.Location = new System.Drawing.Point(164, 176);
             this.txtMinimum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMinimum.Name = "txtMinimum";
             this.txtMinimum.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -353,58 +401,11 @@ namespace Products.PL.Products
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "الحد الأدني للطلب";
             // 
-            // labelControl7
-            // 
-            this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(330, 99);
-            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(57, 29);
-            this.labelControl7.TabIndex = 10;
-            this.labelControl7.Text = "باركود";
-            // 
-            // txtBarcode
-            // 
-            this.txtBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBarcode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addProductModelBindingSource, "Barcode", true));
-            this.txtBarcode.EnterMoveNextControl = true;
-            this.txtBarcode.Location = new System.Drawing.Point(62, 101);
-            this.txtBarcode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBarcode.Properties.Appearance.Options.UseFont = true;
-            this.txtBarcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtBarcode.Size = new System.Drawing.Size(262, 30);
-            this.txtBarcode.TabIndex = 11;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule6.ErrorText = "برجاء إدخال الباركود";
-            this.val.SetValidationRule(this.txtBarcode, conditionValidationRule6);
-            this.txtBarcode.EditValueChanged += new System.EventHandler(this.txtBarcode_EditValueChanged);
-            // 
-            // addProductModelBindingSource
-            // 
-            this.addProductModelBindingSource.DataSource = typeof(Dukan.Core.Models.Product.AddProductModel);
-            // 
-            // generateBarcode
-            // 
-            this.generateBarcode.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.generateBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.generateBarcode.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.generateBarcode.Appearance.Options.UseFont = true;
-            this.generateBarcode.Image = ((System.Drawing.Image)(resources.GetObject("generateBarcode.Image")));
-            this.generateBarcode.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.generateBarcode.Location = new System.Drawing.Point(5, 87);
-            this.generateBarcode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.generateBarcode.Name = "generateBarcode";
-            this.generateBarcode.Size = new System.Drawing.Size(51, 47);
-            this.generateBarcode.TabIndex = 12;
-            // 
             // FormAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 391);
+            this.ClientSize = new System.Drawing.Size(817, 301);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.btnAddProduct);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -412,19 +413,19 @@ namespace Products.PL.Products
             this.Text = "إضافة منتج";
             this.Load += new System.EventHandler(this.FormAddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.val)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valCategory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -451,6 +452,6 @@ namespace Products.PL.Products
         private DXValidationProvider valCategory;
         private TextEdit txtBarcode;
         private LabelControl labelControl7;
-        private SimpleButton generateBarcode;
+        private SimpleButton btnGenerate;
     }
 }

@@ -150,5 +150,16 @@ namespace Products.PL.Products
                 Custom.ShowExistingMessage("هذا الباركود مسجل من قبل");
             }
         }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            var barcode = r.Next(111111111, 999999999).ToString("D13");
+            while (UnitOfWork.Instance.Products.IsBarcodeExisting(barcode))
+            {
+                barcode = r.Next(111111111, 999999999).ToString("D13");
+            }
+            txtBarcode.Text = barcode;
+        }
     }
 }

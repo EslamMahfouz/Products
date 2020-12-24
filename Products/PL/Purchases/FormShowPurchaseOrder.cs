@@ -1,6 +1,4 @@
-﻿using DevExpress.Utils.Drawing;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraEditors;
 using Dukan.Core;
 using Dukan.Core.UnitOfWork;
 using System;
@@ -10,9 +8,7 @@ namespace Products.PL.Purchases
     public partial class FormShowPurchaseOrder : XtraForm
     {
         #region fields
-
         public int Id { get; set; }
-        public string Type { get; set; }
         #endregion
 
         #region ctor
@@ -34,18 +30,6 @@ namespace Products.PL.Purchases
             var textEdit = Custom.GetTextEditRepositoryItem();
             gridView1.Columns["Discount"].ColumnEdit = textEdit;
         }
-
-        private void gridView1_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
-            {
-                e.Info.DisplayText = (e.RowHandle + 1).ToString();
-                e.Info.Kind = IndicatorKind.Row;
-            }
-        }
-
-
-
         #endregion
 
     }
