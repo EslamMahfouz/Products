@@ -27,7 +27,6 @@ namespace Dukan.Core.Repository
             return Mapper.Map<IEnumerable<PurchasePayment>, IEnumerable<PaymentModel>>(payments);
         }
 
-
         public IEnumerable<PaymentModel> GetPurchasePaymentsByDate(DateTime fromDate, DateTime toDate)
         {
             var payments = GetAll(p => TruncateTime(p.Date) >= fromDate && TruncateTime(p.Date) <= toDate && p.Type != Constants.Refund,
@@ -36,13 +35,6 @@ namespace Dukan.Core.Repository
                 .ToList();
             return AutoMapper.Mapper.Map<IEnumerable<PurchasePayment>, IEnumerable<PaymentModel>>(payments);
         }
-
-        public decimal GetTotalPaymentsForADay(DateTime date)
-        {
-            var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date));
-            return payments.Sum(p => p.Paid);
-        }
-
         public IEnumerable<PaymentModel> GetPurchaseRefundPaymentsByDate(DateTime fromDate, DateTime toDate)
         {
             var payments = GetAll(p =>
@@ -52,6 +44,18 @@ namespace Dukan.Core.Repository
                 .ToList();
             return Mapper.Map<IEnumerable<PurchasePayment>, IEnumerable<PaymentModel>>(payments);
 
+        }
+
+        public decimal GetTotalPaymentsForADay(DateTime date)
+        {
+            var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date) && p.Type != Constants.Refund);
+            return payments.Sum(p => p.Paid);
+        }
+
+        public decimal GetTotalRefundPaymentsForADay(DateTime date)
+        {
+            var payments = GetAll(p => TruncateTime(p.Date) == TruncateTime(date) && p.Type == Constants.Refund);
+            return payments.Sum(p => p.Paid);
         }
 
         #endregion
