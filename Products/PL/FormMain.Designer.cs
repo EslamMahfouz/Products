@@ -79,6 +79,7 @@ namespace Products.PL
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnPrintBarcode = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -116,7 +117,8 @@ namespace Products.PL
             this.navBarItem2,
             this.navBarItem3,
             this.navBarItem4,
-            this.btnShowCategories});
+            this.btnShowCategories,
+            this.btnPrintBarcode});
             this.navBarControl1.Location = new System.Drawing.Point(715, 29);
             this.navBarControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.navBarControl1.Name = "navBarControl1";
@@ -130,10 +132,12 @@ namespace Products.PL
             this.navBarGroup1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup1.Appearance.Options.UseFont = true;
             this.navBarGroup1.Caption = "الأصناف و المنتجات";
+            this.navBarGroup1.Expanded = true;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnShowCategories),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnAddProduct),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.btnShowProducts)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnShowProducts),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnPrintBarcode)});
             this.navBarGroup1.Name = "navBarGroup1";
             // 
             // btnShowCategories
@@ -261,7 +265,6 @@ namespace Products.PL
             this.navBarGroup5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.navBarGroup5.Appearance.Options.UseFont = true;
             this.navBarGroup5.Caption = "تقارير";
-            this.navBarGroup5.Expanded = true;
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnPurchasesReports),
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnSalesReports),
@@ -495,6 +498,14 @@ namespace Products.PL
             this.gridView1.RowHeight = 40;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
+            // btnPrintBarcode
+            // 
+            this.btnPrintBarcode.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintBarcode.Appearance.Options.UseFont = true;
+            this.btnPrintBarcode.Caption = " طباعة الباركود";
+            this.btnPrintBarcode.Name = "btnPrintBarcode";
+            this.btnPrintBarcode.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnPrintBarcode_LinkClicked);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -570,5 +581,6 @@ namespace Products.PL
         private BarButtonItem btnActivate;
         private NavBarItem btnShowCategories;
         private BarButtonItem barButtonItem1;
+        private NavBarItem btnPrintBarcode;
     }
 }

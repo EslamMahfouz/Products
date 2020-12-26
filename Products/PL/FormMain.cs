@@ -11,6 +11,7 @@ using Products.PL.Customers;
 using Products.PL.Products;
 using Products.PL.Purchases;
 using Products.PL.Sales;
+using Products.PL.Shared;
 using Products.PL.Suppliers;
 using Products.Properties;
 using System;
@@ -19,7 +20,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Products.PL.Shared;
 
 namespace Products.PL
 {
@@ -282,6 +282,12 @@ namespace Products.PL
         private void btnShowCategories_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
             var frm = new FormShowCategories();
+            AddForm(frm);
+        }
+
+        private void btnPrintBarcode_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            var frm = new FormPrintBarcode();
             AddForm(frm);
         }
     }

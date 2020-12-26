@@ -52,5 +52,10 @@ namespace Dukan.Core.Repository
         {
             return GetAll(p => p.Barcode == barcode).Any();
         }
+
+        public string GetBarcode(int productId)
+        {
+            return Get(productId)?.Barcode;
+        }
     }
 }

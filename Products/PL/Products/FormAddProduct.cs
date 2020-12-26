@@ -6,6 +6,11 @@ using Dukan.Core.Resources;
 using Dukan.Core.UnitOfWork;
 using System;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.Windows.Forms;
+using ZXing;
+using ZXing.OneD;
 
 namespace Products.PL.Products
 {
@@ -160,6 +165,45 @@ namespace Products.PL.Products
                 barcode = r.Next(111111111, 999999999).ToString("D13");
             }
             txtBarcode.Text = barcode;
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            BarcodeWriter barcodeWriter = new BarcodeWriter()
+            {
+                Format = BarcodeFormat.CODE_128,
+                Options = new Code128EncodingOptions
+                {
+                    Height = 80
+                }
+            };
+            var img = barcodeWriter.Write(txtBarcode.Text);
+            Point pos = new Point(5, 10);
+            e.Graphics.DrawImage(img, pos);
+            e.HasMorePages = false;
+        }
+
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (txtBarcode.Text.Length != 13)
+            {
+                XtraMessageBox.Show("يجب أن يكون الكود مكون من 13 رقم فقط", "تنبيه", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (valBarcode.Validate())
+            {
+                printDocument1.DefaultPageSettings.PaperSize = new PaperSize("barcode", 150, 98);
+                printDocument1.Print();
+            }
         }
     }
 }
