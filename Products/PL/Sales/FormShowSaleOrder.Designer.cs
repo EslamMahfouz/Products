@@ -236,7 +236,7 @@ namespace Products.PL.Sales
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.txtDate);
             this.groupControl1.Controls.Add(this.labelControl4);
-            this.groupControl1.Location = new System.Drawing.Point(267, 14);
+            this.groupControl1.Location = new System.Drawing.Point(30, 14);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -408,7 +408,7 @@ namespace Products.PL.Sales
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gridControl1.Size = new System.Drawing.Size(1383, 320);
+            this.gridControl1.Size = new System.Drawing.Size(909, 320);
             this.gridControl1.TabIndex = 17;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -425,8 +425,8 @@ namespace Products.PL.Sales
             // 
             // groupControl2
             // 
-            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
@@ -436,16 +436,16 @@ namespace Products.PL.Sales
             this.groupControl2.Location = new System.Drawing.Point(12, 230);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1387, 364);
+            this.groupControl2.Size = new System.Drawing.Size(913, 364);
             this.groupControl2.TabIndex = 18;
             this.groupControl2.Text = "بيانات المنتجات";
             // 
-            // FormShowPurchaseOrder
+            // FormShowSaleOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1408, 608);
+            this.ClientSize = new System.Drawing.Size(934, 608);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

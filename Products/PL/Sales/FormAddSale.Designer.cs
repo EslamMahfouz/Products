@@ -46,9 +46,9 @@ namespace Products.PL.Sales
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnSaveAndPrint = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSaveAndClose = new DevExpress.XtraEditors.SimpleButton();
             this.txtCharge = new DevExpress.XtraEditors.TextEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.btnSaveAndClose = new DevExpress.XtraEditors.SimpleButton();
             this.txtPaid = new DevExpress.XtraEditors.TextEdit();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
@@ -178,29 +178,13 @@ namespace Products.PL.Sales
             this.btnSaveAndPrint.Enabled = false;
             this.btnSaveAndPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAndPrint.Image")));
             this.btnSaveAndPrint.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnSaveAndPrint.Location = new System.Drawing.Point(84, 85);
+            this.btnSaveAndPrint.Location = new System.Drawing.Point(57, 83);
             this.btnSaveAndPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSaveAndPrint.Name = "btnSaveAndPrint";
             this.btnSaveAndPrint.Size = new System.Drawing.Size(166, 53);
             this.btnSaveAndPrint.TabIndex = 29;
             this.btnSaveAndPrint.Text = "حفظ وطباعة";
             this.btnSaveAndPrint.Click += new System.EventHandler(this.btnSaveAndPrint_Click);
-            // 
-            // btnSaveAndClose
-            // 
-            this.btnSaveAndClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveAndClose.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveAndClose.Appearance.Options.UseFont = true;
-            this.btnSaveAndClose.Enabled = false;
-            this.btnSaveAndClose.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAndClose.Image")));
-            this.btnSaveAndClose.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnSaveAndClose.Location = new System.Drawing.Point(256, 85);
-            this.btnSaveAndClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSaveAndClose.Name = "btnSaveAndClose";
-            this.btnSaveAndClose.Size = new System.Drawing.Size(148, 53);
-            this.btnSaveAndClose.TabIndex = 28;
-            this.btnSaveAndClose.Text = "حفظ وإغلاق";
-            this.btnSaveAndClose.Click += new System.EventHandler(this.btnSaveAndClose_Click);
             // 
             // txtCharge
             // 
@@ -228,6 +212,22 @@ namespace Products.PL.Sales
             this.labelControl16.Size = new System.Drawing.Size(57, 26);
             this.labelControl16.TabIndex = 24;
             this.labelControl16.Text = "المتبقي";
+            // 
+            // btnSaveAndClose
+            // 
+            this.btnSaveAndClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveAndClose.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveAndClose.Appearance.Options.UseFont = true;
+            this.btnSaveAndClose.Enabled = false;
+            this.btnSaveAndClose.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAndClose.Image")));
+            this.btnSaveAndClose.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnSaveAndClose.Location = new System.Drawing.Point(229, 83);
+            this.btnSaveAndClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSaveAndClose.Name = "btnSaveAndClose";
+            this.btnSaveAndClose.Size = new System.Drawing.Size(148, 53);
+            this.btnSaveAndClose.TabIndex = 28;
+            this.btnSaveAndClose.Text = "حفظ وإغلاق";
+            this.btnSaveAndClose.Click += new System.EventHandler(this.btnSaveAndClose_Click);
             // 
             // txtPaid
             // 
@@ -326,7 +326,7 @@ namespace Products.PL.Sales
             this.BtnAddItem.Appearance.Options.UseFont = true;
             this.BtnAddItem.Image = ((System.Drawing.Image)(resources.GetObject("BtnAddItem.Image")));
             this.BtnAddItem.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.BtnAddItem.Location = new System.Drawing.Point(131, 94);
+            this.BtnAddItem.Location = new System.Drawing.Point(132, 91);
             this.BtnAddItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAddItem.Name = "BtnAddItem";
             this.BtnAddItem.Size = new System.Drawing.Size(49, 38);
@@ -337,7 +337,7 @@ namespace Products.PL.Sales
             // 
             this.txtPrdTotalAfterDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrdTotalAfterDiscount.EditValue = "0";
-            this.txtPrdTotalAfterDiscount.Location = new System.Drawing.Point(186, 99);
+            this.txtPrdTotalAfterDiscount.Location = new System.Drawing.Point(187, 96);
             this.txtPrdTotalAfterDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrdTotalAfterDiscount.Name = "txtPrdTotalAfterDiscount";
             this.txtPrdTotalAfterDiscount.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -355,7 +355,7 @@ namespace Products.PL.Sales
             // 
             this.labelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Location = new System.Drawing.Point(325, 102);
+            this.labelControl10.Location = new System.Drawing.Point(325, 99);
             this.labelControl10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(154, 26);
@@ -366,7 +366,7 @@ namespace Products.PL.Sales
             // 
             this.TxtPrdDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtPrdDiscount.EditValue = 0D;
-            this.TxtPrdDiscount.Location = new System.Drawing.Point(497, 99);
+            this.TxtPrdDiscount.Location = new System.Drawing.Point(499, 96);
             this.TxtPrdDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtPrdDiscount.Name = "TxtPrdDiscount";
             this.TxtPrdDiscount.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -393,7 +393,7 @@ namespace Products.PL.Sales
             // 
             this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Location = new System.Drawing.Point(577, 102);
+            this.labelControl8.Location = new System.Drawing.Point(579, 99);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(52, 26);
@@ -433,7 +433,7 @@ namespace Products.PL.Sales
             // 
             this.TxtQte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtQte.EditValue = 1;
-            this.TxtQte.Location = new System.Drawing.Point(285, 50);
+            this.TxtQte.Location = new System.Drawing.Point(30, 50);
             this.TxtQte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtQte.Name = "TxtQte";
             this.TxtQte.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -457,7 +457,7 @@ namespace Products.PL.Sales
             // 
             this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(344, 53);
+            this.labelControl6.Location = new System.Drawing.Point(89, 53);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(36, 26);
@@ -468,7 +468,7 @@ namespace Products.PL.Sales
             // 
             this.TxtSell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtSell.EditValue = "0";
-            this.TxtSell.Location = new System.Drawing.Point(387, 50);
+            this.TxtSell.Location = new System.Drawing.Point(132, 50);
             this.TxtSell.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtSell.Name = "TxtSell";
             this.TxtSell.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -496,7 +496,7 @@ namespace Products.PL.Sales
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(526, 53);
+            this.labelControl5.Location = new System.Drawing.Point(271, 53);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(45, 26);
@@ -578,7 +578,7 @@ namespace Products.PL.Sales
             // 
             this.CmbProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CmbProducts.EditValue = "";
-            this.CmbProducts.Location = new System.Drawing.Point(581, 50);
+            this.CmbProducts.Location = new System.Drawing.Point(325, 50);
             this.CmbProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbProducts.Name = "CmbProducts";
             this.CmbProducts.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -588,7 +588,7 @@ namespace Products.PL.Sales
             this.CmbProducts.Properties.NullText = "";
             this.CmbProducts.Properties.View = this.gridView1;
             this.CmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CmbProducts.Size = new System.Drawing.Size(209, 32);
+            this.CmbProducts.Size = new System.Drawing.Size(465, 32);
             this.CmbProducts.TabIndex = 2;
             conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule5.ErrorText = "برجاء إختيار منتج";

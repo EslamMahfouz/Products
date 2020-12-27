@@ -152,7 +152,7 @@ namespace Products.PL.Purchases
             // 
             this.txtSell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSell.EditValue = "0";
-            this.txtSell.Location = new System.Drawing.Point(254, 42);
+            this.txtSell.Location = new System.Drawing.Point(117, 42);
             this.txtSell.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSell.Name = "txtSell";
             this.txtSell.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -163,7 +163,7 @@ namespace Products.PL.Purchases
             this.txtSell.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSell.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSell.Properties.ReadOnly = true;
-            this.txtSell.Size = new System.Drawing.Size(92, 32);
+            this.txtSell.Size = new System.Drawing.Size(77, 32);
             this.txtSell.TabIndex = 19;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule2.ErrorText = "This value is not valid";
@@ -179,7 +179,7 @@ namespace Products.PL.Purchases
             // 
             this.txtPrdDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrdDiscount.EditValue = 0D;
-            this.txtPrdDiscount.Location = new System.Drawing.Point(551, 83);
+            this.txtPrdDiscount.Location = new System.Drawing.Point(518, 83);
             this.txtPrdDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrdDiscount.Name = "txtPrdDiscount";
             this.txtPrdDiscount.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,7 +202,7 @@ namespace Products.PL.Purchases
             // 
             this.txtBuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBuy.EditValue = "0";
-            this.txtBuy.Location = new System.Drawing.Point(434, 42);
+            this.txtBuy.Location = new System.Drawing.Point(294, 42);
             this.txtBuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuy.Name = "txtBuy";
             this.txtBuy.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -213,7 +213,7 @@ namespace Products.PL.Purchases
             this.txtBuy.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtBuy.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtBuy.Properties.ReadOnly = true;
-            this.txtBuy.Size = new System.Drawing.Size(92, 32);
+            this.txtBuy.Size = new System.Drawing.Size(79, 32);
             this.txtBuy.TabIndex = 7;
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule4.ErrorText = "This value is not valid";
@@ -230,7 +230,7 @@ namespace Products.PL.Purchases
             // 
             this.cmbProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbProducts.EditValue = "";
-            this.cmbProducts.Location = new System.Drawing.Point(630, 42);
+            this.cmbProducts.Location = new System.Drawing.Point(477, 42);
             this.cmbProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbProducts.Name = "cmbProducts";
             this.cmbProducts.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -240,7 +240,7 @@ namespace Products.PL.Purchases
             this.cmbProducts.Properties.NullText = "";
             this.cmbProducts.Properties.View = this.gridView5;
             this.cmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbProducts.Size = new System.Drawing.Size(209, 32);
+            this.cmbProducts.Size = new System.Drawing.Size(329, 32);
             this.cmbProducts.TabIndex = 2;
             conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule5.ErrorText = "This value is not valid";
@@ -278,7 +278,7 @@ namespace Products.PL.Purchases
             // 
             this.txtQte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtQte.EditValue = 1;
-            this.txtQte.Location = new System.Drawing.Point(152, 42);
+            this.txtQte.Location = new System.Drawing.Point(6, 42);
             this.txtQte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQte.Name = "txtQte";
             this.txtQte.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -289,7 +289,7 @@ namespace Products.PL.Purchases
             this.txtQte.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtQte.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtQte.Properties.ReadOnly = true;
-            this.txtQte.Size = new System.Drawing.Size(53, 32);
+            this.txtQte.Size = new System.Drawing.Size(57, 32);
             this.txtQte.TabIndex = 9;
             conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule7.ErrorText = "This value is not valid";
@@ -418,10 +418,10 @@ namespace Products.PL.Purchases
             this.groupControl4.Controls.Add(this.labelControl22);
             this.groupControl4.Controls.Add(this.cmbProducts);
             this.groupControl4.Controls.Add(this.labelControl23);
-            this.groupControl4.Location = new System.Drawing.Point(-21, 60);
+            this.groupControl4.Location = new System.Drawing.Point(18, 60);
             this.groupControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(901, 135);
+            this.groupControl4.Size = new System.Drawing.Size(868, 135);
             this.groupControl4.TabIndex = 34;
             this.groupControl4.Text = "بيانات المنتج";
             // 
@@ -429,7 +429,7 @@ namespace Products.PL.Purchases
             // 
             this.labelControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Location = new System.Drawing.Point(352, 45);
+            this.labelControl9.Location = new System.Drawing.Point(205, 45);
             this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(76, 26);
@@ -443,7 +443,7 @@ namespace Products.PL.Purchases
             this.btnAddItem.Appearance.Options.UseFont = true;
             this.btnAddItem.Image = ((System.Drawing.Image)(resources.GetObject("btnAddItem.Image")));
             this.btnAddItem.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAddItem.Location = new System.Drawing.Point(187, 78);
+            this.btnAddItem.Location = new System.Drawing.Point(154, 78);
             this.btnAddItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(49, 38);
@@ -454,7 +454,7 @@ namespace Products.PL.Purchases
             // 
             this.txtPrdTotalAfterDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrdTotalAfterDiscount.EditValue = "0";
-            this.txtPrdTotalAfterDiscount.Location = new System.Drawing.Point(242, 83);
+            this.txtPrdTotalAfterDiscount.Location = new System.Drawing.Point(209, 83);
             this.txtPrdTotalAfterDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrdTotalAfterDiscount.Name = "txtPrdTotalAfterDiscount";
             this.txtPrdTotalAfterDiscount.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -472,7 +472,7 @@ namespace Products.PL.Purchases
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(381, 86);
+            this.labelControl1.Location = new System.Drawing.Point(348, 86);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(154, 26);
@@ -483,7 +483,7 @@ namespace Products.PL.Purchases
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(631, 86);
+            this.labelControl2.Location = new System.Drawing.Point(598, 86);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(52, 26);
@@ -494,7 +494,7 @@ namespace Products.PL.Purchases
             // 
             this.txtPrdTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrdTotal.EditValue = "0";
-            this.txtPrdTotal.Location = new System.Drawing.Point(689, 83);
+            this.txtPrdTotal.Location = new System.Drawing.Point(656, 83);
             this.txtPrdTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrdTotal.Name = "txtPrdTotal";
             this.txtPrdTotal.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -512,7 +512,7 @@ namespace Products.PL.Purchases
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(831, 86);
+            this.labelControl3.Location = new System.Drawing.Point(798, 86);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(66, 26);
@@ -523,7 +523,7 @@ namespace Products.PL.Purchases
             // 
             this.labelControl19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl19.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl19.Location = new System.Drawing.Point(211, 45);
+            this.labelControl19.Location = new System.Drawing.Point(69, 45);
             this.labelControl19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(36, 26);
@@ -534,7 +534,7 @@ namespace Products.PL.Purchases
             // 
             this.labelControl22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl22.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl22.Location = new System.Drawing.Point(531, 45);
+            this.labelControl22.Location = new System.Drawing.Point(379, 45);
             this.labelControl22.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(92, 26);
@@ -545,7 +545,7 @@ namespace Products.PL.Purchases
             // 
             this.labelControl23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl23.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl23.Location = new System.Drawing.Point(843, 45);
+            this.labelControl23.Location = new System.Drawing.Point(810, 45);
             this.labelControl23.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(48, 26);

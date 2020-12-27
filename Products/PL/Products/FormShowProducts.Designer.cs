@@ -57,7 +57,7 @@ namespace Products.PL.Products
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gridControl1.Size = new System.Drawing.Size(1112, 459);
+            this.gridControl1.Size = new System.Drawing.Size(868, 459);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -71,17 +71,17 @@ namespace Products.PL.Products
             this.gridView1.IndicatorWidth = 40;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.RowHeight = 40;
+            this.gridView1.RowHeight = 50;
             // 
             // btnEdit
             // 
             this.btnEdit.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnEdit.Appearance.Options.UseFont = true;
             this.btnEdit.Image = global::Products.Properties.Resources.edit_32x32;
             this.btnEdit.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnEdit.Location = new System.Drawing.Point(12, 497);
+            this.btnEdit.Location = new System.Drawing.Point(71, 497);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(289, 52);
@@ -93,7 +93,7 @@ namespace Products.PL.Products
             // 
             this.txtTotalBuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotalBuy.EnterMoveNextControl = true;
-            this.txtTotalBuy.Location = new System.Drawing.Point(638, 473);
+            this.txtTotalBuy.Location = new System.Drawing.Point(394, 473);
             this.txtTotalBuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotalBuy.Name = "txtTotalBuy";
             this.txtTotalBuy.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,7 +107,7 @@ namespace Products.PL.Products
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(862, 472);
+            this.labelControl3.Location = new System.Drawing.Point(618, 472);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(244, 29);
@@ -118,7 +118,7 @@ namespace Products.PL.Products
             // 
             this.txtTotalSell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotalSell.EnterMoveNextControl = true;
-            this.txtTotalSell.Location = new System.Drawing.Point(638, 513);
+            this.txtTotalSell.Location = new System.Drawing.Point(394, 513);
             this.txtTotalSell.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotalSell.Name = "txtTotalSell";
             this.txtTotalSell.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -132,7 +132,7 @@ namespace Products.PL.Products
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(877, 512);
+            this.labelControl1.Location = new System.Drawing.Point(633, 512);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(224, 29);
@@ -141,9 +141,9 @@ namespace Products.PL.Products
             // 
             // FormShowProducts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 554);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(869, 554);
             this.Controls.Add(this.txtTotalSell);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.txtTotalBuy);

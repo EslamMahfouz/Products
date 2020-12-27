@@ -56,7 +56,7 @@ namespace Products.PL.Products
             // 
             this.CmbProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CmbProducts.EditValue = "";
-            this.CmbProducts.Location = new System.Drawing.Point(291, 21);
+            this.CmbProducts.Location = new System.Drawing.Point(9, 21);
             this.CmbProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbProducts.Name = "CmbProducts";
             this.CmbProducts.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -66,7 +66,7 @@ namespace Products.PL.Products
             this.CmbProducts.Properties.NullText = "";
             this.CmbProducts.Properties.View = this.gridView1;
             this.CmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CmbProducts.Size = new System.Drawing.Size(239, 32);
+            this.CmbProducts.Size = new System.Drawing.Size(397, 32);
             this.CmbProducts.TabIndex = 4;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This value is not valid";
@@ -84,7 +84,7 @@ namespace Products.PL.Products
             // 
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(542, 24);
+            this.labelControl4.Location = new System.Drawing.Point(432, 24);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(48, 26);
@@ -95,7 +95,7 @@ namespace Products.PL.Products
             // 
             this.TxtQte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtQte.EditValue = 1;
-            this.TxtQte.Location = new System.Drawing.Point(467, 71);
+            this.TxtQte.Location = new System.Drawing.Point(357, 71);
             this.TxtQte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtQte.Name = "TxtQte";
             this.TxtQte.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,7 +116,7 @@ namespace Products.PL.Products
             // 
             this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(551, 74);
+            this.labelControl6.Location = new System.Drawing.Point(441, 74);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(36, 26);
@@ -127,7 +127,7 @@ namespace Products.PL.Products
             // 
             this.txtBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBarcode.EditValue = "";
-            this.txtBarcode.Location = new System.Drawing.Point(291, 116);
+            this.txtBarcode.Location = new System.Drawing.Point(9, 71);
             this.txtBarcode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -149,7 +149,7 @@ namespace Products.PL.Products
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(551, 119);
+            this.labelControl1.Location = new System.Drawing.Point(269, 74);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(39, 26);
@@ -162,7 +162,7 @@ namespace Products.PL.Products
             this.btnPrint.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Appearance.Options.UseFont = true;
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.Location = new System.Drawing.Point(405, 183);
+            this.btnPrint.Location = new System.Drawing.Point(199, 123);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(125, 59);
@@ -188,7 +188,7 @@ namespace Products.PL.Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 293);
+            this.ClientSize = new System.Drawing.Size(492, 194);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.txtBarcode);
             this.Controls.Add(this.labelControl1);
