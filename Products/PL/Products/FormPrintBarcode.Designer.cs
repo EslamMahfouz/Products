@@ -42,15 +42,14 @@ namespace Products.PL.Products
             this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.txtBarcode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.CmbProducts.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtQte.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.val)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // CmbProducts
@@ -157,22 +156,13 @@ namespace Products.PL.Products
             this.labelControl1.TabIndex = 12;
             this.labelControl1.Text = "الكود";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(32, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(211, 121);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnPrint
             // 
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrint.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Appearance.Options.UseFont = true;
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.Location = new System.Drawing.Point(214, 169);
+            this.btnPrint.Location = new System.Drawing.Point(405, 183);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(125, 59);
@@ -184,13 +174,22 @@ namespace Products.PL.Products
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // FormPrintBarcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(602, 293);
             this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtBarcode);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.TxtQte);
@@ -205,7 +204,6 @@ namespace Products.PL.Products
             ((System.ComponentModel.ISupportInitialize)(this.TxtQte.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.val)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,8 +219,8 @@ namespace Products.PL.Products
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider val;
         private DevExpress.XtraEditors.TextEdit txtBarcode;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

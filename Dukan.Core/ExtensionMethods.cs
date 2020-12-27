@@ -32,8 +32,8 @@ namespace Dukan.Core
 
             for (var i = 0; i < grid.Columns.Count; i++)
             {
-                grid.Columns[i].AppearanceHeader.Font = new Font("Tahoma", 12, FontStyle.Bold);
-                grid.Columns[i].AppearanceCell.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                grid.Columns[i].AppearanceHeader.Font = new Font("Tahoma", 10, FontStyle.Bold);
+                grid.Columns[i].AppearanceCell.Font = new Font("Tahoma", 10, FontStyle.Regular);
                 grid.Columns[i].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
                 grid.Columns[i].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
             }

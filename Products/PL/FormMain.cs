@@ -222,7 +222,7 @@ namespace Products.PL
         {
             try
             {
-                var sqlConnection = new SqlConnection(@"Server=.; Database=master; Integrated Security=true");
+                var sqlConnection = new SqlConnection(@"Server=.\SQLEXPRESS; Database=master; Integrated Security=true");
 
                 var combined = Path.Combine(Settings.Default.BackupFolder, "ProductsBackup.bak");
                 File.Delete(combined);
