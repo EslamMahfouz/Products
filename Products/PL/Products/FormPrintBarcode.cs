@@ -5,7 +5,6 @@ using System;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Globalization;
-using System.Windows.Forms;
 using ZXing;
 using ZXing.OneD;
 
@@ -30,17 +29,13 @@ namespace Products.PL.Products
         {
             if (val.Validate())
             {
-
-                printPreviewDialog1.Document = printDocument1;
-                printPreviewDialog1.ShowDialog();
-                if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    printDocument1.PrinterSettings.Copies = Convert.ToInt16(TxtQte.Text);
-                    printDocument1.DefaultPageSettings.PaperSize = new PaperSize("barcode", 150, 98);
-                    ActiveControl = CmbProducts;
-                }
+                printDocument1.PrinterSettings.Copies = Convert.ToInt16(TxtQte.Text);
+                printDocument1.DefaultPageSettings.PaperSize = new PaperSize("barcode", 150, 98);
+                printDocument1.Print();
+                ActiveControl = CmbProducts;
             }
         }
+
 
         private void CmbProducts_EditValueChanged(object sender, EventArgs e)
         {
