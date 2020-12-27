@@ -167,6 +167,18 @@
     <Compile Include="PL\FormManageModules.Designer.cs">
       <DependentUpon>FormManageModules.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\Users\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Users\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Users\FormUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Users\FormUsers.Designer.cs">
+      <DependentUpon>FormUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\Products\FormAddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +321,12 @@
     </Compile>
     <EmbeddedResource Include="PL\Customers\FormAddCustomer.resx">
       <DependentUpon>FormAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Users\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Users\FormUsers.resx">
+      <DependentUpon>FormUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Products\FormAddProduct.resx">
       <DependentUpon>FormAddProduct.cs</DependentUpon>

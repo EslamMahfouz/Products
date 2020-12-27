@@ -13,6 +13,7 @@ using Products.PL.Purchases;
 using Products.PL.Sales;
 using Products.PL.Shared;
 using Products.PL.Suppliers;
+using Products.PL.Users;
 using Products.Properties;
 using System;
 using System.Data.SqlClient;
@@ -174,6 +175,8 @@ namespace Products.PL
                 frm.ShowDialog();
             }
 
+            FormLogin frmLogin = new FormLogin();
+            frmLogin.ShowDialog();
             UpdateGrid();
         }
 
@@ -267,6 +270,11 @@ namespace Products.PL
         {
             var frm = new FormPrintBarcode();
             AddForm(frm);
+        }
+
+        private void btnUsers_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AddForm(new FormUsers());
         }
     }
 }

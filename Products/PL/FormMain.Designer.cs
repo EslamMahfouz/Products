@@ -36,6 +36,7 @@ namespace Products.PL
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
@@ -62,12 +63,13 @@ namespace Products.PL
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.ث = new DevExpress.XtraBars.Bar();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.btnSettings = new DevExpress.XtraBars.BarButtonItem();
             this.btnActivate = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUsers = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
@@ -355,9 +357,10 @@ namespace Products.PL
             this.btnSettings,
             this.barHeaderItem1,
             this.btnActivate,
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.btnUsers});
             this.barManager1.MainMenu = this.ث;
-            this.barManager1.MaxItemId = 7;
+            this.barManager1.MaxItemId = 8;
             this.barManager1.StatusBar = this.bar3;
             // 
             // ث
@@ -378,7 +381,8 @@ namespace Products.PL
             this.barSubItem1.Id = 2;
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSettings),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnActivate)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnActivate),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnUsers)});
             this.barSubItem1.Name = "barSubItem1";
             // 
             // btnSettings
@@ -394,6 +398,13 @@ namespace Products.PL
             this.btnActivate.Id = 5;
             this.btnActivate.Name = "btnActivate";
             this.btnActivate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnActivate_ItemClick);
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.Caption = "إعداد المستخدمين";
+            this.btnUsers.Id = 7;
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUsers_ItemClick);
             // 
             // bar3
             // 
@@ -582,5 +593,6 @@ namespace Products.PL
         private NavBarItem btnShowCategories;
         private BarButtonItem barButtonItem1;
         private NavBarItem btnPrintBarcode;
+        private BarButtonItem btnUsers;
     }
 }

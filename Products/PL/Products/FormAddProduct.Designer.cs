@@ -33,6 +33,7 @@ namespace Products.PL.Products
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -45,7 +46,6 @@ namespace Products.PL.Products
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.cmbCategories = new DevExpress.XtraEditors.LookUpEdit();
-            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
@@ -53,21 +53,21 @@ namespace Products.PL.Products
             this.txtSell = new DevExpress.XtraEditors.TextEdit();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
             this.txtCategory = new DevExpress.XtraEditors.TextEdit();
-            this.btnAddCategory = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAddProduct = new DevExpress.XtraEditors.SimpleButton();
-            this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.txtBarcode = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGenerate = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtMinimum = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.valCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.valCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.valBarcode = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.valBarcode = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
+            this.btnGenerate = new DevExpress.XtraEditors.SimpleButton();
+            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAddCategory = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddProduct = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).BeginInit();
@@ -80,6 +80,7 @@ namespace Products.PL.Products
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valBarcode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl2
@@ -137,10 +138,6 @@ namespace Products.PL.Products
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "برجاء إختيار الصنف";
             this.val.SetValidationRule(this.cmbCategories, conditionValidationRule1);
-            // 
-            // addProductModelBindingSource
-            // 
-            this.addProductModelBindingSource.DataSource = typeof(Dukan.Core.Models.Product.AddProductModel);
             // 
             // labelControl5
             // 
@@ -268,38 +265,6 @@ namespace Products.PL.Products
             this.valCategory.SetValidationRule(this.txtCategory, conditionValidationRule5);
             this.txtCategory.Visible = false;
             // 
-            // btnAddCategory
-            // 
-            this.btnAddCategory.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.btnAddCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddCategory.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCategory.Appearance.Options.UseFont = true;
-            this.btnAddCategory.Image = global::Products.Properties.Resources.add_32x32;
-            this.btnAddCategory.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAddCategory.Location = new System.Drawing.Point(121, 50);
-            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(70, 47);
-            this.btnAddCategory.TabIndex = 2;
-            this.btnAddCategory.Visible = false;
-            this.btnAddCategory.Click += new System.EventHandler(this.BtnAddCategory_Click);
-            // 
-            // btnAddProduct
-            // 
-            this.btnAddProduct.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.btnAddProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddProduct.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProduct.Appearance.Options.UseFont = true;
-            this.btnAddProduct.Image = global::Products.Properties.Resources.add_32x32;
-            this.btnAddProduct.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAddProduct.Location = new System.Drawing.Point(231, 250);
-            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(359, 63);
-            this.btnAddProduct.TabIndex = 1;
-            this.btnAddProduct.Text = "إضافة";
-            this.btnAddProduct.Click += new System.EventHandler(this.BtnAddProduct_Click);
-            // 
             // txtBarcode
             // 
             this.txtBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -354,35 +319,6 @@ namespace Products.PL.Products
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "بيانات المنتج";
             // 
-            // btnPrint
-            // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Appearance.Options.UseFont = true;
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnPrint.Location = new System.Drawing.Point(9, 100);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(51, 38);
-            this.btnPrint.TabIndex = 36;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // btnGenerate
-            // 
-            this.btnGenerate.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.btnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenerate.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.Appearance.Options.UseFont = true;
-            this.btnGenerate.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerate.Image")));
-            this.btnGenerate.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnGenerate.Location = new System.Drawing.Point(66, 100);
-            this.btnGenerate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(51, 38);
-            this.btnGenerate.TabIndex = 12;
-            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
-            // 
             // labelControl7
             // 
             this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -427,6 +363,71 @@ namespace Products.PL.Products
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Appearance.Options.UseFont = true;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnPrint.Location = new System.Drawing.Point(9, 100);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(51, 38);
+            this.btnPrint.TabIndex = 36;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.btnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerate.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.Appearance.Options.UseFont = true;
+            this.btnGenerate.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerate.Image")));
+            this.btnGenerate.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnGenerate.Location = new System.Drawing.Point(66, 100);
+            this.btnGenerate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(51, 38);
+            this.btnGenerate.TabIndex = 12;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
+            // addProductModelBindingSource
+            // 
+            this.addProductModelBindingSource.DataSource = typeof(Dukan.Core.Models.Product.AddProductModel);
+            // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.btnAddCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddCategory.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCategory.Appearance.Options.UseFont = true;
+            this.btnAddCategory.Image = global::Products.Properties.Resources.add_32x32;
+            this.btnAddCategory.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnAddCategory.Location = new System.Drawing.Point(121, 50);
+            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(70, 47);
+            this.btnAddCategory.TabIndex = 2;
+            this.btnAddCategory.Visible = false;
+            this.btnAddCategory.Click += new System.EventHandler(this.BtnAddCategory_Click);
+            // 
+            // btnAddProduct
+            // 
+            this.btnAddProduct.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.btnAddProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddProduct.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddProduct.Appearance.Options.UseFont = true;
+            this.btnAddProduct.Image = global::Products.Properties.Resources.add_32x32;
+            this.btnAddProduct.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnAddProduct.Location = new System.Drawing.Point(231, 250);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(359, 63);
+            this.btnAddProduct.TabIndex = 1;
+            this.btnAddProduct.Text = "إضافة";
+            this.btnAddProduct.Click += new System.EventHandler(this.BtnAddProduct_Click);
+            // 
             // FormAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -439,7 +440,6 @@ namespace Products.PL.Products
             this.Text = "إضافة منتج";
             this.Load += new System.EventHandler(this.FormAddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSell.Properties)).EndInit();
@@ -453,6 +453,7 @@ namespace Products.PL.Products
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valBarcode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
