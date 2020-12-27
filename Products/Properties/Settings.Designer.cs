@@ -97,7 +97,7 @@ namespace Products.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ESLAMMAHFOUZ;Initial Catalog=Products;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=Products;Integrated Security=True")]
         public string ProductsConnectionString {
             get {
                 return ((string)(this["ProductsConnectionString"]));
