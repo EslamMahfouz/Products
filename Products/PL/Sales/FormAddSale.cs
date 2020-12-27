@@ -242,7 +242,10 @@ namespace Products.PL.Sales
         {
             int id = SaveSale();
             if (id != 0)
+            {
+                XtraMessageBox.Show("تم إضافة الفاتورة بنجاح", "إضافة", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
+            }
         }
         private void btnSaveAndPrint_Click(object sender, EventArgs e)
         {

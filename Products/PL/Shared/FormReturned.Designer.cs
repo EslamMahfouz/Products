@@ -41,6 +41,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmbProducts = new DevExpress.XtraEditors.LookUpEdit();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtTotalDiscount = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).BeginInit();
@@ -48,6 +50,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtQte.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbProducts.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalDiscount.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // checkedListBox1
@@ -65,6 +68,8 @@
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.groupControl1.Controls.Add(this.labelControl5);
+            this.groupControl1.Controls.Add(this.txtTotalDiscount);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.txtDiscount);
             this.groupControl1.Controls.Add(this.labelControl4);
@@ -77,7 +82,7 @@
             this.groupControl1.Controls.Add(this.cmbProducts);
             this.groupControl1.Location = new System.Drawing.Point(6, 12);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(440, 274);
+            this.groupControl1.Size = new System.Drawing.Size(440, 318);
             this.groupControl1.TabIndex = 54;
             this.groupControl1.Text = "بيانات المرتجع";
             // 
@@ -85,12 +90,12 @@
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl2.Location = new System.Drawing.Point(322, 193);
+            this.labelControl2.Location = new System.Drawing.Point(283, 193);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(63, 29);
+            this.labelControl2.Size = new System.Drawing.Size(119, 29);
             this.labelControl2.TabIndex = 50;
-            this.labelControl2.Text = "الخصم";
+            this.labelControl2.Text = "خصم المنتج";
             // 
             // txtDiscount
             // 
@@ -166,7 +171,7 @@
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl3.Location = new System.Drawing.Point(274, 231);
+            this.labelControl3.Location = new System.Drawing.Point(274, 277);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(158, 29);
@@ -176,7 +181,7 @@
             // txtTotal
             // 
             this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotal.Location = new System.Drawing.Point(24, 228);
+            this.txtTotal.Location = new System.Drawing.Point(24, 274);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
@@ -221,7 +226,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(30, 301);
+            this.btnSave.Location = new System.Drawing.Point(109, 335);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(240, 43);
@@ -229,11 +234,38 @@
             this.btnSave.Text = "حفظ";
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.labelControl5.Location = new System.Drawing.Point(274, 235);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(128, 29);
+            this.labelControl5.TabIndex = 52;
+            this.labelControl5.Text = "خصم الفاتورة";
+            // 
+            // txtTotalDiscount
+            // 
+            this.txtTotalDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotalDiscount.Location = new System.Drawing.Point(24, 232);
+            this.txtTotalDiscount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTotalDiscount.Name = "txtTotalDiscount";
+            this.txtTotalDiscount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.txtTotalDiscount.Properties.Appearance.Options.UseFont = true;
+            this.txtTotalDiscount.Properties.Mask.EditMask = "p0";
+            this.txtTotalDiscount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtTotalDiscount.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtTotalDiscount.Properties.ReadOnly = true;
+            this.txtTotalDiscount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalDiscount.Size = new System.Drawing.Size(240, 34);
+            this.txtTotalDiscount.TabIndex = 51;
+            // 
             // FormReturned
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 366);
+            this.ClientSize = new System.Drawing.Size(458, 387);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.btnSave);
@@ -249,6 +281,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtQte.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbProducts.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalDiscount.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -268,5 +301,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtDiscount;
         private DevExpress.XtraEditors.LookUpEdit cmbProducts;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.TextEdit txtTotalDiscount;
     }
 }

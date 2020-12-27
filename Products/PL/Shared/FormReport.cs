@@ -107,7 +107,7 @@ namespace Products.PL.Shared
                 var frm = new FormPaymentsHistory
                 {
                     Type = Text,
-                    Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"))
+                    Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("RelationId"))
                 };
                 frm.ShowDialog();
             }

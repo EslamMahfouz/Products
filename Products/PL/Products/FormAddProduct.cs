@@ -117,6 +117,14 @@ namespace Products.PL.Products
                     Custom.ShowValueCannotBeNegativeMessage();
                     return;
                 }
+
+                if (txtBarcode.Text.Length != 13)
+                {
+                    XtraMessageBox.Show("يجب أن يكون الكود مكون من 13 رقم فقط", "تنبيه", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (val.Validate())
                 {
                     var exists = UnitOfWork.Instance.Products.IsExisting(_product.Name.Trim());
@@ -127,6 +135,7 @@ namespace Products.PL.Products
                     else
                     {
                         _product.Name = _product.Name.Trim();
+                        _product.Barcode = txtBarcode.Text;
                         UnitOfWork.Instance.Products.Add(_product);
                         Custom.ShowAddedMessage();
                         ShowCategoryBox(false);
@@ -135,7 +144,7 @@ namespace Products.PL.Products
                     }
                 }
             }
-            catch (DataException)
+            catch (DataException ex)
             {
                 Custom.ShowDataExceptionMessage();
             }
@@ -165,6 +174,7 @@ namespace Products.PL.Products
                 barcode = r.Next(111111111, 999999999).ToString("D13");
             }
             txtBarcode.Text = barcode;
+            _product.Barcode = barcode;
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

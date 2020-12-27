@@ -33,17 +33,17 @@ namespace Products.PL.Shared
                 : UnitOfWork.Instance.PurchaseDetails.GetPurchaseProducts(RelationId);
         }
 
-        private Tuple<decimal, int, decimal> GetProductDetails(int productId)
+        private Tuple<decimal, int, decimal, decimal> GetProductDetails(int productId)
         {
             if (Type == Constants.IncomesReport)
             {
                 var detail = UnitOfWork.Instance.SaleDetails.Get(productId);
-                return new Tuple<decimal, int, decimal>(detail.ProductSell, detail.Qte - detail.ReturnedQte, detail.Discount);
+                return new Tuple<decimal, int, decimal, decimal>(detail.ProductSell, detail.Qte - detail.ReturnedQte, detail.Discount, detail.Sale.Discount);
             }
             else
             {
                 var detail = UnitOfWork.Instance.PurchaseDetails.Get(productId);
-                return new Tuple<decimal, int, decimal>(detail.ProductBuy, detail.Qte - detail.ReturnedQte, detail.Discount);
+                return new Tuple<decimal, int, decimal, decimal>(detail.ProductBuy, detail.Qte - detail.ReturnedQte, detail.Discount, detail.Purchase.Discount.Value);
             }
 
         }
@@ -55,7 +55,9 @@ namespace Products.PL.Shared
                 var sell = Convert.ToDecimal(txtSell.Text);
                 var qte = Convert.ToInt32(txtQte.Text);
                 var discount = Convert.ToDecimal(txtDiscount.EditValue);
-                txtTotal.Text = Math.Round(sell * qte * (1 - discount), 2).ToString(CultureInfo.CurrentCulture);
+                var totalDiscount = Convert.ToDecimal(txtTotalDiscount.EditValue);
+                var productDiscount = Math.Round(sell * qte * (1 - discount), 2);
+                txtTotal.Text = Math.Round(productDiscount * (1 - totalDiscount), 2).ToString(CultureInfo.CurrentCulture);
             }
             catch (Exception ex)
             {
@@ -93,6 +95,7 @@ namespace Products.PL.Shared
             txtSell.Text = saleDetail.Item1.ToString(CultureInfo.CurrentCulture);
             txtQte.Text = saleDetail.Item2.ToString();
             txtDiscount.EditValue = saleDetail.Item3.ToString(CultureInfo.CurrentCulture);
+            txtTotalDiscount.EditValue = saleDetail.Item4.ToString(CultureInfo.InvariantCulture);
             Calculate();
             btnSave.Enabled = true;
         }
