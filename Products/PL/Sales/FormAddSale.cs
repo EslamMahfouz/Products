@@ -241,11 +241,7 @@ namespace Products.PL.Sales
         private void btnSaveAndClose_Click(object sender, EventArgs e)
         {
             int id = SaveSale();
-            if (id != 0)
-            {
-                XtraMessageBox.Show("تم إضافة الفاتورة بنجاح", "إضافة", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-            }
+            Close();
         }
         private void btnSaveAndPrint_Click(object sender, EventArgs e)
         {

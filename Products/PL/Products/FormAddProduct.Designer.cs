@@ -33,7 +33,6 @@ namespace Products.PL.Products
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -46,7 +45,7 @@ namespace Products.PL.Products
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.cmbCategories = new DevExpress.XtraEditors.LookUpEdit();
-            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addProductModelBindingSource = new System.Windows.Forms.BindingSource();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
@@ -56,17 +55,17 @@ namespace Products.PL.Products
             this.txtCategory = new DevExpress.XtraEditors.TextEdit();
             this.btnAddCategory = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddProduct = new DevExpress.XtraEditors.SimpleButton();
-            this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.val = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.txtBarcode = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.btnGenerate = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtMinimum = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.valCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.valCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
-            this.valBarcode = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.valBarcode = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategories.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addProductModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
@@ -311,6 +310,7 @@ namespace Products.PL.Products
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBarcode.Properties.Appearance.Options.UseFont = true;
+            this.txtBarcode.Properties.MaxLength = 13;
             this.txtBarcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtBarcode.Size = new System.Drawing.Size(214, 30);
             this.txtBarcode.TabIndex = 11;
@@ -353,6 +353,20 @@ namespace Products.PL.Products
             this.groupControl1.Size = new System.Drawing.Size(797, 233);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "بيانات المنتج";
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Appearance.Options.UseFont = true;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnPrint.Location = new System.Drawing.Point(9, 100);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(51, 38);
+            this.btnPrint.TabIndex = 36;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnGenerate
             // 
@@ -412,20 +426,6 @@ namespace Products.PL.Products
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Appearance.Options.UseFont = true;
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnPrint.Location = new System.Drawing.Point(9, 100);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(51, 38);
-            this.btnPrint.TabIndex = 36;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // FormAddProduct
             // 

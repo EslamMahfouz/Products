@@ -55,6 +55,7 @@ namespace Products.PL.Products
             cmbCategories.Properties.DataSource = categories;
             cmbCategories.Initialize();
             addProductModelBindingSource.DataSource = _product;
+            ActiveControl = txtBarcode;
         }
 
         private void CmbCategories_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -105,28 +106,29 @@ namespace Products.PL.Products
         {
             try
             {
-                var barcodeExists = UnitOfWork.Instance.Products.IsBarcodeExisting(txtBarcode.Text);
-                if (barcodeExists)
-                {
-                    Custom.ShowExistingMessage("هذا الباركود مسجل من قبل");
-                    return;
-                }
-
-                if (Convert.ToDecimal(txtBuy.Text) < 0m || Convert.ToDecimal(txtSell.Text) < 0m)
-                {
-                    Custom.ShowValueCannotBeNegativeMessage();
-                    return;
-                }
-
-                if (txtBarcode.Text.Length != 13)
-                {
-                    XtraMessageBox.Show("يجب أن يكون الكود مكون من 13 رقم فقط", "تنبيه", MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    return;
-                }
 
                 if (val.Validate())
                 {
+                    var barcodeExists = UnitOfWork.Instance.Products.IsBarcodeExisting(txtBarcode.Text);
+                    if (barcodeExists)
+                    {
+                        Custom.ShowExistingMessage("هذا الباركود مسجل من قبل");
+                        return;
+                    }
+
+                    if (Convert.ToDecimal(txtBuy.Text) < 0m || Convert.ToDecimal(txtSell.Text) < 0m)
+                    {
+                        Custom.ShowValueCannotBeNegativeMessage();
+                        return;
+                    }
+
+                    if (txtBarcode.Text.Length != 13)
+                    {
+                        XtraMessageBox.Show("يجب أن يكون الكود مكون من 13 رقم فقط", "تنبيه", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     var exists = UnitOfWork.Instance.Products.IsExisting(_product.Name.Trim());
                     if (exists)
                     {
