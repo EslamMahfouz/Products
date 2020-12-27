@@ -36,6 +36,7 @@ namespace Products.PL
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnShowCategories = new DevExpress.XtraNavBar.NavBarItem();
@@ -67,7 +68,6 @@ namespace Products.PL
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.btnSettings = new DevExpress.XtraBars.BarButtonItem();
             this.btnActivate = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
@@ -76,6 +76,7 @@ namespace Products.PL
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.skinBarSubItem2 = new DevExpress.XtraBars.SkinBarSubItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -394,12 +395,6 @@ namespace Products.PL
             this.btnActivate.Name = "btnActivate";
             this.btnActivate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnActivate_ItemClick);
             // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "إعداد الوحدات";
-            this.barButtonItem1.Id = 6;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
             // bar3
             // 
             this.bar3.BarName = "Status bar";
@@ -465,6 +460,12 @@ namespace Products.PL
             this.skinBarSubItem2.Id = 1;
             this.skinBarSubItem2.Name = "skinBarSubItem2";
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "إعداد الوحدات";
+            this.barButtonItem1.Id = 6;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // groupControl1
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 16F);
@@ -515,6 +516,7 @@ namespace Products.PL
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.LookAndFeel.SkinName = "Metropolis Dark";
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
