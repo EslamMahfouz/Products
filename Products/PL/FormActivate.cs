@@ -9,7 +9,7 @@ namespace Products.PL
     public partial class FormActivate : XtraForm
     {
         bool _altF4Pressed;
-        public static string GetMACAddress()
+        public static string GetMacAddress()
         {
             var nics = NetworkInterface.GetAllNetworkInterfaces();
             var sMacAddress = string.Empty;
@@ -24,89 +24,31 @@ namespace Products.PL
             return sMacAddress;
         }
 
-        static int CalculateHashForMonth(string serial)
+        private static string CalculateHash(string serial)
         {
             var hashedValue = 0;
-            for (var i = 0; i < serial.Length; i++)
+            foreach (var c in serial)
             {
-                hashedValue += Convert.ToChar(serial[i]);
+                hashedValue += Convert.ToChar(c);
                 hashedValue *= 4;
             }
-            return hashedValue;
+            return hashedValue.ToString();
         }
-        static int CalculateHashForYear(string serial)
-        {
-            var hashedValue = 0;
-            for (var i = 0; i < serial.Length; i++)
-            {
-                hashedValue += Convert.ToChar(serial[i]);
-                hashedValue *= 3;
-            }
-            return hashedValue;
-        }
-        static int CalculateHashForEver(string serial)
-        {
-            var hashedValue = 0;
-            for (var i = 0; i < serial.Length; i++)
-            {
-                hashedValue += Convert.ToChar(serial[i]);
-                hashedValue *= 2;
-            }
-            return hashedValue;
-        }
-
-        string calcForMonth()
-        {
-            return CalculateHashForMonth(txtSerial.Text).ToString();
-        }
-        string calcForYear()
-        {
-            return CalculateHashForYear(txtSerial.Text).ToString();
-        }
-        string calcForEver()
-        {
-            return CalculateHashForEver(txtSerial.Text).ToString();
-        }
-
         public FormActivate()
         {
             InitializeComponent();
-            txtSerial.Text = GetMACAddress();
+            txtSerial.Text = GetMacAddress();
         }
 
         private void btnActivate_Click(object sender, EventArgs e)
         {
             try
             {
-                var checkMonth = calcForMonth();
-                var checkYear = calcForYear();
-                var checkEver = calcForEver();
-
-                if (Convert.ToInt32(txtCode.Text) == Convert.ToInt32(checkMonth))
+                if (txtCode.Text == CalculateHash(txtSerial.Text))
                 {
-                    Settings.Default.PaidMonth = true;
-                    Settings.Default.PaidYear = false;
-                    Settings.Default.PaidEver = false;
+                    Settings.Default.firstTimeUse = false;
                     Settings.Default.Save();
-                    XtraMessageBox.Show("تم التفعيل لمدة شهر", "التفعيل", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DialogResult = DialogResult.OK;
-                }
-                else if (Convert.ToInt32(txtCode.Text) == Convert.ToInt32(checkYear))
-                {
-                    Settings.Default.PaidMonth = true;
-                    Settings.Default.PaidYear = true;
-                    Settings.Default.PaidEver = false;
-                    Settings.Default.Save();
-                    XtraMessageBox.Show("تم التفعيل لمدة سنة", "التفعيل", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DialogResult = DialogResult.OK;
-                }
-                else if (Convert.ToInt32(txtCode.Text) == Convert.ToInt32(checkEver))
-                {
-                    Settings.Default.PaidMonth = true;
-                    Settings.Default.PaidYear = true;
-                    Settings.Default.PaidEver = true;
-                    Settings.Default.Save();
-                    XtraMessageBox.Show("تم التفعيل مدي الحياة", "التفعيل", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show("تم التفعيل", "التفعيل", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;
                 }
                 else

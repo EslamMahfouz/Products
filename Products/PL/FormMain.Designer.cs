@@ -36,12 +36,12 @@ namespace Products.PL
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnShowCategories = new DevExpress.XtraNavBar.NavBarItem();
             this.btnAddProduct = new DevExpress.XtraNavBar.NavBarItem();
             this.btnShowProducts = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnPrintBarcode = new DevExpress.XtraNavBar.NavBarItem();
             this.NavSuppliers = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnAddSupplier = new DevExpress.XtraNavBar.NavBarItem();
             this.btnSupplierDetails = new DevExpress.XtraNavBar.NavBarItem();
@@ -61,8 +61,8 @@ namespace Products.PL
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.ث = new DevExpress.XtraBars.Bar();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.btnSettings = new DevExpress.XtraBars.BarButtonItem();
@@ -79,7 +79,6 @@ namespace Products.PL
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnPrintBarcode = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -163,6 +162,14 @@ namespace Products.PL
             this.btnShowProducts.Caption = "عرض المنتجات";
             this.btnShowProducts.Name = "btnShowProducts";
             this.btnShowProducts.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnShowProducts_LinkClicked);
+            // 
+            // btnPrintBarcode
+            // 
+            this.btnPrintBarcode.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintBarcode.Appearance.Options.UseFont = true;
+            this.btnPrintBarcode.Caption = " طباعة الباركود";
+            this.btnPrintBarcode.Name = "btnPrintBarcode";
+            this.btnPrintBarcode.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnPrintBarcode_LinkClicked);
             // 
             // NavSuppliers
             // 
@@ -370,8 +377,7 @@ namespace Products.PL
             this.barSubItem1.Id = 2;
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSettings),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnActivate),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnActivate)});
             this.barSubItem1.Name = "barSubItem1";
             // 
             // btnSettings
@@ -497,14 +503,6 @@ namespace Products.PL
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.RowHeight = 40;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
-            // 
-            // btnPrintBarcode
-            // 
-            this.btnPrintBarcode.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintBarcode.Appearance.Options.UseFont = true;
-            this.btnPrintBarcode.Caption = " طباعة الباركود";
-            this.btnPrintBarcode.Name = "btnPrintBarcode";
-            this.btnPrintBarcode.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnPrintBarcode_LinkClicked);
             // 
             // FormMain
             // 

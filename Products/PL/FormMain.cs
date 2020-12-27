@@ -167,35 +167,13 @@ namespace Products.PL
             NavSuppliers.Visible = modules.FirstOrDefault(m => m.Name == "CustomerModule") != null &&
                                    modules.FirstOrDefault(m => m.Name == "CustomerModule").IsActive;
 
-            //if (Properties.Settings.Default.firstTimeUse)
-            //{
-            //    Properties.Settings.Default.setupDate = DateTime.Now.Date;
-            //    Properties.Settings.Default.firstTimeUse = false;
-            //    Properties.Settings.Default.Save();
-            //}
-            //else
-            //{
-            //    TimeSpan days = DateTime.Now.Date - Properties.Settings.Default.setupDate;
-            //    int num = days.Days;
-            //    if (num > 14 && !Properties.Settings.Default.PaidMonth)
-            //    {
-            //        XtraMessageBox.Show("لقد إنتهت المدة التجريبية للبرنامج، برجاء شراء البرنامج", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //        FormActivate frm = new FormActivate();
-            //        frm.ShowDialog();
-            //    }
-            //    else if (num > 30 && !Properties.Settings.Default.PaidYear)
-            //    {
-            //        XtraMessageBox.Show("لقد إنتهت المدة المسموح بها للبرنامج، برحاء شراء البرنامج", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //        FormActivate frm = new FormActivate();
-            //        frm.ShowDialog();
-            //    }
-            //    else if (num > 365 && !Properties.Settings.Default.PaidEver)
-            //    {
-            //        XtraMessageBox.Show("لقد إنتهت المدة المسموح بها للبرنامج، برحاء شراء البرنامج", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //        FormActivate frm = new FormActivate();
-            //        frm.ShowDialog();
-            //    }
-            //}
+            if (Settings.Default.firstTimeUse)
+            {
+                Settings.Default.setupDate = DateTime.Now.Date;
+                FormActivate frm = new FormActivate();
+                frm.ShowDialog();
+            }
+
             UpdateGrid();
         }
 
