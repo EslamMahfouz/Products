@@ -26,9 +26,9 @@ namespace Dukan.Core
                 AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True,
                 ReadOnly = true
             };
-            lookUpEdit.Properties.DataSource = UnitOfWork.UnitOfWork.Instance.Categories.GetCategoriesForCombo();
-            lookUpEdit.Properties.ValueMember = "Id";
-            lookUpEdit.Properties.DisplayMember = "Name";
+            lookUpEdit.DataSource = UnitOfWork.UnitOfWork.Instance.Categories.GetCategoriesForCombo();
+            lookUpEdit.ValueMember = "Id";
+            lookUpEdit.DisplayMember = "Name";
 
             return lookUpEdit;
         }

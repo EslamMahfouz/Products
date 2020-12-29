@@ -102,7 +102,7 @@ namespace Products.PL.Sales
                     });
                 }
 
-                var saleDetails = Mapper.Map<IEnumerable<AddSaleDetailGridModel>, IEnumerable<SaleDetail>>(_saleDetails);
+                var saleDetails = Mapper.Map<IEnumerable<AddSaleDetailGridModel>, IEnumerable<SaleDetail>>(_saleDetails).ToList();
 
                 saleDetails.ForEach(sd => _sale.SaleDetails.Add(sd));
                 foreach (var saleDetail in _saleDetails)

@@ -96,7 +96,7 @@ namespace Products.PL.Purchases
                     });
                 }
 
-                var purchaseDetails = Mapper.Map<IEnumerable<AddPurchaseDetailGridModel>, IEnumerable<PurchaseDetail>>(_purchaseDetails);
+                var purchaseDetails = Mapper.Map<IEnumerable<AddPurchaseDetailGridModel>, IEnumerable<PurchaseDetail>>(_purchaseDetails).ToList();
                 purchaseDetails.ForEach(sd => _purchase.PurchaseDetails.Add(sd));
                 foreach (var purchaseDetail in _purchaseDetails)
                 {
